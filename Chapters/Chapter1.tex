@@ -1,0 +1,64 @@
+\chapter{Introduction}
+\label{chap:1}
+\ChapterPageStuff{1}
+
+\section{Background}
+
+Maintenance of software systems is continuous and is a reduced form of software development.~\cite{Sneed2004}~ Most companies will strife to increase their digital products and services over the life cycle of the software project.~\cite{Niu2018},~\cite{Galster2019}\par 
+Software systems are complex and inefficient as the need of new development increases. 
+Human and software resources are limited or ineffective.~\cite{Pecchia2015}~It is expensive to allocate new resources to software maintenance without a cost model for software maintenance.~\cite{Galster2019}\par 
+A lot of time needs to be invested in software maintenance to build an effective model to implement and it makes up to $15\%$ of the development cost.~\cite{Lenarduzzi2017}~Maintaining software systems will receive lower development priority as the need for new functionality for the software project increases.~\cite{Sneed2004}~Unused or software not meeting the user's requirements will increase over the life cycle of the software project.~\cite{Thankachan2018}\par 
+It is difficult to track unused software systems that can be deprecated. Some parts of the software can be removed or revealed to address the needs of the user.~\cite{Dalpiaz2018},~\cite{Shahid2016}~Tracking the behavioural patterns of the user. It may be that the user is uninformed of how to use the system or the developers did not design the system to meet the user's requirement specifications.~\cite{Slaninova2014},~\cite{Chen2019}\par
+Tracking any user activities can be strenuous task depending on the method that is used get the data. The use of questionnaires is will not be viable solution as the software systems may be too large and diverse to get any meaningful feedback from the user.~\cite{Slaninova2014},~\cite{Waqar2017}~Using logs to track the user's activity gives more valid data of how the user is interacting with the software systems.~\cite{Lei2018}
+
+The event logging is used for maintenance to collect data of the behaviour of software systems. Event logs are useful for:~\cite{Park2017}
+\begin{itemize}
+    \item Debugging of software systems
+    \item Failure analysis and system recovery
+    \item To get key behavioural information of individual software components
+    \item System utilisation
+    \item Users contribute to initiating events in software systems
+\end{itemize}
+This can be used to track user activities to make data-driven decisions of how to maintain the software systems as such as Web-based systems.~\cite{Rong2018}~\cite{Razavi2008},~\cite{Lei2018}
+
+\newpage
+\section{State of the Art}\label{sec:stateofart}
+
+Several studies have been is obtained for user-based activity tracking where five key components are identified that is relevant to the topic:
+
+\begin{itemize}
+    \item \textbf{Log analysis} is a data mining process focused on the analysis of computer-generated records.~\cite{Vaarandi2015},~\cite{Pecchia2015},~\cite{Song2008}
+    \item \textbf{Logging implementation} by using different types of logging mechanisms for event logging.~\cite{Potey2013},~\cite{Rong2018},~\cite{Rong2018a},~\cite{Tian2017}
+    \item \textbf{Logging points} generated like database transactions.~\cite{Potey2013},~\cite{Li2018}
+    \item \textbf{Pattern discovery} of user behavioural activities in the event logs.~\cite{Dhanalakshmi2016},~\cite{Slaninova2014},~\cite{Lu2019},~\cite{Port2017}
+    \item \textbf{System utilisation analysis} based on the user behavioural activities of these event logs.~\cite{Park2017},~\cite{Slaninova2014},~\cite{Lu2019},~\cite{Chen2019}
+\end{itemize}
+
+In Table~\ref{tbl:stateoftheart} the above components is used to identify which studies are relevant to user-based activity tracking and analysis. Red indicates if the study is less relevant and green indicates if the study is relevant to the topic.
+
+\begin{table}[!htb]
+    \centering
+    \small
+    \caption{State of the Art}
+    \label{tbl:stateoftheart}
+    \begin{tabularx}{\textwidth}{|c|X|X|X|X|X|}
+        \hline
+        Source & Logging Analysis & Logging Implementation & Logging Points & Pattern Discovery & System Utilisation Analysis \\ \hline
+        \cite{Sneed2004} & \red & \red & \red & \green & \green \\ \hline
+        \cite{Thankachan2018} & \green & \green & \green & \red & \red \\ \hline
+        \cite{Park2017} & \red & \red & \red & \green & \green \\ \hline
+        \cite{Rong2018} & \green & \red & \red & \red & \red \\ \hline
+        \cite{Vaarandi2015} & \green & \red & \red & \green & \green \\ \hline
+        \cite{Potey2013} & \green & \red & \red & \green & \green \\ \hline
+        \cite{Rong2018a} & \green & \red & \red & \green & \green \\ \hline
+        \cite{Li2018} & \green & \green & \green & \red & \red \\ \hline
+        \cite{Lu2019} & \green & \red & \red & \green & \red \\ \hline
+        \cite{Cinque2013} & \red & \red & \red & \green & \green \\ \hline
+        \cite{Pathan2014} & \red & \red & \red & \green & \green \\ \hline
+    \end{tabularx}
+\end{table}
+
+In Table~\ref{tbl:stateoftheart} the previously discussed topics can be split into main topic which is the logging user activities and system utilisation by analysing the obtained logs. Some the sources proposed data-driven decision making models to improve software maintenance.
+
+\subsection{Need for the study}
+ No study was found where both the logging mechanism and analysis were combined. There is a need to develop a method to implement an user-activity logging mechanism to do further analysis of the logs to improve software maintenance.

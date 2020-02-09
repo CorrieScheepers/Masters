@@ -1,0 +1,195 @@
+\documentclass[12pt,a4paper]{report}
+
+% Define document stuff
+\newcommand{\Author}{Cornelius Scheepers}
+\newcommand{\AuthorTitle}{Mr}
+\newcommand{\ThesisTitle}{User-based activity logging and analysis to improve system maintenance}
+\newcommand{\DegreeName}{Master of Engineering in Computer and Electronic Engineering}
+
+\newcommand{\FooterTitle}{\ThesisTitle}%\ - \Author}
+\newcommand{\Supervisor}{Dr Jan Vosloo}
+\newcommand{\FinalDate}{\today}
+\newcommand{\StudentNumber}{25899880}
+\author{\Author}
+\title{\ThesisTitle}
+
+\newcommand{\ChapterPageStuff}[1]
+{
+    \begin{center}
+    \vspace{2mm}
+    \includegraphics[height=15cm]{chapter#1/figures/chapter.pdf}
+    \end{center}
+    \vfill
+    \begin{center}
+    \footnotesize
+    \hrule
+    \vspace{5mm}
+    \ThesisTitle\\\Author
+    \normalsize
+    \end{center}
+    \pagebreak
+}
+
+\newcommand{\RefTable}[1]
+{Table~\ref{#1}}
+\newcommand{\RefSection}[1]
+{Section~\ref{#1}}
+\newcommand{\RefFigure}[1]
+{Figure~\ref{#1}}
+\newcommand{\RefEquation}[1]
+{Equation~\ref{#1}}
+\newcommand{\RefAppendix}[1]
+{Appendix~\ref{#1}}
+\newcommand{\RefChapter}[1]
+{Chapter~\ref{#1}}
+\newcommand{\etal}{\textit{et~al.}}
+
+% Include other packages
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tabu}
+\usepackage{multirow}
+\usepackage{array, tabularx}
+\usepackage[hang]{footmisc}
+\setlength\footnotemargin{10pt}
+\usepackage[font=footnotesize,skip=4pt]{caption}
+\usepackage[pages=some]{background}
+\usepackage{color}
+\usepackage[parfill]{parskip}
+\usepackage{pdfpages}
+\pdfminorversion=7
+
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfdefinestyle{MyFrame}{%
+    skipabove=10pt,
+    skipbelow=10pt,
+    linecolor=black,
+    outerlinewidth=1pt,
+    roundcorner=5pt,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerrightmargin=10pt,
+    innerleftmargin=10pt,
+    backgroundcolor=white}
+
+% Temp stuff for draft
+\usepackage{xcolor,colortbl}
+\newcommand{\green}{\cellcolor[HTML]{32CB00}}
+\newcommand{\red}{\cellcolor[HTML]{FE0000}}
+\definecolor{rednotes}{HTML}{EE0000}
+\newenvironment{notes}
+    {\color{rednotes} \begin{footnotesize}}
+    {\color{black}\end{footnotesize}}
+   
+% Prepare TOC
+\usepackage{tocloft}
+\renewcommand{\contentsname}{Table of contents}
+\setcounter{tocdepth}{1}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
+
+%% Alternative chapter styling - also remove \ChapterPageStuff
+%\usepackage{etoolbox}
+%\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancyfooter}}{}{}
+% Define chapter heading formats and spacing
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}
+  {\chaptertitlename\ \thechapter}
+  {20pt}
+  {\Huge}
+  [\vspace{1ex}\titlerule]
+\titlespacing*{\chapter}{0pt}{0pt}{40pt}
+\renewcommand{\cftaftertoctitle}{\vspace{5mm}\hrule}
+
+% Define page layout
+\usepackage[bindingoffset=0.5cm, top=2.5cm, bottom=2.5cm, left=2cm, right=2cm]{geometry}
+
+% Define header and footer layout for first pages
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+
+% List words that should not be hyphenated
+\hyphenation{Eskom}
+
+% ---------------------------- Start the document -------------------------------------
+
+\begin{document}
+% Set header height
+\renewcommand{\headheight}{15pt}
+
+% Generates the title page
+\begin{titlepage}
+\includepdf[pages=-]{includes/TitlePageOfficial.pdf}
+\end{titlepage}
+
+%Set page numbering for first pages
+\pagenumbering{roman}
+
+% ------- Abstract -------
+\include{Chapters/Abstract}
+
+% ------- Acknowledgements -------
+\include{Chapters/Acknowledgements}
+
+% ------- Table of contents -------
+\cleardoublepage
+\fancyhead[R]{\contentsname}
+\chapter*{\contentsname}
+\addcontentsline{toc}{chapter}{\contentsname}
+\makeatletter\@starttoc{toc}\makeatother
+
+% ------- List of Figures -------
+\cleardoublepage
+\fancyhead[R]{List of figures}
+\chapter*{List of figures}
+\addcontentsline{toc}{chapter}{List of figures}
+\makeatletter\@starttoc{lof}\makeatother
+
+% ------- List of Tables -------
+\cleardoublepage
+\fancyhead[R]{List of tables}
+\chapter*{List of tables}
+\addcontentsline{toc}{chapter}{List of tables}
+\makeatletter\@starttoc{lot}\makeatother
+
+% ------- Nomenclature -------
+\include{Chapters/Nomenclature}
+
+%-------------------------------------
+% Fix page numbering for start of body
+\include{null}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+% Setup header and footer for content pages
+\fancyhead[R]{\leftmark}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername \ \thechapter.\ #1}{}} 
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\footnotesize \FooterTitle}
+\fancyfoot[R]{\thepage}%\vspace{2mm}
+\renewcommand{\headrulewidth}{1.5pt}
+\renewcommand{\footrulewidth}{1.5pt}
+
+% ------- Chapters -------
+\include{Chapters/Chapter1}
+\include{Chapters/Chapter2}
+\include{Chapters/Chapter3}
+\include{Chapters/Chapter4}
+%\include{Chapter5}
+%\include{Chapter6}
+
+% ------- Bibliography -------
+\bibliographystyle{IEEEtran}%{includes/ieeetran/IEEEtran_v1.13}
+\cleardoublepage
+\phantomsection
+\fancyhead[R]{References}
+\addcontentsline{toc}{chapter}{References}
+\renewcommand{\bibname}{References}
+\bibliography{bib/PhD}
+
+% ------- Appendices -------    
+\include{Chapters/Appendices}
+
+\end{document}
