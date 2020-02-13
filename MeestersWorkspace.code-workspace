@@ -4,5 +4,8 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"todo-tree.regex.regex": "(\\\\\\\\|%)(\\bTODO|BUG|FIXME\\b)",
+		"todo-tree.general.debug": true
+	}
 }

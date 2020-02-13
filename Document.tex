@@ -1,8 +1,7 @@
 % !TeX root = ./Document.tex
 \documentclass[12pt,a4paper]{report}
 
-% TODO Fix cover page
-% Define document stuff
+%TODO Fix cover page Define document stuff
 \newcommand{\Author}{Cornelius Scheepers}
 \newcommand{\AuthorTitle}{Mr}
 \newcommand{\ThesisTitle}{User-based activity logging and analysis to improve system maintenance}
@@ -15,8 +14,7 @@
 \author{\Author}
 \title{\ThesisTitle}
 
-\newcommand{\ChapterPageStuff}[1]
-{
+\newcommand{\ChapterPageStuff}[1] {
     \begin{center}
     \vspace{2mm}
     \includegraphics[height=15cm]{includes/ChapterFiles/chapter#1/figures/chapter.pdf}
@@ -32,18 +30,9 @@
     \pagebreak
 }
 
-\newcommand{\RefTable}[1]
-{Table~\ref{#1}}
-\newcommand{\RefSection}[1]
-{Section~\ref{#1}}
-\newcommand{\RefFigure}[1]
-{Figure~\ref{#1}}
-\newcommand{\RefEquation}[1]
-{Equation~\ref{#1}}
-\newcommand{\RefAppendix}[1]
-{Appendix~\ref{#1}}
-\newcommand{\RefChapter}[1]
-{Chapter~\ref{#1}}
+\newcommand{\RefTable}[1] {Table~\ref{#1}} \newcommand{\RefSection}[1] {Section~\ref{#1}}
+\newcommand{\RefFigure}[1] {Figure~\ref{#1}} \newcommand{\RefEquation}[1] {Equation~\ref{#1}}
+\newcommand{\RefAppendix}[1] {Appendix~\ref{#1}} \newcommand{\RefChapter}[1] {Chapter~\ref{#1}}
 \newcommand{\etal}{\textit{et~al.}}
 
 % Include other packages
@@ -64,26 +53,17 @@
 \pdfminorversion=7
 
 \usepackage[framemethod=TikZ]{mdframed}
-\mdfdefinestyle{MyFrame}{%
-    skipabove=10pt,
-    skipbelow=10pt,
-    linecolor=black,
-    outerlinewidth=1pt,
-    roundcorner=5pt,
-    innertopmargin=10pt,
-    innerbottommargin=10pt,
-    innerrightmargin=10pt,
-    innerleftmargin=10pt,
-    backgroundcolor=white}
+\mdfdefinestyle{MyFrame}{% skipabove=10pt, skipbelow=10pt, linecolor=black, outerlinewidth=1pt,
+    roundcorner=5pt, innertopmargin=10pt, innerbottommargin=10pt, innerrightmargin=10pt,
+    innerleftmargin=10pt, backgroundcolor=white}
 
 % Temp stuff for draft
 \usepackage{xcolor,colortbl}
-\newcommand{\green}{\cellcolor[HTML]{32CB00}}
+\newcommand{\green}{\cellcolor[HTML]{32CB00}} %#32CB00
 \newcommand{\red}{\cellcolor[HTML]{FE0000}}
 \definecolor{rednotes}{HTML}{EE0000}
 \newenvironment{notes}
-    {\color{rednotes} \begin{footnotesize}}
-    {\color{black}\end{footnotesize}}
+    {\color{rednotes} \begin{footnotesize}} {\color{black}\end{footnotesize}}
    
 % Prepare TOC
 \usepackage{tocloft}
@@ -92,17 +72,12 @@
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
 \usepackage[parfill]{parskip}
 
-%% Alternative chapter styling - also remove \ChapterPageStuff
-%\usepackage{etoolbox}
-%\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancyfooter}}{}{}
-% Define chapter heading formats and spacing
+%% Alternative chapter styling - also remove \ChapterPageStuff \usepackage{etoolbox}
+%\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancyfooter}}{}{} Define chapter heading
+%formats and spacing
 \usepackage{titlesec}
-\titleformat{\chapter}[display]
-  {\normalfont\huge\bfseries}
-  {\chaptertitlename\ \thechapter}
-  {20pt}
-  {\Huge}
-  [\vspace{1ex}\titlerule]
+\titleformat{\chapter}[display] {\normalfont\huge\bfseries} {\chaptertitlename\ \thechapter} {20pt}
+  {\Huge} [\vspace{1ex}\titlerule]
 \titlespacing*{\chapter}{0pt}{0pt}{40pt}
 \renewcommand{\cftaftertoctitle}{\vspace{5mm}\hrule}
 
@@ -118,12 +93,9 @@
 \hyphenation{Eskom}
 
 \hypersetup
-{
-    pdfauthor={\Author},
-    pdftitle={\ThesisTitle},
-    pdfcreator={\Author},
-    pdfkeywords={Software maintenance, event logging, logging mechanisms, user activities,data-driven decision making, system utilisation analysis, Web-based}
-}
+{pdfauthor={\Author}, pdftitle={\ThesisTitle}, pdfcreator={\Author}, pdfkeywords={Software
+    maintenance, event logging, logging mechanisms, user activities,data-driven decision making,
+    system utilisation analysis, Web-based}}
 
 % ---------------------------- Start the document -------------------------------------
 
@@ -188,8 +160,7 @@
 \include{Chapters/Chapter2}
 \include{Chapters/Chapter3}
 \include{Chapters/Chapter4}
-%\include{Chapter5}
-%\include{Chapter6}
+%\include{Chapter5} \include{Chapter6}
 
 % ------- Bibliography -------
 \bibliographystyle{IEEEtran}%{includes/ieeetran/IEEEtran_v1.13}
