@@ -10,3 +10,4 @@ jobs:
         uses: |
         with:
           root_file: Document.tex
+          working_directory: ./ 
