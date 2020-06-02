@@ -7,6 +7,5 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
       - name: Compile LaTeX document
-        uses: .
         with:
           root_file: Document.tex
