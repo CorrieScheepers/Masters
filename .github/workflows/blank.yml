@@ -1,12 +1,12 @@
-name: Latex-multicompiler
+name: Build LaTeX document
 on: [push, pull_request]
 jobs:
-  build:
+  build_latex:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository contents
-      uses: actions/checkout@v1
-    - name: Latex compiler
-      uses: Jatus93/Latex-multicompiler@master
-      with:
-        entryPoint: ./
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: Document.tex
