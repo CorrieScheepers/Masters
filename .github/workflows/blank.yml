@@ -9,4 +9,4 @@ jobs:
     - name: Latex compiler
       uses: Jatus93/Latex-multicompiler@master
       with:
-        path_to_list: ./Document.tex
+        entryPoint: ./Document.tex
