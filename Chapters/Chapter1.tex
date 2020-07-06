@@ -3,17 +3,12 @@
 \ChapterPageStuff{1}
 
 \section{Preamble}
-Maintenance is the fundamental of software development \cite{Levin2019}
+Maintenance of software systems is continuous and is a reduced form of software
+development.~\cite{Sneed2004}~Software maintenance needs to be done on regular
+systematically procedure in its entire lifespan. Most companies will strife to increase their digital products and services over the life cycle of the software project.~\cite{Niu2018},~\cite{Galster2019}
 
 \section{Background}
-
-Maintenance of software systems is continuous and is a reduced form of software
-development.~\cite{Sneed2004}~ Most companies will strife to increase their
-digital products and services over the life cycle of the software
-project.~\cite{Niu2018},~\cite{Galster2019}\par Software systems are complex and
-inefficient as the need for new development increases. Human and software
-resources are limited or ineffective.~\cite{Pecchia2015}~It is expensive to
-allocate new resources to software maintenance without a cost model for software
+Software systems can be complex and inefficient as the need for new development increases on it. Human and software resources are limited or ineffective.~\cite{Pecchia2015}~It is expensive to allocate new resources to software maintenance without a cost model for software
 maintenance.~\cite{Galster2019}\par A lot of time needs to be invested in
 software maintenance to build an effective model to implement and it makes up to
 $15\%$ of the development cost.~\cite{Lenarduzzi2017}~Maintaining software
@@ -48,56 +43,35 @@ to maintain the software systems as such as Web-based
 systems.~\cite{Rong2018}~\cite{Razavi2008},~\cite{Lei2018}
 
 \newpage
-\subsection{State of the Art}\label{sec:stateofart}
 
-Several studies are obtained for user-based activity tracking where
-five key components are identified that is relevant to the topic:
-
-\begin{itemize}
-    \item \textbf{Log analysis} is a data mining process focused on the analysis of computer-generated records.~\cite{Vaarandi2015},~\cite{Pecchia2015},~\cite{Song2008}
-    \item \textbf{Logging implementation} by using different types of logging mechanisms for event logging.~\cite{Potey2013},~\cite{Rong2018},~\cite{Rong2018a},~\cite{Tian2017}
-    \item \textbf{Logging points} generated like database transactions.~\cite{Potey2013},~\cite{Li2018}
-    \item \textbf{Pattern discovery} of user behavioural activities in the event logs.~\cite{Dhanalakshmi2016},~\cite{Slaninova2014},~\cite{Lu2019},~\cite{Port2017}
-    \item \textbf{System utilisation analysis} based on the user behavioural activities of these event logs.~\cite{Park2017},~\cite{Slaninova2014},~\cite{Lu2019},~\cite{Chen2019}
-\end{itemize}
-
-In Table~\ref{tbl:stateoftheart} the above components is used to identify which
-studies are relevant to user-based activity tracking and analysis. Red indicates
-if the study is less relevant and green indicates if the study is relevant to
-the topic.
-
-\begin{table}[!htb]
-    \centering
-    \small
-    \caption{State of the Art}
-    \label{tbl:stateoftheart}
-    \begin{tabularx}{\textwidth}{|c|X|X|X|X|X|}
-        \hline
-        Source & Logging Points & Logging Implementation & Logging Analysis &
-        \raggedright Pattern Discovery & System Utilisation Analysis \\ \hline
-        \cite{Sneed2004} & \red & \green & \red & \green & \red \\ \hline
-        \cite{Thankachan2018} & \green & \green & \green & \red & \red \\ \hline
-        \cite{Park2017} & \red & \red & \red & \green & \green \\ \hline
-        \cite{Rong2018} & \red & \green & \green & \red & \red \\ \hline
-        \cite{Vaarandi2015} & \red & \red & \green & \green & \green \\ \hline
-        \cite{Potey2013} & \red & \red & \green & \green & \green \\ \hline
-        \cite{Rong2018a} & \red & \red & \green & \green & \green \\ \hline
-        \cite{Li2018} & \green & \green & \green & \red & \red \\ \hline
-        \cite{Lu2019} & \red & \green & \green & \green & \red \\ \hline
-        \cite{Cinque2013} & \red & \red & \red & \green & \green \\ \hline
-        \cite{Pathan2014} & \red & \red & \red & \green & \green \\ \hline
-    \end{tabularx}
-\end{table}
-
-In Table~\ref{tbl:stateoftheart} the previously discussed topics can be split
-into the main topic which is the logging user activities and system utilisation by
-analysing the obtained logs. Some of the sources proposed data-driven decision-making models to improve software maintenance.
-
-\subsection{Need for the study}
-
+\subsection{Need for a logging mechanism to track user-based activities}
 No study was found where both the logging mechanism and analysis were combined.
 There is a need to develop a method to implement a user-activity logging
-the mechanism to do further analysis of the logs to improve software maintenance.
+the mechanism to do further analysis of the logs to improve software
+maintenance.
+
+\subsection{Objectives of the study}
+The goal of the study is to develop a logging mechanism to track user-based
+activities to preform analysis of these logs to improve system maintenance in
+software environment. The study is divided in two components to achieve the
+primary goal which is the design and implementation of the logging mechanism
+and the analysis of the system utilisation to improve system maintenance.
+
+\subsubsection{Logging mechanism:}
+\begin{itemize}
+    \item Random text.
+\end{itemize}
+
+\subsubsection{Analysis of the system utilisation to improve software maintenance}
+\begin{itemize}
+    \item Random text.
+\end{itemize}
+
+\subsection{Overview of the dissertation}
+\subsubsection{Chapter 1: Introduction}
+This chapter contains the background of software maintenance and system
+utilisation analysis.
+\subsubsection{Chapter 2: Mehtodolgy}
 
 \newpage
 \section{Literature Study}
@@ -106,7 +80,7 @@ the mechanism to do further analysis of the logs to improve software maintenance
 Introduction of section.
 
 \subsection{Software Maintenance}
-Describe software maintenance and the importance of software maintenance.
+
 
 \subsection{Event-based logging}
 In this section the event-based logging will be discussed and how it is part of software maintenance. 
