@@ -6,6 +6,25 @@
 	],
 	"settings": {
 		"todo-tree.regex.regex": "(\\\\\\\\|%)(\\bTODO|BUG|FIXME\\b)",
-		"todo-tree.general.debug": true
-	}
+		"todo-tree.general.debug": true,
+		"latex-workshop.intellisense.unimathsymbols.enabled": true,
+		"latex-workshop.latex.build.forceRecipeUsage": true,
+		"latex-workshop.latex.clean.subfolder.enabled": true,
+		"latex-workshop.message.information.show": true,
+		"latex-workshop.progress.runIconType": "Solid Circled",
+		"latex-workshop.showContextMenu": true,
+		"latex-workshop.view.autoFocus.enabled": true,
+		"latex-workshop.view.pdf.hand": true
+	},
+	"latex-workshop.latex.recipes": [
+		{
+			"name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
+			"tools": [
+				"pdflatex",
+				"bibtex",
+				"pdflatex",
+				"pdflatex"
+			]
+		}
+	]
 }
