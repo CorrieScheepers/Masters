@@ -14,7 +14,12 @@
 		"latex-workshop.progress.runIconType": "Solid Circled",
 		"latex-workshop.showContextMenu": true,
 		"latex-workshop.view.autoFocus.enabled": true,
-		"latex-workshop.view.pdf.hand": true
+		"latex-workshop.view.pdf.hand": true,
+		"cSpell.words": [
+			"enlargelimits",
+			"xtick",
+			"ylabel"
+		]
 	},
 	"latex-workshop.latex.recipes": [
 		{
