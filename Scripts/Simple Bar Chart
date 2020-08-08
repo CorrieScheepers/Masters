@@ -2,8 +2,28 @@ import numpy as np
 import matplotlib.pyplot as plt
  
 # Make a fake dataset:
-height = [178945, 227735, 6104]
-bars = ('Dash', 'DetailView', 'Report')
+height = [7,
+14,
+7,
+15,
+293,
+511,
+8,
+2130,
+1124,
+78
+]
+bars = ('CustomViews | [Mine 1] Compressed air [DEMO]',
+'CustomViews | [Mine 1] Compressed air consumption [DEMO]',
+'CustomViews | [Mine 1] Electricity [DEMO]',
+'CustomViews | [Mine 1] [Live pages]',
+'CustomViews | [Mine 1] Smelter',
+'CustomViews | [Mine 1] Production performance [DEMO]',
+'CustomViews | [Mine 1] Water [DEMO]',
+'CustomViews | [Mine 2] Commodity tracking',
+'CustomViews | [Mine 2] Compressed Air',
+'CustomViews | Mine 2 | Water Dashboard'
+)
 y_pos = np.arange(len(bars))
 plt.rcParams["font.family"] = "Monospace"
 # Create bars
