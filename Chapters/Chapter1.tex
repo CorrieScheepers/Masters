@@ -19,7 +19,7 @@ Maintenance of software systems is continuous and is a reduced form of software 
 
 \begin{figure}[h!] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.5\textwidth]{Images/Chapter1/Background/Cost_of_fixing_bugs/Cost_of_fixing_bugs.pdf}
+	\includegraphics[width=0.7\textwidth]{Images/Chapter1/Background/Cost_of_fixing_bugs/Cost_of_fixing_bugs.pdf}
 	\caption{Cost of fixing software system defects \cite{Ogheneovo2014}}\label{fig:CH1_Costs_of_fixing_bugs}
 \end{figure} 
 
@@ -51,7 +51,7 @@ In Table~\ref{tbl:CH1_MaintenanceTypes} the adaptive and perfective maintenance 
 \end{table}
 
 \section{Event logging}
-In Section~\ref{section:background} software maintenance can make use of event logs to improve software maintenance. It is a common practice in the software industry to record any detailed system runtime information into logs to be analysed later by developers or software engineers to solve software related problems with the system \cite{Zhu2019}.
+In Section~\ref{section:background} software maintenance can make use of event logs to improve software maintenance. It is a common practice in the software industry to record any detailed system runtime information into logs to be analysed later by developers or software engineers to solve software related problems with the system as in Table~\ref{tbl:CH1_EventLogsUsage} \cite{Zhu2019}.
 
 \begin{table}[!htb]
 	\centering
@@ -60,7 +60,7 @@ In Section~\ref{section:background} software maintenance can make use of event l
 	\label{tbl:CH1_EventLogsUsage}
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline \textbf{Usage} & \textbf{Description} \\
-		\hline Debugging of software systems & Able to diagnose software failures for both testing and production environments.\\
+		\hline Debugging of software systems & Able to diagnose software failures for both testing and production environments \cite{Rong2018a}.\\
 		\hline Anomaly detection & Event logs can be used to detect any abnormal system behaviour using an anomalous detection algorithm using logging data \cite{Gurumdimma2016}.  This can also be use to find any vulnerabilities in the software environment \cite{Dwyer2013}. \\
 		\hline Performance diagnosis & Software performance is important to producing quality software \cite{EvangelinGeetha2007,Baccanico2014}. This is mostly performance logs of software systems which are used to monitor the software system which is useful for resource tuning, load balancing and checking system scalability \cite{Sosnowski2014} \\ 
 		\hline Error and failure analysis & Event logs is used to analyze the failure behaviours of software systems which enables engineers to understand the failure modes of the system, find the root cause of these failures, prevent them and improve the reliability of the future releases of the system \cite{Cinque2013}.\\
@@ -69,24 +69,24 @@ In Section~\ref{section:background} software maintenance can make use of event l
 	\end{tabularx}
 \end{table}
 
-
 \clearpage
 
-The technique to collect numeric or textual data that describes the behaviour of a computer system is called event logging \cite{Pecchia2015, Baccanico2014}. Event logs are collected textual data containing the records of events that happened in a software system and is used for system management tasks \cite{Rong2018a, Rong2018, Baccanico2014}.
+The technique to collect numeric or textual data that describes the behaviour of a computer system is called event logging \cite{Pecchia2015, Baccanico2014}. Event logs are collected textual data containing the records of events that happened in a software system and is used for system management tasks as in Table~\ref{tbl:CH1_EventLogsUsage} \cite{Rong2018a, Rong2018, Baccanico2014}.
 
-\subsection{Test}
-In the last few decades of software engineering in both industrial and academic.
+\subsection{Logging practice in software engineering}
+Providing a guide for software engineers and developers to implement a suitable logging implementation in their software systems has proving to be a vital tool in both industrial use and progress of academia \cite{Rong2018a}. Guoping Rong made a study to review these logging practices published papers to improve the performance and efficiency of logging implementation. From his study he made selection criteria to include (as in Table~\ref{tbl:CH1_RongIncSelectionCriteria}) and exclude (as in Table~\ref{tbl:CH1_RongExlSelectionCriteria}) academic papers about logging practices \cite{Rong2018a,Rong2018}.
 
 \begin{table}[!htb]
 	\centering
 	\small
-	\caption{G. Rong's selection criteria \cite{Rong2018a}}
+	\caption{G. Rong's inclusion selection criteria \cite{Rong2018a}}
 	\label{tbl:CH1_RongIncSelectionCriteria}
 	\begin{tabularx}{\textwidth}{|c|X|}
 		\hline \textbf{Identification} & \textbf{Criteria} \\
 		\hline I1. & Publications that investigate the methodology for logging practice. \\
 		\hline I2. & Publications that investigate the tools, frameworks, systems which support logging practice. \\
-		\hline I3. & Publications that propose a standard for logging practice. I4. Publications that are peer-reviewed (conference paper, journal article). \\
+		\hline I3. & Publications that propose a standard for logging practice.\\
+		\hline I4. & Publications that are peer-reviewed (conference paper, journal article). \\
 		\hline I5. & Publications that are primary studies on logging practice. \\
 		\hline
 	\end{tabularx}
@@ -99,13 +99,16 @@ In the last few decades of software engineering in both industrial and academic.
 	\label{tbl:CH1_RongExlSelectionCriteria}
 	\begin{tabularx}{\textwidth}{|c|X|}
 		\hline \textbf{Identification} & \textbf{Criteria} \\
-		\hline E1.& Publications that investigate log analysis. E2. Publications that investigate the usage of logs. \\
+		\hline E1. & Publications that investigate log analysis. \\
+		\hline E2. & Publications that investigate the usage of logs. \\
 		\hline E3. & Publications that investigate the technologies on logging user behaviors. \\
 		\hline E4. & Publications that are not written in English. \\
-		\hline  E5. & Additionally, short papers, demo or industry publications are excluded. \\
+		\hline E5. & Additionally, short papers, demo or industry publications are excluded. \\
 		\hline
 	\end{tabularx}
 \end{table}
+
+The Rong's selection criteria obtained numerous research papers of logging practices applied in the industry by either creating a new logging mechanism or optimizing existing logging mechanisms. By reviewing 41 identified papers he found that many practitioners and researchers recognizes the importance of logging practice in software engineering, however there is a lack of guidance to provide software engineers or developers to create or improve their own efficient logging mechanisms.\par It may be 
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
