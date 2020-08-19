@@ -1,23 +1,8 @@
 
 \cleardoublepage
-\chapter*{Appendices}
-\addcontentsline{toc}{chapter}{Appendices}
-\pagebreak
-\newcommand{\AppendixChapter}[2]
-{
-    \phantomsection    
-    \section*{#1. #2}
-    \addcontentsline{toc}{section}{#1~~~#2}
-    \fancyhead[R]{Appendix #1. #2}
-}
-
-%===================================================================================================
-%        Appendix A
-%===================================================================================================
-
-\AppendixChapter{A}{Example appendix}
-
-Example how to insert multi-page pdfs...
-
+\appendix
+\chapter{Maintenance models}
+\section{Test}\label{testchapter}
+\chapter{Test}
 %\includegraphics[width=0.99\textwidth]{appendix/example.png}
-\includepdf[pages=1-,pagecommand={\pagestyle{fancy}},scale=0.85]{appendix/example.pdf}
+%\includepdf[pages=1-,pagecommand={\pagestyle{fancy}},scale=0.85]{appendix/example.pdf}
