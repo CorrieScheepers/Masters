@@ -45,7 +45,8 @@ In \Cref{tbl:CH1_MaintenanceTypes} the adaptive and perfective maintenance types
 	\end{tabularx}
 \end{table}
 
-\subsection{Problems with implementing software maintenance}
+\subsection{Problems with implementing software maintenance}\label{sec:Maintenance_problems}
+
 Under most circumstances maintenance is implemented if a software system does not meet the required functions specified by the performance requirements \cite{Ogheneovo2014, Sneed2004}. These systems will also most likely have multiple software defects or will be extremely complex due to:
 
 \begin{itemize}
@@ -65,16 +66,13 @@ A software maintenance model is an abstract representation of the evolution of s
 	{\textit{IEEE model \cite{Ren2011}}} \label{fig:CH1_IEEE_Model}
 \end{figure}
 
-To fully follow the \textit{IEEE Standard 1219} of implementing maintenance on a software system, the defects or areas of improvements needs to be identified. Utilisation analysis of event logs can be used to detect any hidden defects or performance issues in a software system to implement software maintenance \cite{Cinque2013, Rong2018a, Levin2019}.
-
-\clearpage
-
+Most organizations maintenance model will be based on \Cref{fig:CH1_IEEE_Model} to manage their maintenance efforts. About $50\%$ of the developer implementing maintenance job is to understand what the software system is supposed to do and the changes they make won't change the intended functionality of the system \cite{Tang2010}. This is due the problems with implementing maintenance as discussed in \Cref{sec:Maintenance_problems}.\par \Cref{fig:CH1_MaintenanceFlow} is an example of what a practical maintenance flow model a organization would likely use to implement software maintenance. Initially a developer will complete a request form to solve this issue either on the organization's own. \par To fully follow the \textit{IEEE Standard 1219} of implementing maintenance on a software system, the defects or areas of improvements needs to be identified. Utilisation analysis of event logs can be used to detect any hidden defects or performance issues in a software system to implement software maintenance \cite{Cinque2013, Rong2018a, Levin2019}.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.9\textwidth]{Images/Chapter1/Background/Maintenance_flow/Maintenance_Flow.pdf}
+	\includegraphics[width=0.85\textwidth]{Images/Chapter1/Background/Maintenance_flow/Maintenance_Flow.pdf}
 	\caption[Maintenance flow model]
-	{\textit{Maintenance flow model}} \label{fig:CH1_MaintenanceFlow}
+	{\textit{Maintenance flow model \cite{Tang2010}}} \label{fig:CH1_MaintenanceFlow}
 \end{figure}
 
 \clearpage
@@ -96,7 +94,7 @@ In \Cref{section:background} software maintenance can make use of event logs to 
 		\hline Anomaly detection & Event logs can be used to detect any abnormal system behaviour using an anomalous detection algorithm using logging data \cite{Gurumdimma2016}.  This can also be use to find any vulnerabilities in the software environment \cite{Dwyer2013}. \\
 		\hline Performance diagnosis & Software performance is important to producing quality software \cite{EvangelinGeetha2007,Baccanico2014}. This is mostly performance logs of software systems which are used to monitor the software system which is useful for resource tuning, load balancing and checking system scalability \cite{Sosnowski2014} \\ 
 		\hline Error and failure analysis & Event logs is used to analyse the failure behaviours of software systems which enables engineers to understand the failure modes of the system, find the root cause of these failures, prevent them and improve the reliability of the future releases of the system \cite{Cinque2013}.\\
-		\hline Analysis of security alerts & In any software environment or information technology infrastructure, security is a major concern for any company \cite{Pathan2014, Dwyer2013}. It is important to know the overall security status of the software system \\
+		\hline Analysis of security alerts & In any software environment or information technology infrastructure, security is a major concern for any organization \cite{Pathan2014, Dwyer2013}. It is important to know the overall security status of the software system \\
 		\hline
 	\end{tabularx}
 \end{table}
