@@ -12,7 +12,6 @@
 		"latex-workshop.latex.clean.subfolder.enabled": true,
 		"latex-workshop.message.information.show": true,
 		"latex-workshop.progress.runIconType": "Solid Circled",
-		"latex-workshop.showContextMenu": true,
 		"latex-workshop.view.autoFocus.enabled": true,
 		"latex-workshop.view.pdf.hand": true,
 		"cSpell.words": [
@@ -20,7 +19,8 @@
 			"enlargelimits",
 			"xtick",
 			"ylabel"
-		]
+		],
+		"workbench.colorTheme": "Monokai"
 	},
 	"latex-workshop.latex.recipes": [
 		{
