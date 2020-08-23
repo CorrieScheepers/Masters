@@ -79,7 +79,7 @@ Most organisations maintenance model will be based on \Cref{fig:CH1_IEEE_Model} 
 
 \section{Event logging}\label{sec:EventLogging}
 
-An event log $W$ is sequence of log entries of events $E$ or a multiset of traces when $T$ is finite set of defined tasks being done and $T^+$ is a set of all the non-empty finite sequences of $T$ \cite{Kherbouche2017}
+An event log $W$ is sequence of log entries of events $E$ or a multi-set of traces when $T$ is finite set of defined tasks being done and $T^+$ is a set of all the non-empty finite sequences of $T$ \cite{Kherbouche2017}
 
 \begin{equation}
 	\label{eq:LogEvent}
@@ -112,7 +112,7 @@ In \Cref{section:background} software maintenance can make use of event logs to 
 		\hline Anomaly detection & Event logs can be used to detect any abnormal system behaviour using an anomalous detection algorithm using logging data \cite{Gurumdimma2016}.  This can also be use to find any vulnerabilities in the software environment \cite{Dwyer2013}. \\
 		\hline Performance diagnosis & Software performance is important to producing quality software \cite{EvangelinGeetha2007,Baccanico2014}. This is mostly performance logs of software systems which are used to monitor the software system which is useful for resource tuning, load balancing and checking system scalability \cite{Song2017}. \\ 
 		\hline Error and failure analysis & Event logs is used to analyse the failure behaviours of software systems which enables engineers to understand the failure modes of the system, find the root cause of these failures, prevent them and improve the reliability of the future releases of the system \cite{Cinque2013}.\\
-		\hline Analysis of security alerts & In any software environment or information technology infrastructure, security is a major concern for any organization \cite{Pathan2014, Dwyer2013}. It is important to know the overall security status of the software system \\
+		\hline Analysis of security alerts & In any software environment or information technology infrastructure, security is a major concern for any organisation \cite{Pathan2014, Dwyer2013}. It is important to know the overall security status of the software system \\
 		\hline
 	\end{tabularx}
 \end{table}
@@ -149,7 +149,7 @@ Providing a guide for software engineers and developers to implement a suitable 
 		\hline \textbf{Identification} & \textbf{Criteria} \\
 		\hline E1. & Publications that investigate log analysis. \\
 		\hline E2. & Publications that investigate the usage of logs. \\
-		\hline E3. & Publications that investigate the technologies on logging user behaviors. \\
+		\hline E3. & Publications that investigate the technologies on logging user behaviours. \\
 		\hline E4. & Publications that are not written in English. \\
 		\hline E5. & Additionally, short papers, demo or industry publications are excluded. \\
 		\hline
@@ -167,10 +167,10 @@ In \Cref{fig:PushblisedPapers} shows the distribution of the 41 published papers
 
 \subsection{Logging quality}
 
-Software engineers and developers will need to make informed logging decisions to cover the necessary runtime information without negatively impacting the software system's performance \cite{Zhu2015,Zhu2019,Kherbouche2017}. This does not ensure that there may be some problems using logging in software systems and the most common issues with event logging is:
+Software engineers and developers will need to make informed logging decisions to cover the necessary run-time information without negatively impacting the software system's performance \cite{Zhu2015,Zhu2019,Kherbouche2017}. This does not ensure that there may be some problems using logging in software systems and the most common issues with event logging is:
 
 \subsubsection{Quantity of the logs:} 
-It can become difficult to log every event in a software system as these systems will get larger and more complex during its the development life cycle \cite{Stojanov2017}. It would be bad too not log enough information during runtime as the necessary information about the event will make the postmortem analysis of the software system incomplete however it is not always the best solution to log every possible event \cite{Zhu2015, Jans2012}.
+It can become difficult to log every event in a software system as these systems will get larger and more complex during its the development life cycle \cite{Stojanov2017}. It would be bad too not log enough information during run-time as the necessary information about the event will make the postmortem analysis of the software system incomplete however it is not always the best solution to log every possible event \cite{Zhu2015, Jans2012}.
 
 \subsubsection{Quality of event logs} 
 The quantity of the logs are important but there may be unnecessary extra logs that will only take storage space which are not useful for log analysis. The accuracy and consistency of the logs are critical when making reliable decisions based on the identified behaviour of the software system with the historical data that exists in the logs \cite{Stojanov2017,Kherbouche2017}.\par An event log quality model is essential to ensure that the logs will be of high-quality for the data mining process in \Cref{sec:SystemUtilisation}. The data in an event log should be accurate, available and complete to ensure that the correct decisions can be made from the log analysis \cite{Kherbouche2017, VanDerAalst2011}.
