@@ -66,7 +66,7 @@ A software maintenance model is an abstract representation of the evolution of s
 	{\textit{IEEE model \cite{Ren2011}}} \label{fig:CH1_IEEE_Model}
 \end{figure}
 
-Most organisations maintenance model will be based on \Cref{fig:CH1_IEEE_Model} to manage their maintenance efforts. About $50\%$ of the developer implementing maintenance job is to understand what the software system is supposed to do and the changes they make won't change the intended functionality of the system \cite{Tang2010,Zhuo}. This is due the problems with implementing maintenance as discussed in \Cref{sec:Maintenance_problems}.\par \Cref{fig:CH1_MaintenanceFlow} is an example of what a practical maintenance flow model a organisation would likely use to implement software maintenance. Initially a developer will complete a request form or issue indicating a new problem or feature request that needs to be implemented.\par If the issue is a problem that exists in the software system, the severity of the problem needs assess to decide on the priority level to resolve it. This type of maintenance is mostly corrective and can also be preventive if is possible solution to prevent any software failures in the future \cite{Tang2010}. Other types of maintenance requests are either adaptive or perfective and is usually place in task queue of the development team.\par After  all the maintenance task are defined the development team will prioritise the higher rated issues that needs to be resolved. This process will repeat itself until all the task in the for that specific software system is completed.\par To fully follow the \textit{IEEE Standard 1219} of implementing maintenance on a software system, the defects or areas of improvements needs to be identified. Utilisation analysis of event logs can be used to detect any hidden defects or performance issues in a software system to implement software maintenance \cite{Cinque2013, Rong2018a, Levin2019}.
+Most organisations maintenance model will be based on \Cref{fig:CH1_IEEE_Model} to manage their maintenance efforts. About $50\%$ of the developer implementing maintenance job is to understand what the software system is supposed to do and the changes they make won't change the intended functionality of the system \cite{Tang2010,Zhuo}. This is due the problems with implementing maintenance as discussed in \Cref{sec:Maintenance_problems}.\par \Cref{fig:CH1_MaintenanceFlow} is an example of what a practical maintenance flow model a organisation would likely use to implement software maintenance. Initially a developer will complete a request form or issue indicating a new problem or feature request that needs to be implemented \cite{Tang2010}.\par If the issue is a problem that exists in the software system, the severity of the problem needs assess to decide on the priority level to resolve it. This type of maintenance is mostly corrective and can also be preventive if is possible solution to prevent any software failures in the future \cite{Tang2010}. Other types of maintenance requests are either adaptive or perfective and is usually place in task queue of the development team.\par After  all the maintenance task are defined the development team will prioritise the higher rated issues that needs to be resolved. This process will repeat itself until all the task in the for that specific software system is completed.\par To fully follow the \textit{IEEE Standard 1219} of implementing maintenance on a software system, the defects or areas of improvements needs to be identified. Utilisation analysis of event logs can be used to detect any hidden defects or performance issues in a software system to implement software maintenance \cite{Cinque2013, Rong2018a, Levin2019}.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -77,9 +77,27 @@ Most organisations maintenance model will be based on \Cref{fig:CH1_IEEE_Model} 
 
 \clearpage
 
-\section{Literature study}\label{sec:LiteratureStudy}
+\section{Event logging}\label{sec:EventLogging}
 
-\subsection{Event logging}
+An event log $W$ is sequence of log entries of events $E$ or a multiset of traces when $T$ is finite set of defined tasks being done and $T^+$ is a set of all the non-empty finite sequences of $T$ \cite{Kherbouche2017}
+
+\begin{equation}
+	\label{eq:LogEvent}
+	W = (E, C, A, \partial, \wp, \Gamma, \succ) \subseteq T^+,
+\end{equation}
+
+where:
+
+\begin{itemize}
+	\item $E$ is a finite set of events,
+	\item $C$ is a finite set of cases,
+	\item $A$ is the finite set of additional data that can be split up into disjoint sets of event attributes (timestamps $T_S$, cost $O$, resources $R$, event types, $E_T$ and data elements $D$),
+	\item $\partial$ is the \textit{surjective}\footnote{\label{ftn:Surjective}A \textbf{surjective} function is a way of matching the members of a set $A$ to a set $B$ \cite{Szendrei1990}.} $E\rightarrow C$,
+	\item $\wp$ is the \textit{surjective}\footref{ftn:Surjective} $A\rightarrow E$,
+	\item $\Gamma$ is the \textit{surjective}\footref{ftn:Surjective} $E\rightarrow T$,
+	\item $\succ \subseteq E\times E$ is the total ordered events in $E$ that belongs to a specific case that is called a trace.
+\end{itemize}
+
 In \Cref{section:background} software maintenance can make use of event logs to improve software maintenance. It is a common practice in the software industry to record any detailed system run-time information into logs to be analysed later by developers or software engineers to solve software related problems with the system as in \Cref{tbl:CH1_EventLogsUsage} \cite{Zhu2019}.
 
 \begin{table}[!htb]
@@ -92,7 +110,7 @@ In \Cref{section:background} software maintenance can make use of event logs to 
 		\hline \textbf{Usage} & \textbf{Description} \\
 		\hline Debugging of software systems & Able to diagnose software failures for both testing and production environments \cite{Rong2018a}.\\
 		\hline Anomaly detection & Event logs can be used to detect any abnormal system behaviour using an anomalous detection algorithm using logging data \cite{Gurumdimma2016}.  This can also be use to find any vulnerabilities in the software environment \cite{Dwyer2013}. \\
-		\hline Performance diagnosis & Software performance is important to producing quality software \cite{EvangelinGeetha2007,Baccanico2014}. This is mostly performance logs of software systems which are used to monitor the software system which is useful for resource tuning, load balancing and checking system scalability \cite{Sosnowski2014} \\ 
+		\hline Performance diagnosis & Software performance is important to producing quality software \cite{EvangelinGeetha2007,Baccanico2014}. This is mostly performance logs of software systems which are used to monitor the software system which is useful for resource tuning, load balancing and checking system scalability \cite{Song2017}. \\ 
 		\hline Error and failure analysis & Event logs is used to analyse the failure behaviours of software systems which enables engineers to understand the failure modes of the system, find the root cause of these failures, prevent them and improve the reliability of the future releases of the system \cite{Cinque2013}.\\
 		\hline Analysis of security alerts & In any software environment or information technology infrastructure, security is a major concern for any organization \cite{Pathan2014, Dwyer2013}. It is important to know the overall security status of the software system \\
 		\hline
@@ -137,25 +155,39 @@ Providing a guide for software engineers and developers to implement a suitable 
 		\hline
 	\end{tabularx}
 \end{table}
-Software engineers and developers will need to make informed logging decisions to cover the necessary runtime information without negatively impacting the software system's performance \cite{Zhu2015,Zhu2019}. This negative impact can be attributed to by:
 
-\begin{itemize}
-	\item \textbf{Quantity of the logs:} It can become difficult to log every event in a software system as these systems will get larger and more complex during its the development life cycle \cite{Stojanov2017}. It would be bad too not log enough information during runtime as the necessary information about the event will make the postmortem analysis of the software system incomplete however it is not always the best solution to log every possible event \cite{Zhu2015}.
-	\item \textbf{Quality of the logs:} The quantity of the logs are important but there may be unnecessary extra logs that will only take storage space which are not useful for log analysis. The accuracy and consistency of the logs are critical when making reliable decisions based on the identified behaviour of the software system based on the historical data that exists in the logs \cite{Stojanov2017}.
-\end{itemize}
-
-In \Cref{fig:CH1_PushblisedPapers} shows the distribution of the 41 published papers obtained for Rong's research relating to logging practices. Event logging has an increasing important role in modern software systems, therefore the research focus on logging practices in software engineering have been increasing between 1990 and 2017.
+In \Cref{fig:PushblisedPapers} shows the distribution of the 41 published papers obtained for Rong's research relating to logging practices. Event logging has an increasing important role in modern software systems, therefore the research focus on logging practices in software engineering have been on a rise between 1990 and 2017.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
 	\includegraphics[width=0.9\textwidth]{Images/Chapter1/Background/Ronga2018.pdf}
 	\caption[The distribution of the papers’ published years]
-	{\textit{The distribution of the papers’ published years \cite{Rong2018a}}} \label{fig:CH1_PushblisedPapers}
+	{\textit{The distribution of the papers’ published years \cite{Rong2018a}}} \label{fig:PushblisedPapers}
 \end{figure} 
+
+\subsection{Logging quality}
+
+Software engineers and developers will need to make informed logging decisions to cover the necessary runtime information without negatively impacting the software system's performance \cite{Zhu2015,Zhu2019,Kherbouche2017}. This does not ensure that there may be some problems using logging in software systems and the most common issues with event logging is:
+
+\subsubsection{Quantity of the logs:} 
+It can become difficult to log every event in a software system as these systems will get larger and more complex during its the development life cycle \cite{Stojanov2017}. It would be bad too not log enough information during runtime as the necessary information about the event will make the postmortem analysis of the software system incomplete however it is not always the best solution to log every possible event \cite{Zhu2015, Jans2012}.
+
+\subsubsection{Quality of event logs} 
+The quantity of the logs are important but there may be unnecessary extra logs that will only take storage space which are not useful for log analysis. The accuracy and consistency of the logs are critical when making reliable decisions based on the identified behaviour of the software system with the historical data that exists in the logs \cite{Stojanov2017,Kherbouche2017}.\par An event log quality model is essential to ensure that the logs will be of high-quality for the data mining process in \Cref{sec:SystemUtilisation}. The data in an event log should be accurate, available and complete to ensure that the correct decisions can be made from the log analysis \cite{Kherbouche2017, VanDerAalst2011}.
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.9\textwidth]{Images/Chapter1/Background/Event_Log_Model/Event_Log_Model.pdf}
+	\caption[The event log quality model]
+	{\textit{The event log quality model \cite{Kherbouche2017}}} \label{fig:EventQModel}
+\end{figure}
+
+\subsubsection{Performance cost of logging} 
+Creating logging mechanisms will need additional code to be written in the software system to obtain the event logs. Software logging will consume additional system resources like the CPU and I/O of the host computer system. It is unacceptable to have noticeable performance issues due to the logging on the rest of the system operations and therefore the logging mechanism needs to be efficient as possible to get the necessary details about the event that took place \cite{Zhu2015,Zhu2019}. 
 
 \clearpage
 
-\subsection{System utilisation analysis}
+\section{System utilisation analysis}\label{sec:SystemUtilisation}
 
 \clearpage
 
