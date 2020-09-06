@@ -3,12 +3,22 @@
 \ChapterPageStuff{2}
 
 \section{Preamble}
-In this chapter the methodology to create and implement a loggign mechanism to do system utilisation analysis on software system will be discussed. In \Cref{sec:EventLogging} provided the needed literature to create a loggign mechanism in \Cref{sec:Ch3_LoggingMechanism}.
+In this chapter the methodology to create and implement a loggign mechanism to do system utilisation analysis on software system will be discussed. In \Cref{sec:EventLogging} provided the needed literature to create a loggign mechanism in \Cref{sec:Ch3_LoggingMechanism} for two software systems.
 
 \section{Logging mechanism}\label{sec:Ch3_LoggingMechanism}
+For this study two software systems are used to implement the loggign mechanism. The first software system which will be called System A, is energy management system that uses combination of PHP and \textit{.NET Framework}\footnote{\label{ftn:NetFramework}\textbf{.NET Framework} is a run-time execution environment that consists of common language runtime (CLR) and a .NET Framework Class Library \cite{Harkness2007}.} with a MVC architecture. System A will need to make use of two loggign mechanism to log all the needed data of the activities of the user.\par System B is a \textit{.NET Framework}\footref{ftn:NetFramework} system with a MVC architecture and is the administrative software system to configure System A.
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.95\textwidth]{Images/Chapter2/Flow_MVC_Architecture/Flow_MVC_Architecture.pdf}
+	\caption[Request flow in MVC architecture]
+	{\textit{Request flow in MVC architecture \cite{Gu2010}}}\label{fig:Flow_MVC_Architecture}
+\end{figure}
 
 \subsection{Logging points}
-Loggign point are essential data that describes the event's key features when creating a log as discussed in \Cref{sec:Ch1_LoggignPoints}.
+Loggign point are essential data that describes the event's key features when creating a log as discussed in \Cref{sec:Ch1_LoggignPoints}. Both System A and B have certain key loggign points that needs to be obtained from the user generated event.
+
+\subsubsection{System A's loggign points}
 
 \begin{table}[!htb]
 	\centering
@@ -16,27 +26,54 @@ Loggign point are essential data that describes the event's key features when cr
 	\caption[Loggign points]
 	{\textit{PHP loggign mechanism}}
 	\label{tbl:PHP_LoggignMechanism}
-	\begin{tabularx}{\textwidth}{|c|c|X|}
+	\begin{tabularx}{\textwidth}{|c|l|X|}
 		\hline \textbf{Identification} & \textbf{Criteria} & \textbf{Description} \\
-        \hline \textit{lma\_ID} & Activity ID & The activity identification is a incremental number of the event that is logged.\\
-        \hline \textit{lma\_Time} & Activity timestamp & This is the time which the event took place.\\
-        \hline \textit{lma\_d\_ID} & Dashboard ID & Foreign reference key to the  \\
+        \hline \textbf{lma\_ID} & Activity ID & The activity identification is a incremental number of the event that is logged.\\
+        \hline \textbf{lma\_Time} & Activity timestamp & This is the time which the event took place.\\
+        \hline \textbf{lma\_d\_ID} & Dashboard ID & Foreign reference key to the Dashboard table.\\
 		\hline
 	\end{tabularx}
 \end{table}
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.9\textwidth]{Images/Chapter2/SystemA_ERD_Basic/SystemA_ERD_Basic.pdf}
+	\includegraphics[width=0.95\textwidth]{Images/Chapter2/SystemA_ERD_Basic/SystemA_ERD_Basic.pdf}
 	\caption[System A user activity ERD]
-	{\textit{System A user activity ERD}} \label{fig:SystemA_Basic_ERD}
+	{\textit{System A user activity ERD}}\label{fig:SystemA_Basic_ERD}
 \end{figure}
+
+\subsection{System A loggign mechanism design}
+
+In \Cref{fig:SystemA_Arch_Design} is the design for the System A's loggign mechanism that consist of two different operations two log the event data that is generated from the user. These two main operations are used based on where the event is generated from either the PHP or MVC software components. The loggign mechanism consist of two main functional requirements (\textbf{F/R}) that two main operations will use.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.9\textwidth]{Images/Chapter2/SystemB_ERD_Basic/SystemB_ERD_Basic.pdf}
+	\includegraphics[width=0.99\textwidth]{Images/Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
+	\caption[System A loggign mechanism architecture design]
+	{\textit{System A loggign mechanism architecture design}}\label{fig:SystemA_Arch_Design}
+\end{figure}
+
+\textbf{F/R 1} of \Cref{fig:SystemA_Arch_Design} is the client side of the loggign mechanism of System A.
+
+\begin{table}[!htb]
+	\centering
+	\small
+	\caption[System A's loggign mechanism syb-systems]
+	{\textit{System A's loggign mechanism syb-systems}}
+	\label{tbl:SystemA_SubSystems}
+	\begin{tabularx}{\textwidth}{|l|X|}
+		\hline \textbf{F/R 1.1} & The user \\
+		\hline
+	\end{tabularx}
+\end{table}
+
+\clearpage
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.6\textwidth]{Images/Chapter2/SystemB_ERD_Basic/SystemB_ERD_Basic.pdf}
 	\caption[System B user activity ERD]
-	{\textit{System B user activity ERD}} \label{fig:SystemB_Basic_ERD}
+	{\textit{System B user activity ERD}}\label{fig:SystemB_Basic_ERD}
 \end{figure}
 
 \subsection{Logging mechanism}
