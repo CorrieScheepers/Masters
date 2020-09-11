@@ -1,0 +1,121 @@
+Date : 2020-09-10 16:58:57
+Directory : c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters
+Total : 50 files,  24260 codes, 47 comments, 1573 blanks, all 25880 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| Plain Text (PDF)   |         20 |     14,359 |          0 |        119 |     14,478 |
+| BibTeX style       |          3 |      6,619 |          0 |        832 |      7,451 |
+| BibTeX             |          4 |      2,500 |          0 |        495 |      2,995 |
+| LaTeX              |         11 |        482 |         45 |        121 |        648 |
+| SVG                |          6 |        157 |          2 |          2 |        161 |
+| Jupyter            |          1 |         74 |          0 |          0 |         74 |
+| JSON with Comments |          1 |         37 |          0 |          0 |         37 |
+| CSV                |          1 |         16 |          0 |          1 |         17 |
+| YAML               |          1 |         12 |          0 |          1 |         13 |
+| Markdown           |          1 |          3 |          0 |          2 |          5 |
+| XML                |          1 |          1 |          0 |          0 |          1 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                         | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                            |         50 |     24,260 |         47 |      1,573 |     25,880 |
+| .github                                                                                                                                      |          1 |         12 |          0 |          1 |         13 |
+| .github\workflows                                                                                                                            |          1 |         12 |          0 |          1 |         13 |
+| Chapters                                                                                                                                     |         10 |        359 |         16 |         92 |        467 |
+| Images                                                                                                                                       |         16 |      5,608 |          2 |         26 |      5,636 |
+| Images\Chapter1                                                                                                                              |          5 |      2,579 |          0 |          9 |      2,588 |
+| Images\Chapter1\Background                                                                                                                   |          5 |      2,579 |          0 |          9 |      2,588 |
+| Images\Chapter1\Background\Cost_of_fixing_bugs                                                                                               |          1 |        370 |          0 |          0 |        370 |
+| Images\Chapter1\Background\Event_Log_Model                                                                                                   |          1 |        918 |          0 |          6 |        924 |
+| Images\Chapter1\Background\IEEE_Model                                                                                                        |          1 |        463 |          0 |          1 |        464 |
+| Images\Chapter1\Background\Maintenance_flow                                                                                                  |          1 |        475 |          0 |          1 |        476 |
+| Images\Chapter2                                                                                                                              |          4 |      2,871 |          0 |         15 |      2,886 |
+| Images\Chapter2\Flow_MVC_Architecture                                                                                                        |          1 |        756 |          0 |          4 |        760 |
+| Images\Chapter2\SystemA_Architecture_Diagram                                                                                                 |          1 |        777 |          0 |          4 |        781 |
+| Images\Chapter2\SystemA_ERD_Basic                                                                                                            |          1 |        645 |          0 |          4 |        649 |
+| Images\Chapter2\SystemB_ERD_Basic                                                                                                            |          1 |        693 |          0 |          3 |        696 |
+| Images\Custom_SVG                                                                                                                            |          7 |        158 |          2 |          2 |        162 |
+| Scripts                                                                                                                                      |          2 |         90 |          0 |          1 |         91 |
+| Scripts\Ch1                                                                                                                                  |          2 |         90 |          0 |          1 |         91 |
+| Scripts\Ch1\Data                                                                                                                             |          1 |         16 |          0 |          1 |         17 |
+| appendix                                                                                                                                     |          1 |        470 |          0 |         21 |        491 |
+| bib                                                                                                                                          |          1 |        933 |          0 |          3 |        936 |
+| includes                                                                                                                                     |         15 |     12,568 |          0 |      1,357 |     13,925 |
+| includes\ChapterFiles                                                                                                                        |          8 |      3,984 |          0 |         12 |      3,996 |
+| includes\ChapterFiles\chapter1                                                                                                               |          3 |      3,258 |          0 |          7 |      3,265 |
+| includes\ChapterFiles\chapter1\figures                                                                                                       |          2 |      1,548 |          0 |          6 |      1,554 |
+| includes\ChapterFiles\chapter1\tables                                                                                                        |          1 |      1,710 |          0 |          1 |      1,711 |
+| includes\ChapterFiles\chapter2                                                                                                               |          1 |        139 |          0 |          1 |        140 |
+| includes\ChapterFiles\chapter2\figures                                                                                                       |          1 |        139 |          0 |          1 |        140 |
+| includes\ChapterFiles\chapter3                                                                                                               |          1 |        144 |          0 |          1 |        145 |
+| includes\ChapterFiles\chapter3\figures                                                                                                       |          1 |        144 |          0 |          1 |        145 |
+| includes\ChapterFiles\chapter4                                                                                                               |          1 |        152 |          0 |          1 |        153 |
+| includes\ChapterFiles\chapter4\figures                                                                                                       |          1 |        152 |          0 |          1 |        153 |
+| includes\ChapterFiles\chapter5                                                                                                               |          1 |        145 |          0 |          1 |        146 |
+| includes\ChapterFiles\chapter5\figures                                                                                                       |          1 |        145 |          0 |          1 |        146 |
+| includes\ChapterFiles\chapter6                                                                                                               |          1 |        146 |          0 |          1 |        147 |
+| includes\ChapterFiles\chapter6\figures                                                                                                       |          1 |        146 |          0 |          1 |        147 |
+| includes\ieeetran                                                                                                                            |          6 |      8,186 |          0 |      1,324 |      9,510 |
++----------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                                                                     | language           | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\.github\workflows\blank.yml                                                   | YAML               |         12 |          0 |          1 |         13 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\C_Scheepers_Research_Proposal.pdf                                             | Plain Text (PDF)   |      4,057 |          0 |         41 |      4,098 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Chapters\Abstract.tex                                                         | LaTeX              |         46 |          2 |          7 |         55 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Chapters\Acknowledgements.tex                                                 | LaTeX              |          5 |          3 |          3 |         11 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Chapters\Appendices.tex                                                       | LaTeX              |          3 |          0 |          1 |          4 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Chapters\Chapter1.tex                                                         | LaTeX              |        175 |          0 |         42 |        217 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Chapters\Chapter2.tex                                                         | LaTeX              |         70 |          0 |         18 |         88 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Chapters\Chapter3.tex                                                         | LaTeX              |          8 |          0 |          5 |         13 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Chapters\Chapter4.tex                                                         | LaTeX              |          6 |          0 |          3 |          9 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Chapters\Chapter5.tex                                                         | LaTeX              |          4 |          4 |          5 |         13 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Chapters\Chapter6.tex                                                         | LaTeX              |          4 |          4 |          3 |         11 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Chapters\Nomenclature.tex                                                     | LaTeX              |         38 |          3 |          5 |         46 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Document.tex                                                                  | LaTeX              |        123 |         29 |         29 |        181 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Chapter1\Background\Cost_of_fixing_bugs\Cost_of_fixing_bugs.pdf        | Plain Text (PDF)   |        370 |          0 |          0 |        370 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Chapter1\Background\Event_Log_Model\Event_Log_Model.pdf                | Plain Text (PDF)   |        918 |          0 |          6 |        924 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Chapter1\Background\IEEE_Model\IEEE_Model.pdf                          | Plain Text (PDF)   |        463 |          0 |          1 |        464 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Chapter1\Background\Maintenance_flow\Maintenance_Flow.pdf              | Plain Text (PDF)   |        475 |          0 |          1 |        476 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Chapter1\Background\Ronga2018.pdf                                      | Plain Text (PDF)   |        353 |          0 |          1 |        354 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Chapter2\Flow_MVC_Architecture\Flow_MVC_Architecture.pdf               | Plain Text (PDF)   |        756 |          0 |          4 |        760 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Chapter2\SystemA_Architecture_Diagram\SystemA_Architecture_Diagram.pdf | Plain Text (PDF)   |        777 |          0 |          4 |        781 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Chapter2\SystemA_ERD_Basic\SystemA_ERD_Basic.pdf                       | Plain Text (PDF)   |        645 |          0 |          4 |        649 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Chapter2\SystemB_ERD_Basic\SystemB_ERD_Basic.pdf                       | Plain Text (PDF)   |        693 |          0 |          3 |        696 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Custom_SVG\Custom_SVG.xml                                              | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Custom_SVG\database.svg                                                | SVG                |         45 |          1 |          1 |         47 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Custom_SVG\iconmonstr-globe-3.svg                                      | SVG                |          1 |          0 |          0 |          1 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Custom_SVG\iconmonstr-laptop-4.svg                                     | SVG                |          1 |          0 |          0 |          1 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Custom_SVG\iconmonstr-user-5.svg                                       | SVG                |          1 |          0 |          0 |          1 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Custom_SVG\monitor.svg                                                 | SVG                |        108 |          1 |          1 |        110 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Images\Custom_SVG\redirect.svg                                                | SVG                |          1 |          0 |          0 |          1 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\MeestersWorkspace.code-workspace                                              | JSON with Comments |         37 |          0 |          0 |         37 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\README.md                                                                     | Markdown           |          3 |          0 |          2 |          5 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Scripts\Ch1\Chapter_1.ipynb                                                   | Jupyter            |         74 |          0 |          0 |         74 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\Scripts\Ch1\Data\Ronga2018.csv                                                | CSV                |         16 |          0 |          1 |         17 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\appendix\example.pdf                                                          | Plain Text (PDF)   |        470 |          0 |         21 |        491 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\bib\library.bib                                                               | BibTeX             |        933 |          0 |          3 |        936 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\includes\ChapterFiles\chapter1\figures\chapter.pdf                            | Plain Text (PDF)   |        139 |          0 |          2 |        141 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\includes\ChapterFiles\chapter1\figures\test_figure.pdf                        | Plain Text (PDF)   |      1,409 |          0 |          4 |      1,413 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\includes\ChapterFiles\chapter1\tables\test_table.pdf                          | Plain Text (PDF)   |      1,710 |          0 |          1 |      1,711 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\includes\ChapterFiles\chapter2\figures\chapter.pdf                            | Plain Text (PDF)   |        139 |          0 |          1 |        140 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\includes\ChapterFiles\chapter3\figures\chapter.pdf                            | Plain Text (PDF)   |        144 |          0 |          1 |        145 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\includes\ChapterFiles\chapter4\figures\chapter.pdf                            | Plain Text (PDF)   |        152 |          0 |          1 |        153 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\includes\ChapterFiles\chapter5\figures\chapter.pdf                            | Plain Text (PDF)   |        145 |          0 |          1 |        146 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\includes\ChapterFiles\chapter6\figures\chapter.pdf                            | Plain Text (PDF)   |        146 |          0 |          1 |        147 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\includes\TitlePageOfficial.pdf                                                | Plain Text (PDF)   |        398 |          0 |         21 |        419 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\includes\ieeetran\IEEEabrv.bib                                                | BibTeX             |        312 |          0 |        136 |        448 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\includes\ieeetran\IEEEexample.bib                                             | BibTeX             |        965 |          0 |        226 |      1,191 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\includes\ieeetran\IEEEfull.bib                                                | BibTeX             |        290 |          0 |        130 |        420 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\includes\ieeetran\IEEEtran.bst                                                | BibTeX style       |      2,147 |          0 |        271 |      2,418 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\includes\ieeetran\IEEEtranS.bst                                               | BibTeX style       |      2,317 |          0 |        291 |      2,608 |
+| c:\Users\Corrie C. Scheepers\Documents\Masters\Masters\Masters\includes\ieeetran\IEEEtran_v1.13.bst                                          | BibTeX style       |      2,155 |          0 |        270 |      2,425 |
+| Total                                                                                                                                        |                    |     24,260 |         47 |      1,573 |     25,880 |
++----------------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
