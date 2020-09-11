@@ -25,13 +25,13 @@ script:
   # Texliveonfly will download packages automatically
   - texliveonfly Document.tex
   # You can use latexmk to automatically handle bibtex and references (recommended)
-  - latexmk -f -pdf Document.tex
+  #- latexmk -pdf Document.tex
 
   # But you could use any other compiler as well instead of latexmk. Example:
-#  - pdflatex Document.tex
-#  - bibtex Document
-#  - pdflatex Document.tex
-#  - pdflatex Document.tex # Compile twice to fix references
+  - pdflatex Document.tex
+  - bibtex Document
+  - pdflatex Document.tex
+  - pdflatex Document.tex # Compile twice to fix references
 
   # You can also pass arguments to texliveonfly:
 #  - texliveonfly --arguments='-shell-escape' Document.tex
