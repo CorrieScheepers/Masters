@@ -41,8 +41,8 @@ In \Cref{tbl:Ch2_PHP_LoggignMechanism} System A's key logging points which are s
 	\begin{threeparttable}
 		\begin{tabularx}{\textwidth}{|l|l|X|}
 			\hline \textbf{Column Name} & \textbf{SQL Data Type} & \textbf{Description} \\
-			\hline \textbf{ActivityID} & INT(11) & The activity identification is a incremental number of the event that is logged.\\
-			\hline \textbf{DashboardID} & DATETIME & Foreign reference key to the Dashboard table.\\
+			\hline \textbf{ActivityID} & INT(11) & The activity identification is an incremental number of the event that is logged.\\
+			\hline \textbf{Timestamp} & DATETIME & Foreign reference key to the Dashboard table.\\
 			\hline \textbf{UserID} & VARCHAR(45) & Each user has a unique identifier which is a numerical identification number that is foreign key reference to the User table.\\
 			\hline \textbf{GroupID} & INT(4) & This foreign key reference to the Group table is contract groups identification number. \\ 
 			\hline \textbf{Timestamp} & DATETIME & This is the time which the event took place.\\			
@@ -66,18 +66,20 @@ In \Cref{tbl:Ch2_PHP_LoggignMechanism} System A's key logging points which are s
 
 \clearpage
 
-\subsection{System A logging mechanism design}
+\subsubsection{System B's logging points}
 
-In \Cref{fig:ch2_SystemA_Arch_Design} is the design for the System A's logging mechanism that consist of two different operations two log the event data that is generated from the user. These two main operations are used based on where the event is generated from either the PHP or MVC software components. The logging mechanism consist of two main functional requirements (\textbf{F/R}) that two main operations will use.
-
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
-	\centering % cent the figure
-	\includegraphics[width=0.99\textwidth]{Images/Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
-	\caption[System A logging mechanism architecture design]
-	{\textit{System A logging mechanism architecture design}}\label{fig:ch2_SystemA_Arch_Design}
-\end{figure}
-
-\clearpage
+\begin{table}[!htb]
+	\centering
+	\caption[System B user activities table]
+	{\textit{System B user activities table}}
+	\label{tbl:CH2_SystemB_LoggingTable}
+	\begin{tabularx}{\textwidth}{|l|l|X|}
+		\hline \textbf{Column Name} & \textbf{SQL Data Type} & \textbf{Description} \\
+		\hline \textbf{ActivityID} & INT(11) & The activity identification is an incremental number of the event that is logged.\\
+		\hline \textbf{Timestamp} & DATETIME & This is the time which the event took place.\\
+		\hline
+	\end{tabularx}
+\end{table}
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -91,6 +93,19 @@ In \Cref{fig:ch2_SystemA_Arch_Design} is the design for the System A's logging m
 	\includegraphics[width=0.95\textwidth]{Images/Chapter2/Flow_MVC_Architecture/Flow_MVC_Architecture.pdf}
 	\caption[Request flow in MVC architecture]
 	{\textit{Request flow in MVC architecture \cite{Gu2010}}}\label{fig:ch2_Flow_MVC_Architecture}
+\end{figure}
+
+\clearpage
+
+\subsection{System A logging mechanism design}
+
+In \Cref{fig:ch2_SystemA_Arch_Design} is the design for the System A's logging mechanism that consist of two different operations two log the event data that is generated from the user. These two main operations are used based on where the event is generated from either the PHP or MVC software components. The logging mechanism consist of two main functional requirements (\textbf{F/R}) that two main operations will use.
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.99\textwidth]{Images/Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
+	\caption[System A logging mechanism architecture design]
+	{\textit{System A logging mechanism architecture design}}\label{fig:ch2_SystemA_Arch_Design}
 \end{figure}
 
 \subsection{Logging mechanism}
