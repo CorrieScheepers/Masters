@@ -1,12 +1,11 @@
-sudo:       required
-language:   generic
-services:   docker
+sudo: require
+dist: xenial
+language: bash
 
-tex-config:
-- tex-scheme=small
-- push-type=none
-- build-pattern=Document.tex
-- packages=lipsum, blindtext
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y texlive-base texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
+
 
 script:
-- docker run --mount src=$TRAVIS_BUILD_DIR/,target=/repo,type=bind strauman/travis-latexbuild:small # Select small TeX Live scheme
+  - bash test.sh
