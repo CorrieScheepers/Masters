@@ -8,7 +8,7 @@
 
 
 # build pdf from source
-pdflatex Document.tex
+latexmk Document.tex
 
 # exit successfully if pdf is present or with error if not present
 [ -f Document.pdf ] && exit 0 || exit 1
