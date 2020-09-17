@@ -9,7 +9,7 @@
 
 # build pdf from source
 pdflatex Document.tex
-bibtex Document.tex
+bibtex Document
 pdflatex Document.tex
 
 # exit successfully if pdf is present or with error if not present
