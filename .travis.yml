@@ -1,18 +1,11 @@
----
-language: python
+sudo: required
+language: generic
+services: docker
 
-python: 3.7
-dist: xenial
-
-env:
-  global:
-    - TL_VERSION=2019
-    - PATH=$HOME/texlive/$TL_VERSION/bin/x86_64-linux:$PATH
-
-install:
-  - pip install https://github.com/MaxNoe/texlive-batch-installation/archive/master.tar.gz
-  - |
-    python -m install_texlive -p $HOME/texlive -t 2019 --collections='-acfghuDFG' \
-    -i 'koma-script,polyglossia,csquotes,placeins,enumitem,biber,biblatex,ncctools,filehook,xpatch,logreq,xstring,siunitx,pdftexcmds,kvoptions,stringenc'
 script:
-  latexmk
+  # We use the docker image from https://hub.docker.com/r/dxjoke/tectonic-docker/
+  - docker pull dxjoke/tectonic-docker
+  # Compiling only main.tex:
+  - docker run --mount src=$TRAVIS_BUILD_DIR/,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic Document.tex"
+  # Compiling multiple files as well as using biber:
+#  - docker run --mount src=$TRAVIS_BUILD_DIR/src,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 biber-mwe.tex; biber biber-mwe; tectonic biber-mwe.tex; tectonic main.tex"
