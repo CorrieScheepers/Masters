@@ -1,5 +1,4 @@
-I recommend using git to backup and manage your document progress.
-# Masters
+# Masters [![Build Status](https://travis-ci.com/CorrieScheepers/Masters.svg?token=VHzQ8zBVzz6uJdUCNUyn&branch=master)](https://travis-ci.com/CorrieScheepers/Masters.svg?token=VHzQ8zBVzz6uJdUCNUyn&branch=master)
 
 凸 ( ͡👁️ ͜ʖ ͡👁️)凸
 
