@@ -187,6 +187,26 @@ Creating logging mechanisms will need additional code to be written in the softw
 
 \subsection{Logging points}\label{sec:Ch1_LoggignPoints}
 
+\subsection{Filters in MVC}\label{sec:Ch1_FiltersMVC}
+
+\emph{Action Filters}\cprotect\footnote{\textbf{Action Filters} \href{https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs}{Understanding Action Filters} (\verb|C#|)} in ASP.NET
+
+\begin{table}[!htb]
+	\centering
+	\small
+	\caption[Different types of filters in ASP.NET MVC]
+	{\textit{Different types of filters in ASP.NET MVC}}
+	\label{tbl:Ch1_ASPFilters}
+	\begin{tabularx}{\textwidth}{|l|X|}
+		\hline \textbf{Filter} & \textbf{Description} \\
+		\hline \textbf{Authorisation} & Implements the \texttt{IAuthorizationFilter} attribute. \\
+		\hline \textbf{Action} & Implements the \texttt{IActionFilter} attribute. \\
+		\hline \textbf{Result} & Implements the \texttt{IResultFilter} attribute. \\
+		\hline \textbf{Exception} & Implements the \texttt{IException} attribute. \\
+		\hline
+	\end{tabularx}
+\end{table}
+
 \clearpage
 
 \section{System utilisation analysis}\label{sec:SystemUtilisation}
