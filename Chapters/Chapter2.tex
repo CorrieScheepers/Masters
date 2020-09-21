@@ -30,7 +30,7 @@ The PHP session helps to keep to track of any information needed for these pages
 	\item \textbf{Configuration meta data identity:} In \Cref{fig:ch2_SystemA_Dashboard} the same dashboard can be linked to different mine groups or toolboxes. The PHP session contains any other identification parameters of which meta data should be loaded to configure the dashboard for the correct mine group and toolbox.
 \end{itemize}
 
-This key information is essential to define which key logging points the logging mechanism needs to get from the PHP session. In \Cref{tbl:Ch2_System_A_Logging_Points} System A's key logging points which are saved in a SQL database. Each logging point can be accessed either by the PHP session or other runtime data present when the event took place such as any meta data that as send back the server as request parameters.
+This key information is essential to define which key logging points the logging mechanism needs to get from the PHP session. In \Cref{tbl:Ch2_System_A_Logging_Points} System A's key logging points which are saved in a SQL database. Each logging point can be accessed either by the PHP session or other run-time data present when the event took place such as any meta data that as send back the server as request parameters.
 
 \begin{table}[!htb]
 	\centering
@@ -104,7 +104,7 @@ In System B's session information the user's identification credentials are stor
 
 \clearpage
 
-Using the information from the FilterContext and session of System B the key logging points can be obtained to create \Cref{tbl:CH2_SystemB_LoggingTable} that is saved in SQL database. Each of this logging points can be accessed through a filter action to capture runtime data such as the action parameters that is part of the meta data.
+Using the information from the FilterContext and session of System B the key logging points can be obtained to create \Cref{tbl:CH2_SystemB_LoggingTable} that is saved in SQL database. Each of this logging points can be accessed through a filter action to capture run-time data such as the action parameters that is part of the meta data.
 
 \begin{table}[!htb]
 	\centering
