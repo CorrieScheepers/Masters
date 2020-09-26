@@ -16,7 +16,7 @@ In \Cref{fig:ch2_SystemA_Dashboard} each mine group have multiple toolboxes link
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.9\textwidth]{Images/Chapter2/SystemA_Dashboard/SystemA_Dashboard.pdf}
+	\includegraphics[width=0.7\textwidth]{Images/Chapter2/SystemA_Dashboard/SystemA_Dashboard.pdf}
 	\caption[System A dashboard links]
 	{\textit{System A dashboard links}}\label{fig:ch2_SystemA_Dashboard}
 \end{figure}
@@ -51,8 +51,6 @@ This key information is essential to define which key logging points the logging
 	\end{tabularx}
 \end{table}
 
-\clearpage
-
 The user activity types in \Cref{tbl:Ch2_SystemA_EventTypes} is all of the possible activities the user can generate in System A. The DetailView activities is expected to the largest portion of events that will be tracked as users will generally try to use multiple input elements on the dashboard or toolbox. \par The Dash event type is only useful to track which dashboards and toolboxes the user navigates to and it will not be accurate indicator to how much a dashboard or toolbox is used. The DetailView and Report user activity types is better representation of the utilisation of these software components as these events are the user's objectives using the software systems and not trying access the software systems.  
 
 \begin{table}[!htb]
@@ -65,16 +63,32 @@ The user activity types in \Cref{tbl:Ch2_SystemA_EventTypes} is all of the possi
 		\hline \textbf{Activity Type} & \textbf{Description} \\
 		\hline \textbf{Dash} & Any activity that the user attempts to access a toolbox or dashboard on System A is Dash event type. \\
 		\hline \textbf{DetailView} & Any other activities such as viewing certain dates data or editing and saving activities on System A is DetailView events and have other meta data which is the request parameters send back to server. These events exclude Report events. \\
-		\hline \textbf{Report} & There are multiple detailed reports generated on these dashboards which are classified as \emph{Report} events. \\
+		\hline \textbf{Report} & There are multiple detailed reports generated on these dashboards which are classified as Report events. \\
 		\hline
 	\end{tabularx}
 \end{table}
 
-Using the key logging points of \Cref{tbl:Ch2_System_A_Logging_Points} the \emph{ERD} for all the tables used to for System A user activity logging data is created in \Cref{fig:Ch2_SystemA_Basic_ERD}. Table SystemA\_UserActvities is where all the user activity tracking data is stored with foreign key references to the Dashboards, Users and Group tables.
+In \Cref{fig:CH2_SystemBMetaData} is the meta data Json for the RequestParameters column in \Cref{tbl:Ch2_System_A_Logging_Points}. This Json contains certain data parameters important to the event that the user has initiated. This request parameters will need to be specified for each toolbox and dashboard the user events are logged of for System A.
+
+\begin{figure}[!htb]
+	\centering
+	\begin{lstlisting}[style=json] 
+	{
+		"Parameter1": 4,
+		"Parameter2": "Hello World!",
+		"Parameter3": true
+		"Parameter4": 40.404
+	}
+	\end{lstlisting}
+	\caption[System A meta data Json]
+	{\textit{System A meta data Json}}\label{fig:CH2_SystemAMetaData}
+\end{figure}
+
+Using the key logging points of \Cref{tbl:Ch2_System_A_Logging_Points} the \emph{ERD} for all the tables used to for System A user activity logging data is created in \Cref{fig:Ch2_SystemA_Basic_ERD}. Table SystemA\_UserActvities is where all the user activity tracking data is stored in a SQL database with foreign key references to the Dashboards, Users and Groups tables.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.95\textwidth]{Images/Chapter2/SystemA_ERD_Basic/SystemA_ERD_Basic.pdf}
+	\includegraphics[width=0.9\textwidth]{Images/Chapter2/SystemA_ERD_Basic/SystemA_ERD_Basic.pdf}
 	\caption[System A user activity ERD]
 	{\textit{System A user activity ERD}}\label{fig:Ch2_SystemA_Basic_ERD}
 \end{figure}
@@ -126,7 +140,7 @@ Using the information from the FilterContext and session of System B the key log
 	\end{tabularx}
 \end{table}
 
-In \Cref{fig:CH2_SystemBMetaData} the meta data JSON for the user activity log obtained. This JSON contains the request origin of the event from the absolute URI path, HTML element that user used to initiate the event and the request parameters send with the AJAX request. Some of these JSON parameters can be empty depending on the type of the activity.
+In \Cref{fig:CH2_SystemBMetaData} the meta data Json for the user activity log obtained. This Json contains the request origin of the event from the absolute URI path, HTML element that user used to initiate the event and the request parameters send with the AJAX request. Some of these Json parameters can be empty depending on the type of the activity.
 
 \begin{figure}[!htb]
 	\centering
@@ -142,13 +156,13 @@ In \Cref{fig:CH2_SystemBMetaData} the meta data JSON for the user activity log o
 		}
 	}
 	\end{lstlisting}
-	\caption[System B meta data JSON]
-	{\textit{System B meta data JSON}}\label{fig:CH2_SystemBMetaData}
+	\caption[System B meta data Json]
+	{\textit{System B meta data Json}}\label{fig:CH2_SystemBMetaData}
 \end{figure}
 
 \clearpage
 
-The user activity types in \Cref{tbl:Ch2_SystemB_ActivityTypes} is all of the possible activities the user can generate in System B. 
+The user activity types in \Cref{tbl:Ch2_SystemB_ActivityTypes} is all of the possible activities the user can generate in System B. The MenuAccessed activity type can be used to track how the user is navigating through the System B just like System A's Dash user activity type. The CustomControls and ElementClickEvents user activity types is the best representation of the system utilisation of System B by the users.
 
 \begin{table}[!htb]
 	\centering
@@ -158,20 +172,22 @@ The user activity types in \Cref{tbl:Ch2_SystemB_ActivityTypes} is all of the po
 	\label{tbl:Ch2_SystemB_ActivityTypes}
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline \textbf{Activity Type} & \textbf{Description} \\
-		\hline \textbf{MenuAccessed} & Any user activity that the user attempts to access a menu on System B which calls the index method of the menu's controller. \\
-		\hline \textbf{LogoutAttempt} & Any logout attempt from the user except closing the browser tab or browser. \\
-		\hline \textbf{LoginAttempt} & Any user activities on the login page of System B.\\
+		\hline \textbf{MenuAccessed} & These events are any user activities where the user attempts to access a menu on System B which calls the index method of the menu's controller. In most cases the event request from the client side will be handled by the controller's index function to send back a response of the initial accessing of a specific menu. \\
+		\hline \textbf{LogoutAttempt} & Any logout attempt from the user except closing the browser tab or browser. Closing the browser or tab doesn't send any request from the client device back to the server to log that user ended their session. \\
+		\hline \textbf{LoginAttempt} & Any user activities on the login page of System B where the user will try enter their credentials to gain access to their user accounts on System B.\\
 		\hline \textbf{SessionTracking} & This is any user activities that directly involves extension session due that System B will attempt to logout the user after a hour of inactivity prompting the user to extend their own session.\\
 		\hline \textbf{ResetPassword} & Any user activities when the user attempts to reset their password. \\
 		\hline \textbf{CustomControls} & System B uses custom controls made the development team, when the user uses these controls it will also initiated an event that can be tracked. \\ 
-		\hline \textbf{Element Click Events} & Any distinguishable \emph{HTML} element that is clicked by the user that communicates back to the server. These events are ButtonClicked, SelectClicked, ImageClicked, InputClicked, SpanClicked, LabelClicked, ListClicked, HyperLinkClicked, DivClicked, FormInput and GridItem.\\
+		\hline \textbf{ElementClickEvents} & Any distinguishable \emph{HTML} element that is clicked by the user that communicates back to the server. These events are ButtonClicked, SelectClicked, ImageClicked, InputClicked, SpanClicked, LabelClicked, ListClicked, HyperLinkClicked, DivClicked, FormInput and GridItem.\\
 		\hline
 	\end{tabularx}
 \end{table}
 
+In \Cref{fig:ch2_SystemB_Basic_ERD} is the ERD of tables directly used for System B. The key logging points of \Cref{tbl:CH2_SystemB_LoggingTable} is used to create the table SystemB\_UserActivities. The data is stored in a SQL database where the Users and Groups tables are. The Users table contains all the information of the users using the System B and the Groups table contains all the mine contract group information. 
+
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.9\textwidth]{Images/Chapter2/SystemB_ERD_Basic/SystemB_ERD_Basic.pdf}
+	\includegraphics[width=0.99\textwidth]{Images/Chapter2/SystemB_ERD_Basic/SystemB_ERD_Basic.pdf}
 	\caption[System B user activity ERD]
 	{\textit{System B user activity ERD}}\label{fig:ch2_SystemB_Basic_ERD}
 \end{figure}
@@ -179,15 +195,40 @@ The user activity types in \Cref{tbl:Ch2_SystemB_ActivityTypes} is all of the po
 \clearpage
 
 \subsection{System A logging mechanism design}
-
-In \Cref{fig:ch2_SystemA_Arch_Design} is the design for the System A's logging mechanism that consist of two different operations two log the event data that is generated from the user. These two main operations are used based on where the event is generated from either the PHP or MVC software components. The logging mechanism consist of two main functional requirements (\textbf{F/R}) that two main operations will use.
+\Cref{sec:SystemA_LoggingPoints} the logging points System A's key logging points need to be captured by a logging mechanism. In \Cref{fig:ch2_SystemA_Arch_Design} is the design for the System A's logging mechanism to effectively log the user generated event from the PHP software components. The logging mechanism consist of two main functional requirements (\textbf{F/R}) which is the client and server functional requirements.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.99\textwidth]{Images/Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
+	\includegraphics[width=0.9\textwidth]{Images/Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
 	\caption[System A logging mechanism architecture design]
 	{\textit{System A logging mechanism architecture design}}\label{fig:ch2_SystemA_Arch_Design}
 \end{figure}
+
+In the clients functional requirements (F/R 1) the user is main focus and is the initiator of user activity event logs that take place in System A. The user has a direct interface (I/F 1.1) to the device (F/R 1.2) that is currently browsing System A's websites.
+
+\clearpage
+
+\subsubsection{User activity logging in Dash.php file}
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.65\textwidth]{Images/Chapter2/Dash_PHP_Flow/Dash_PHP_Flow.pdf}
+	\caption[User activity logging process in the Dash.php file flow diagram]
+	{\textit{User activity logging process in the Dash.php file flow diagram}}\label{fig:ch2_Dash_PHP_Flow}
+\end{figure}
+
+\clearpage
+
+\subsubsection{User activity logging process of DetailView and Report event types}
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.5\textwidth]{Images/Chapter2/DetailView_Flow/DetailView_Flow.pdf}
+	\caption[User activity logging process of DetailView and Report event types flow diagram]
+	{\textit{User activity logging process of DetailView and Report event types flow diagram}}\label{fig:ch2_DetailView_Flow}
+\end{figure}
+
+\clearpage
 
 \section{System utilisation analysis}
 
