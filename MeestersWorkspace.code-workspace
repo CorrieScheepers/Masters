@@ -23,7 +23,8 @@
 			"xtick",
 			"ylabel"
 		],
-		"workbench.colorTheme": "Monokai"
+		"workbench.colorTheme": "Monokai",
+		"deepcode.uploadApproved": true
 	},
 	"latex-workshop.latex.recipes": [
 		{
