@@ -8,7 +8,7 @@ In this chapter the methodology to create and implement a logging mechanism to d
 \section{Logging mechanism}\label{sec:Ch3_LoggingMechanism}
 For this study two software systems are used to implement two different logging mechanisms. The first software system which will be called System A, is energy management system that uses \emph{PHP}. System B is a \emph{.NET Framework}\footnote{\label{ftn:NetFramework}\textbf{.NET Framework} is a run-time execution environment that consists of common language run-time (\emph{CLR}) and a \texttt{.NET Framework Class Library} \cite{Harkness2007}.} system with a \emph{MVC} architecture as in \Cref{fig:ch2_Flow_MVC_Architecture} and is the administrative software system to configure System A.
 
-\subsection{Logging points}
+\subsection{System A}
 Logging point are essential data that describes the event's key features when creating a log as discussed in \Cref{sec:Ch1_LoggignPoints}. Both System A and B have certain key logging points that needs to be obtained from the user generated event.
 
 \subsubsection{System A's logging points}\label{sec:SystemA_LoggingPoints}
@@ -21,16 +21,16 @@ In \Cref{fig:ch2_SystemA_Dashboard} each mine group have multiple toolboxes link
 	{\textit{System A dashboard links}}\label{fig:ch2_SystemA_Dashboard}
 \end{figure}
 
-The PHP session helps to keep to track of any information needed for these pages to be fully functional like the user's identity and dashboard related data. This information can be used to give insight on which page the user is currently active on. In this case for System A the important PHP session information is:
+The user session helps to keep to track of any information needed for these pages to be fully functional like the user's identity and dashboard related data. This information can be used to give insight on which page the user is currently active on. In this case for System A the important user session information is:
 
 \begin{itemize}
 	\item \textbf{User's identity:} The session contains the user's name and identity number which is the unique primary key for the user. This session information will always be available if the user is active on the software system from the instance they are logged in and verified until the user logs out and close their browser.
 	\item \textbf{Group identity:} System A is used for multiple mine companies, each of the mining companies have a unique identity number. Each group have multiple toolboxes linked to them for energy management.
-	\item \textbf{Dashboard identity:} Each dashboard uses the PHP files to construct a web page the user can view. To correctly navigate and get the correct page when the user request it, a unique identity number is used. In some cases for this system the same PHP file can be used for multiple dashboards as extra configuration data is obtained from the database for that specific dashboard identity number.
+	\item \textbf{Dashboard identity:} Each dashboard uses certain files to construct a web page the user can view. To correctly navigate and get the correct page when the user request it, a unique identity number is used. In some cases for this system the same file can be used for multiple dashboards as extra configuration data is obtained from the database for that specific dashboard identity number.
 	\item \textbf{Configuration meta data identity:} In \Cref{fig:ch2_SystemA_Dashboard} the same dashboard can be linked to different mine groups or toolboxes. The PHP session contains any other identification parameters of which meta data should be loaded to configure the dashboard for the correct mine group and toolbox.
 \end{itemize}
 
-This key information is essential to define which key logging points the logging mechanism needs to get from the PHP session. In \Cref{tbl:Ch2_System_A_Logging_Points} System A's key logging points which are saved in a SQL database. Each logging point can be accessed either by the PHP session or other run-time data present when the event took place such as any meta data that as send back the server as request parameters.
+This key information is essential to define which key logging points the logging mechanism needs to get from the user session. In \Cref{tbl:Ch2_System_A_Logging_Points} System A's key logging points which are saved in a SQL database. Each logging point can be accessed either by the user session or other run-time data present when the event took place such as any meta data that as send back the server as request parameters.
 
 \begin{table}[!htb]
 	\centering
@@ -94,6 +94,44 @@ Using the key logging points of \Cref{tbl:Ch2_System_A_Logging_Points} the \emph
 \end{figure}
 
 \clearpage
+
+\subsubsection{System A logging mechanism design}
+\Cref{sec:SystemA_LoggingPoints} the logging points System A's key logging points need to be captured by a logging mechanism. In \Cref{fig:ch2_SystemA_Arch_Design} is the design for the System A's logging mechanism to effectively log the user generated event from the PHP software components. The logging mechanism consist of two main functional requirements (\textbf{F/R}) which is the client and server functional requirements.
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.9\textwidth]{Images/Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
+	\caption[System A logging mechanism architecture design]
+	{\textit{System A logging mechanism architecture design}}\label{fig:ch2_SystemA_Arch_Design}
+\end{figure}
+
+In the clients functional requirements (F/R 1) the user is main focus and is the initiator of user activity event logs that take place in System A. The user has a direct interface (I/F 1.1) to the device (F/R 1.2) that is currently browsing System A's websites.
+
+\clearpage
+
+\subsubsection{User activity logging in Dash.php file}
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.65\textwidth]{Images/Chapter2/Dash_PHP_Flow/Dash_PHP_Flow.pdf}
+	\caption[User activity logging process in the Dash.php file flow diagram]
+	{\textit{User activity logging process in the Dash.php file flow diagram}}\label{fig:ch2_Dash_PHP_Flow}
+\end{figure}
+
+\clearpage
+
+\subsubsection{User activity logging process of DetailView and Report event types}
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.5\textwidth]{Images/Chapter2/DetailView_Flow/DetailView_Flow.pdf}
+	\caption[User activity logging process of DetailView and Report event types flow diagram]
+	{\textit{User activity logging process of DetailView and Report event types flow diagram}}\label{fig:ch2_DetailView_Flow}
+\end{figure}
+
+\clearpage
+
+\subsection{System B}
 
 \subsubsection{System B's logging points}
 
@@ -190,42 +228,6 @@ In \Cref{fig:ch2_SystemB_Basic_ERD} is the ERD of tables directly used for Syste
 	\includegraphics[width=0.99\textwidth]{Images/Chapter2/SystemB_ERD_Basic/SystemB_ERD_Basic.pdf}
 	\caption[System B user activity ERD]
 	{\textit{System B user activity ERD}}\label{fig:ch2_SystemB_Basic_ERD}
-\end{figure}
-
-\clearpage
-
-\subsection{System A logging mechanism design}
-\Cref{sec:SystemA_LoggingPoints} the logging points System A's key logging points need to be captured by a logging mechanism. In \Cref{fig:ch2_SystemA_Arch_Design} is the design for the System A's logging mechanism to effectively log the user generated event from the PHP software components. The logging mechanism consist of two main functional requirements (\textbf{F/R}) which is the client and server functional requirements.
-
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
-	\centering % cent the figure
-	\includegraphics[width=0.9\textwidth]{Images/Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
-	\caption[System A logging mechanism architecture design]
-	{\textit{System A logging mechanism architecture design}}\label{fig:ch2_SystemA_Arch_Design}
-\end{figure}
-
-In the clients functional requirements (F/R 1) the user is main focus and is the initiator of user activity event logs that take place in System A. The user has a direct interface (I/F 1.1) to the device (F/R 1.2) that is currently browsing System A's websites.
-
-\clearpage
-
-\subsubsection{User activity logging in Dash.php file}
-
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
-	\centering % cent the figure
-	\includegraphics[width=0.65\textwidth]{Images/Chapter2/Dash_PHP_Flow/Dash_PHP_Flow.pdf}
-	\caption[User activity logging process in the Dash.php file flow diagram]
-	{\textit{User activity logging process in the Dash.php file flow diagram}}\label{fig:ch2_Dash_PHP_Flow}
-\end{figure}
-
-\clearpage
-
-\subsubsection{User activity logging process of DetailView and Report event types}
-
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
-	\centering % cent the figure
-	\includegraphics[width=0.5\textwidth]{Images/Chapter2/DetailView_Flow/DetailView_Flow.pdf}
-	\caption[User activity logging process of DetailView and Report event types flow diagram]
-	{\textit{User activity logging process of DetailView and Report event types flow diagram}}\label{fig:ch2_DetailView_Flow}
 \end{figure}
 
 \clearpage
