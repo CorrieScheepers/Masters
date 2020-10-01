@@ -8,9 +8,10 @@
 
 
 # build pdf from source
-pdflatex Document.tex
+pdflatex -synctex=1 -interaction=nonstopmode -halt-on-error Document.tex
 bibtex Document
-pdflatex Document.tex
+pdflatex -synctex=1 -interaction=nonstopmode -halt-on-error Document.tex
+pdflatex -synctex=1 -interaction=nonstopmode -halt-on-error Document.tex
 
 # exit successfully if pdf is present or with error if not present
 [ -f Document.pdf ] && exit 0 || exit 1
