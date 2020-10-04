@@ -27,7 +27,7 @@ The user session helps to keep to track of any information needed for these page
 	\item \textbf{User's identity:} The session contains the user's name and identity number which is the unique primary key for the user. This session information will always be available if the user is active on the software system from the instance they are logged in and verified until the user logs out and close their browser.
 	\item \textbf{Group identity:} System A is used for multiple mine companies, each of the mining companies have a unique identity number. Each group have multiple toolboxes linked to them for energy management.
 	\item \textbf{Dashboard identity:} Each dashboard uses certain files to construct a web page the user can view. To correctly navigate and get the correct page when the user request it, a unique identity number is used. In some cases for this system the same file can be used for multiple dashboards as extra configuration data is obtained from the database for that specific dashboard identity number.
-	\item \textbf{Configuration meta data identity:} In \Cref{fig:ch2_SystemA_Dashboard} the same dashboard can be linked to different mine groups or toolboxes. The PHP session contains any other identification parameters of which meta data should be loaded to configure the dashboard for the correct mine group and toolbox.
+	\item \textbf{Configuration meta data identity:} In \Cref{fig:ch2_SystemA_Dashboard} the same dashboard can be linked to different mine groups or toolboxes. The user session contains any other identification parameters of which meta data should be loaded to configure the dashboard for the correct mine group and toolbox.
 \end{itemize}
 
 This key information is essential to define which key logging points the logging mechanism needs to get from the user session. In \Cref{tbl:Ch2_System_A_Logging_Points} System A's key logging points which are saved in a SQL database. Each logging point can be accessed either by the user session or other run-time data present when the event took place such as any meta data that as send back the server as request parameters.
@@ -109,7 +109,9 @@ In the clients functional requirements (F/R 1) the user is main focus and is the
 
 \clearpage
 
-\subsubsection{User activity logging in Dash.php file}
+\subsubsection{Dash user activty type classification}
+
+In \Cref{fig:ch2_Dash_PHP_Flow} the 
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -144,7 +146,7 @@ In \Cref{fig:ch2_Flow_MVC_Architecture} is a diagram of the request flow of a MV
 	{\textit{Request flow in MVC architecture \cite{Gu2010}}}\label{fig:ch2_Flow_MVC_Architecture}
 \end{figure}
 
-In \Cref{sec:SystemA_LoggingPoints} System A mostly relies on the PHP sessions data to obtain the user generated event's data, for System B this data can be obtained by the FilterContext class in ASP.NET MVC. The FilterContext provides contains the following information about the request:
+In \Cref{sec:SystemA_LoggingPoints} System A mostly relies on the user sessions data to obtain the user generated event's data, for System B this data can be obtained by the FilterContext class in ASP.NET MVC. The FilterContext provides contains the following information about the request:
 
 \begin{itemize}
 	\item \textbf{Absolute URI path:} The string containing the absolute URI path the current controller that is active is part of the FilterContext. This does not reference the controller that handles the request but the controller that user is active on before initiating the request. 
