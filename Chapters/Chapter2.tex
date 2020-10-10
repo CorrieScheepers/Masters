@@ -45,10 +45,12 @@ Each dashboard in \Cref{fig:ch2_SystemA_Dashboard} can use the same files to cre
 		\hline \textbf{GroupID} & INT(4) & This foreign key reference to the Group table is contract groups identification number. \\ 		
 		\hline \textbf{ActivityType} & ENUM & Each event that user initiated has an activity type as in \Cref{tbl:Ch2_SystemA_EventTypes}. \\
 		\hline \textbf{File} & VARCHAR(200) & This the PHP file from which the request is processed.\\
-		\hline \textbf{RequestParameters} & JSON & Request parameters of the event. This can be other meta data is important about the user's activity using certain controls on a dashboard or toolbox. \\
+		\hline \textbf{RequestParameters} & JSON & Request parameters of the event. This can be other meta data that is important about the user's activity using certain controls on a dashboard or toolbox. \\
 		\hline
 	\end{tabularx}
 \end{table}
+
+\clearpage
 
 Obtaining the key information of the user generated event is essential to define which key logging points the logging mechanism needs to get from the user's session. In \Cref{tbl:Ch2_System_A_Logging_Points} System A's key logging points which are saved in a SQL database. Each logging point can be accessed either by the user session or other run-time data present when the event took place such as any meta data that as send back the server as request parameters.
 
@@ -78,11 +80,13 @@ Using the key logging points of \Cref{tbl:Ch2_System_A_Logging_Points} the \emph
 	{\textit{System A user activity ERD}}\label{fig:Ch2_SystemA_Basic_ERD}
 \end{figure}
 
-In \Cref{fig:CH2_SystemBMetaData} is the meta data Json for the RequestParameters column in \Cref{tbl:Ch2_System_A_Logging_Points}. This Json contains certain data parameters important to the event that the user has initiated. This request parameters will need to be specified for each toolbox and dashboard the user events are logged of for System A.
+\clearpage
+
+In \Cref{fig:CH2_SystemBMetaData} is the meta data JSON for the RequestParameters column in \Cref{tbl:Ch2_System_A_Logging_Points}. This JSON contains certain data parameters important to the event that the user has initiated. This request parameters will need to be specified for each toolbox and dashboard the user events are logged of for System A.
 
 \begin{figure}[!htb]
 	\centering
-	\begin{lstlisting}[style=json] 
+	\begin{lstlisting}[style=JSON] 
 	{
 		"Parameter1": 4,
 		"Parameter2": "Hello World!",
@@ -90,8 +94,8 @@ In \Cref{fig:CH2_SystemBMetaData} is the meta data Json for the RequestParameter
 		"Parameter4": 40.404
 	}
 	\end{lstlisting}
-	\caption[System A meta data Json]
-	{\textit{System A meta data Json}}\label{fig:CH2_SystemAMetaData}
+	\caption[System A meta data JSON]
+	{\textit{System A meta data JSON}}\label{fig:CH2_SystemAMetaData}
 \end{figure}
 
 \subsubsection{System A logging mechanism design}
@@ -104,13 +108,11 @@ In \Cref{fig:CH2_SystemBMetaData} is the meta data Json for the RequestParameter
 	{\textit{System A logging mechanism architecture design}}\label{fig:ch2_SystemA_Arch_Design}
 \end{figure}
 
-In the clients functional requirements (F/R 1) the user is main focus and is the initiator of user activity event logs that take place in System A. The user has a direct interface (I/F 1.1) to the device (F/R 1.2) that is currently browsing System A's websites.
-
-\clearpage
+In the client's functional requirements (F/R 1) the user the is main focus and is the initiator of user activity event logs that take place in System A. The user has a direct interface (I/F 1.1) to the device (F/R 1.2) that is currently browsing System A's websites for specific tasks.\par If the user initiates an activity the request will in most cases either be handled in the dashboard manager of System A or on a defined file where the dashboards software components are. These activities are either captured by the logging mechanisms of \Cref{fig:ch2_Dash_PHP_Flow} or \Cref{fig:ch2_DetailView_Flow} that gets the necessary parameters and defines the type of the user generated event of \Cref{tbl:Ch2_SystemA_EventTypes}. \par The user generated event (F/R 1.3) 
 
 \subsubsection{Dash user activty type classification}
 
-In \Cref{fig:ch2_Dash_PHP_Flow} is the process of getting the Dash and Report user activity event type for System A. In System A there are certain software components in a dashboard manager file that manages the dashboards according to which the user has selected to view. This dashboard manager file will always be execute the needed processes to manage the dashboard upon is start-up phase.\par When the user sends a request a to view a dashboard the requested dashboard's ID send to the dashboard manager. The dashboard manager will attempt to get the dashboard based on the provided dashboard ID. If the request doesn't contain a dashboard ID parameter, any attempt to log the activity will be ended and will be handled with the logging process described in \Cref{fig:ch2_DetailView_Flow}. \par If the dashboard ID parameter does exist and is not an empty or null value it will be added to the activity parameters. The activity parameters consist of some of the parameters needed for \Cref{tbl:Ch2_System_A_Logging_Points} when the event log is eventually saved in the database. \par In System A there are reports generated and some of the events of the report generation will use the dashboard manager's file. These user generated events can only be traced there and will send an action parameter that is use to initiate the report generation process.\par If the action parameter contains report generation value the activity type needs to be set to the Report user activity type otherwise it is set the Dash user activity type. After the additional parameters and activity type parameters are set the ActivityTracker function is called to complete the log and save it in the database. 
+In \Cref{fig:ch2_Dash_PHP_Flow} is the process of getting the Dash and Report user activity event type for System A. In System A there are certain software components in a dashboard manager file that manages the dashboards according to which the user has selected to view. This dashboard manager file will always be execute the needed processes to manage the dashboard upon is start-up phase.\par When the user sends a request a to view a dashboard the requested dashboard's ID send to the dashboard manager. The dashboard manager will attempt to get the dashboard based on the provided dashboard ID. If the request doesn't contain a dashboard ID parameter, any attempt to log the activity will be ended and will be handled with the logging process described in \Cref{fig:ch2_DetailView_Flow}. \par If the dashboard ID parameter does exist and is not an empty or null value it will be added to the activity parameters. The activity parameters consist of some of the parameters needed for \Cref{tbl:Ch2_System_A_Logging_Points} when the event log is eventually saved in the database. \par In System A there are reports generated and some of the events of the report generation will use the dashboard manager's file. These user generated events can only be traced there and will send an action parameter that is use to initiate the report generation process.\par The action parameters in System A is parameters set in the Post and Get methods. If the action parameter contains report generation value the activity type needs to be set to the Report user activity type otherwise it is set the Dash user activity type. After the additional parameters and activity type parameters are set the ActivityTracker function is called to complete the log and save it in the SQL database as in \Cref{fig:CH2_SystemA_DB_Iteraction_FlowDiagram}. 
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -123,22 +125,24 @@ In \Cref{fig:ch2_Dash_PHP_Flow} is the process of getting the Dash and Report us
 
 \subsubsection{User activity logging process of DetailView and Report event types}
 
-In \Cref{fig:ch2_DetailView_Flow} is the process of getting the DetailView and Report user activity event type for System A. This logging process is used in each file that dashboards are created from. In \Cref{fig:ch2_SystemA_Dashboard} multiple dashboards can use the same files with different configuration parameters send with the request, therefore this significantly reduces the needed development to enable the user activity tracking for the dashboards.\par After the user has navigated to their selected dashboard, any user generated request is logged as user activities in System A. These events can be divided into the DetailView and Report event types based on their action parameters that is send with the request. If the event doesn't have any action parameters, the logging process terminates as this event doesn't count as a valid user activity event.
+In \Cref{fig:ch2_DetailView_Flow} is the process of getting the DetailView and Report user activity event type for System A. This logging process is used in each file that dashboards are created from. In \Cref{fig:ch2_SystemA_Dashboard} multiple dashboards can use the same files with different configuration parameters send with the request, therefore this significantly reduces the needed development to enable the user activity tracking for the dashboards.\par After the user has navigated to their selected dashboard, any user generated request is logged as user activities in System A. These events can be divided into the DetailView and Report event types based on their action parameters that is send with the request. If the event doesn't have any action parameters, the logging process terminates as this event doesn't count as a valid user activity event.\par If the event does have any action parameters it is checked whether the parameters have report generation value or not. If the event have report action values then the user activity type is set to the Report event type otherwise it is set to DetailView event type.\par There may exist any additional parameters that is send with the request that can be logged. These parameters will vary more than the additional parameters of the Dash events as the Dash events parameters is used to configure the dashboard and not get certain variations activities the user performs on the dashboard.\par If the additional parameters are not null or empty values they are added to the ActivityParameters. With the set ActivityParameters and the defined user activity type the ActivityTracker process of \Cref{fig:CH2_SystemA_DB_Iteraction_FlowDiagram} to create a log entry that is saved in the SQL database.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.55\textwidth]{Images/Chapter2/DetailView_Flow/DetailView_Flow.pdf}
+	\includegraphics[width=0.75\textwidth]{Images/Chapter2/DetailView_Flow/DetailView_Flow.pdf}
 	\caption[User activity logging process of DetailView and Report event types flow diagram]
 	{\textit{User activity logging process of DetailView and Report event types flow diagram}}\label{fig:ch2_DetailView_Flow}
 \end{figure}
 
 \clearpage
 
+\subsubsection{Database interaction of the logging mechanism}\label{sec:CH2_SystemA_DB_Iteraction_FlowDiagram}
+
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.8\textwidth]{Images/Chapter2/SystemA_ActivityTracker/SystemA_ActivityTracker.pdf}
+	\includegraphics[width=0.5\textwidth]{Images/Chapter2/SystemA_ActivityTracker/SystemA_ActivityTracker.pdf}
 	\caption[User activity logging process of DetailView and Report event types flow diagram]
-	{\textit{User activity logging process of DetailView and Report event types flow diagram}}\label{fig:ch2_DetailView_Flow}
+	{\textit{User activity logging process of DetailView and Report event types flow diagram}}\label{fig:CH2_SystemA_DB_Iteraction_FlowDiagram}
 \end{figure}
 
 \clearpage
@@ -190,7 +194,7 @@ Using the information from the FilterContext and session of System B the key log
 	\end{tabularx}
 \end{table}
 
-In \Cref{fig:CH2_SystemBMetaData} the meta data Json for the user activity log obtained. This Json contains the request origin of the event from the absolute URI path, HTML element that user used to initiate the event and the request parameters send with the AJAX request. Some of these Json parameters can be empty depending on the type of the activity.
+In \Cref{fig:CH2_SystemBMetaData} the meta data JSON for the user activity log obtained. This JSON contains the request origin of the event from the absolute URI path, HTML element that user used to initiate the event and the request parameters send with the AJAX request. Some of these JSON parameters can be empty depending on the type of the activity.
 
 \begin{figure}[!htb]
 	\centering
@@ -206,8 +210,8 @@ In \Cref{fig:CH2_SystemBMetaData} the meta data Json for the user activity log o
 		}
 	}
 	\end{lstlisting}
-	\caption[System B meta data Json]
-	{\textit{System B meta data Json}}\label{fig:CH2_SystemBMetaData}
+	\caption[System B meta data JSON]
+	{\textit{System B meta data JSON}}\label{fig:CH2_SystemBMetaData}
 \end{figure}
 
 \clearpage
