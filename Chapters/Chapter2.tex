@@ -12,16 +12,16 @@ For this study two software systems are used to implement two different logging 
 Logging point are essential data that describes the event's key features when creating a log as discussed in \Cref{sec:Ch1_LoggignPoints}. Both System A and B have certain key logging points that needs to be obtained from the user generated event.
 
 \subsubsection{System A's logging points}\label{sec:SystemA_LoggingPoints}
-In \Cref{fig:ch2_SystemA_Dashboard} each mine group have multiple toolboxes linked to them. They can be same toolbox linked to both mine groups such as \emph{T1} and \emph{T3}. These toolboxes represent a group of dashboards related to the aspects of energy management of mines. Each of these toolboxes have a dashboards linked to them and each mine group can have different dashboards linked to the to the same toolbox. Each one of these mine groups, toolboxes and dashboards forms part of System A's web pages which the user can access where event logs are generated.
+In \Cref{fig:ch2_SystemA_Dashboard} each mine group have multiple toolboxes linked to them. They can be same toolbox linked to both mine groups such as \emph{T1} and \emph{T3}. These toolboxes represent a group of dashboards related to the aspects of energy management of mines.\par Each of these toolboxes have a dashboards linked to them and each mine group can have different dashboards linked to the to the same toolbox. Each one of these mine groups, toolboxes and dashboards forms part of System A's web pages which the user can access where event logs are generated.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.9\textwidth]{Images/Chapter2/SystemA_Dashboard/SystemA_Dashboard.pdf}
+	\includegraphics[width=0.8\textwidth]{Images/Chapter2/SystemA_Dashboard/SystemA_Dashboard.pdf}
 	\caption[System A dashboard links]
 	{\textit{System A dashboard links}}\label{fig:ch2_SystemA_Dashboard}
 \end{figure}
 
-The user session helps to keep to track of any information needed for these pages to be fully functional like the user's identity and dashboard related data. This information can be used to give insight on which page the user is currently active on. In this case for System A the important user session information is:
+Each dashboard in \Cref{fig:ch2_SystemA_Dashboard} can use the same files to create the a dashboard by only configuring the content of the dashboard based on the request parameters that is send when the user navigates to a new dashboard. Capturing the user generated events with a logging mechanism can be done in these shared files instead of the entire software components of System A.\par The user session helps to keep to track of any information needed for these pages to be fully functional like the user's identity and dashboard related data. This information can be used to give insight on which page the user is currently active on. In this case for System A the important user session information is:
 
 \begin{itemize}
 	\item \textbf{User's identity:} The session contains the user's name and identity number which is the unique primary key for the user. This session information will always be available if the user is active on the software system from the instance they are logged in and verified until the user logs out and close their browser.
@@ -39,18 +39,18 @@ The user session helps to keep to track of any information needed for these page
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Column Name} & \textbf{SQL Data Type} & \textbf{Description} \\
 		\hline \textbf{ActivityID} & INT(11) & The activity identification is an incremental number of the event that is logged.\\
-		\hline \textbf{Timestamp} & DATETIME & Foreign reference key to the Dashboard table.\\
+		\hline \textbf{Timestamp} & DATETIME & This is the time which the event took place.\\
 		\hline \textbf{UserID} & INT(45) & Each user has a unique identifier which is a numerical identification number that is foreign key reference to the User table.\\
-		\hline \textbf{DashboardID} & INT(4) & Foreign key reference to the Dashboard table. Most of the dashboards will have a defined dashboard ID that is used identity the selected dashboard. \\
+		\hline \textbf{DashboardID} & INT(4) & Foreign key reference to the Dashboard table. \\
 		\hline \textbf{GroupID} & INT(4) & This foreign key reference to the Group table is contract groups identification number. \\ 		
 		\hline \textbf{ActivityType} & ENUM & Each event that user initiated has an activity type as in \Cref{tbl:Ch2_SystemA_EventTypes}. \\
 		\hline \textbf{File} & VARCHAR(200) & This the PHP file from which the request is processed.\\
-		\hline \textbf{RequestParameters} & JSON & Request parameters of the event. This can also be other meta data is important to get that adds more information about the user's activity using certain controls on a dashboard or toolbox. \\
+		\hline \textbf{RequestParameters} & JSON & Request parameters of the event. This can be other meta data is important about the user's activity using certain controls on a dashboard or toolbox. \\
 		\hline
 	\end{tabularx}
 \end{table}
 
-This key information is essential to define which key logging points the logging mechanism needs to get from the user session. In \Cref{tbl:Ch2_System_A_Logging_Points} System A's key logging points which are saved in a SQL database. Each logging point can be accessed either by the user session or other run-time data present when the event took place such as any meta data that as send back the server as request parameters.
+Obtaining the key information of the user generated event is essential to define which key logging points the logging mechanism needs to get from the user's session. In \Cref{tbl:Ch2_System_A_Logging_Points} System A's key logging points which are saved in a SQL database. Each logging point can be accessed either by the user session or other run-time data present when the event took place such as any meta data that as send back the server as request parameters.
 
 The user activity types in \Cref{tbl:Ch2_SystemA_EventTypes} is all of the possible activities the user can generate in System A. The DetailView activities is expected to the largest portion of events that will be tracked as users will generally try to use multiple input elements on the dashboard or toolbox. \par The Dash event type is only useful to track which dashboards and toolboxes the user navigates to and it will not be accurate indicator to how much a dashboard or toolbox is used. The DetailView and Report user activity types is better representation of the utilisation of these software components as these events are the user's objectives using the software systems and not trying access the software systems.  
 
@@ -63,7 +63,7 @@ The user activity types in \Cref{tbl:Ch2_SystemA_EventTypes} is all of the possi
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline \textbf{Activity Type} & \textbf{Description} \\
 		\hline \textbf{Dash} & Any activity that the user attempts to access a toolbox or dashboard on System A is Dash event type. \\
-		\hline \textbf{DetailView} & Any other activities such as viewing certain dates data or editing and saving activities on System A is DetailView events and have other meta data which is the request parameters send back to server. These events exclude Report events. \\
+		\hline \textbf{DetailView} & Any other activities such as viewing certain date's data or editing and saving activities on System A is DetailView events and have other meta data which is the request parameters send back to server. These events exclude Report events. \\
 		\hline \textbf{Report} & There are multiple detailed reports generated on these dashboards which are classified as Report events. \\
 		\hline
 	\end{tabularx}
@@ -110,11 +110,11 @@ In the clients functional requirements (F/R 1) the user is main focus and is the
 
 \subsubsection{Dash user activty type classification}
 
-In \Cref{fig:ch2_Dash_PHP_Flow} is the process of getting the Dash user activity event type for System A. In System A there are certain software components in a dashboard manager file that manages the dashboards according to which the user has selected to view. This dashboard manager file will always be execute the needed processes to manage the dashboard.\par When the user sends a request a to view a dashboard the requested dashboard's ID send to the dashboard manager. The dashboard manager will attempt to get the dashboard based on the provided dashboard ID. If the request doesn't contain a dashboard ID parameter, any attempt to log the activity will be ended and will be handled with the logging process described in \Cref{fig:ch2_DetailView_Flow}. \par If the dashboard ID parameter does exist and is not an empty or null value it will be added to the activity parameters. The activity parameters consist of some of the parameters needed for \Cref{tbl:Ch2_System_A_Logging_Points} when the event log is eventually saved in the database. For System A there will always be additional parameters  
+In \Cref{fig:ch2_Dash_PHP_Flow} is the process of getting the Dash and Report user activity event type for System A. In System A there are certain software components in a dashboard manager file that manages the dashboards according to which the user has selected to view. This dashboard manager file will always be execute the needed processes to manage the dashboard upon is start-up phase.\par When the user sends a request a to view a dashboard the requested dashboard's ID send to the dashboard manager. The dashboard manager will attempt to get the dashboard based on the provided dashboard ID. If the request doesn't contain a dashboard ID parameter, any attempt to log the activity will be ended and will be handled with the logging process described in \Cref{fig:ch2_DetailView_Flow}. \par If the dashboard ID parameter does exist and is not an empty or null value it will be added to the activity parameters. The activity parameters consist of some of the parameters needed for \Cref{tbl:Ch2_System_A_Logging_Points} when the event log is eventually saved in the database. \par In System A there are reports generated and some of the events of the report generation will use the dashboard manager's file. These user generated events can only be traced there and will send an action parameter that is use to initiate the report generation process.\par If the action parameter contains report generation value the activity type needs to be set to the Report user activity type otherwise it is set the Dash user activity type. After the additional parameters and activity type parameters are set the ActivityTracker function is called to complete the log and save it in the database. 
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.65\textwidth]{Images/Chapter2/Dash_PHP_Flow/Dash_PHP_Flow.pdf}
+	\includegraphics[width=0.7\textwidth]{Images/Chapter2/Dash_PHP_Flow/Dash_PHP_Flow.pdf}
 	\caption[User activity logging process in the Dash.php file flow diagram]
 	{\textit{User activity logging process in the Dash.php file flow diagram}}\label{fig:ch2_Dash_PHP_Flow}
 \end{figure}
@@ -123,9 +123,20 @@ In \Cref{fig:ch2_Dash_PHP_Flow} is the process of getting the Dash user activity
 
 \subsubsection{User activity logging process of DetailView and Report event types}
 
+In \Cref{fig:ch2_DetailView_Flow} is the process of getting the DetailView and Report user activity event type for System A. This logging process is used in each file that dashboards are created from. In \Cref{fig:ch2_SystemA_Dashboard} multiple dashboards can use the same files with different configuration parameters send with the request, therefore this significantly reduces the needed development to enable the user activity tracking for the dashboards.\par After the user has navigated to their selected dashboard, any user generated request is logged as user activities in System A. These events can be divided into the DetailView and Report event types based on their action parameters that is send with the request. If the event doesn't have any action parameters, the logging process terminates as this event doesn't count as a valid user activity event.
+
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.5\textwidth]{Images/Chapter2/DetailView_Flow/DetailView_Flow.pdf}
+	\includegraphics[width=0.55\textwidth]{Images/Chapter2/DetailView_Flow/DetailView_Flow.pdf}
+	\caption[User activity logging process of DetailView and Report event types flow diagram]
+	{\textit{User activity logging process of DetailView and Report event types flow diagram}}\label{fig:ch2_DetailView_Flow}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.8\textwidth]{Images/Chapter2/SystemA_ActivityTracker/SystemA_ActivityTracker.pdf}
 	\caption[User activity logging process of DetailView and Report event types flow diagram]
 	{\textit{User activity logging process of DetailView and Report event types flow diagram}}\label{fig:ch2_DetailView_Flow}
 \end{figure}
