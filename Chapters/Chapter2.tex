@@ -108,7 +108,7 @@ In \Cref{fig:CH2_SystemBMetaData} is the meta data JSON for the RequestParameter
 	{\textit{System A logging mechanism architecture design}}\label{fig:ch2_SystemA_Arch_Design}
 \end{figure}
 
-In the client's functional requirements (F/R 1) the user the is main focus and is the initiator of user activity event logs that take place in System A. The user has a direct interface (I/F 1.1) to the device (F/R 1.2) that is currently browsing System A's websites for specific tasks.\par If the user initiates an activity the request will in most cases either be handled in the dashboard manager of System A or on a defined file where the dashboards software components are. These activities are either captured by the logging mechanisms of \Cref{fig:ch2_Dash_PHP_Flow} or \Cref{fig:ch2_DetailView_Flow} that gets the necessary parameters and defines the type of the user generated event of \Cref{tbl:Ch2_SystemA_EventTypes}. \par The user generated event (F/R 1.3) 
+In the client's functional requirements (F/R 1) the user the is main focus and is the initiator of user activity event logs that take place in System A. The user has a direct interface (I/F 1.1) to the device (F/R 1.2) that is currently browsing System A's websites for specific tasks.\par If the user initiates an activity the request will in most cases either be handled in the dashboard manager of System A or on a defined file where the dashboards software components are. These activities are either captured by the logging mechanisms of \Cref{fig:ch2_Dash_PHP_Flow} or \Cref{fig:ch2_DetailView_Flow} that gets the necessary parameters and defines the type of the user generated event of \Cref{tbl:Ch2_SystemA_EventTypes}. \par The user generated event (F/R 1.3) is send to the user activity tracker logger (F/R 2.1) which is the database interaction of the logging mechanism as in \Cref{fig:CH2_SystemA_DB_Iteraction_FlowDiagram} to create a log entry in the SQL database of (F/R 2.2).
 
 \subsubsection{Dash user activty type classification}
 
@@ -138,11 +138,13 @@ In \Cref{fig:ch2_DetailView_Flow} is the process of getting the DetailView and R
 
 \subsubsection{Database interaction of the logging mechanism}\label{sec:CH2_SystemA_DB_Iteraction_FlowDiagram}
 
+In \Cref{fig:ch2_Dash_PHP_Flow,fig:ch2_DetailView_Flow} 
+
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
 	\includegraphics[width=0.5\textwidth]{Images/Chapter2/SystemA_ActivityTracker/SystemA_ActivityTracker.pdf}
-	\caption[User activity logging process of DetailView and Report event types flow diagram]
-	{\textit{User activity logging process of DetailView and Report event types flow diagram}}\label{fig:CH2_SystemA_DB_Iteraction_FlowDiagram}
+	\caption[User activity logging mechanism database interaction]
+	{\textit{User activity logging mechanism database interaction}}\label{fig:CH2_SystemA_DB_Iteraction_FlowDiagram}
 \end{figure}
 
 \clearpage
