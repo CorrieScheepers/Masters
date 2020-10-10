@@ -16,7 +16,7 @@ In \Cref{fig:ch2_SystemA_Dashboard} each mine group have multiple toolboxes link
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.7\textwidth]{Images/Chapter2/SystemA_Dashboard/SystemA_Dashboard.pdf}
+	\includegraphics[width=0.9\textwidth]{Images/Chapter2/SystemA_Dashboard/SystemA_Dashboard.pdf}
 	\caption[System A dashboard links]
 	{\textit{System A dashboard links}}\label{fig:ch2_SystemA_Dashboard}
 \end{figure}
@@ -30,8 +30,6 @@ The user session helps to keep to track of any information needed for these page
 	\item \textbf{Configuration meta data identity:} In \Cref{fig:ch2_SystemA_Dashboard} the same dashboard can be linked to different mine groups or toolboxes. The user session contains any other identification parameters of which meta data should be loaded to configure the dashboard for the correct mine group and toolbox.
 \end{itemize}
 
-This key information is essential to define which key logging points the logging mechanism needs to get from the user session. In \Cref{tbl:Ch2_System_A_Logging_Points} System A's key logging points which are saved in a SQL database. Each logging point can be accessed either by the user session or other run-time data present when the event took place such as any meta data that as send back the server as request parameters.
-
 \begin{table}[!htb]
 	\centering
 	\small
@@ -43,6 +41,7 @@ This key information is essential to define which key logging points the logging
 		\hline \textbf{ActivityID} & INT(11) & The activity identification is an incremental number of the event that is logged.\\
 		\hline \textbf{Timestamp} & DATETIME & Foreign reference key to the Dashboard table.\\
 		\hline \textbf{UserID} & INT(45) & Each user has a unique identifier which is a numerical identification number that is foreign key reference to the User table.\\
+		\hline \textbf{DashboardID} & INT(4) & Foreign key reference to the Dashboard table. Most of the dashboards will have a defined dashboard ID that is used identity the selected dashboard. \\
 		\hline \textbf{GroupID} & INT(4) & This foreign key reference to the Group table is contract groups identification number. \\ 		
 		\hline \textbf{ActivityType} & ENUM & Each event that user initiated has an activity type as in \Cref{tbl:Ch2_SystemA_EventTypes}. \\
 		\hline \textbf{File} & VARCHAR(200) & This the PHP file from which the request is processed.\\
@@ -50,6 +49,8 @@ This key information is essential to define which key logging points the logging
 		\hline
 	\end{tabularx}
 \end{table}
+
+This key information is essential to define which key logging points the logging mechanism needs to get from the user session. In \Cref{tbl:Ch2_System_A_Logging_Points} System A's key logging points which are saved in a SQL database. Each logging point can be accessed either by the user session or other run-time data present when the event took place such as any meta data that as send back the server as request parameters.
 
 The user activity types in \Cref{tbl:Ch2_SystemA_EventTypes} is all of the possible activities the user can generate in System A. The DetailView activities is expected to the largest portion of events that will be tracked as users will generally try to use multiple input elements on the dashboard or toolbox. \par The Dash event type is only useful to track which dashboards and toolboxes the user navigates to and it will not be accurate indicator to how much a dashboard or toolbox is used. The DetailView and Report user activity types is better representation of the utilisation of these software components as these events are the user's objectives using the software systems and not trying access the software systems.  
 
@@ -68,6 +69,15 @@ The user activity types in \Cref{tbl:Ch2_SystemA_EventTypes} is all of the possi
 	\end{tabularx}
 \end{table}
 
+Using the key logging points of \Cref{tbl:Ch2_System_A_Logging_Points} the \emph{ERD} for all the tables used to for System A user activity logging data is created in \Cref{fig:Ch2_SystemA_Basic_ERD}. Table SystemA\_UserActvities is where all the user activity tracking data is stored in a SQL database with foreign key references to the Dashboards, Users and Groups tables.
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.9\textwidth]{Images/Chapter2/SystemA_ERD_Basic/SystemA_ERD_Basic.pdf}
+	\caption[System A user activity ERD]
+	{\textit{System A user activity ERD}}\label{fig:Ch2_SystemA_Basic_ERD}
+\end{figure}
+
 In \Cref{fig:CH2_SystemBMetaData} is the meta data Json for the RequestParameters column in \Cref{tbl:Ch2_System_A_Logging_Points}. This Json contains certain data parameters important to the event that the user has initiated. This request parameters will need to be specified for each toolbox and dashboard the user events are logged of for System A.
 
 \begin{figure}[!htb]
@@ -83,17 +93,6 @@ In \Cref{fig:CH2_SystemBMetaData} is the meta data Json for the RequestParameter
 	\caption[System A meta data Json]
 	{\textit{System A meta data Json}}\label{fig:CH2_SystemAMetaData}
 \end{figure}
-
-Using the key logging points of \Cref{tbl:Ch2_System_A_Logging_Points} the \emph{ERD} for all the tables used to for System A user activity logging data is created in \Cref{fig:Ch2_SystemA_Basic_ERD}. Table SystemA\_UserActvities is where all the user activity tracking data is stored in a SQL database with foreign key references to the Dashboards, Users and Groups tables.
-
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
-	\centering % cent the figure
-	\includegraphics[width=0.9\textwidth]{Images/Chapter2/SystemA_ERD_Basic/SystemA_ERD_Basic.pdf}
-	\caption[System A user activity ERD]
-	{\textit{System A user activity ERD}}\label{fig:Ch2_SystemA_Basic_ERD}
-\end{figure}
-
-\clearpage
 
 \subsubsection{System A logging mechanism design}
 \Cref{sec:SystemA_LoggingPoints} the logging points System A's key logging points need to be captured by a logging mechanism. In \Cref{fig:ch2_SystemA_Arch_Design} is the design for the System A's logging mechanism to effectively log the user generated event from the PHP software components. The logging mechanism consist of two main functional requirements (\textbf{F/R}) which is the client and server functional requirements.
@@ -111,7 +110,7 @@ In the clients functional requirements (F/R 1) the user is main focus and is the
 
 \subsubsection{Dash user activty type classification}
 
-In \Cref{fig:ch2_Dash_PHP_Flow} is the process of getting the Dash user activity event type for System A. In System A there are certain software components in a dashboard manager file that manages the dashboards according to which the user has selected to view. This dashboard manager file will always be execute the needed processes to manage the dashboard. 
+In \Cref{fig:ch2_Dash_PHP_Flow} is the process of getting the Dash user activity event type for System A. In System A there are certain software components in a dashboard manager file that manages the dashboards according to which the user has selected to view. This dashboard manager file will always be execute the needed processes to manage the dashboard.\par When the user sends a request a to view a dashboard the requested dashboard's ID send to the dashboard manager. The dashboard manager will attempt to get the dashboard based on the provided dashboard ID. If the request doesn't contain a dashboard ID parameter, any attempt to log the activity will be ended and will be handled with the logging process described in \Cref{fig:ch2_DetailView_Flow}. \par If the dashboard ID parameter does exist and is not an empty or null value it will be added to the activity parameters. The activity parameters consist of some of the parameters needed for \Cref{tbl:Ch2_System_A_Logging_Points} when the event log is eventually saved in the database. For System A there will always be additional parameters  
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
