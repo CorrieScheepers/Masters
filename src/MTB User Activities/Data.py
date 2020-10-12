@@ -5,6 +5,7 @@ import mysql.connector as MySQL
 import pandas as pd 
 import numpy as np
 
+#  deepcode ignore NoHardcodedPasswords: <comment the reason here>
 lDatabase = MySQL.connect(host='localhost', user='root', password='Hvacint001', database='mtb_database')
 
 # %%
