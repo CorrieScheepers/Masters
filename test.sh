@@ -8,7 +8,7 @@
 
 
 # build pdf from source
-latexmk -synctex=1 -interaction=nonstopmode -halt-on-error Document.tex
+pdflatex -synctex=1 -interaction=nonstopmode -halt-on-error Document.tex
 #bibtex Document.aux
 #pdflatex -synctex=1 -interaction=nonstopmode -halt-on-error Document.tex
 #pdflatex -synctex=1 -interaction=nonstopmode -halt-on-error Document.tex
