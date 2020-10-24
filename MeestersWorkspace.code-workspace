@@ -23,6 +23,8 @@
 			"xtick",
 			"ylabel"
 		],
-		"workbench.colorTheme": "Monokai"
+		"workbench.colorTheme": "Monokai",
+		"latex-workshop.latex.autoClean.run": "onBuilt",
+		"latex-workshop.synctex.afterBuild.enabled": true
 	}
 }
