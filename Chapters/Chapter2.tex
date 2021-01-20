@@ -12,7 +12,7 @@ For this study two software systems are used to implement two different logging 
 \clearpage
 
 \subsection{System A}
-Logging point are essential data that describes the event's key features when creating a log as discussed in \Cref{sec:Ch1_LoggignPoints}. Both System A and B have certain key logging points that needs to be obtained from the user generated event.
+Logging point is essential data that describes the event's key features when creating a log as discussed in \Cref{sec:Ch1_LoggignPoints}. Both System A and B have certain key logging points that need to be obtained from the user-generated event.
 
 \subsubsection{System A's logging points}\label{sec:SystemA_LoggingPoints}
 In \Cref{fig:ch2_SystemA_Dashboard} each mine group have multiple toolboxes linked to them. They can be same toolbox linked to both mine groups such as \emph{T1} and \emph{T3}. These toolboxes represent a group of dashboards related to the aspects of energy management of mines.\par Each of these toolboxes have a dashboards linked to them and each mine group can have different dashboards linked to the to the same toolbox. Each one of these mine groups, toolboxes and dashboards forms part of System A's web pages which the user can access where event logs are generated.
@@ -26,7 +26,7 @@ In \Cref{fig:ch2_SystemA_Dashboard} each mine group have multiple toolboxes link
 
 \clearpage
 
-Each dashboard in \Cref{fig:ch2_SystemA_Dashboard} can use the same files to create the a dashboard by only configuring the content of the dashboard based on the request parameters that is send when the user navigates to a new dashboard. Capturing the user generated events with a logging mechanism can be done in these shared files instead of the entire software components of System A.\par The user session helps to keep to track of any information needed for these pages to be fully functional like the user's identity and dashboard related data. This information can be used to give insight on which page the user is currently active on. In this case for System A the important user session information is:
+Each dashboard in \Cref{fig:ch2_SystemA_Dashboard} can use the same files to create a dashboard by only configuring the content of the dashboard based on the request parameters that is send when the user navigates to a new dashboard. Capturing the user generated events with a logging mechanism can be done in these shared files instead of the entire software components of System A.\par The user session helps to keep to track of any information needed for these pages to be fully functional like the user's identity and dashboard related data. This information can be used to give insight on which page the user is currently active on. In this case for System A the important user session information is:
 
 \begin{itemize}
 	\item \textbf{User's identity:} The session contains the user's name and identity number which is the unique primary key for the user. This session information will always be available if the user is active on the software system from the instance they are logged in and verified until the user logs out and close their browser.
