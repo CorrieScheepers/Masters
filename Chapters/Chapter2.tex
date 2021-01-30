@@ -4,7 +4,7 @@
 
 \section{Preamble}
 %% TODO More Information in this section. Introduce the rest of the chapter
-In this chapter the methodology to create and implement a logging mechanism to do system utilisation analysis on software system will be discussed. \Cref{sec:EventLogging} provided the necessary literature to create a logging mechanism in \Cref{sec:Ch3_LoggingMechanism} for two software systems.
+In this chapter, the methodology to create and implement a logging mechanism to do system utilisation analysis on software system will be discussed. \Cref{sec:EventLogging} provided the necessary literature to create a logging mechanism in \Cref{sec:Ch3_LoggingMechanism} for two software systems.
 
 \section{Logging mechanism}\label{sec:Ch3_LoggingMechanism}
 For this study two software systems are used to implement two different logging mechanisms. The first software system which will be called System A, is energy management system that uses \emph{PHP}. System B is a \emph{.NET Framework}\footnote{\label{ftn:NetFramework}\textbf{.NET Framework} is a run-time execution environment that consists of common language run-time (\emph{CLR}) and a \texttt{.NET Framework Class Library} \cite{Harkness2007}.} system with a \emph{MVC} architecture as in \Cref{fig:ch2_Flow_MVC_Architecture} and is the administrative software system to configure System A.
@@ -26,7 +26,7 @@ In \Cref{fig:ch2_SystemA_Dashboard} each mine group have multiple toolboxes link
 
 \clearpage
 
-Each dashboard in \Cref{fig:ch2_SystemA_Dashboard} can use the same files to create a dashboard by only configuring the content of the dashboard based on the request parameters that is send when the user navigates to a new dashboard. Capturing the user generated events with a logging mechanism can be done in these shared files instead of the entire software components of System A.\par The user session helps to keep to track of any information needed for these pages to be fully functional like the user's identity and dashboard related data. This information can be used to give insight on which page the user is currently active on. In this case for System A the important user session information is:
+Each dashboard in \Cref{fig:ch2_SystemA_Dashboard} can use the same files to create a dashboard by only configuring the content of the dashboard based on the request parameters that is send when the user navigates to a new dashboard. Capturing the user-generated events with a logging mechanism can be done in these shared files instead of the entire software components of System A.\par The user session helps to keep to track of any information needed for these pages to be fully functional like the user's identity and dashboard related data. This information can be used to give insight on which page the user is currently active on. In this case for System A the important user session information is:
 
 \begin{itemize}
 	\item \textbf{User's identity:} The session contains the user's name and identity number which is the unique primary key for the user. This session information will always be available if the user is active on the software system from the instance they are logged in and verified until the user logs out and close their browser.

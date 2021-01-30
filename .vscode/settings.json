@@ -3,5 +3,22 @@
     "cSpell.words": [
         "Setup",
         "pdfauthor"
+    ],
+    "grammarly.overrides": [
+        {
+            "files": [
+                "**/Chapters/Chapter2.tex"
+            ],
+            "config": {
+                "audience": "knowledgeable",
+                "dialect": "british",
+                "domain": "academic",
+                "emotions": [
+                    "neutral",
+                    "analytical"
+                ],
+                "goals": []
+            }
+        }
     ]
 }
