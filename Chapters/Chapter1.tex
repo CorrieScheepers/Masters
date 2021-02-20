@@ -15,10 +15,10 @@ Software maintenance according to the \textit{IEEE Standard 1219}\footnote{\text
 	\item Delivery requirements met of the modified software system
 \end{itemize}
 
-Maintenance of software systems is continuous and is a reduced form of software development and is aimed to modify software systems while preserving its integrity \cite{Sneed2004, Ackermann2009}. Software maintenance needs to be done regular intervals of the entire lifespan of the software project. 
+The maintenance problems or modification is reguraly identified and will uselly be adressed based on an initial priority ranking. This priority ranking is determined by uisng classification models to determine which type of maintenance needs to be done (adaptive, corrective, prefective and preventive) \cite{Tang2010,Mamone1994,Ping2010}.\par Continuous analysis of the identified maintenance problems or modifications enables the software engineers and developers to create preliminary plan to adress these issues \cite{Port2017}. Technical debt refers to the slowdown of development or unforeseen emergency solutions implemeted or proposed for software issues \cite{DeLeon-Sigg2020}. Technical debt can exist in almost every software system and should be correctly managed by analysising which maintenance issues should be priortise.\par Implementing a suitable maintenance framwork to resolve the identified issues reduces the technical debt. There are various maintenance models that can be used to solve this issues when implementing any one the maintenance types. The process to identify and analys these is issues is the most difficult part of software maintenance \cite{DeLeon-Sigg2020}.
 
 \subsection{Maintenance in software systems}
-Most companies will strife to increase their digital products and services over the life cycle of the software project. This will increase the maintenance that needs to be done on both new and old systems \cite{Niu2018, Galster2019, Hasan2012}. Although maintenance is important for software systems, most companies don't have a defined maintenance model or process to guide them when implementing maintenance \cite{Stojanov2017}. \par Software maintenance is an essential task in software development, it can directly reduce cost and effort to create new software systems or modify it \cite{FrancisThamburaj2017}. A a study about software maintenance was conducted by the United States Department of Commerce. They found that the total development cost can be as much as $60\%$-$80\%$ of the total cost for the software system's development life cycle \cite{Ogheneovo2014, Stark1996, Ackermann2009,Tang2010}. These costs will increase (as shown in \Cref{fig:CH1_Costs_of_fixing_bugs}) to maintain much older and more complex software systems, therefore implementing maintenance can keep the software system feasible in its entire life cycle \cite{Alenezi2016, Booch1986}.
+Most companies will strive to increase their digital products and services over the life cycle of the software project to maximise their profits \cite{Gralha2018}. This will increase the maintenance that needs to be done on both new and old systems \cite{Niu2018, Galster2019, Hasan2012}. Although maintenance is important for software systems, most companies don't have a defined maintenance model or process to guide them when implementing maintenance \cite{Stojanov2017}. Software maintenance is an essential task in software development, it can directly reduce cost and effort to create new software systems or modify it \cite{FrancisThamburaj2017}.\par A a study about software maintenance was conducted by the United States Department of Commerce. They found that the total development cost can be as much as $60\%$-$80\%$ of the total cost for the software system's development life cycle \cite{Ogheneovo2014, Stark1996, Ackermann2009,Tang2010}. These costs will increase (as shown in \Cref{fig:CH1_Costs_of_fixing_bugs}) to maintain much older and more complex software systems, therefore implementing maintenance can keep the software system feasible in its entire life cycle \cite{Alenezi2016, Booch1986}.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -27,23 +27,32 @@ Most companies will strife to increase their digital products and services over 
 	{\textit{Cost of fixing software system defects \cite{Ogheneovo2014}}}\label{fig:CH1_Costs_of_fixing_bugs}
 \end{figure} 
 
-In \Cref{tbl:CH1_MaintenanceTypes} the adaptive and perfective maintenance types are most effective when maintaining the software integrity of a system. After a project is done the development team will mainly focus to make improvements based on the user's feedback or analysis of the performance of the software system. Software maintenance is needed but it can be difficult to prioritise the resources to certain parts of the software system to do maintenance on \cite{Mamone1994, Hasan2012}.
+Maintenance of software systems is continuous and is a reduced form of software development and is aimed to modify software systems while preserving its integrity \cite{Sneed2004,Ackermann2009,Port2017}. In \Cref{tbl:CH1_MaintenanceTypes}, adaptive and perfective maintenance types are most effective when maintaining the integrity of a software system. These two major types of maintenance is what most software engineers and developers will implement in their maintenance procedures.\par Adaptive and perfective maintenance ensures the software system will continue to evovle to meet the system requirements to ensure that the software system is useable and feasible. This is also the most effective way of reducing technical debt by adapting the software system. This continuous improvement uses about $70\%$ of the maintenance resources just to manage maintenance of the software system \cite{Kumar2013}. 
 
 \begin{table}[!htb]
 	\centering
 	\small
 	\caption[Software maintenance types]
-	{\textit{Software maintenance types}}
+	{\textit{Software maintenance types \cite{Ping2010,Hasan2012,Mamone1994}}}
 	\label{tbl:CH1_MaintenanceTypes}
 	\begin{tabularx}{\textwidth}{|c|X|c|}
 		\hline
 		\textbf{Maintenance type} & \textbf{Description} & \textbf{$\%$ of maintenance activities} \\ \hline
-		Adaptive & \raggedright Adaptive maintenance are any software systems. This also include enhancements to the software systems. & $\approx 35.5\%$ \\ \hline
-		Perfective & Perfective maintenance based are modifications made based on the change of the user's requirements. & $\approx 35.5\%$ \\ \hline
+		Adaptive & \raggedright Adaptive maintenance in software systems is any modification or enhancements to keep it usable with a changing or changed software environment. & $\approx 35.5\%$ \\ \hline
+		Perfective & Perfective maintenance based are modifications made based on the change of the end-user's new requirements. It can also improve the performance or maintainability of the software system in its life cycle. & $\approx 35.5\%$ \\ \hline
 		Corrective & \raggedright Corrective maintenance are improvements made to fix certain defects or errors in a software system. & $\approx 20\%$ \\ \hline
 		Preventive & \raggedright  Preventive maintenance are improvements made to software systems that prevents problems in the future. & $\approx 5\%$ \\ \hline
 	\end{tabularx}
 \end{table}
+
+Software maintenance is needed but it can be difficult to prioritise the resources to certain parts of the software system to do maintenance on and what type of maintenance it will be \cite{Mamone1994, Hasan2012}.The defect density of the software system will most likely increase over the software system's life cycle.
+
+\begin{equation}
+	\label{eq:Defect_Density}
+	Defect~Density = \frac{Number~of~Defects}{KLOC},
+\end{equation}
+
+In \Cref{fig:CH1_Costs_of_fixing_bugs} the cost of maintenance increase if the maintenance activities increases when when implementing the four major types of software maintenance. These maintenance activiteis cannot be negleted as the software will most likely keep evoling as new features are added to keep it useable \cite{Alenezi2016}. \par In an ideal situation the maintenance should be done with the stage of planing phase software development. Due to time constraints and available resources it is difficult to plan any maintenance phase for most software engineers and programmers. The cost increaseses of maintenance due to lack of planning or preventive measurements to keep the quality software from dergrading \cite{Alenezi2016}.
 
 \subsection{Problems with implementing software maintenance}\label{sec:Maintenance_problems}
 
@@ -214,11 +223,7 @@ Creating logging mechanisms will need additional code to be written in the softw
 \clearpage
 
 \section{Objectives of the study}
-The goal of the study is to develop a logging mechanism to track user-based
-activities to preform analysis of these logs to improve system maintenance in
-software environment. The study is divided in two components to achieve the
-primary goal which is the design and implementation of the logging mechanism
-and the analysis of the system utilisation to improve system maintenance.
+The goal of the study is to develop a logging mechanism to track user-based activities to preform analysis of these logs to improve system maintenance in software environment. The study is divided in two components to achieve the primary goal which is the design and implementation of the logging mechanism and the analysis of the system utilisation to improve system maintenance.
 
 \subsection{Logging mechanism:}
 \begin{itemize}
@@ -232,6 +237,5 @@ and the analysis of the system utilisation to improve system maintenance.
 
 \section{Overview of the dissertation}
 \subsubsection{Chapter 1: Introduction}
-This chapter contains the background of software maintenance and system
-utilisation analysis.
+This chapter contains the background of software maintenance and system utilisation analysis. It defines the complexities and general issues with software maintenance when implementing it and not implementing it.
 \subsubsection{Chapter 2: Methodology}
