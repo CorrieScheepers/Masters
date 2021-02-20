@@ -27,7 +27,7 @@ Most companies will strive to increase their digital products and services over 
 	{\textit{Cost of fixing software system defects \cite{Ogheneovo2014}}}\label{fig:CH1_Costs_of_fixing_bugs}
 \end{figure} 
 
-Maintenance of software systems is continuous and is a reduced form of software development and is aimed to modify software systems while preserving its integrity \cite{Sneed2004,Ackermann2009,Port2017}. In \Cref{tbl:CH1_MaintenanceTypes}, adaptive and perfective maintenance types are most effective when maintaining a software system's integrity. Most software engineers and developers will implement these two major types of maintenance in their maintenance procedures.\par Adaptive and perfective maintenance ensures the software system will continue to evolve to meet the system requirements to ensure that it is useable and feasible. This is also the most effective way of reducing technical debt by adapting the software system. This continuous improvement uses about $70\%$ of the maintenance resources to manage the maintenance of the software system \cite{Kumar2013}. 
+Maintenance of software systems is continuous and is a reduced form of software development and is aimed to modify software systems while preserving its integrity \cite{Sneed2004,Ackermann2009,Port2017}. In \Cref{tbl:CH1_MaintenanceTypes}, adaptive and perfective maintenance types are most effective when maintaining a software system's integrity. Most software engineers and developers will implement these two significant types of maintenance in their maintenance procedures.\par Adaptive and perfective maintenance ensures the software system will continue to evolve to meet the system requirements to ensure that it is useable and feasible. This is also the most effective way of reducing technical debt by adapting the software system. This continuous improvement uses about $70\%$ of the maintenance resources to manage the maintenance of the software system \cite{Kumar2013}. 
 
 \begin{table}[!htb]
 	\centering
@@ -45,14 +45,14 @@ Maintenance of software systems is continuous and is a reduced form of software 
 	\end{tabularx}
 \end{table}
 
-It can be strenuous to prioritise the available resources to certain parts of the software system to do maintenance on and what type of maintenance it will be \cite{Mamone1994, Hasan2012}. The defect density of the software system will most likely increase over the software system's life cycle.
+It can be strenuous to prioritise the available resources to certain parts of the software system to do maintenance and what type of maintenance it will be \cite{Mamone1994, Hasan2012}. The defect density of the software system will most likely increase over the software system's life cycle.
 
 \begin{equation}
 	\label{eq:Defect_Density}
 	Defect~Density = \frac{Number~of~Defects}{KLOC},
 \end{equation}
 
-In \Cref{fig:CH1_Costs_of_fixing_bugs} the cost of maintenance increase if the maintenance activities increase when implementing the four major types of software maintenance. These maintenance activities cannot be neglected as the software will most likely keep evolving as new features are added to keep it useable \cite{Alenezi2016}. \par In an ideal situation, the maintenance should be done with the software development planning phase. Due to time constraints and available resources, it is not easy to plan any maintenance phase for most software engineers and programmers. The cost increases of maintenance due to lack of planning or preventive measurements to keep the quality software from degrading \cite{Alenezi2016}.
+In \Cref{fig:CH1_Costs_of_fixing_bugs}, the cost of maintenance increase if the maintenance activities increase when implementing the four major types of software maintenance. These maintenance activities cannot be neglected as the software will most likely keep evolving as new features are added to keep it useable \cite{Alenezi2016}. \par In an ideal situation, the maintenance should be done with the software development planning phase. Due to time constraints and available resources, it is not easy to plan any maintenance phase for most software engineers and programmers. The cost increases of maintenance due to lack of planning or preventive measurements to keep the quality software from degrading \cite{Alenezi2016}.
 
 \subsection{Problems with implementing software maintenance}\label{sec:Maintenance_problems}
 
@@ -107,7 +107,7 @@ where:
 	\item $\succ \subseteq E\times E$ is the total ordered events in $E$ that belongs to a specific case that is called a trace.
 \end{itemize}
 
-As mentioned in \Cref{section:background} software maintenance can make use of event logs to improve software maintenance. It is a common practice in the software industry to record any detailed system run-time information into logs to be analysed later by developers or software engineers to solve software related problems with the system as in \Cref{tbl:CH1_EventLogsUsage} \cite{Zhu2019}.
+As mentioned in \Cref{section:background}, software maintenance can make use of event logs to improve software maintenance. It is a common practice in the software industry to record any detailed system run-time information into logs to be analysed later by developers or software engineers to solve software related problems with the system as in \Cref{tbl:CH1_EventLogsUsage} \cite{Zhu2019}.
 
 \begin{table}[!htb]
 	\centering
@@ -119,7 +119,7 @@ As mentioned in \Cref{section:background} software maintenance can make use of e
 		\hline \textbf{Usage} & \textbf{Description} \\
 		\hline Debugging of software systems & Able to diagnose software failures for both testing and production environments \cite{Rong2018a}.\\
 		\hline Anomaly detection & Event logs can be used to detect any abnormal system behaviour using an anomalous detection algorithm using logging data \cite{Gurumdimma2016}. This can also be used to find any vulnerabilities in the software environment \cite{Dwyer2013}. \\
-		\hline Performance diagnosis & Software performance is important to producing quality software \cite{EvangelinGeetha2007,Baccanico2014}. This is mostly performance logs of software systems that are used to monitor the software system which is useful for resource tuning, load balancing and checking system scalability \cite{Song2017}. \\ 
+		\hline Performance diagnosis & Software performance is important to producing quality software \cite{EvangelinGeetha2007,Baccanico2014}. This is mostly performance logs of software systems that are used to monitor the software system, which is useful for resource tuning, load balancing and checking system scalability \cite{Song2017}. \\ 
 		\hline Error and failure analysis & Event logs are used to analyse the failure behaviours of software systems which enables engineers to understand the failure modes of the system, find the root cause of these failures, prevent them and improve the reliability of the future releases of the system \cite{Cinque2013}.\\
 		\hline Analysis of security alerts & In any software environment or information technology infrastructure, security is a major concern for any organisation \cite{Pathan2014, Dwyer2013}. It is important to know the overall security status of the software system \\
 		\hline
@@ -176,13 +176,13 @@ In \Cref{fig:PushblisedPapers} shows the distribution of the 41 published papers
 
 \subsection{Logging quality}
 
-Software engineers and developers will need to make informed logging decisions to cover the necessary run-time information without negatively impacting the software system's performance \cite{Zhu2015,Zhu2019,Kherbouche2017}. This does not ensure that there may be some problems using logging in software systems and the most common issues with event logging is:
+Software engineers and developers will need to make informed logging decisions to cover the necessary run-time information without negatively impacting the software system's performance \cite{Zhu2015,Zhu2019,Kherbouche2017}. This does not ensure that there may be some problems using logging in software systems, and the most common issues with event logging is:
 
 \subsubsection{Quantity of the logs:} 
-It can become difficult to log every event in a software system as these systems will get larger and more complex during their development life cycle \cite{Stojanov2017}. It would be bad too not log enough information during run-time as the necessary information about the event will make the postmortem analysis of the software system incomplete, however it is not always the best solution to log every possible event \cite{Zhu2015, Jans2012}.
+It can become difficult to log every event in a software system as these systems will get larger and more complex during their development life cycle \cite{Stojanov2017}. It would be bad too not log enough information during run-time as the necessary information about the event will make the postmortem analysis of the software system incomplete. However, it is not always the best solution to log every possible event \cite{Zhu2015, Jans2012}.
 
 \subsubsection{Quality of event logs} 
-The quantity of the logs is important but there may be unnecessary extra logs that will only take storage space which is not useful for log analysis. The accuracy and consistency of the logs are critical when making reliable decisions based on the identified behaviour of the software system with the historical data that exists in the logs \cite{Stojanov2017,Kherbouche2017}.\par An event log quality model is essential to ensure that the logs will be of high-quality for the data mining process in \Cref{sec:SystemUtilisation}. The data in an event log should be accurate, available and complete to ensure that the correct decisions can be made from the log analysis \cite{Kherbouche2017, VanDerAalst2011}.
+The logs' quantity is necessary, but there may be unnecessary extra logs that will only take storage space that is not useful for log analysis. The logs' accuracy and consistency are critical when making reliable decisions based on the identified behaviour of the software system with the historical data that exists in the logs \cite{Stojanov2017,Kherbouche2017}.\par An event log quality model is essential to ensure that the logs will be of high-quality for the data mining process in \Cref{sec:SystemUtilisation}. The data in an event log should be accurate, available and complete to ensure that the correct decisions can be made from the log analysis \cite{Kherbouche2017, VanDerAalst2011}.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -192,7 +192,7 @@ The quantity of the logs is important but there may be unnecessary extra logs th
 \end{figure}
 
 \subsubsection{Performance cost of logging} 
-Creating logging mechanisms will need additional code to be written in the software system to obtain the event logs. Software logging will consume additional system resources like the CPU and I/O of the host computer system. It is unacceptable to have noticeable performance issues due to the logging on the rest of the system operations and therefore the logging mechanism needs to be efficient as possible to get the necessary details about the event that took place \cite{Zhu2015,Zhu2019}. 
+Creating logging mechanisms will need additional code to be written in the software system to obtain the event logs. Software logging will consume additional system resources like the CPU and I/O of the host computer system. It is unacceptable to have noticeable performance issues due to the logging on the rest of the system operations. Therefore the logging mechanism needs to be efficient to get the necessary details about the event that took place \cite{Zhu2015,Zhu2019}. 
 
 \subsection{Logging points}\label{sec:Ch1_LoggignPoints}
 
@@ -223,7 +223,7 @@ Creating logging mechanisms will need additional code to be written in the softw
 \clearpage
 
 \section{Objectives of the study}
-The goal of the study is to develop a logging mechanism to track user-based activities to perform analysis of these logs to improve system maintenance in a software environment. The study is divided into two components to achieve the primary goal which is the design and implementation of the logging mechanism and the analysis of the system utilisation to improve system maintenance.
+This study aims to develop a logging mechanism to track user-based activities to perform analysis of these logs to improve system maintenance in a software environment. The study is divided into two components to achieve the primary goal, which is the design and implementation of the logging mechanism and the analysis of the system utilisation to improve system maintenance.
 
 \subsection{Logging mechanism:}
 \begin{itemize}
