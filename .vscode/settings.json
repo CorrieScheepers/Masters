@@ -19,6 +19,22 @@
                 ],
                 "goals": []
             }
+        },
+        {
+            "files": [
+                "**/Chapters/Chapter1.tex"
+            ],
+            "config": {
+                "audience": "knowledgeable",
+                "dialect": "british",
+                "domain": "academic",
+                "emotions": [
+                    "neutral"
+                ],
+                "goals": [
+                    "tellStory"
+                ]
+            }
         }
     ]
 }
