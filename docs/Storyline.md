@@ -16,5 +16,7 @@ This study aims to develop a logging mechanism to track user-based activities to
 4. Most important results?
   - Logging points identification
   - User activities per software system
+  - Resource allocation to improve maintenance
 
 5. Conclusions?
+ - Res
