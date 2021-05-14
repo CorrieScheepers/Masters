@@ -30,6 +30,6 @@
 
 ## Conclusions?
 
-- Priortising maintenance of software systems based on a utilisation analysis can improve the maintenance efforts of developers.
+- Prioritising maintenance of software systems based on a utilisation analysis can improve the maintenance efforts of developers.
 - Unused systems that are identified can be identified and removed.
 - The most used systems will receive the highest maintenance priority.
