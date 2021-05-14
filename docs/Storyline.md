@@ -1,14 +1,19 @@
 # Storyline
 
-1. What is the purpose of your study?
+## What is the purpose of your study?
 
-This study aims to develop a logging mechanism to track user-based activities to perform analysis of these logs to improve system maintenance in a software environment. The study is divided into two components to achieve the primary goal, which is the design and implementation of the logging mechanism and the analysis of the system utilisation to finally improve system maintenance.
+- This study aims to develop a logging methodology to track user-based activities and perform analysis of the obtained logs to improve system maintenance in a software environment.
+- First part of the study is to create and implement a logging methodology to capture user activities.
+- The second part is the system utilisation analysis to improve software maintenance
 
-2. Why is the work important?
+## Why is the work important?
 
- Maintenance is essential for the total life cycle of a software system. With as much as 60%-80% of the total resources spent on maintenance for the software systems life cycle it can become costly and inefficient implementing maintenance. Maintenance will either be neglected or be prioritise for certain software systems or parts of it. Identifying these systems and ranking the maintenance priority makes it easier to deliver the best software systems for most users.
+- Maintenance is essential for the total life cycle of a software system.
+- 60%-80% of the total resources spent on maintenance.
+- Maintenance will either be neglected or be prioritise for certain software systems.
+- Identifying these systems and ranking the maintenance priority makes it easier to deliver the best software systems for most users.
 
-3. How did you do the work?
+## How did you do the work?
 
 - Identified key logging points
 - Created a logging mechanism to capture the logging points
@@ -16,13 +21,15 @@ This study aims to develop a logging mechanism to track user-based activities to
 - Rank software systems against each other
 - Prioritise maintenance based on user's activities
 
-4. Most important results?
+## Most important results?
 
 - Logging points identification
 - User activities per software system
-- Resource allocation to improve maintenance (deprecation of unused systems)
+- Resource allocation to improve maintenance (focus on most used systems)
 - Maintenance effort improvements
 
-5. Conclusions?
+## Conclusions?
 
-Priortising maintenance of software systems based on a utilisation analysis can improve the maintenance efforts of developers. Unused systems that are identified can rather be deprecated if it doesn't fit any future functionality of the entire software system.
+- Priortising maintenance of software systems based on a utilisation analysis can improve the maintenance efforts of developers.
+- Unused systems that are identified can be identified and removed.
+- The most used systems will receive the highest maintenance priority.
