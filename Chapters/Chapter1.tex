@@ -15,6 +15,7 @@ Software maintenance according to the \textit{IEEE Standard 1219}\footnote{\text
 	\item Delivery requirements met of the modified software system
 \end{itemize}
 
+%TODO Beter definisie vir technical debt
 The maintenance problems or modification are regularly identified and usually addressed based on an initial priority ranking. This priority ranking is determined by using classification models to determine which type of maintenance needs to be done (adaptive, corrective, perfective and preventive) \cite{Tang2010,Mamone1994,Ping2010}.\par Continuous analysis of the identified maintenance problems or modifications enables the software engineers and developers to create a preliminary plan to address these issues \cite{Port2017}. Technical debt can exist in almost every software system and should be correctly managed by analysing which maintenance issues should be prioritised \cite{DeLeon-Sigg2020, Reimanis2016}.\par Implementing a suitable maintenance framework to resolve the identified issues reduces the technical debt. Various maintenance models can be used to solve these issues when implementing any one of the maintenance types. Identifying and analysing these are issues is the most challenging part of software maintenance \cite{DeLeon-Sigg2020}.
 
 \subsection{Maintenance in software systems}
@@ -75,6 +76,7 @@ Under most circumstances, maintenance is implemented if a software system does n
 \end{itemize}
 
 \subsection{Software maintenance model}
+%TDOD Example maybe not relevant
 A software maintenance model is an abstract representation of software systems' evolution to keep track of all the maintenance activities when implementing software maintenance \cite{Ren2011}. The \textit{IEEE Standard 1219} for software maintenance is the standard that should be followed when planning the software maintenance as in \Cref{fig:CH1_IEEE_Model}.\par It is crucial to identify the maintenance that should be done before making, which will start with the user or developer's request to modify the software. A feasibility analysis of any changes that are required is made. A certain amount of resources will be needed to implement maintenance, and this will impact the design and implementation phase. System and acceptance testing are essential to ensure that the system is still fully functional. After the system is thoroughly tested and approved, it will be available to the user, and the maintenance process will start again when there are new improvements made for the software system.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
@@ -93,6 +95,9 @@ Most organisations maintenance model will be based on \Cref{fig:CH1_IEEE_Model} 
 	{\textit{Maintenance flow model \cite{Tang2010}}} \label{fig:CH1_MaintenanceFlow}
 \end{figure}
 
+%TODO hier is waar need of study moet begin 
+%TODO What is the problems with What is the problem with event logging
+%TODO How can analysis improve maintenance
 \clearpage
 
 \section{Event logging}\label{sec:EventLogging}
@@ -137,6 +142,7 @@ As mentioned in \Cref{section:background}, software maintenance can make use of 
 
 The technique to collect numeric or textual data that describes the behaviour of a computer system is called event logging \cite{Pecchia2015, Baccanico2014}. Event logs are collected textual data containing the records of events that happened in a software system and is used for system management tasks as in \Cref{tbl:CH1_EventLogsUsage} \cite{Rong2018a, Rong2018, Baccanico2014}.
 
+%TODO Are the tables necessary for the point you want to make?
 \subsection{Logging practice in software engineering}
 Providing a guide for software engineers and developers to implement a suitable logging implementation in their software systems has to prove to be a vital tool in both industrial use and progress of academia \cite{Rong2018a}. Guoping Rong et al.~made a study to review these logging practices published papers to improve the performance and efficiency of logging implementation. From his study he made selection criteria to include (as in \Cref{tbl:CH1_RongIncSelectionCriteria}) and exclude (as in \Cref{tbl:CH1_RongExlSelectionCriteria}) academic papers about logging practices \cite{Rong2018a,Rong2018}.\par The Rong's selection criteria obtained numerous research papers of logging practices applied in the industry by either creating a new logging mechanism or optimising existing logging mechanisms. By reviewing 41 identified papers he found that many practitioners and researchers recognise the importance of logging practice in software engineering. There is a lack of guidance to provide software engineers or developers to create or improve their efficient logging mechanisms \cite{Rong2018a,Zhu2015}. 
 
@@ -188,6 +194,7 @@ In \Cref{fig:PushblisedPapers} shows the distribution of the 41 published papers
 Software engineers and developers will need to make informed logging decisions to cover the necessary run-time information without negatively impacting the software system's performance \cite{Zhu2015,Zhu2019,Kherbouche2017}. This does not ensure that there may be some problems using logging in software systems, and the most common issues with event logging is:
 
 \subsubsection{Quantity of the logs:} 
+%TODO Reword to not use "bad"
 It can become difficult to log every event in a software system as these systems will get larger and more complex during their development life cycle \cite{Stojanov2017}. It would be bad too not log enough information during run-time as the necessary information about the event will make the postmortem analysis of the software system incomplete. However, it is not always the best solution to log every possible event \cite{Zhu2015, Jans2012}.
 
 \subsubsection{Quality of event logs} 
@@ -201,7 +208,8 @@ The logs' quantity is necessary, but there may be unnecessary extra logs that wi
 \end{figure}
 
 \subsubsection{Performance cost of logging} 
-Creating logging mechanisms will need additional code to be written in the software system to obtain the event logs. Software logging will consume additional system resources like the CPU and I/O of the host computer system. It is unacceptable to have noticeable performance issues due to the logging on the rest of the system operations. Therefore the logging mechanism needs to be efficient to get the necessary details about the event that took place \cite{Zhu2015,Zhu2019}. 
+%TODO Also data storage costs
+Creating logging mechanisms will need additional code to be written in the software system to obtain the event logs. Software logging will consume additional system resources like the processor and storage of the host computer system. It is unacceptable to have noticeable performance issues due to the logging on the rest of the system operations. Therefore the logging mechanism needs to be efficient to get the necessary details about the event that took place \cite{Zhu2015,Zhu2019}. 
 
 \subsection{Logging points}\label{sec:Ch1_LoggignPoints}
 
