@@ -189,7 +189,7 @@ In \Cref{fig:PushblisedPapers} shows the distribution of the 41 published papers
 	{\textit{The distribution of the papers’ published years \cite{Rong2018a}}} \label{fig:PushblisedPapers}
 \end{figure} 
 
-\subsection{Logging quality}
+\subsection{Logging quality}\label{sec:CH1_LoggingQuality}
 
 Software engineers and developers will need to make informed logging decisions to cover the necessary run-time information without negatively impacting the software system's performance \cite{Zhu2015,Zhu2019,Kherbouche2017}. This does not ensure that there may be some problems using logging in software systems, and the most common issues with event logging is:
 
@@ -211,7 +211,19 @@ The logs' quantity is necessary, but there may be unnecessary extra logs that wi
 %TODO Also data storage costs
 Creating logging mechanisms will need additional code to be written in the software system to obtain the event logs. Software logging will consume additional system resources like the processor and storage of the host computer system. It is unacceptable to have noticeable performance issues due to the logging on the rest of the system operations. Therefore the logging mechanism needs to be efficient to get the necessary details about the event that took place \cite{Zhu2015,Zhu2019}. 
 
-\subsection{Logging points}\label{sec:Ch1_LoggignPoints}
+\clearpage
+
+\subsection{Logging points and log parsing}\label{sec:Ch1_LoggignPoints}
+Knowing what to log can significantly reduce any overhead the logging mechanism may produce in the software system \cite{Jia2018, Pecchia2015}. The logging quality (as described in \Cref{sec:CH1_LoggingQuality}) 
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.7\textwidth]{Chapter1/Log_Parsing_Example/Log_Parsing_Example.pdf}
+	\caption[An illustrative example of log parsing]
+	{\textit{An illustrative example of log parsing \cite{Zhu2019}}} \label{fig:Log_Parsing}
+\end{figure}
+
+Any logging mechanism will need a set of defined logging points that will create the log entry \cite{Pecchia2015}. These sequence of code is responsible to identify and capture key logging information based on the current events that is happening on the system using an activation function.
 
 \clearpage
 
