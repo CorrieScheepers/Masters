@@ -142,52 +142,7 @@ As mentioned in \Cref{section:background}, software maintenance can make use of 
 
 The technique to collect numeric or textual data that describes the behaviour of a computer system is called event logging \cite{Pecchia2015, Baccanico2014}. Event logs are collected textual data containing the records of events that happened in a software system and is used for system management tasks as in \Cref{tbl:CH1_EventLogsUsage} \cite{Rong2018a, Rong2018, Baccanico2014}.
 
-%TODO Are the tables necessary for the point you want to make?
-\subsection{Logging practice in software engineering}
-Providing a guide for software engineers and developers to implement a suitable logging implementation in their software systems has to prove to be a vital tool in both industrial use and progress of academia \cite{Rong2018a}. Guoping Rong et al.~made a study to review these logging practices published papers to improve the performance and efficiency of logging implementation. From his study he made selection criteria to include (as in \Cref{tbl:CH1_RongIncSelectionCriteria}) and exclude (as in \Cref{tbl:CH1_RongExlSelectionCriteria}) academic papers about logging practices \cite{Rong2018a,Rong2018}.\par The Rong's selection criteria obtained numerous research papers of logging practices applied in the industry by either creating a new logging mechanism or optimising existing logging mechanisms. By reviewing 41 identified papers he found that many practitioners and researchers recognise the importance of logging practice in software engineering. There is a lack of guidance to provide software engineers or developers to create or improve their efficient logging mechanisms \cite{Rong2018a,Zhu2015}. 
-
-\begin{table}[!htb]
-	\centering
-	\small
-	\caption[G. Rong's inclusion selection criteria]
-	{\textit{G. Rong's inclusion selection criteria \cite{Rong2018a}}}
-	\label{tbl:CH1_RongIncSelectionCriteria}
-	\begin{tabularx}{\textwidth}{|c|X|}
-		\hline \textbf{Identification} & \textbf{Criteria} \\
-		\hline I1. & Publications that investigate the methodology for logging practice. \\
-		\hline I2. & Publications that investigate the tools, frameworks, systems which support logging practice. \\
-		\hline I3. & Publications that propose a standard for logging practice.\\
-		\hline I4. & Publications that are peer-reviewed (conference paper, journal article). \\
-		\hline I5. & Publications that are primary studies on logging practice. \\
-		\hline
-	\end{tabularx}
-\end{table}
-
-\begin{table}[!htb]
-	\centering
-	\small
-	\caption[G. Rong's exclusion selection criteria]
-	{\textit{G. Rong's exclusion selection criteria \cite{Rong2018a}}}
-	\label{tbl:CH1_RongExlSelectionCriteria}
-	\begin{tabularx}{\textwidth}{|c|X|}
-		\hline \textbf{Identification} & \textbf{Criteria} \\
-		\hline E1. & Publications that investigate log analysis. \\
-		\hline E2. & Publications that investigate the usage of logs. \\
-		\hline E3. & Publications that investigate the technologies on logging user behaviours. \\
-		\hline E4. & Publications that are not written in English. \\
-		\hline E5. & Additionally, short papers, demo or industry publications are excluded. \\
-		\hline
-	\end{tabularx}
-\end{table}
-
-In \Cref{fig:PushblisedPapers} shows the distribution of the 41 published papers obtained for Rong's research relating to logging practices. Event logging has an increasingly important role in modern software systems, therefore the research focus on logging practices in software engineering have been on a rise between 1990 and 2017.
-
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
-	\centering % cent the figure
-	\includegraphics[width=0.9\textwidth]{Chapter1/Ronga2018.pdf}
-	\caption[The distribution of the papers’ published years]
-	{\textit{The distribution of the papers’ published years \cite{Rong2018a}}} \label{fig:PushblisedPapers}
-\end{figure} 
+%TODO \chapter{Logging practice in software engineering}
 
 \subsection{Logging quality}\label{sec:CH1_LoggingQuality}
 
@@ -213,8 +168,31 @@ Creating logging mechanisms will need additional code to be written in the softw
 
 \clearpage
 
-\subsection{Logging points and log parsing}\label{sec:Ch1_LoggignPoints}
-Knowing what to log can significantly reduce any overhead the logging mechanism may produce in the software system \cite{Jia2018, Pecchia2015}. The logging quality (as described in \Cref{sec:CH1_LoggingQuality}) 
+\subsection{Logging parsing and log points}\label{sec:Ch1_LoggignPoints}
+Knowing what to log can significantly reduce any overhead the logging mechanism may produce in the software system \cite{Jia2018, Pecchia2015}. Preserving quality (as described in \Cref{sec:CH1_LoggingQuality}) is a necessity to ensure that the logs that are obtained will fulfil its purpose when doing analysis on it.\par Before the logs can be parsed to structured dataset the key attributes needs to be defined that will describe the event log \cite{Bekeneva2020a}. The attributes in describe in \Cref{tbl:CH1_Log_Basic_Attributes} are the most basic attributes a log event should have. They make it possible to mine and analyse the logs based on their attributes and increases the precision and reliability of the event log \cite{Kherbouche2017}.
+
+\begin{table}[!htb]
+	\centering
+	\small
+	\caption[Basic log event attributes]
+	{\textit{Basic log event attributes \cite{Bekeneva2020a}}}
+	\label{tbl:CH1_Log_Basic_Attributes}
+	\begin{tabularx}{\textwidth}{|c|X|}
+		\hline \textbf{Attribute} & \textbf{Description} \\
+		\hline Case number & Unique identifiers for each individual log event. This is usually the primary identifier for the log event. \\
+		\hline Timestamp & The time and date that the log event occurred. This is part of identifying the order of events or trace along with the case number of the event log \cite{Kherbouche2017}. \\
+		\hline Event type & Each log event can be grouped with other log events that have similar actions that happened. These event type attribute needs to be classified based on a state change, failure to execute a instruction, or due to an occurrence of an activity like the availability of a service \cite{Fedaghi2010}. \\
+		\hline Resource & These sources which the event took place at. This can be parts of the software that performs the event action or was the caused for the event to be initiated by another part of the software. \\
+		\hline Other meta data & This any other relevant information that can be used as the event log's attribute that further expand the information of the log event. This can be one extra field or many other individual attribute fields.\\
+		\hline
+	\end{tabularx}
+\end{table}
+
+The case number and timestamp attributes in \Cref{tbl:CH1_Log_Basic_Attributes} can be defined anytime during the logging process. This is not the cas for the rest of the attributes. Every log should have a defined action that will put it in a group of logs that can be defined as event type. These event types can be either predefined of what is expected from the event action or will need to be observed later analysis of the logs in case there is no clear grouping of the logs \cite{Bekeneva2020a, Fedaghi2010}.\par The sources of the log event assist on determine the location where the event took place. For event logs this essential to try recreate scenario or action based on the relevant parts of the software system participated in the event action.\par Other meta data can increase the log quality by providing additional information about software instructions that were executed. These attributes adds more information that can be used to recreate the scenario or action that may be unique parameters or other events that participated in the event log.\par To get the attributes in \Cref{tbl:CH1_Log_Basic_Attributes} a instruction generates the log and parse it on to a data set. These log instructions are called logging points in software environment \cite{Pecchia2015, Zhu2015}. They can be any instruction such as print function that displays the information for the user to more complex functions or libraries that can be created by third party developers.
+
+\clearpage
+
+In \Cref{fig:Log_Parsing} is an example of a logging point parsing a log message in a structured log. The defined attributes are captured by the logging point when the event take place or occurred. The created log message is then parsed into a structured lof to be safe in database or displayed. The logging point should strategically placed to captured the nesseacary attributes to complete the log event \cite{Fedaghi2010}.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -223,7 +201,7 @@ Knowing what to log can significantly reduce any overhead the logging mechanism 
 	{\textit{An illustrative example of log parsing \cite{Zhu2019}}} \label{fig:Log_Parsing}
 \end{figure}
 
-Any logging mechanism will need a set of defined logging points that will create the log entry \cite{Pecchia2015}. These sequence of code is responsible to identify and capture key logging information based on the current events that is happening on the system using an activation function.
+Determine where to place the logging point in a giving software is directly impacted by what the attributes are and if the captured log will be of high quality as described in \Cref{sec:CH1_LoggingQuality}. The availability of consistent high quality logs will directly impact the process mining in the analysis of the logs \cite{Kherbouche2017}.\par To strategically place a logging point developers needs to consider what the activation of the logging point will be during the runtime of the software system \cite{Pecchia2015,Cinque2013}. The activations can be simple if statement that meets a certain criteria or instructions that execute after when an event or action took place (e.g. runtime errors).
 
 \clearpage
 
