@@ -15,7 +15,8 @@ Software maintenance according to the \textit{IEEE Standard 1219}\footnote{\text
 	\item Delivery requirements met of the modified software system
 \end{itemize}
 
-The maintenance problems or modification are regularly identified and usually addressed based on an initial priority ranking. This priority ranking is determined by using classification models to determine which type of maintenance needs to be done (adaptive, corrective, perfective and preventive) \cite{Tang2010,Mamone1994,Ping2010}.\par Continuous analysis of the identified maintenance problems or modifications enables the software engineers and developers to create a preliminary plan to address these issues \cite{Port2017}. Technical debt refers to the current lower grade state of the software system compared to its ideal state \cite{DeLeon-Sigg2020, Reimanis2016}. Technical debt can exist in almost every software system and should be correctly managed by analysing which maintenance issues should be prioritised.\par Implementing a suitable maintenance framework to resolve the identified issues reduces the technical debt. Various maintenance models can be used to solve these issues when implementing any one of the maintenance types. Identifying and analysing these are issues is the most challenging part of software maintenance \cite{DeLeon-Sigg2020}.
+%TODO Beter definisie vir technical debt
+The maintenance problems or modification are regularly identified and usually addressed based on an initial priority ranking. This priority ranking is determined by using classification models to determine which type of maintenance needs to be done (adaptive, corrective, perfective and preventive) \cite{Tang2010,Mamone1994,Ping2010}.\par Continuous analysis of the identified maintenance problems or modifications enables the software engineers and developers to create a preliminary plan to address these issues \cite{Port2017}. Technical debt can exist in almost every software system and should be correctly managed by analysing which maintenance issues should be prioritised \cite{DeLeon-Sigg2020, Reimanis2016}.\par Implementing a suitable maintenance framework to resolve the identified issues reduces the technical debt. Various maintenance models can be used to solve these issues when implementing any one of the maintenance types. Identifying and analysing these are issues is the most challenging part of software maintenance \cite{DeLeon-Sigg2020}.
 
 \subsection{Maintenance in software systems}
 Most companies will strive to increase their digital products and services over the software project's life cycle to maximise their profits \cite{Gralha2018}. This will increase the maintenance that needs to be done on both new and old systems \cite{Niu2018, Galster2019, Hasan2012}. Although maintenance is essential for software systems, most companies do not have a defined maintenance model or process to guide them when implementing maintenance \cite{Stojanov2017}. Software maintenance is an essential task in software development, and it can directly reduce cost and effort to create new software systems or modify it \cite{FrancisThamburaj2017}.\par A study about software maintenance was conducted by the United States Department of Commerce. They found that the total development cost can be as much as $60\%$-$80\%$ of the total cost for the software system's development life cycle \cite{Ogheneovo2014, Stark1996, Ackermann2009,Tang2010}. These costs will increase (as shown in \Cref{fig:CH1_Costs_of_fixing_bugs}) to maintain much older and more complex software systems, therefore implementing maintenance can keep the software system feasible in its entire life cycle \cite{Alenezi2016, Booch1986}.
@@ -45,12 +46,21 @@ Maintenance of software systems is continuous and is a reduced form of software 
 	\end{tabularx}
 \end{table}
 
-It can be strenuous to prioritise the available resources to certain parts of the software system to do maintenance to prevent or fix any software defects \cite{Mamone1994, Hasan2012}. The defect density can measure the software's quality in \Cref{eq:Defect_Density} \cite{Shah2012, Alenezi2016}. The defect density of the software system will most likely increase over the software system's life cycle.
+It can be demanding task to prioritise the available resources to certain parts of the software system to do maintenance to prevent or fix any software defects \cite{Mamone1994, Hasan2012}. The defect density can measure the software's quality in \Cref{eq:Defect_Density} for specific time period \cite{Shah2012, Alenezi2016}. The defect density of a software system is the is number of possible defects divided by the size of the software system.  A lower defect density indicates an improved version of the software system.
 
 \begin{equation}
 	\label{eq:Defect_Density}
-	Defect~Density = \frac{Number~of~Defects}{KLOC},
+	Defect~Density = \frac{CNDD}{KLoC},
 \end{equation}
+
+where:
+
+\begin{itemize}
+	\item $CNDD$ is the cumulative number of defects in the post release version of the software system
+	\item $KLoC$ (thousands lines of code) is the size of the observed executable code in a software system 
+\end{itemize}
+
+In open source software systems the defect density increases due the number of developers working on the same software system and the size of the system itself \cite{Rahmani2010}. Adding more developers to improve a software system may not always have positive improvement in each of the maintenance types in \Cref{tbl:CH1_MaintenanceTypes}. There might be even a need to increase the corrective maintenance efforts as more developers are already trying resolve the existing maintenance issues.\par The size of the software system in OSS does have an impact on the defective density \cite{Rahmani2010}. Naturally larger and more complex software system will have larger defect density as the system will be complex and some parts of it will be older than others \cite{SourceForged2009}. 
 
 In \Cref{fig:CH1_Costs_of_fixing_bugs}, the cost of maintenance increase if the maintenance activities increase when implementing the four major types of software maintenance. These maintenance activities cannot be neglected as the software will most likely keep evolving as new features are added to keep it useable \cite{Alenezi2016}. \par In an ideal situation, the maintenance should be done with the software development planning phase. Due to time constraints and available resources, it is not easy to plan any maintenance phase for most software engineers and programmers. The cost increases of maintenance due to lack of planning or preventive measurements to keep the quality software from degrading \cite{Alenezi2016}.
 
@@ -66,6 +76,7 @@ Under most circumstances, maintenance is implemented if a software system does n
 \end{itemize}
 
 \subsection{Software maintenance model}
+%TDOD Example maybe not relevant
 A software maintenance model is an abstract representation of software systems' evolution to keep track of all the maintenance activities when implementing software maintenance \cite{Ren2011}. The \textit{IEEE Standard 1219} for software maintenance is the standard that should be followed when planning the software maintenance as in \Cref{fig:CH1_IEEE_Model}.\par It is crucial to identify the maintenance that should be done before making, which will start with the user or developer's request to modify the software. A feasibility analysis of any changes that are required is made. A certain amount of resources will be needed to implement maintenance, and this will impact the design and implementation phase. System and acceptance testing are essential to ensure that the system is still fully functional. After the system is thoroughly tested and approved, it will be available to the user, and the maintenance process will start again when there are new improvements made for the software system.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
@@ -84,6 +95,9 @@ Most organisations maintenance model will be based on \Cref{fig:CH1_IEEE_Model} 
 	{\textit{Maintenance flow model \cite{Tang2010}}} \label{fig:CH1_MaintenanceFlow}
 \end{figure}
 
+%TODO hier is waar need of study moet begin 
+%TODO What is the problems with What is the problem with event logging
+%TODO How can analysis improve maintenance
 \clearpage
 
 \section{Event logging}\label{sec:EventLogging}
@@ -128,57 +142,14 @@ As mentioned in \Cref{section:background}, software maintenance can make use of 
 
 The technique to collect numeric or textual data that describes the behaviour of a computer system is called event logging \cite{Pecchia2015, Baccanico2014}. Event logs are collected textual data containing the records of events that happened in a software system and is used for system management tasks as in \Cref{tbl:CH1_EventLogsUsage} \cite{Rong2018a, Rong2018, Baccanico2014}.
 
-\subsection{Logging practice in software engineering}
-Providing a guide for software engineers and developers to implement a suitable logging implementation in their software systems has to prove to be a vital tool in both industrial use and progress of academia \cite{Rong2018a}. Guoping Rong et al.~made a study to review these logging practices published papers to improve the performance and efficiency of logging implementation. From his study he made selection criteria to include (as in \Cref{tbl:CH1_RongIncSelectionCriteria}) and exclude (as in \Cref{tbl:CH1_RongExlSelectionCriteria}) academic papers about logging practices \cite{Rong2018a,Rong2018}.\par The Rong's selection criteria obtained numerous research papers of logging practices applied in the industry by either creating a new logging mechanism or optimising existing logging mechanisms. By reviewing 41 identified papers he found that many practitioners and researchers recognise the importance of logging practice in software engineering. There is a lack of guidance to provide software engineers or developers to create or improve their efficient logging mechanisms \cite{Rong2018a,Zhu2015}. 
+%TODO \chapter{Logging practice in software engineering}
 
-\begin{table}[!htb]
-	\centering
-	\small
-	\caption[G. Rong's inclusion selection criteria]
-	{\textit{G. Rong's inclusion selection criteria \cite{Rong2018a}}}
-	\label{tbl:CH1_RongIncSelectionCriteria}
-	\begin{tabularx}{\textwidth}{|c|X|}
-		\hline \textbf{Identification} & \textbf{Criteria} \\
-		\hline I1. & Publications that investigate the methodology for logging practice. \\
-		\hline I2. & Publications that investigate the tools, frameworks, systems which support logging practice. \\
-		\hline I3. & Publications that propose a standard for logging practice.\\
-		\hline I4. & Publications that are peer-reviewed (conference paper, journal article). \\
-		\hline I5. & Publications that are primary studies on logging practice. \\
-		\hline
-	\end{tabularx}
-\end{table}
-
-\begin{table}[!htb]
-	\centering
-	\small
-	\caption[G. Rong's exclusion selection criteria]
-	{\textit{G. Rong's exclusion selection criteria \cite{Rong2018a}}}
-	\label{tbl:CH1_RongExlSelectionCriteria}
-	\begin{tabularx}{\textwidth}{|c|X|}
-		\hline \textbf{Identification} & \textbf{Criteria} \\
-		\hline E1. & Publications that investigate log analysis. \\
-		\hline E2. & Publications that investigate the usage of logs. \\
-		\hline E3. & Publications that investigate the technologies on logging user behaviours. \\
-		\hline E4. & Publications that are not written in English. \\
-		\hline E5. & Additionally, short papers, demo or industry publications are excluded. \\
-		\hline
-	\end{tabularx}
-\end{table}
-
-In \Cref{fig:PushblisedPapers} shows the distribution of the 41 published papers obtained for Rong's research relating to logging practices. Event logging has an increasingly important role in modern software systems, therefore the research focus on logging practices in software engineering have been on a rise between 1990 and 2017.
-
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
-	\centering % cent the figure
-	\includegraphics[width=0.9\textwidth]{Chapter1/Ronga2018.pdf}
-	\caption[The distribution of the papers’ published years]
-	{\textit{The distribution of the papers’ published years \cite{Rong2018a}}} \label{fig:PushblisedPapers}
-\end{figure} 
-
-\subsection{Logging quality}
+\subsection{Logging quality}\label{sec:CH1_LoggingQuality}
 
 Software engineers and developers will need to make informed logging decisions to cover the necessary run-time information without negatively impacting the software system's performance \cite{Zhu2015,Zhu2019,Kherbouche2017}. This does not ensure that there may be some problems using logging in software systems, and the most common issues with event logging is:
 
 \subsubsection{Quantity of the logs:} 
+%TODO Reword to not use "bad"
 It can become difficult to log every event in a software system as these systems will get larger and more complex during their development life cycle \cite{Stojanov2017}. It would be bad too not log enough information during run-time as the necessary information about the event will make the postmortem analysis of the software system incomplete. However, it is not always the best solution to log every possible event \cite{Zhu2015, Jans2012}.
 
 \subsubsection{Quality of event logs} 
@@ -192,9 +163,45 @@ The logs' quantity is necessary, but there may be unnecessary extra logs that wi
 \end{figure}
 
 \subsubsection{Performance cost of logging} 
-Creating logging mechanisms will need additional code to be written in the software system to obtain the event logs. Software logging will consume additional system resources like the CPU and I/O of the host computer system. It is unacceptable to have noticeable performance issues due to the logging on the rest of the system operations. Therefore the logging mechanism needs to be efficient to get the necessary details about the event that took place \cite{Zhu2015,Zhu2019}. 
+%TODO Also data storage costs
+Creating logging mechanisms will need additional code to be written in the software system to obtain the event logs. Software logging will consume additional system resources like the processor and storage of the host computer system. It is unacceptable to have noticeable performance issues due to the logging on the rest of the system operations. Therefore the logging mechanism needs to be efficient to get the necessary details about the event that took place \cite{Zhu2015,Zhu2019}. 
 
-\subsection{Logging points}\label{sec:Ch1_LoggignPoints}
+\clearpage
+
+\subsection{Logging parsing and log points}\label{sec:Ch1_LoggignPoints}
+Knowing what to log can significantly reduce any overhead the logging mechanism may produce in the software system \cite{Jia2018, Pecchia2015}. Preserving quality (as described in \Cref{sec:CH1_LoggingQuality}) is a necessity to ensure that the logs that are obtained will fulfil its purpose when doing analysis on it.\par Before the logs can be parsed to structured dataset the key attributes needs to be defined that will describe the event log \cite{Bekeneva2020a}. The attributes in describe in \Cref{tbl:CH1_Log_Basic_Attributes} are the most basic attributes a log event should have. They make it possible to mine and analyse the logs based on their attributes and increases the precision and reliability of the event log \cite{Kherbouche2017}.
+
+\begin{table}[!htb]
+	\centering
+	\small
+	\caption[Basic log event attributes]
+	{\textit{Basic log event attributes \cite{Bekeneva2020a}}}
+	\label{tbl:CH1_Log_Basic_Attributes}
+	\begin{tabularx}{\textwidth}{|c|X|}
+		\hline \textbf{Attribute} & \textbf{Description} \\
+		\hline Case number & Unique identifiers for each individual log event. This is usually the primary identifier for the log event. \\
+		\hline Timestamp & The time and date that the log event occurred. This is part of identifying the order of events or trace along with the case number of the event log \cite{Kherbouche2017}. \\
+		\hline Event type & Each log event can be grouped with other log events that have similar actions that happened. These event type attribute needs to be classified based on a state change, failure to execute a instruction, or due to an occurrence of an activity like the availability of a service \cite{Fedaghi2010}. \\
+		\hline Resource & These sources which the event took place at. This can be parts of the software that performs the event action or was the caused for the event to be initiated by another part of the software. \\
+		\hline Other meta data & This any other relevant information that can be used as the event log's attribute that further expand the information of the log event. This can be one extra field or many other individual attribute fields.\\
+		\hline
+	\end{tabularx}
+\end{table}
+
+The case number and timestamp attributes in \Cref{tbl:CH1_Log_Basic_Attributes} can be defined anytime during the logging process. This is not the cas for the rest of the attributes. Every log should have a defined action that will put it in a group of logs that can be defined as event type. These event types can be either predefined of what is expected from the event action or will need to be observed later analysis of the logs in case there is no clear grouping of the logs \cite{Bekeneva2020a, Fedaghi2010}.\par The sources of the log event assist on determine the location where the event took place. For event logs this essential to try recreate scenario or action based on the relevant parts of the software system participated in the event action.\par Other meta data can increase the log quality by providing additional information about software instructions that were executed. These attributes adds more information that can be used to recreate the scenario or action that may be unique parameters or other events that participated in the event log.\par To get the attributes in \Cref{tbl:CH1_Log_Basic_Attributes} a instruction generates the log and parse it on to a data set. These log instructions are called logging points in software environment \cite{Pecchia2015, Zhu2015}. They can be any instruction such as print function that displays the information for the user to more complex functions or libraries that can be created by third party developers.
+
+\clearpage
+
+In \Cref{fig:Log_Parsing} is an example of a logging point parsing a log message in a structured log. The defined attributes are captured by the logging point when the event take place or occurred. The created log message is then parsed into a structured log to be safe in database or displayed. The logging point should strategically placed to captured the nesseacary attributes to complete the log event \cite{Fedaghi2010}.
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.7\textwidth]{Chapter1/Log_Parsing_Example/Log_Parsing_Example.pdf}
+	\caption[An illustrative example of log parsing]
+	{\textit{An illustrative example of log parsing \cite{Zhu2019}}} \label{fig:Log_Parsing}
+\end{figure}
+
+Determine where to place the logging point in a giving software is directly impacted by what the attributes are and if the captured log will be of high quality as described in \Cref{sec:CH1_LoggingQuality}. The availability of consistent high quality logs will directly impact the process mining in the analysis of the logs \cite{Kherbouche2017}.\par To strategically place a logging point developers needs to consider what the activation of the logging point will be during the runtime of the software system \cite{Pecchia2015,Cinque2013}. The activations can be simple if statement that meets a certain criteria or instructions that execute after when an event or action took place (e.g. runtime errors).
 
 \clearpage
 
