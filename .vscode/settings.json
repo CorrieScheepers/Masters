@@ -10,14 +10,17 @@
                 "**/Chapters/Chapter2.tex"
             ],
             "config": {
-                "audience": "knowledgeable",
+                "audience": "expert",
                 "dialect": "british",
                 "domain": "academic",
                 "emotions": [
                     "neutral",
                     "analytical"
                 ],
-                "goals": []
+                "goals": [
+                    "describe",
+                    "tellStory"
+                ]
             }
         },
         {
