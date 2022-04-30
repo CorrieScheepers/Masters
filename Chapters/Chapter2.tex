@@ -108,12 +108,10 @@ In \Cref{sec:Ch1_LoggignPoints} the basic log event attributes needs to be ident
 		\hline \textbf{Logging point} & \textbf{Description} \\
 		\hline Identification number & The activity identification is an incremental number of the event that is logged.\\
 		\hline Timestamp & This is the time which the event took place.\\
-		\hline Activity type & Each event can be classified into types. \\
-		\hline \textbf{UserID} & Each user has a unique identifier which is a numerical identification number that is foreign key reference to the User table. \\
-		\hline \textbf{Area} & This information is logged to track user activities per Area that represents different software systems that the user can use. \\
-		\hline \textbf{Controller} & Each event will point back to an controller that process the request. \\
-		\hline \textbf{GroupID} & This foreign key reference to the Group table is contract groups identification number. \\
-		\hline \textbf{MetaData} & The meta data of the event contains request parameters, the HTML element from which the request is initiated and other relevant request data of the event. This can also be other meta data is important to get that adds more information about the user's activity using certain controls on System B as in \Cref{fig:CH2_SystemBMetaData}. \\
+		\hline Activity type & Each event can be classified into types. This is the user activity types in \Cref{tbl:Ch2_User_ActivityTypes} \\
+		\hline User identification & Each user has a unique identification number that links the event to them. \\
+		\hline Request origin & In web applications there are always requests send back to the server and will call the primary function to handle the request. The file which the function in is the request origin. \\
+		\hline Meta data & The meta data of the event contains request parameters, the HTML element from which the request is initiated and other relevant request data of the event. This can also be other meta data is important to get that adds more information about the user's activity. In \Cref{fig:Ch2_Metadata_Json_Example}. is the representation of the meta data. \\
 		\hline
 	\end{tabularx}
 \end{table}
