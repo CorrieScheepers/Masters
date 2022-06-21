@@ -2,18 +2,20 @@
 \label{chap:2}
 \ChapterPageStuff{2}
 
-\section{Preamble}
+\section{Preamble} The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs.\par In \Cref{Ch2:LoggingMechanism} the methodology to create logging mechanism to capture user generated event is discussed. The diffrent funtional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:system_utilisation_analysis} the methodology is discussed to do an analysis on these obtained logs to improve software maintenance.
 
-\section{Logging mechanism}\label{Ch2:LoggingMechanism} The logging mechanism will need to meet the requirements discussed in \Cref{sec:EventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:CH2_SystemA_Arch_Design} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (\textbf{F/R}) which consist of the client and server functional requirements.\par Each functional requirement has interface requirements with each other to transfer any of the required data or start a process in other functional requirements. These interfaces are labelled as \textbf{I/F} in \Cref{fig:CH2_SystemA_Arch_Design}.
+\section{Logging mechanism}\label{Ch2:LoggingMechanism} The logging mechanism will need to meet the requirements discussed in \Cref{sec:EventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:CH2_SystemA_Arch_Design} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one interface to another interface. These interfaces are labelled as I/F in \Cref{fig:CH2_SystemA_Arch_Design}. The \Cref{fig:CH2_SystemA_Arch_Design} is the client interface (F/R 1) and the server interface (F/R 2)
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.9\textwidth]{Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
+	\includegraphics[width=0.95\textwidth]{Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
 	\caption[System A logging mechanism architecture design]
 	{\textit{System A logging mechanism architecture design}}\label{fig:CH2_SystemA_Arch_Design}
 \end{figure}
 
-The client's functional requirements (F/R 1) consist of the user interacting with a device on the website. In \Cref{tbl:Ch2_Client_Functional_Requirements} is the functional requirements that are on the client-side of the user activity logging mechanism.
+\clearpage
+
+The client's functional requirements (F/R 1) consist of the user's device to interact (I/F 1.1) with the system interface (F/R 2). The log attributes are obtained by (I/F 1.2) to create the user generated activity event (F/R 1.3). In \Cref{tbl:Ch2_Client_Functional_Requirements} is the functional requirements that are on the client-side of the user activity logging mechanism.
 
 \begin{table}[!htb]
 	\centering
@@ -133,7 +135,7 @@ In \Cref{sec:Ch1_LoggignPoints} the basic log event attributes needs to be ident
 	{\textit{System B meta data JSON}}\label{fig:Ch2_Metadata_Json_Example}
 \end{figure}
 
-\section{System utilisation analysis}
+\section{System utilisation analysis}\label{ch2:system_utilisation_analysis}
 
 \section{integration}
 
