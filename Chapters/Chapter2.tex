@@ -2,9 +2,9 @@
 \label{chap:2}
 \ChapterPageStuff{2}
 
-\section{Preamble} The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs.\par In \Cref{Ch2:LoggingMechanism} the methodology to create logging mechanism to capture user generated event is discussed. The diffrent funtional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:system_utilisation_analysis} the methodology is discussed to do an analysis on these obtained logs to improve software maintenance.
+\section{Preamble} The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs.\par In \Cref{Ch2:LoggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance.
 
-\section{Logging mechanism}\label{Ch2:LoggingMechanism} The logging mechanism will need to meet the requirements discussed in \Cref{sec:EventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:CH2_SystemA_Arch_Design} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one interface to another interface. These interfaces are labelled as I/F in \Cref{fig:CH2_SystemA_Arch_Design}. The \Cref{fig:CH2_SystemA_Arch_Design} is the client interface (F/R 1) and the server interface (F/R 2)
+\section{Logging mechanism}\label{Ch2:LoggingMechanism} The logging mechanism will need to meet the requirements discussed in \Cref{sec:EventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:CH2_SystemA_Arch_Design} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one interface to another interface. These interfaces are labeled as I/F in \Cref{fig:CH2_SystemA_Arch_Design}. The \Cref{fig:CH2_SystemA_Arch_Design} is the client interface (F/R 1) and the server interface (F/R 2)
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -15,7 +15,9 @@
 
 \clearpage
 
-The client's functional requirements (F/R 1) consist of the user's device to interact (I/F 1.1) with the system interface (F/R 2). The log attributes are obtained by (I/F 1.2) to create the user generated activity event (F/R 1.3). In \Cref{tbl:Ch2_Client_Functional_Requirements} is the functional requirements that are on the client-side of the user activity logging mechanism.
+\subsection{Clients functional requirements}
+
+The client's functional requirements (F/R 1) consist of the user's device interacting (I/F 1.1) with the system interface (F/R 2). Some of the log attributes are captured on the client-side. The log attributes are obtained by (I/F 1.2) to create the user-generated activity event (F/R 1.3). In \Cref{tbl:Ch2_Client_Functional_Requirements} is the functional requirements that are on the client-side of the user activity logging mechanism.
 
 \begin{table}[!htb]
 	\centering
@@ -31,6 +33,11 @@ The client's functional requirements (F/R 1) consist of the user's device to int
 		\hline
 	\end{tabularx}
 \end{table}
+
+To generate the logs some of the 
+
+
+\clearpage
 
 The functional requirements in \Cref{tbl:Ch2_Client_Functional_Requirements} needs to interface with each other. These interfaces in \Cref{tbl:Ch2_Client_Interface_Requirements} parses the input from the user to create basic user event log.
 
@@ -64,7 +71,7 @@ The server functional requirements in \Cref{tbl:Ch2_Server_Functional_Requiremen
 	\end{tabularx}
 \end{table}
 
-The interfaces in \Cref{tbl:Ch2_Server_Interface_Requirements} for the client functional requirement (F/R 2) is to obtain the base log from client functional requirement (F/R 1) and finally store the completed log into a database.
+The interfaces in \Cref{tbl:Ch2_Server_Interface_Requirements} for the client functional requirement (F/R 2) is to obtain the base log from the client functional requirement (F/R 1) and finally store the completed log into a database.
 
 \begin{table}[!htb]
 	\centering
@@ -83,7 +90,7 @@ The interfaces in \Cref{tbl:Ch2_Server_Interface_Requirements} for the client fu
 \clearpage
 
 \subsection{Logging points}
-In \Cref{sec:Ch1_LoggignPoints} the basic log event attributes needs to be identified to capture the needed logging points that will be used to create the event log. Tracking the events can be divided in different events types as in \Cref{tbl:Ch2_User_ActivityTypes}. \par Accessing a certain web page is used in the utilisation analysis to track which part of the website is being visited by the user. Certain session changes have direct input from the user like login in or clicking on a log out button. \par The rest of the user events are any other activities that the user does on the page excluding the previous two types of events in \Cref{tbl:Ch2_User_ActivityTypes}. These events can be further divided into other types for the system utilisation analysis.
+In \Cref{sec:Ch1_LoggignPoints} the basic log event attributes need to be identified to capture the needed logging points that will be used to create the event log. Tracking the events can be divided in different events types as in \Cref{tbl:Ch2_User_ActivityTypes}. \par Accessing a certain web page is used in the utilisation analysis to track which part of the website is being visited by the user. Certain session changes have direct input from the user like login in or clicking on a log out button. \par The rest of the user events are any other activities that the user does on the page excluding the previous two types of events in \Cref{tbl:Ch2_User_ActivityTypes}. These events can be further divided into other types for the system utilisation analysis.
 
 \begin{table}[!htb]
 	\centering
