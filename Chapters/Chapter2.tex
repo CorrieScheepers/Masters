@@ -17,7 +17,7 @@
 
 \subsection{Clients functional requirements}
 
-The client's functional requirements (F/R 1) consist of the user's device interacting (I/F 1.1) with the system interface (F/R 2). Some of the log attributes are captured on the client-side. The log attributes are obtained by (I/F 1.2) to create the user-generated activity event (F/R 1.3). In \Cref{tbl:Ch2_Client_Functional_Requirements} is the functional requirements that are on the client-side of the user activity logging mechanism.
+The client's functional requirements (F/R 1) consist of the user's device interacting (I/F 1.1) with the system interface (F/R 2). Some of the log attributes are captured on the client device. The log attributes are obtained by (I/F 1.2) to create the user-generated activity event (F/R 1.3). In \Cref{tbl:Ch2_Client_Functional_Requirements} is the functional requirements that are on the client-side of the user activity logging mechanism.
 
 \begin{table}[!htb]
 	\centering
@@ -27,9 +27,9 @@ The client's functional requirements (F/R 1) consist of the user's device intera
 	\label{tbl:Ch2_Client_Functional_Requirements}
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
-		\hline F/R 1.1 & User & The user serves as primary initiator of the activity events.\\
-		\hline F/R 1.2 & User's device & The device that user uses to access the website from where the activity events are generated.\\
-		\hline F/R 1.3 & User generated events & These are any activity events that user started that needs to communicate back to server.\\
+		\hline F/R 1.1 & User & The user serves as the primary initiator of the activity events.\\
+		\hline F/R 1.2 & User's device & The device that the user uses to access the website from where the activity events are generated.\\
+		\hline F/R 1.3 & User-generated events & These are any activity events that the user started that need to communicate back to the server.\\
 		\hline
 	\end{tabularx}
 \end{table}
@@ -39,7 +39,7 @@ To generate the logs some of the
 
 \clearpage
 
-The functional requirements in \Cref{tbl:Ch2_Client_Functional_Requirements} needs to interface with each other. These interfaces in \Cref{tbl:Ch2_Client_Interface_Requirements} parses the input from the user to create basic user event log.
+The functional requirements in \Cref{tbl:Ch2_Client_Functional_Requirements} needs to interface with each other. These interfaces in \Cref{tbl:Ch2_Client_Interface_Requirements} parses the input from the user to create a basic user event log. 
 
 \begin{table}[!htb]
 	\centering
@@ -50,7 +50,7 @@ The functional requirements in \Cref{tbl:Ch2_Client_Functional_Requirements} nee
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
 		\hline I/F 1.1 & User input & The user starts the activity events by using the user interface to give the website any input.\\
-		\hline I/F 1.2 & Log parsing of logging points & The user generated event is captured to get some of the key logging points of \Cref{tbl:CH1_Log_Basic_Attributes}.\\
+		\hline I/F 1.2 & Log parsing of logging points & The user-generated event is captured to get some of the key logging points of \Cref{tbl:CH1_Log_Basic_Attributes}.\\
 		\hline
 	\end{tabularx}
 \end{table}
@@ -81,7 +81,7 @@ The interfaces in \Cref{tbl:Ch2_Server_Interface_Requirements} for the client fu
 	\label{tbl:Ch2_Server_Interface_Requirements}
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
-		\hline I/F 2.1 & Log parsing to server & The captured log is parsed onto the server for further processing of the captured user generated event.\\
+		\hline I/F 2.1 & Log parsing to server & The captured log is parsed onto the server for further processing of the captured user-generated event.\\
 		\hline I/F 2.2 & Store in database & The event log is send to a database for storing.\\
 		\hline
 	\end{tabularx}
@@ -90,7 +90,29 @@ The interfaces in \Cref{tbl:Ch2_Server_Interface_Requirements} for the client fu
 \clearpage
 
 \subsection{Logging points}
-In \Cref{sec:Ch1_LoggignPoints} the basic log event attributes need to be identified to capture the needed logging points that will be used to create the event log. Tracking the events can be divided in different events types as in \Cref{tbl:Ch2_User_ActivityTypes}. \par Accessing a certain web page is used in the utilisation analysis to track which part of the website is being visited by the user. Certain session changes have direct input from the user like login in or clicking on a log out button. \par The rest of the user events are any other activities that the user does on the page excluding the previous two types of events in \Cref{tbl:Ch2_User_ActivityTypes}. These events can be further divided into other types for the system utilisation analysis.
+The required logging points should be defined to create the base event log. Before these logging points can be defined the logging attributes need to be defined as discussed in \Cref{sec:Ch1_LoggignPoints}. The defined logging attributes in \Cref{tbl:Ch2_KeyLogging_Attributes} are the base attributes that form the main structure of the event log. 
+
+\begin{table}[!htb]
+	\centering
+	\small
+	\caption[Key logging attributes]
+	{\textit{Key logging attributes}}
+	\label{tbl:Ch2_KeyLogging_Attributes}
+	\begin{tabularx}{\textwidth}{|l|X|}
+		\hline \textbf{Logging point} & \textbf{Description} \\
+		\hline Identification number & The activity identification is an incremental number of the event that is logged.\\
+		\hline Timestamp & This is the time which the event took place.\\
+		\hline Activity type & Each event can be classified into types. This is the user activity types in \Cref{tbl:Ch2_User_ActivityTypes} \\
+		\hline User identification & Each user has a unique identification number that links the event to them. \\
+		\hline Request origin & In web applications, there are always requests sent back to the server and will call the primary function to handle the request. The file in which the function is the request origin. \\
+		\hline Metadata & The metadata of the event contains request parameters, the HTML element from which the request is initiated and other relevant request data of the event. This can also be other metadata is important to get that adds more information about the user's activity. In \Cref{fig:Ch2_Metadata_Json_Example} is an example representation of the metadata. \\
+		\hline
+	\end{tabularx}
+\end{table}
+
+Each logging point 
+
+
 
 \begin{table}[!htb]
 	\centering
@@ -101,29 +123,12 @@ In \Cref{sec:Ch1_LoggignPoints} the basic log event attributes need to be identi
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline \textbf{Activity Type} & \textbf{Description} \\
 		\hline Page accessed & The user may enter different web pages in a session. Tracking which pages the user navigates through.\\
-		\hline Session changes & This is any user activities that directly involves extension session before their session times out after a period of inactivity. This also tracks when the session starts as any login attempt is a user based activity.\\
-		\hline General user events & Any events that is other than accessing a certain web page that user initiates that communicates with the server. Most of the user activities will have this event type.\\ 
+		\hline Session changes & This is any user activities that directly involve an extension session before their session times out after a period of inactivity. This also tracks when the session starts as any login attempt is a user-based activity.\\
+		\hline General user events & Any events that are other than accessing a certain web page that user initiates that communicates with the server. Most of the user activities will have this event type.\\ 
 		\hline
 	\end{tabularx}
 \end{table}
 
-\begin{table}[!htb]
-	\centering
-	\small
-	\caption[Key logging points]
-	{\textit{Key logging points}}
-	\label{tbl:Ch2_KeyLogging_Points}
-	\begin{tabularx}{\textwidth}{|l|X|}
-		\hline \textbf{Logging point} & \textbf{Description} \\
-		\hline Identification number & The activity identification is an incremental number of the event that is logged.\\
-		\hline Timestamp & This is the time which the event took place.\\
-		\hline Activity type & Each event can be classified into types. This is the user activity types in \Cref{tbl:Ch2_User_ActivityTypes} \\
-		\hline User identification & Each user has a unique identification number that links the event to them. \\
-		\hline Request origin & In web applications there are always requests send back to the server and will call the primary function to handle the request. The file which the function in is the request origin. \\
-		\hline Meta data & The meta data of the event contains request parameters, the HTML element from which the request is initiated and other relevant request data of the event. This can also be other meta data is important to get that adds more information about the user's activity. In \Cref{fig:Ch2_Metadata_Json_Example}. is the representation of the meta data. \\
-		\hline
-	\end{tabularx}
-\end{table}
 
 \begin{figure}[!htb]
 	\centering
@@ -138,8 +143,8 @@ In \Cref{sec:Ch1_LoggignPoints} the basic log event attributes need to be identi
 		  }		
 		}
 	\end{lstlisting}
-	\caption[System B meta data JSON]
-	{\textit{System B meta data JSON}}\label{fig:Ch2_Metadata_Json_Example}
+	\caption[System B metadata JSON]
+	{\textit{System B metadata JSON}}\label{fig:Ch2_Metadata_Json_Example}
 \end{figure}
 
 \section{System utilisation analysis}\label{ch2:system_utilisation_analysis}
