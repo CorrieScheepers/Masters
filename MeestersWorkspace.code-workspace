@@ -28,6 +28,13 @@
 		"latex-workshop.latex.autoClean.run": "onBuilt",
 		"latex-workshop.synctex.afterBuild.enabled": true,
 		"latex-workshop.docker.enabled": false,
-		"latex-workshop.docker.image.latex": ""
+		"latex-workshop.docker.image.latex": "",
+		"grammarly.selectors": [
+			{
+				"language": "latex",
+				"scheme": "file",
+				"pattern": "Chapters/Chapter2.tex"
+			}
+		]
 	}
 }
