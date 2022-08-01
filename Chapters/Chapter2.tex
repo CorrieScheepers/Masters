@@ -63,7 +63,7 @@ Every interaction the user has with the user interface of the device to the soft
 \end{itemize}
 
 \subsubsection{User activity types}
-As previously stated this logging mechanism is for web-based applications, therefore the user activity types need to be established for these types of applications. Web applications consist of different page architectures. The Model-View-Controller (MVC) architecture is mostly used for web-based applications.\par The MVC architecture in \Cref{fig:ch2_flowMVC_Architecture} consists of 3 basic parts which are the \cite{Jailia2016}:
+The Model-View-Controller (MVC) architecture is mostly used for web-based applications such as the software system which this study will be applied too. The MVC architecture in \Cref{fig:ch2_flowMVC_Architecture} consists of 3 basic parts which are the \cite{Jailia2016}:
 
 \begin{itemize}
 	\item \textit{Model:} Is the representation of the records in the database which also interacts with the database through a database access layer or service.
@@ -73,16 +73,12 @@ As previously stated this logging mechanism is for web-based applications, there
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.95\textwidth]{Chapter2/Flow_MVC_Architecture/Flow_MVC_Architecture.pdf}
-	\caption[Request flow in MVC architecture]
-	{\textit{Request flow in MVC architecture \cite{Gu2010}}}\label{fig:ch2_flowMVC_Architecture}
+	\includegraphics[width=0.75\textwidth]{Chapter2/Flow_MVC_Architecture/Flow_MVC_Architecture.pdf}
+	\caption[MVC architecture for most web-based applications]
+	{\textit{MVC architecture for most web-based applications \cite{Gu2010}}}\label{fig:ch2_flowMVC_Architecture}
 \end{figure}
 
-This flow of data in \Cref{fig:ch2_flowMVC_Architecture} depicts that any \textit{update}, \textit{create} and \textit{delete} event will have a request and response. Only the request can be used as that will possibly be a user-based activity that has been triggered by the user.\par The request meets the first requirement to be classified as a user-based activity (F/R 1.1.1) as the user will initiate an action to get a response back. Only the request will have the necessary data to complete the rest of the log attributes later in the logging mechanism.
-
-The user-activity logs will be split into three main event types as in \Cref{tbl:Ch2_User_ActivityTypes}. The general user activity event type (F/R 1.2.3) will the be most common user activity event and be split up into different user activity events. This is determined by the need of what utilisation stage requires to analyse specific user activity events. 
-
-\clearpage
+This flow of data in \Cref{fig:ch2_flowMVC_Architecture} depicts that any \textit{update}, \textit{create} and \textit{delete} event will have a \textit{request} and \textit{response}. Only the \textit{request} can be used as that will possibly be a user-based activity that has been triggered by the user.\par The user-activity logs will be split into three main event types as in \Cref{tbl:Ch2_User_ActivityTypes}. The general user activity event type (F/R 1.2.3) will the be most common user activity event and be split up into different user activity events. This is determined by the need of what utilisation stage requires to analyse specific user activity events. 
 
 \begin{table}[!htb]
 	\centering
@@ -99,8 +95,10 @@ The user-activity logs will be split into three main event types as in \Cref{tbl
 	\end{tabularx}
 \end{table}
 
+\clearpage
+
 \subsubsection{Logging points and log attributes}
-In \Cref{sec:Ch1_LoggignPoints} the logging points should be strategically placed in the software system to capture the attributes for the user-based activity log. To meet the requirements of \Cref{tbl:ch2_requirementsForUserActivtyEvent} for a user-based activity the logging points can be placed in the software system:
+In \Cref{sec:Ch1_LoggignPoints} the logging points should be strategically placed in the software system to capture the attributes for the user-based activity log. To meet the requirements of \Cref{tbl:ch2_requirementsForUserActivtyEvent} for a user-based activity the logging points should adhere to the logging points functional requirements of \Cref{tbl:ch2_loggingPointRequirement}.
 
 \begin{table}[!htb]
 	\centering
@@ -111,13 +109,14 @@ In \Cref{sec:Ch1_LoggignPoints} the logging points should be strategically place
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Description} \\
 		\hline F/R 1.3.1 & The logging point should be placed where the user's interaction with the software system will send a \textit{request} back to the server.\\
-		\hline F/R 1.3.2 & Each logging point should consistently capture the user-based activity. \\
+		\hline F/R 1.3.2 & Each logging point should consistently capture the user-based activity as the activity is happening. \\
 		\hline F/R 1.3.3 & Logging points should be globally complete to capture the user-based activities in the giving software system without too much modification between each point in the same software system. \\
+		\hline F/R 1.3.4 & The logging points should not interfere with the rest of the system's operations, this would be slowing down the system by causing too much overhead in each \textit{request} that is being sent. \\
 		\hline
 	\end{tabularx}
 \end{table}
 
-The defined logging attributes in \Cref{tbl:Ch2_KeyLogging_Attributes} are the base attributes that form part of the main structure of the event log. 
+The defined logging attributes in \Cref{tbl:Ch2_KeyLogging_Attributes} are the base attributes that form part of the main structure of the user-based event log. For web-based applications on the client side, only some of these attributes can be obtained as the rest of the attributes can be resolved on the server side. The metadata (F/R 1.4.6) can consist of the request parameters that are obtainable at the server side but any additional captured data can be added and sent to the server. A default activity type (F/R 1.4.3) can be set at the logging point. 
 
 \begin{table}[!htb]
 	\centering
@@ -127,15 +126,36 @@ The defined logging attributes in \Cref{tbl:Ch2_KeyLogging_Attributes} are the b
 	\label{tbl:Ch2_KeyLogging_Attributes}
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Logging point} & \textbf{Description} \\
-		\hline F/R 1.4.1 & Identification number & The activity identification is an incremental number of the event that is logged.\\
+		\hline F/R 1.4.1 & Identification number & The activity identification is an incremental number of the user-based event that is logged.\\
 		\hline F/R 1.4.2 & Timestamp & This is the time the user initiated the user-based activity event.\\
-		\hline F/R 1.4.3 & Activity type & Each event can be classified into types. This is the user activity types in \Cref{tbl:Ch2_User_ActivityTypes} \\
+		\hline F/R 1.4.3 & Activity type & Each event can be classified into user-based types. This is the user-based activity types in \Cref{tbl:Ch2_User_ActivityTypes}.\\
 		\hline F/R 1.4.4 & User identification & Each user has a unique identification number that links the event to them. \\
 		\hline F/R 1.4.5 & Request origin & In web applications, there are always requests sent back to the server and will call the primary function to handle the request. The file in which the function is the request origin. \\
 		\hline F/R 1.4.6 & Metadata & The metadata of the event contains request parameters or other relevant request data of the event. This metadata adds more information about the user's activity. In \Cref{fig:Ch2_Metadata_Json_Example} is an example representation of the metadata. \\
 		\hline F/R 1.4.7 & Miscellaneous attributes & These are any non-metadata attributes that can be consistently captured to be used in the utilasation analysis.\\ \hline
 	\end{tabularx}
 \end{table}
+
+\clearpage
+
+Each of these log attributes combined creates the base log from which key logging points can be created in the software system to capture the user-based activity logs. The 
+
+\begin{figure}[!htb]
+	\centering
+	\begin{lstlisting}[style=json] 
+		{ "RequestOrigin" : "/Area4/Controller4",
+		  "RequestElementID" : "Button4",
+		  "RequestParameters": {
+		  "Parameter1": 4,
+		  "Parameter2": "Hello World!",
+			"Parameter3": true
+			"Parameter4": 40.404
+		  }		
+		}
+	\end{lstlisting}
+	\caption[Metadata JSON]
+	{\textit{Metadata JSON}}\label{fig:Ch2_Metadata_Json_Example}
+\end{figure}
 
 \clearpage
 
@@ -167,25 +187,6 @@ The server functional requirements in \Cref{tbl:Ch2_Server_Functional_Requiremen
 		\hline
 	\end{tabularx}
 \end{table}
-
-Each of these log attributes combined creates the base log from which key logging points can be created in the software system to capture the user-based activity logs. The 
-
-\begin{figure}[!htb]
-	\centering
-	\begin{lstlisting}[style=json] 
-		{ "RequestOrigin" : "/Area4/Controller4",
-		  "RequestElementID" : "Button4",
-		  "RequestParameters": {
-		  "Parameter1": 4,
-		  "Parameter2": "Hello World!",
-			"Parameter3": true
-			"Parameter4": 40.404
-		  }		
-		}
-	\end{lstlisting}
-	\caption[Metadata JSON]
-	{\textit{Metadata JSON}}\label{fig:Ch2_Metadata_Json_Example}
-\end{figure}
 
 The interfaces in \Cref{tbl:Ch2_Server_Interface_Requirements} for the client functional requirement (F/R 2) is to obtain the base log from the client functional requirement (F/R 1) and finally store the completed log into a database.
 
