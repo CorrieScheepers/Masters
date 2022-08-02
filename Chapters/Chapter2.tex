@@ -68,11 +68,12 @@ Every interaction the user has with the user interface of the device to the soft
 To determine the user activity types for a Web application, the Web application's architecture will be a factor in the logging mechanism. Web applications consist mostly of HTML, JavaScript and CSS programming languages. The Model-View-Controller (MVC) architecture is mostly used for web-based applications using that programming language \cite{Jailia2016}. The MVC architecture in \Cref{fig:ch2_flowMVC_Architecture} consists of 3 basic parts which are the \cite{Jailia2016}:
 
 \begin{itemize}
-	\item \textit{Model:} Is the representation of the records in the database which also interacts with the database through a database access layer or service manipulating the data by using:
+	\item \textit{Model:} Is the representation of the records in the database which also interacts with the database through a database access layer or service manipulating the data by using the CRUD operations:
 	\begin{itemize}
 		\item \textit{create} operation that adds new data,
 		\item \textit{update} operation that modifies the existing data,
 		\item \textit{delete} operation that removes data.
+		\item \textit{read} operation that gets the data from the database.
 	\end{itemize}
 	\item \textit{Controller:} Is operates both the \textit{View} and \textit{Model} and serves as the connection between the user and the system by controlling the data flow of the \textit{Model} and
 	\textit{View}.
