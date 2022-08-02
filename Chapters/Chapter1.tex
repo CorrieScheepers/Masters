@@ -144,7 +144,7 @@ The technique to collect numeric or textual data that describes the behaviour of
 
 %TODO \chapter{Logging practice in software engineering}
 
-\subsection{Logging quality}\label{sec:CH1_LoggingQuality}
+\subsection{Logging quality}\label{sec:ch1:loggingQuality}
 
 Software engineers and developers will need to make informed logging decisions to cover the necessary run-time information without negatively impacting the software system's performance \cite{Zhu2015,Zhu2019,Kherbouche2017}. This does not ensure that there may be some problems using logging in software systems, and the most common issues with event logging is:
 
@@ -168,8 +168,8 @@ Creating logging mechanisms will need additional code to be written in the softw
 
 \clearpage
 
-\subsection{Logging parsing and log points}\label{sec:Ch1_LoggignPoints}
-Knowing what to log can significantly reduce any overhead the logging mechanism may produce in the software system \cite{Jia2018, Pecchia2015}. Preserving quality (as described in \Cref{sec:CH1_LoggingQuality}) is a necessity to ensure that the logs that are obtained will fulfil its purpose when doing analysis on it.\par Before the logs can be parsed to structured dataset the key attributes needs to be defined that will describe the event log \cite{Bekeneva2020}. The attributes in describe in \Cref{tbl:CH1_Log_Basic_Attributes} are the most basic attributes a log event should have. They make it possible to mine and analyse the logs based on their attributes and increases the precision and reliability of the event log \cite{Kherbouche2017}.
+\subsection{Logging parsing and log points}\label{sec:ch1:loggignPoints}
+Knowing what to log can significantly reduce any overhead the logging mechanism may produce in the software system \cite{Jia2018, Pecchia2015}. Preserving quality (as described in \Cref{sec:ch1:loggingQuality}) is a necessity to ensure that the logs that are obtained will fulfil its purpose when doing analysis on it.\par Before the logs can be parsed to structured dataset the key attributes needs to be defined that will describe the event log \cite{Bekeneva2020}. The attributes in describe in \Cref{tbl:CH1_Log_Basic_Attributes} are the most basic attributes a log event should have. They make it possible to mine and analyse the logs based on their attributes and increases the precision and reliability of the event log \cite{Kherbouche2017}.
 
 \begin{table}[!htb]
 	\centering
@@ -201,7 +201,7 @@ In \Cref{fig:Log_Parsing} is an example of a logging point parsing a log message
 	{\textit{An illustrative example of log parsing \cite{Zhu2019}}} \label{fig:Log_Parsing}
 \end{figure}
 
-Determine where to place the logging point in a giving software is directly impacted by what the attributes are and if the captured log will be of high quality as described in \Cref{sec:CH1_LoggingQuality}. The availability of consistent high quality logs will directly impact the process mining in the analysis of the logs \cite{Kherbouche2017}.\par To strategically place a logging point developers needs to consider what the activation of the logging point will be during the runtime of the software system \cite{Pecchia2015,Cinque2013}. The activations can be simple if statement that meets a certain criteria or instructions that execute after when an event or action took place (e.g. runtime errors).
+Determine where to place the logging point in a giving software is directly impacted by what the attributes are and if the captured log will be of high quality as described in \Cref{sec:ch1:loggingQuality}. The availability of consistent high quality logs will directly impact the process mining in the analysis of the logs \cite{Kherbouche2017}.\par To strategically place a logging point developers needs to consider what the activation of the logging point will be during the runtime of the software system \cite{Pecchia2015,Cinque2013}. The activations can be simple if statement that meets a certain criteria or instructions that execute after when an event or action took place (e.g. runtime errors).
 
 \clearpage
 
