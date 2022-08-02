@@ -2,30 +2,22 @@
 \label{chap:2}
 \ChapterPageStuff{2}
 
-\section{Preamble} The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the
-obtained logs. The web-based application system on this logging mechanism will be implemented on is an energy management system for the mining industry.\par In \Cref{Ch2:LoggingMechanism} the
-methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section
-\cite{Anish2015}.\par In \Cref{ch2:system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance.
+\section{Preamble} The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs. The web-based application system on this logging mechanism will be implemented on is an energy management system for the mining industry.\par In \Cref{Ch2:LoggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance.
 
-\section{Logging mechanism}\label{Ch2:LoggingMechanism} The logging mechanism will need to meet the requirements discussed in \Cref{sec:EventLogging} to capture the required logs to apply system
-utilisation analysis on it. \Cref{fig:ch2:systemDesign} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two
-functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one
-interface to another interface. These interfaces are labeled as I/F in \Cref{fig:ch2:systemDesign}. The \Cref{fig:ch2:systemDesign} is the client interface (F/R 1) and the server
-interface (F/R 2) that forms the entire logging mechanism to capture the user-based activity logs.
+\section{Logging mechanism}\label{Ch2:LoggingMechanism} The logging mechanism will need to meet the requirements discussed in \Cref{sec:EventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:ch2:systemDesign} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one interface to another interface. These interfaces are labeled as I/F in \Cref{fig:ch2:systemDesign}. The \Cref{fig:ch2:systemDesign} is the client interface (F/R 1) and the server interface (F/R 2) that forms the entire logging mechanism to capture the user-based activity logs.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
 	\includegraphics[width=0.9\textwidth]{Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
-	\caption[System A logging mechanism architecture design]
-	{\textit{System A logging mechanism architecture design}}\label{fig:ch2:systemDesign}
+	\caption[Logging mechanism architecture design]
+	{\textit{Logging mechanism architecture design}}\label{fig:ch2:systemDesign}
 \end{figure}
 
 \clearpage
 
 \subsection{Clients functional requirements}
 
-The client's functional requirements (F/R 1) are where the user-based activity is triggered. In \Cref{fig:ch2:systemDesign} the client interface consists of three main functional requirements.
-These interfaces in \Cref{tbl:ch2:clientFunctionalRequirements} parses the input from the user to create a basic user event log. 
+The client's functional requirements (F/R 1) are where the user-based activity is triggered. In \Cref{fig:ch2:systemDesign} the client interface consists of three main functional requirements. These interfaces in \Cref{tbl:ch2:clientFunctionalRequirements} parses the input from the user to create a basic user event log. 
 
 \begin{table}[!htb]
 	\centering
@@ -42,7 +34,7 @@ These interfaces in \Cref{tbl:ch2:clientFunctionalRequirements} parses the input
 	\end{tabularx}
 \end{table}
 
-\subsubsection{Requirements for an event log to be classified as a user-based activity}
+\subsection{Requirements for a user-based activity log}
 The user is the initiator of the logging mechanism. Each action or event they trigger by interacting with the user interface on their device (F/R 1.2) can be a potential user-generated event. In
 \Cref{tbl:ch2_requirementsForUserActivtyEvent} is the sub-requirements for the user (F/R 1.1) which the event log should fulfill to be classified as an user-based activity log.
 
@@ -72,7 +64,7 @@ Every interaction the user has with the user interface of the device to the soft
 	\item Ensure that the event log's other attributes are complete and available
 \end{itemize}
 
-\subsubsection{User activity types}
+\subsection{Web application architecture}\label{sec:ch2:webApplicationArchitecture}
 To determine the user activity types for a Web application, the Web application's architecture will be a factor in the logging mechanism. Web applications consist mostly of HTML, JavaScript and CSS programming languages. The Model-View-Controller (MVC) architecture is mostly used for web-based applications using that programming language \cite{Jailia2016}. The MVC architecture in \Cref{fig:ch2_flowMVC_Architecture} consists of 3 basic parts which are the \cite{Jailia2016}:
 
 \begin{itemize}
@@ -94,9 +86,16 @@ To determine the user activity types for a Web application, the Web application'
 	{\textit{MVC architecture for most web-based applications \cite{Gu2010}}}\label{fig:ch2_flowMVC_Architecture}
 \end{figure}
 
-In \Cref{fig:ch2_flowMVC_Architecture} is the MVC architecture equivalent representation of \Cref{fig:ch2:systemDesign} where the data flow is shown of the MVC architecture. The user interacts with the Web application through their browser which will send a \textit{HTTP requests}\footnote{A \textbf{HTTP request} is made by a client, to a named host, which is located on a server. The request aims to access a resource on the server. \cite{IBM2021}.} to the \textit{Controller} and receive a \textit{HTTP response}\footnote{An \textbf{HTTP response} is made by a server to a client. The response aims to provide the client with the resource it requested, inform the client that the action it requested has been carried out; or else inform the client that an error occurred in processing its request. \cite{IBM2021a}.} from the \textit{View}. To classify any interaction between the user (F/R 1) and server (F/R 2) to fulfill the functional requirements of \Cref{tbl:ch2_requirementsForUserActivtyEvent} only the \textit{HTTP request} is used.\par The \textit{Controller} request and returns the data to the \textit{Model} which interacts with the database access layer or service to do the \textit{create}, \textit{update} and \textit{delete} operations.
+In \Cref{fig:ch2_flowMVC_Architecture} is the MVC architecture equivalent representation of \Cref{fig:ch2:systemDesign} where the data flow is shown of the MVC architecture. The user interacts with the Web application through their browser which will send a \textit{HTTP requests}\footnote{A \textbf{HTTP request} is made by a client, to a named host, which is located on a server. The request aims to access a resource on the server. \cite{IBM2021}.} to the \textit{Controller} and receive a \textit{HTTP response}\footnote{An \textbf{HTTP response} is made by a server to a client. The response aims to provide the client with the resource it requested, inform the client that the action it requested has been carried out; or else inform the client that an error occurred in processing its request. \cite{IBM2021a}.} from the \textit{View}.The \textit{Controller} will request and return the data to the \textit{Model} which interacts with the database access layer or service to do the \textit{create}, \textit{update} and \textit{delete} operations.\par To classify any interaction between the user (F/R 1) and server (F/R 2) to fulfill the functional requirements of \Cref{tbl:ch2_requirementsForUserActivtyEvent} only the \textit{HTTP request} are used for the logging points in \Cref{sec:ch2:loggingPoints} as it:
 
-\par The user-activity logs will be split into three main event types as in \Cref{tbl:ch2:userActivityTypes}. The general user activity event type (F/R 1.2.3) will the be most common user activity event and be split up into different user activity events. This is determined by the need of what utilisation stage requires to analyse specific user activity events. 
+\begin{itemize}
+	\item Meet the F/R 1.1.1 and F/R 1.1.5 as the user will interact with the \textit{View} to modify the data which needs to send back an \textit{HTTP request} to process the data on the \textit{Controller}.
+	\item User activity types can be catered for certain scenarios when the request is being sent.
+	\item Any additional metadata can be sent with the \textit{request header}\footnote{A \textbf{request header} is an HTTP header that can be used in an HTTP request to provide information about the request context so that the server can tailor the response. For example, the Accept-$\ast$ headers indicate the allowed and preferred formats of the response. \cite{Mozilla2022}.} of the \textit{HTTP request}. This will reduce the overhead added by the logging mechanism by not sending additional \textit{HTTP request} each time back to the server when a user-based activity has been identified.
+\end{itemize}
+
+\subsection{User activity types}\label{sec:ch2:userActivityTypes}
+The user-activity logs will be split into three main event types as in \Cref{tbl:ch2:userActivityTypes}. The general user activity event type (F/R 1.2.3) will the be most common user activity event and be split up into different user activity events. This is determined by the need of what utilisation stage requires to analyse specific user activity events. 
 
 \begin{table}[!htb]
 	\centering
@@ -115,9 +114,8 @@ In \Cref{fig:ch2_flowMVC_Architecture} is the MVC architecture equivalent repres
 	\end{tabularx}
 \end{table}
 
-\subsubsection{Logging points and log attributes}
-In \Cref{sec:ch1:loggignPoints} the logging points should be strategically placed in the software system to capture the log attributes for the user-based activity log. To meet the requirements of
-\Cref{tbl:ch2_requirementsForUserActivtyEvent} for a user-based activity the logging points should adhere to the logging points functional requirements of \Cref{tbl:ch2_loggingPointRequirement}.
+\subsection{Logging points and log attributes}\label{sec:ch2:loggingPoints}
+In \Cref{sec:ch1:loggignPoints} the logging points should be strategically placed in the software system to capture the log attributes for the user-based activity log. To meet the requirements of \Cref{tbl:ch2_requirementsForUserActivtyEvent} for a user-based activity the logging points should adhere to the logging points functional requirements of \Cref{tbl:ch2_loggingPointRequirement}.
 
 \begin{table}[!htb]
 	\centering
@@ -185,7 +183,7 @@ Each of these log attributes combined creates the base log from which key loggin
 
 \clearpage
 
-\subsubsection{Client functional requirements interaction}
+\subsection{Client functional requirements interaction}
 \par In \Cref{fig:ch2_user_based_actvity_classification} is the complete process of the user interacting with the UI to trigger a user-based activity event to be logged later for the client's functional requirements. It starts with the user interacting with the user interface. The potential user activity needs to meet the first requirement (F/R 1.1.1) of \Cref{tbl:ch2_requirementsForUserActivtyEvent} or else it should be not be logged. The default activity type is set to general activity (F/R 1.2.3) until it is further processed later in the logging mechanism.\par If the activity has any additional metadata such as the request parameters, it will also be logged. The other metadata can also be captured in this stage from the client side like the element that the user clicked on to start the event.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
@@ -229,6 +227,13 @@ The interfaces in \Cref{tbl:ch2:serverInterfaceRequirements} for the client func
 		\hline
 	\end{tabularx}
 \end{table}
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.99\textwidth]{Chapter2/SystemB_ERD_Basic/SystemB_ERD_Basic.pdf}
+	\caption[ERD of user activities]
+	{\textit{ERD of the user activities}}\label{fig:ch2:erdOfEventLogs}
+\end{figure}
 
 \clearpage
 
