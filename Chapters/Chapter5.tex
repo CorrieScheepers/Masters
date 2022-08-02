@@ -17,7 +17,7 @@ For this study two software systems are used to implement two different logging 
 \clearpage
 
 \subsection{System A}
-Logging point is essential data that describes the event's key features when creating a log as discussed in \Cref{sec:Ch1_LoggignPoints}. Both System A and B have certain key logging points that need to be obtained from the user-generated event.
+Logging point is essential data that describes the event's key features when creating a log as discussed in \Cref{sec:ch1:loggignPoints}. Both System A and B have certain key logging points that need to be obtained from the user-generated event.
 
 \subsubsection{System A's logging points}\label{sec:SystemA_LoggingPoints}
 In \Cref{fig:ch2_SystemA_Dashboard} each mine group have multiple toolboxes linked to them. They can be the same toolbox linked to both mine groups such as \emph{T1} and \emph{T3}. These toolboxes represent a group of dashboards related to the aspects of energy management of mines.\par Each of these toolboxes have a dashboards linked to them and each mine group can have different dashboards linked to the to the same toolbox. Each one of these mine groups, toolboxes and dashboards forms part of System A's web pages which the user can access where event logs are generated.
@@ -109,13 +109,13 @@ In \Cref{fig:CH2_SystemBMetaData} is the metadata JSON for the RequestParameters
 \end{figure}
 
 \subsubsection{System A logging mechanism design}
-\Cref{sec:SystemA_LoggingPoints} the logging points System A's key logging points need to be captured by a logging mechanism. In \Cref{fig:ch2_SystemA_Arch_Design} is the design for the System A's logging mechanism to effectively log the user generated event from the PHP software components. The logging mechanism consist of two main functional requirements (\textbf{F/R}) which is the client and server functional requirements.
+\Cref{sec:SystemA_LoggingPoints} the logging points System A's key logging points need to be captured by a logging mechanism. In \Cref{fig:ch2:systemDesign2} is the design for the System A's logging mechanism to effectively log the user generated event from the PHP software components. The logging mechanism consist of two main functional requirements (\textbf{F/R}) which is the client and server functional requirements.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
 	\includegraphics[width=0.9\textwidth]{Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
 	\caption[System A logging mechanism architecture design]
-	{\textit{System A logging mechanism architecture design}}\label{fig:ch2_SystemA_Arch_Design}
+	{\textit{System A logging mechanism architecture design}}\label{fig:ch2:systemDesign2}
 \end{figure}
 
 In the client's functional requirements (F/R 1) the user is the main focus and is the initiator of user activity event logs that take place in System A. The user has a direct interface (I/F 1.1) to the device (F/R 1.2) that is currently browsing System A's websites for specific tasks.\par If the user initiates an activity the request will in most cases either be handled in the dashboard manager of System A or on a defined file where the dashboards software components are. These activities are either captured by the logging mechanisms of \Cref{fig:ch2_Dash_PHP_Flow} or \Cref{fig:ch2_DetailView_Flow} that gets the necessary parameters and defines the type of the user generated event of \Cref{tbl:Ch2_SystemA_EventTypes}. \par The user-generated event (F/R 1.3) is sent to the user activity tracker logger (F/R 2.1) which is the database interaction of the logging mechanism as in \Cref{fig:CH2_SystemA_DB_Interaction_FlowDiagram} to create a log entry in the SQL database of (F/R 2.2).
