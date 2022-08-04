@@ -44,7 +44,7 @@ The user is the initiator of the logging mechanism. Each action or event they tr
 	\label{tbl:ch2_requirementsForUserActivtyEvent}
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Description}\\
-		\hline F/R 1.1.1 & The event has to be triggered by the user interacting with the user interface using their device and not any other events that the system will self-initiate. The user needs to have interacted with the UI directly. This can also be validated by tracking if the user did interact with the UI from the HTML elements. \\
+		\hline F/R 1.1.1 & The event has to be triggered by the user interacting with the user interface using their device and not any other events that the system will self-initiate. The user needs to have interacted with the UI directly. This can also be validated by tracking if the user did interact with the UI from the HTML element ids. \\
 		\hline F/R 1.1.2 & The event must consists of different cases ($ca~ \epsilon~CA$ the cases consists of events) which are noteworthy to make the event log identifiable \cite{Slaninova2014}. \\
 		\hline F/R 1.1.3 & For certain types of event logs for F/R 1.1.2, the user-generated event should have an origin from which the event took place. \\
 		\hline F/R 1.1.4 & The event log should consist of attributes that expand the identity of the user-based activity. \\
@@ -172,7 +172,7 @@ The metadata will need to store as a JSON string as it can be a complex object t
 
 \begin{itemize}
 	\item The \texttt{RequestTarget} parameter can be a file path for the \textit{Controller} or Webpage's absolute request path from where the user initiated the event. It also contains the function that is being called by the \textit{HTTP request}.
-	\item The \texttt{RequestElementID} is the HTML element which the user interacted with that cause the user-based activity. This can be used as another validation that the event was caused by the user. Some of the user-based activities can be set to some of these HTML element controls by getting the HTML element tag.
+	\item The \texttt{RequestElementID} is the HTML element id which the user interacted with that cause the user-based activity. This can be used as another validation that the event was caused by the user. Some of the user-based activities can be set to some of these HTML element types by getting the HTML element tag.
 	\item The \texttt{RequestParameters} is all the parameters in the \textit{HTTP request} that can be serialize into a JSON string. This can be used to determine what the user tried to do by using this input for the specific function which is used for F/R 1.1.6 in \Cref{tbl:ch2_requirementsForUserActivtyEvent}.
 \end{itemize}
 
@@ -207,34 +207,27 @@ In \Cref{fig:ch2_flowMVC_Architecture} is the MVC architecture equivalent repres
 	\item Any additional metadata can be sent with the \textit{request header}\footnote{A \textbf{request header} is an HTTP header that can be used in an HTTP request to provide information about the request context so that the server can tailor the response. For example, the Accept-$\ast$ headers indicate the allowed and preferred formats of the response. \cite{Mozilla2022}.} of the \textit{HTTP request}. This will reduce the overhead added by the logging mechanism by not sending additional \textit{HTTP request} each time back to the server when a user-based activity has been identified.
 \end{itemize}
 
-Most Web applications will make of use JavaScript to control the content of the page that is being displayed to the user. The primary method would be making use of an \textit{AJAX request} to communicate with the server to fulfill the user's action.\par The \textit{AJAX request} has some key features that will enable the logging points discussed in \Cref{sec:ch2_loggingPoints}
+Most Web applications will make of use JavaScript to control the content of the page that is being displayed to the user. The primary method would be making use of an \textit{AJAX request} to communicate with the server to fulfill the user's action.\par The \textit{AJAX request} has some key features that will enable the logging points discussed in \Cref{sec:ch2_loggingPoints} to capture some logging attributes and classify the event as a user-based activity. \par The \texttt{beforeSend} setting of the \textit{AJAX request} enables tracking in real-time for the HTML element id and its HTML tag or other possible log attributes that need to be added to the request for the log point to capture it. The captured HTML element id, HTML tag and some other parameters can be added as a custom request header that will be sent to the server.
 
-\begin{figure}[!htb]
-	\centering
-	\begin{lstlisting} 
-		$.ajax({
-			url: "https://fiddle.jshell.net/favicon.png",
-			beforeSend: function (xhr) {
-				xhr.overrideMimeType("text/plain; charset=x-user-defined");
-			}
-		}).done(function (data) {
-			if (console && console.log) {
-				console.log("Sample of data:", data.slice(0, 100));
-			}
-		});
-	\end{lstlisting}
-	\caption[AJAX request example]
-	{\textit{AJAX request example}}\label{fig:ch2_ajaxBeforesend}
-\end{figure}
-
-\clearpage
+\begin{lstlisting}[caption={\textit{AJAX request example \cite{API.jQuery2022}}}, label={fig:ch2_ajaxBeforesend}]  
+	$.ajax({
+		url: "https://fiddle.jshell.net/favicon.png",
+		beforeSend: function (xhr) {
+			xhr.overrideMimeType("text/plain; charset=x-user-defined");
+		}
+	}).done(function (data) {
+		if (console && console.log) {
+			console.log("Sample of data:", data.slice(0, 100));
+		}
+	});
+\end{lstlisting}
 
 \subsection{Client functional requirements interaction}
-\par In \Cref{fig:ch2_user_based_actvity_classification} is the complete process of the user interacting with the UI to trigger a user-based activity event to be logged later for the client's functional requirements. It starts with the user interacting with the user interface. The potential user activity needs to meet the first requirement (F/R 1.1.1) of \Cref{tbl:ch2_requirementsForUserActivtyEvent} or else it should be not be logged. The default activity type is set to general activity (F/R 1.2.3) until it is further processed later in the logging mechanism.\par If the activity has any additional metadata such as the request parameters, it will also be logged. The other metadata can also be captured in this stage from the client side like the element that the user clicked on to start the event.
+\par In \Cref{fig:ch2_user_based_actvity_classification} is the complete process of the user interacting with the UI to trigger a user-based activity event to be logged later for the client's functional requirements. It starts with the user interacting with the user interface. In the \texttt{beforeSend} operation of the \textit{AJAX request} the HTML element's id and tag should be attempted to. The default activity type is set to general activity (F/R 1.2.3) until it is further processed later in the logging mechanism.\par If the activity has any additional metadata such as other request parameters, it will also be logged by adding searching for it in the \texttt{beforeSend} operation. The other metadata can also be captured in this stage from the client side like the element that the user clicked to initiate the event.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.6\textwidth]{Chapter2/client_functional_requirement_flow_diagram/client_functional_requirement_flow_diagram.pdf}
+	\includegraphics[width=0.75\textwidth]{Chapter2/client_functional_requirement_flow_diagram/client_functional_requirement_flow_diagram.pdf}
 	\caption[User-based activity log classification flow diagram]
 	{\textit{User-based activity log classification flow diagram}}\label{fig:ch2_user_based_actvity_classification}
 \end{figure}
