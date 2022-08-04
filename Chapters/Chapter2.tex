@@ -44,11 +44,12 @@ The user is the initiator of the logging mechanism. Each action or event they tr
 	\label{tbl:ch2_requirementsForUserActivtyEvent}
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Description}\\
-		\hline F/R 1.1.1 & The event has to be triggered by the user interacting with the user interface using their device and not any other events that the system will self-initiate. The user needs to have interacted with the UI directly. \\
+		\hline F/R 1.1.1 & The event has to be triggered by the user interacting with the user interface using their device and not any other events that the system will self-initiate. The user needs to have interacted with the UI directly. This can also be validated by tracking if the user did interact with the UI from the HTML elements. \\
 		\hline F/R 1.1.2 & The event must consists of different cases ($ca~ \epsilon~CA$ the cases consists of events) which are noteworthy to make the event log identifiable \cite{Slaninova2014}. \\
 		\hline F/R 1.1.3 & For certain types of event logs for F/R 1.1.2, the user-generated event should have an origin from which the event took place. \\
 		\hline F/R 1.1.4 & The event log should consist of attributes that expand the identity of the user-based activity. \\
-		\hline F/R 1.1.5 & The event must have the user as the initiator or input for the user-based activity. This will exclude all events triggered by the system as the user did not directly start the event.\\ 
+		\hline F/R 1.1.5 & The event must have the user as the initiator or input for the user-based activity. This will exclude all events triggered by the system as the user did not directly start the event. \\
+		\hline F/R 1.1.6 & Only use the first \textit{HTTP requests}\footnote{A \textbf{HTTP request} is made by a client, to a named host, which is located on a server. The request aims to access a resource on the server. \cite{IBM2021}.} that is sent to the server. \\ 
 		\hline
 	\end{tabularx}
 \end{table}
@@ -129,33 +130,40 @@ obtainable at the server side but any additional captured data can be added and 
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Logging point} & \textbf{Description} \\
 		\hline F/R 1.4.1 & Identification number & The activity identification is an incremental number of the user-based event that is logged.\\
-		\hline F/R 1.4.2 & Timestamp & This is the time the user initiated the user-based activity event.\\
+		\hline F/R 1.4.2 & Timestamp & This is the time the user initiated the user-based activity event. This will be the timestamp the log was written into the database as the log will be made before the rest of the intended \textit{HTTP request} is completed. \\
 		\hline F/R 1.4.3 & Activity type & Each event can be classified into user-based types. This is the user-based activity types in \Cref{tbl:ch2_userActivityTypes}.\\
 		\hline F/R 1.4.4 & User identification & Each user has a unique identification number that links the event to them if their session has been verified and can be obtained. Will not be available when the user tries to log in to the system as their session has not been set yet. \\
-		\hline F/R 1.4.5 & Request origin & In web applications, there are always requests sent back to the server and will call the primary function to handle the request. This can be logged as either the file that the request is being sent to or the Webpage from which the request came from. \\
+		\hline F/R 1.4.5 & Request origin & In web applications, there are always requests sent back to the server and will call the primary function to handle the request. This can be logged as either the file that the request is being sent to or the Webpage from which the request came. \\
 		\hline F/R 1.4.6 & Metadata & The metadata of the event contains request parameters or other relevant request data of the event. This metadata adds more information about the user's activity.
-		In \Cref{fig:Ch2_Metadata_Json_Example} is an example representation of the metadata. \\
-		\hline F/R 1.4.7 & Miscellaneous attributes & These are any non-metadata attributes that can be consistently captured to be used in the utilisation analysis.\\ \hline
+		In \Cref{fig:Ch2_Metadata_Json_Example} is an example representation of the metadata that can be created for most user-based logs. Some of the event types may not have metadata added. \\
+		\hline F/R 1.4.7 & Miscellaneous & These are any non-metadata attributes that can be consistently captured to be used in the utilisation analysis. They expand the characteristics of the obtained user-based log beyond the base attributes. \\ \hline
 	\end{tabularx}
 \end{table}
+
+\clearpage
 
 Each of these log attributes combined creates the base log from which key logging points can be created in the software system to capture the user-based activity logs in \Cref{tbl:ch2_keyLoggingAttributes}. The activity type (F/R 1.4.3) is can be assigned during the user-based activity identification phase with a default value and resolved to a new activity type based on metadata or other parameters by:
 
 \begin{itemize}
-	\item If it alters any of the session variables,
+	\item If it alters any of the session variables that are relevant to the system utilisation analysis,
 	\item Access a certain part of the software system that needs all the user-based activities set to a certain type based on the nature of the procedures that need to be executed such as triggering a generation of a report that can be its user-based activity type.
+	\item The activity type is also sorted by HTML element tags such as a button or textbox.
 \end{itemize}
 
 The metadata in \Cref{fig:Ch2_Metadata_Json_Example} is the possible extra parameters that can be obtained for the user-bade activity log. These parameters can either be captured at the client side by the logging point or can either be captured on the server side when the rest of the log's attributes are being obtained.
 
 \begin{lstlisting}[style=json, caption={Metadata JSON}, label={fig:Ch2_Metadata_Json_Example}] 
-	{ "RequestOrigin" : "/Area4/Controller4",
+	{ "RequestTarget" : "/Area4/Controller4/TestFunction",
 		"RequestElementID" : "Button4",
 		"RequestParameters": {
-		"Parameter1": 4,
-		"Parameter2": "Hello World!",
-		"Parameter3": true
-		"Parameter4": 40.404
+			"Parameter1": 4,
+			"Parameter2": "Hello World!",
+			"Parameter3": true
+			"Parameter4": 40.404
+			"Parameter5": {
+				"Parameter6": "Car",
+				"Parameter7" 160000.00
+			}
 		}		
 	}
 \end{lstlisting}
@@ -163,7 +171,9 @@ The metadata in \Cref{fig:Ch2_Metadata_Json_Example} is the possible extra param
 The metadata will need to store as a JSON string as it can be a complex object that doesn't have a set number of parameters. This complex object can have:
 
 \begin{itemize}
-	\item The \texttt{RequestOrigin} parameter can be a file or Webpage's URL from where the user initiated the event. It can be the same as the request origin (F/R 1.4.5) of the 
+	\item The \texttt{RequestTarget} parameter can be a file path for the \textit{Controller} or Webpage's absolute request path from where the user initiated the event. It also contains the function that is being called by the \textit{HTTP request}.
+	\item The \texttt{RequestElementID} is the HTML element which the user interacted with that cause the user-based activity. This can be used as another validation that the event was caused by the user. Some of the user-based activities can be set to some of these HTML element controls by getting the HTML element tag.
+	\item The \texttt{RequestParameters} is all the parameters in the \textit{HTTP request} that can be serialize into a JSON string. This can be used to determine what the user tried to do by using this input for the specific function which is used for F/R 1.1.6 in \Cref{tbl:ch2_requirementsForUserActivtyEvent}.
 \end{itemize}
 
 \subsection{Web application architecture}\label{sec:ch2_webApplicationArchitecture}
@@ -189,7 +199,7 @@ To determine the user activity types for a Web application, the Web application'
 	{\textit{MVC architecture for most web-based applications \cite{Gu2010}}}\label{fig:ch2_flowMVC_Architecture}
 \end{figure}
 
-In \Cref{fig:ch2_flowMVC_Architecture} is the MVC architecture equivalent representation of \Cref{fig:ch2_systemDesign} where the data flow is shown of the MVC architecture. The user interacts with the Web application through their browser which will send a \textit{HTTP requests}\footnote{A \textbf{HTTP request} is made by a client, to a named host, which is located on a server. The request aims to access a resource on the server. \cite{IBM2021}.} to the \textit{Controller} and receive a \textit{HTTP response}\footnote{An \textbf{HTTP response} is made by a server to a client. The response aims to provide the client with the resource it requested, inform the client that the action it requested has been carried out; or else inform the client that an error occurred in processing its request. \cite{IBM2021a}.} from the \textit{View}.The \textit{Controller} will request and return the data to the \textit{Model} which interacts with the database access layer or service to do the \textit{create}, \textit{update} and \textit{delete} operations.\par To classify any interaction between the user (F/R 1) and server (F/R 2) to fulfill the functional requirements of \Cref{tbl:ch2_requirementsForUserActivtyEvent} only the \textit{HTTP request} are used for the logging points in \Cref{sec:ch2_loggingPoints} as it:
+In \Cref{fig:ch2_flowMVC_Architecture} is the MVC architecture equivalent representation of \Cref{fig:ch2_systemDesign} where the data flow is shown of the MVC architecture. The user interacts with the Web application through their browser which will send a \textit{HTTP requests} to the \textit{Controller} and receive a \textit{HTTP response}\footnote{An \textbf{HTTP response} is made by a server to a client. The response aims to provide the client with the resource it requested, inform the client that the action it requested has been carried out; or else inform the client that an error occurred in processing its request. \cite{IBM2021a}.} from the \textit{View}.The \textit{Controller} will request and return the data to the \textit{Model} which interacts with the database access layer or service to do the \textit{create}, \textit{update} and \textit{delete} operations.\par To classify any interaction between the user (F/R 1) and server (F/R 2) to fulfill the functional requirements of \Cref{tbl:ch2_requirementsForUserActivtyEvent} only the \textit{HTTP request} are used for the logging points in \Cref{sec:ch2_loggingPoints} as it:
 
 \begin{itemize}
 	\item Meet the F/R 1.1.1 and F/R 1.1.5 as the user will interact with the \textit{View} to modify the data which needs to send back an \textit{HTTP request} to process the data on the \textit{Controller}.
@@ -262,6 +272,13 @@ The interfaces in \Cref{tbl:ch2_serverInterfaceRequirements} for the client func
 	\end{tabularx}
 \end{table}
 
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Chapter2/SystemB_FilterContext/SystemB_FilterContext.pdf}
+	\caption[System B event classification]
+	{\textit{System B event classification flow diagram}}\label{fig:ch2_loggingParse}
+\end{figure}
+
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
 	\includegraphics[width=0.99\textwidth]{Chapter2/SystemB_ERD_Basic/SystemB_ERD_Basic.pdf}
@@ -269,7 +286,38 @@ The interfaces in \Cref{tbl:ch2_serverInterfaceRequirements} for the client func
 	{\textit{ERD of the user activities}}\label{fig:ch2_erdOfEventLogs}
 \end{figure}
 
+\begin{table}[!htb]
+	\centering
+	\small
+	\caption[System B user activities table]
+	{\textit{System B user activities table}}
+	\label{tbl:ch2_SQLLoggingTable}
+	\begin{tabularx}{\textwidth}{|l|l|X|}
+		\hline \textbf{Column Name} & \textbf{SQL Data Type} & \textbf{Description} \\
+		\hline \textbf{ActivityID} & INT(11) & The activity identification is an incremental number of the event that is logged.\\
+		\hline \textbf{Timestamp} & DATETIME & This is the time which the event took place.\\
+		\hline \textbf{ActivityType} & ENUM & Each event that the user initiate has an activity type as in \Cref{tbl:Ch2_SystemB_ActivityTypes}. This activity type is dependent if the controller's called method is the index action or based on the HTML element that is part of the meta data. \\
+		\hline \textbf{UserID} & INT(4) & Each user has a unique identifier which is a numerical identification number that is foreign key reference to the User table. \\
+		\hline \textbf{Area} & VARCHAR(45) & This information is logged to track user activities per Area that represents different software systems that the user can use. \\
+		\hline \textbf{Controller} & TEXT & Each event will point back to an controller that process the request. \\
+		\hline \textbf{GroupID} & INT(4) & This foreign key reference to the Group table is contract groups identification number. \\
+		\hline \textbf{MetaData} & JSON & The meta data of the event contains request parameters, the HTML element from which the request is initiated and other relevant request data of the event. This can also be other meta data is important to get that adds more information about the user's activity using certain controls on System B as in \Cref{fig:CH2_SystemBMetaData}. \\
+		\hline
+	\end{tabularx}
+\end{table}
+
 \clearpage
+
+\subsection{Database interaction of the logging mechanism}\label{sec:ch2_databaseInteraction}
+
+In \Cref{fig:ch2_Dash_PHP_Flow,fig:ch2_DetailView_Flow} the user-generated event is captured with additional parameters that may exist with the captured event. The next process in \Cref{fig:CH2_SystemA_DB_Interaction_FlowDiagram} is save the generated user activity log in a database.\par \Cref{fig:CH2_SystemA_DB_Interaction_FlowDiagram} is the process which the logging mechanism will create a log entry by first initialising the SQL database connection. The last parameter needed to complete the requirements of the logging points in \Cref{tbl:Ch2_System_A_Logging_Points} is the user's identification. This is obtained from the user's session that contains the user's ID number that is assigned in the Users table.\par The ActivityParameters from  \Cref{fig:ch2_Dash_PHP_Flow,fig:ch2_DetailView_Flow} are encoded as a JSON string to be saved in the RequestParameters column. After all the parameters are converted to correct format the SQL query created and executed to save the log entry in the SystemA\_UserActivities table of \Cref{fig:Ch2_SystemA_Basic_ERD}.
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.5\textwidth]{Chapter2/SystemA_ActivityTracker/SystemA_ActivityTracker.pdf}
+	\caption[User activity logging mechanism database interaction]
+	{\textit{User activity logging mechanism database interaction}}\label{fig:ch2_databaseInteraction}
+\end{figure}
 
 \section{System utilisation analysis}\label{ch2:system_utilisation_analysis}
 
