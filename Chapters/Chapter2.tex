@@ -223,7 +223,7 @@ Most Web applications will make of use JavaScript to control the content of the 
 \end{lstlisting}
 
 \subsection{Client functional requirements interaction}
-\par In \Cref{fig:ch2_user_based_actvity_classification} is the complete process of the user interacting with the UI to trigger a user-based activity event to be logged later for the client's functional requirements. It starts with the user interacting with the user interface. In the \texttt{beforeSend} operation of the \textit{AJAX request} the HTML element's id and tag should be attempted to. The default activity type is set to general activity (F/R 1.2.3) until it is further processed later in the logging mechanism.\par If the activity has any additional metadata such as other request parameters, it will also be logged by adding searching for it in the \texttt{beforeSend} operation. The other metadata can also be captured in this stage from the client side like the element that the user clicked to initiate the event.
+\par In \Cref{fig:ch2_user_based_actvity_classification} is the complete process of the user interacting with the UI to trigger a user-based activity event to be logged later for the client's functional requirements. It starts with the user interacting with the user interface. In the \texttt{beforeSend} operation of the \textit{AJAX request} the HTML element's id and tag should be attempted to. The default activity type is set to general activity (F/R 1.2.3) until it is further processed later in the logging mechanism.\par If the activity has any additional metadata such as other request parameters, it will also be logged by adding searching for it in the \texttt{beforeSend} operation. The other metadata can also be captured in this stage from the client side like the element that the user clicked to initiate the event. The captured metadata is placed in a custom request header afterward, the \textit{AJAX request} continues its normal operations and sends the data back to the server.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -234,43 +234,61 @@ Most Web applications will make of use JavaScript to control the content of the 
 
 \clearpage
 
-\subsection{Server's functional requirements}
-The server functional requirements in \Cref{tbl:Ch2_Server_Functional_Requirements} for \Cref{fig:ch2_systemDesign} is the rest of the logging mechanism. At this stage, the obtained user-generated event of \Cref{fig:ch2_user_based_actvity_classification} will be attempted to be completed into a user-based activity log and stored in a database.
+\subsection{Server's functional requirements}\label{sec:ch2_serverFunctionalRequirements}
+The server functional requirements in \Cref{tbl:ch2_serverInterfaceRequirements} for \Cref{fig:ch2_systemDesign} is the rest of the logging mechanism. At this stage, the obtained user-generated event of \Cref{fig:ch2_user_based_actvity_classification} will be attempted to be completed into a user-based activity log and stored in a database by the logging point. \par 
 
 \begin{table}[!htb]
 	\centering
 	\caption[Server functional requirements]
 	{\textit{Server functional requirements (F/R 2)}}
-	\label{tbl:Ch2_Server_Functional_Requirements}
+	\label{tbl:ch2_serverInterfaceRequirements}
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
-		\hline F/R 2.1 & User activity logger & The key logging points are used to capture and create the user-based event log that will be stored in a database.\\
+		\hline F/R 2.1 & User activity logger & The logging points are used to capture and create the user-based event log that will be stored in a database.\\
 		\hline F/R 2.2 & Database & The event log is stored in a database until it is needed for further analysis.\\
 		\hline
 	\end{tabularx}
 \end{table}
 
-The interfaces in \Cref{tbl:ch2_serverInterfaceRequirements} for the client functional requirement (F/R 2) is to obtain the base log from the client functional requirement (F/R 1) and finally store the completed log into a database.
+\subsection{Server side logging point}
+In \Cref{sec:ch2_loggingPoints} the functional requirements for the logging point need to be fulfilled to create a suitable logging point for a software system to track user-based activities. The \textit{HTTP request} will call a function in the \textit{Controller} to execute the user's actions, these \textit{request} information can be obtained and parsed on to the logging point.\par The logging attribute can be created as centralised code segment that all the software system's components can execute before executing the targeted software system in Web applications such as:
+
+\begin{itemize}
+	\item In frameworks like \texttt{C\#}'s \emph{.NET Framework}\footnote{\label{ftn:ch2_NetFramework}\textbf{.NET Framework} is a run-time execution environment that consists of common language run-time (\emph{CLR}) and a \texttt{.NET Framework Class Library} \cite{Harkness2007}.} the \textit{HTTP request} data can be extracted from the in build \textit{HTTP request} models to obtain the custom request headers set on the client side. Using the \textit{ActionFilterAttribute} enables the creation of a global single logging point that can be called for every \textit{HTTP} function to execute the logging point first before continuing with the rest of the main targeted function. The rest of the log attributes can also be obtained during the execution of the filter if they are available. 
+	\item In other older Web applications that is created with programming languages such as \texttt{PHP} a more direct approach needs to be taken when accessing the request data. In this case, making use of multiple logging, points is needed that call the logging points' main code segment to capture the attributes and store the log in a database. The parameters may need to be extracted before parsing it to the main logging point code segment.
+\end{itemize}
+
+As long as the logging attributes and the \textit{HTTP request} headers are obtainable, the logging mechanism can be created on the server side to extract the data and process it. The activity type can be resolved by the defined cases e.g. if the request calls the \texttt{Index} function of the \textit{Controller} of the Webpage, it can be identified as the Web page accessed user activity type (F/R 1.2.1) of \Cref{tbl:ch2_userActivityTypes}.\par If the user-based event is using the \textit{Controller} or functions that modify the session, it can be classified as session changed event (F/R 1.2.3) and the rest of the user-based activity events need to be tested afterward if they meet certain criteria defined for the general activity types. If it fails all three types of classification the event is likely not user-generated or comes from \textit{AJAX request} that was executed after the initial first request. In such cases, the last HTML element id that triggered the event should not be listed as a clicked element in JavaScript. \
+
+\subsection{Obtaining the log attributes}
+The captured parameters of the log attributes may have some sensitive user data that should not be logged. Functions can be excluded or assigned a new user activity type that will need to filter out certain parameters or not log any parameters a all. This will be any functions that include:
+
+\begin{itemize}
+	\item Session handling functions that contain passwords,
+	\item Any functions that contain the user's private data such as functions where user's private non-company own messages are sent.
+	\item Complex parameters such as file upload streams. The name of the file can rather be logged.
+\end{itemize}
+
+
 
 \begin{table}[!htb]
 	\centering
-	\caption[Server interface requirements]
-	{\textit{Server interface requirements for F/R 2}}
-	\label{tbl:ch2_serverInterfaceRequirements}
-	\begin{tabularx}{\textwidth}{|l|l|X|}
-		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
-		\hline I/F 2.1 & Log parsing to server & The captured log is parsed onto the server for further processing of the captured user-generated event.\\
-		\hline I/F 2.2 & Store in database & The event log is sent to a database for storing.\\
+	\caption[Log attributes for SQL table]
+	{\textit{Log attributes for SQL table}}
+	\label{tbl:ch2_SQLLoggingTable}
+	\begin{tabularx}{\textwidth}{|X|X|X|}
+		\hline \textbf{Column Name} & \textbf{SQL Data Type} & \textbf{Requirement} \\
+		\hline \textbf{ActivityID} & INT(11) & F/R 1.4.1 \\
+		\hline \textbf{Timestamp} & DATETIME & F/R 1.4.2 \\
+		\hline \textbf{ActivityType} & ENUM & F/R 1.4.3 \\
+		\hline \textbf{UserID} & INT(4) & F/R 1.4.4 \\
+		\hline \textbf{Area} & VARCHAR(45) & F/R 1.4.5 \\
+		\hline \textbf{Controller} & TEXT & F/R 1.4.5 \\
+		\hline \textbf{GroupID} & INT(4) & F/R 1.4.7 \\
+		\hline \textbf{MetaData} & JSON & F/R 1.4.6 \\
 		\hline
 	\end{tabularx}
 \end{table}
-
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=0.7\textwidth]{Chapter2/SystemB_FilterContext/SystemB_FilterContext.pdf}
-	\caption[System B event classification]
-	{\textit{System B event classification flow diagram}}\label{fig:ch2_loggingParse}
-\end{figure}
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -279,25 +297,14 @@ The interfaces in \Cref{tbl:ch2_serverInterfaceRequirements} for the client func
 	{\textit{ERD of the user activities}}\label{fig:ch2_erdOfEventLogs}
 \end{figure}
 
-\begin{table}[!htb]
+
+
+\begin{figure}[!htb]
 	\centering
-	\small
-	\caption[System B user activities table]
-	{\textit{System B user activities table}}
-	\label{tbl:ch2_SQLLoggingTable}
-	\begin{tabularx}{\textwidth}{|l|l|X|}
-		\hline \textbf{Column Name} & \textbf{SQL Data Type} & \textbf{Description} \\
-		\hline \textbf{ActivityID} & INT(11) & The activity identification is an incremental number of the event that is logged.\\
-		\hline \textbf{Timestamp} & DATETIME & This is the time which the event took place.\\
-		\hline \textbf{ActivityType} & ENUM & Each event that the user initiate has an activity type as in \Cref{tbl:Ch2_SystemB_ActivityTypes}. This activity type is dependent if the controller's called method is the index action or based on the HTML element that is part of the meta data. \\
-		\hline \textbf{UserID} & INT(4) & Each user has a unique identifier which is a numerical identification number that is foreign key reference to the User table. \\
-		\hline \textbf{Area} & VARCHAR(45) & This information is logged to track user activities per Area that represents different software systems that the user can use. \\
-		\hline \textbf{Controller} & TEXT & Each event will point back to an controller that process the request. \\
-		\hline \textbf{GroupID} & INT(4) & This foreign key reference to the Group table is contract groups identification number. \\
-		\hline \textbf{MetaData} & JSON & The meta data of the event contains request parameters, the HTML element from which the request is initiated and other relevant request data of the event. This can also be other meta data is important to get that adds more information about the user's activity using certain controls on System B as in \Cref{fig:CH2_SystemBMetaData}. \\
-		\hline
-	\end{tabularx}
-\end{table}
+	\includegraphics[width=0.7\textwidth]{Chapter2/SystemB_FilterContext/SystemB_FilterContext.pdf}
+	\caption[System B event classification]
+	{\textit{System B event classification flow diagram}}\label{fig:ch2_loggingParse}
+\end{figure}
 
 \clearpage
 
