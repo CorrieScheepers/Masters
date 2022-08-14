@@ -40,5 +40,14 @@
             }
         }
     ],
-    "latex-workshop.latex.autoBuild.run": "onSave"
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "grammarly.config.suggestions.InformalPronounsAcademic": true,
+    "grammarly.config.suggestions.OxfordComma": true,
+    "grammarly.config.suggestions.PassiveVoice": true,
+    "grammarly.config.suggestions.PrepositionAtTheEndOfSentence": true,
+    "grammarly.config.suggestions.StylisticFragments": true,
+    "grammarly.config.suggestions.UnnecessaryEllipses": true,
+    "grammarly.config.documentDomain": "academic",
+    "grammarly.config.documentDialect": "british",
+    "grammarly.config.suggestions.ConjunctionAtStartOfSentence": true
 }
