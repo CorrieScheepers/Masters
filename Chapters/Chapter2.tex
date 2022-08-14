@@ -2,7 +2,16 @@
 \label{chap:2}
 \ChapterPageStuff{2}
 
-\section{Preamble} The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs. The web-based application system on this logging mechanism will be implemented on is an energy management system for the mining industry.\par In \Cref{Ch2:LoggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance.
+\section{Preamble} The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs. The Web-based application system on this logging mechanism will be implemented on is an energy management system for the mining industry.\par In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with where each mine group has different toolboxes linked to it and each toolbox has different dashboards linked to them which the users can access and interact with. The activities of each of these dashboards and how the user navigates through them are necessary for the system utilisation analyis.
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.8\textwidth]{Chapter2/SystemA_Dashboard/SystemA_Dashboard.pdf}
+	\caption[Basic design of an energy management system]
+	{\textit{Basic design of an energy management system}}\label{fig:ch2_webSystemBasic}
+\end{figure}
+
+In \Cref{Ch2:LoggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance.
 
 \section{Logging mechanism}\label{Ch2:LoggingMechanism} The logging mechanism will need to meet the requirements discussed in \Cref{sec:EventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one interface to another interface. These interfaces are labeled as I/F in \Cref{fig:ch2_systemDesign}. The \Cref{fig:ch2_systemDesign} is the client interface (F/R 1) and the server interface (F/R 2) that forms the entire logging mechanism to capture the user-based activity logs.
 
@@ -13,10 +22,7 @@
 	{\textit{Logging mechanism architecture design}}\label{fig:ch2_systemDesign}
 \end{figure}
 
-\clearpage
-
-\subsection{Clients functional requirements}
-
+\subsubsection{Clients functional requirements}
 The client's functional requirements (F/R 1) are where the user-based activity is triggered. In \Cref{fig:ch2_systemDesign} the client interface consists of three main functional requirements. These interfaces in \Cref{tbl:ch2_clientFunctionalRequirements} parses the input from the user to create a basic user-based action that can be parsed be captured and parsed by the logging point to create a user-based log that is parsed onto the server for further processing. 
 
 \begin{table}[!htb]
@@ -29,6 +35,22 @@ The client's functional requirements (F/R 1) are where the user-based activity i
 		\hline F/R 1.1 & User & The user serves as the primary initiator of the user-based activity events.\\
 		\hline F/R 1.2 & User's device & The device that the user uses to access the website from where the user-based activity events are generated.\\
 		\hline F/R 1.3 & User-generated events & These are the captured user-based activity events that has been identified by the logging point and will be sent to the server.\\
+		\hline
+	\end{tabularx}
+\end{table}
+
+\subsubsection{Server's functional requirements}\label{sec:ch2_serverFunctionalRequirements}
+The server functional requirements in \Cref{tbl:ch2_serverInterfaceRequirements} for \Cref{fig:ch2_systemDesign} is the rest of the logging mechanism. At this stage, the obtained user-generated event of \Cref{fig:ch2_user_based_actvity_classification} will be attempted to be completed into a user-based activity log and stored in a database by the logging point. \par 
+
+\begin{table}[!htb]
+	\centering
+	\caption[Server functional requirements]
+	{\textit{Server functional requirements (F/R 2)}}
+	\label{tbl:ch2_serverInterfaceRequirements}
+	\begin{tabularx}{\textwidth}{|l|l|X|}
+		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
+		\hline F/R 2.1 & User activity logger & The logging points are used to capture and create the user-based event log that will be stored in a database.\\
+		\hline F/R 2.2 & Database & The event log is stored in a database until it is needed for further analysis.\\
 		\hline
 	\end{tabularx}
 \end{table}
@@ -75,9 +97,9 @@ The user-activity logs will be split into three main event types as in \Cref{tbl
 		\hline F/R 1.2.1 & Web page accessed & The user may navigate through different web pages in a session.\\
 		\hline F/R 1.2.2 & Session changes & This is any user activities excluding F/R 1.2.1 that modifies the user's session:
 		\begin{itemize}
-			\item Logging into a Web application. Both Successful and failed attempted logins. This user-based activity may cause the log attributes that identify the user will be a NULL value as the user's session has not started yet to verify their identity,
+			\item Logging into a Web application. Both Successful and failed attempted logins. This user-based activity may cause the log attributes that identify the user will be a \texttt{NULL} value as the user's session has not started yet to verify their identity,
 			\item Ending their session through by logging out or declining to extend their session when it is about to expire,
-			\item Modifying any session other relevant variables that can used in the utilasation analysis
+			\item Modifying any session or other relevant variables that can be used in the utilasation analysis
 		\end{itemize}\\
 		\hline F/R 1.2.3 & General activity & Any events excluding the first two user-based activity types that the user initiates when they interact with the web page. Most of the user activity logs will
 		have this event type.\\ 
@@ -85,7 +107,7 @@ The user-activity logs will be split into three main event types as in \Cref{tbl
 	\end{tabularx}
 \end{table}
 
-These user activity types can be further expanded in general activity (F/R 1.2.3) for analysis purposes. The general activity types will be different for each system based on what the system enables the user to do or what is needed for futher system utilisation analysis such as determining if the action the user triggered was to generate a report that they downloaded.
+These user activity types can be further expanded in general activity (F/R 1.2.3) for analysis purposes. The general activity types will be different for each system based on what the system enables the user to do or what is needed for further system utilisation analysis such as determining if the action the user triggered was to generate a report that they downloaded.
 
 \subsection{Logging points}\label{sec:ch2_loggingPoints}
 In \Cref{sec:ch1_loggignPoints} the logging points should be strategically placed in the software system to capture the log attributes for the user-based activity log. To meet the requirements of \Cref{tbl:ch2_requirementsForUserActivtyEvent} for a user-based activity the logging points should adhere to the logging points functional requirements of \Cref{tbl:ch2_loggingPointRequirement}.
@@ -152,7 +174,7 @@ Each of these log attributes combined creates the base log from which key loggin
 
 The metadata in \Cref{fig:Ch2_Metadata_Json_Example} is the possible extra parameters that can be obtained for the user-bade activity log. These parameters can either be captured at the client side by the logging point or can either be captured on the server side when the rest of the log's attributes are being obtained.
 
-\begin{lstlisting}[style=json, caption={Metadata JSON}, label={fig:Ch2_Metadata_Json_Example}] 
+\begin{lstlisting}[style=json, caption={\textit{Metadata JSON}}, label={fig:Ch2_Metadata_Json_Example}] 
 	{ "RequestTarget" : "/Area4/Controller4/TestFunction",
 		"RequestElementID" : "Button4",
 		"RequestParameters": {
@@ -222,6 +244,17 @@ Most Web applications will make of use JavaScript to control the content of the 
 	});
 \end{lstlisting}
 
+\subsection{Obtaining the element which the user interacted with}
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.75\textwidth]{Chapter2/event_bubbling/event_bubbling.pdf}
+	\caption[JavaScript event bubbling]
+	{\textit{JavaScript event bubbling~\cite{EventBubbling}}}\label{fig:ch2_event_bubbling}
+\end{figure}
+
+\clearpage
+
 \subsection{Client functional requirements interaction}
 \par In \Cref{fig:ch2_user_based_actvity_classification} is the complete process of the user interacting with the UI to trigger a user-based activity event to be logged later for the client's functional requirements. It starts with the user interacting with the user interface. In the \texttt{beforeSend} operation of the \textit{AJAX request} the HTML element's id and tag should be attempted to. The default activity type is set to general activity (F/R 1.2.3) until it is further processed later in the logging mechanism.\par If the activity has any additional metadata such as other request parameters, it will also be logged by adding searching for it in the \texttt{beforeSend} operation. The other metadata can also be captured in this stage from the client side like the element that the user clicked to initiate the event. The captured metadata is placed in a custom request header afterward, the \textit{AJAX request} continues its normal operations and sends the data back to the server.
 
@@ -234,39 +267,22 @@ Most Web applications will make of use JavaScript to control the content of the 
 
 \clearpage
 
-\subsection{Server's functional requirements}\label{sec:ch2_serverFunctionalRequirements}
-The server functional requirements in \Cref{tbl:ch2_serverInterfaceRequirements} for \Cref{fig:ch2_systemDesign} is the rest of the logging mechanism. At this stage, the obtained user-generated event of \Cref{fig:ch2_user_based_actvity_classification} will be attempted to be completed into a user-based activity log and stored in a database by the logging point. \par 
-
-\begin{table}[!htb]
-	\centering
-	\caption[Server functional requirements]
-	{\textit{Server functional requirements (F/R 2)}}
-	\label{tbl:ch2_serverInterfaceRequirements}
-	\begin{tabularx}{\textwidth}{|l|l|X|}
-		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
-		\hline F/R 2.1 & User activity logger & The logging points are used to capture and create the user-based event log that will be stored in a database.\\
-		\hline F/R 2.2 & Database & The event log is stored in a database until it is needed for further analysis.\\
-		\hline
-	\end{tabularx}
-\end{table}
-
-\subsection{Server side logging point}
+\subsection{Server side logging point}\label{sec:ch2_serverSideLoggingpoint}
 In \Cref{sec:ch2_loggingPoints} the functional requirements for the logging point need to be fulfilled to create a suitable logging point for a software system to track user-based activities. The \textit{HTTP request} will call a function in the \textit{Controller} to execute the user's actions, these \textit{request} information can be obtained and parsed on to the logging point.\par The logging attribute can be created as centralised code segment that all the software system's components can execute before executing the targeted software system in Web applications such as:
 
 \begin{itemize}
 	\item In frameworks like \texttt{C\#}'s \emph{.NET Framework}\footnote{\label{ftn:ch2_NetFramework}\textbf{.NET Framework} is a run-time execution environment that consists of common language run-time (\emph{CLR}) and a \texttt{.NET Framework Class Library} \cite{Harkness2007}.} the \textit{HTTP request} data can be extracted from the in build \textit{HTTP request} models to obtain the custom request headers set on the client side. Using the \textit{ActionFilterAttribute} enables the creation of a global single logging point that can be called for every \textit{HTTP} function to execute the logging point first before continuing with the rest of the main targeted function. The rest of the log attributes can also be obtained during the execution of the filter if they are available. 
-	\item In other older Web applications that is created with programming languages such as \texttt{PHP} a more direct approach needs to be taken when accessing the request data. In this case, making use of multiple logging, points is needed that call the logging points' main code segment to capture the attributes and store the log in a database. The parameters may need to be extracted before parsing it to the main logging point code segment.
+	\item In other older Web applications that is created with programming languages such as \texttt{PHP} a more direct approach needs to be taken when accessing the request data. In this case, making use of multiple logging, points are needed that call the logging points' main code segment to capture the attributes and store the log in a database. The parameters may need to be extracted before parsing them to the main logging point code segment.
 \end{itemize}
 
 As long as the logging attributes and the \textit{HTTP request} headers are obtainable, the logging mechanism can be created on the server side to extract the data and process it. The activity type can be resolved by the defined cases e.g. if the request calls the \texttt{Index} function of the \textit{Controller} of the Webpage, it can be identified as the Web page accessed user activity type (F/R 1.2.1) of \Cref{tbl:ch2_userActivityTypes}.\par If the user-based event is using the \textit{Controller} or functions that modify the session, it can be classified as session changed event (F/R 1.2.3) and the rest of the user-based activity events need to be tested afterward if they meet certain criteria defined for the general activity types. If it fails all three types of classification the event is likely not user-generated or comes from \textit{AJAX request} that was executed after the initial first request. In such cases, the last HTML element id that triggered the event should not be listed as a clicked element in JavaScript. \
 
 \subsection{Obtaining the log attributes}
-The captured parameters of the log attributes may have some sensitive user data that should not be logged. Functions can be excluded or assigned a new user activity type that will need to filter out certain parameters or not log any parameters a all. This will be any functions that include:
+In \Cref{sec:ch2_serverSideLoggingpoint} the logging point at the server side needs to extract the log attributes to be placed in the database. The database that is going to be used for the software system is a \texttt{MySQL} database.\par The captured parameters of the log attributes may have some sensitive user data that should not be logged. Functions can be excluded or assigned a new user activity type that will need to filter out certain parameters or not log any parameters a all. This will be any functions that include:
 
 \begin{itemize}
-	\item Session handling functions that contain passwords,
-	\item Any functions that contain the user's private data such as functions where the user's private non-company own messages are sent.
-	\item Complex parameters such as file upload streams. The name of the file can rather be logged.
+	\item Session handling functions that contain passwords or other user information that should not be available for anyone but the user. This could lead to potential user data leak of any personal information in the system utilisation analysis it is available for anyone who can see and use the user-based activity logs,
+	\item Complex parameters such as file upload streams of files that the user tries to upload. This information cannot be broken down to a simple \texttt{JSON} structure as in \Cref{fig:Ch2_Metadata_Json_Example}, other metadata such as the file size, name and type can rather be logged. This can also be defined as a separate user-based activity event type by detecting these complex parameters.
 \end{itemize}
 
 \begin{table}[!htb]
@@ -317,5 +333,7 @@ In \Cref{fig:ch2_Dash_PHP_Flow,fig:ch2_DetailView_Flow} the user-generated event
 \section{System utilisation analysis}\label{ch2:system_utilisation_analysis}
 
 \section{Integration}
+
+\section{Verfication}
 
 \section{Conclusion}
