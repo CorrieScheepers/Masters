@@ -39,5 +39,6 @@
                 ]
             }
         }
-    ]
+    ],
+    "latex-workshop.latex.autoBuild.run": "onSave"
 }

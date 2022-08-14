@@ -305,7 +305,6 @@ The captured parameters of the log attributes may have some sensitive user data 
 \clearpage
 
 \subsection{Database interaction of the logging mechanism}\label{sec:ch2_databaseInteraction}
-
 In \Cref{fig:ch2_Dash_PHP_Flow,fig:ch2_DetailView_Flow} the user-generated event is captured with additional parameters that may exist with the captured event. The next process in \Cref{fig:CH2_SystemA_DB_Interaction_FlowDiagram} is save the generated user activity log in a database.\par \Cref{fig:CH2_SystemA_DB_Interaction_FlowDiagram} is the process by which the logging mechanism will create a log entry by first initialising the SQL database connection. The last parameter needed to complete the requirements of the logging points in \Cref{tbl:Ch2_System_A_Logging_Points} is the user's identification. This is obtained from the user's session that contains the user's ID number that is assigned in the Users table.\par The ActivityParameters from  \Cref{fig:ch2_Dash_PHP_Flow,fig:ch2_DetailView_Flow} are encoded as a JSON string to be saved in the RequestParameters column. After all the parameters are converted to the correct format the SQL query is created and executed to save the log entry in the SystemA\_UserActivities table of \Cref{fig:Ch2_SystemA_Basic_ERD}.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
