@@ -13,6 +13,8 @@
 
 In \Cref{Ch2:LoggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance.
 
+\clearpage
+
 \section{Logging mechanism}\label{Ch2:LoggingMechanism} The logging mechanism will need to meet the requirements discussed in \Cref{sec:EventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one interface to another interface. These interfaces are labeled as I/F in \Cref{fig:ch2_systemDesign}. The \Cref{fig:ch2_systemDesign} is the client interface (F/R 1) and the server interface (F/R 2) that forms the entire logging mechanism to capture the user-based activity logs.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
@@ -23,7 +25,7 @@ In \Cref{Ch2:LoggingMechanism} the methodology to create a logging mechanism to 
 \end{figure}
 
 \subsubsection{Clients functional requirements}
-The client's functional requirements (F/R 1) are where the user-based activity is triggered. In \Cref{fig:ch2_systemDesign} the client interface consists of three main functional requirements. These interfaces in \Cref{tbl:ch2_clientFunctionalRequirements} parses the input from the user to create a basic user-based action that can be parsed be captured and parsed by the logging point to create a user-based log that is parsed onto the server for further processing. 
+The client's functional requirements (F/R 1) are where the user-based activity is triggered. In \Cref{fig:ch2_systemDesign} the client interface consists of three main functional requirements. These interfaces in \Cref{tbl:ch2_clientFunctionalRequirements} parses the input from the user to create a basic user-based action that can be parsed and captured and parsed by the logging point to create a user-based log that is parsed onto the server for further processing. 
 
 \begin{table}[!htb]
 	\centering
@@ -34,7 +36,7 @@ The client's functional requirements (F/R 1) are where the user-based activity i
 		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
 		\hline F/R 1.1 & User & The user serves as the primary initiator of the user-based activity events.\\
 		\hline F/R 1.2 & User's device & The device that the user uses to access the website from where the user-based activity events are generated.\\
-		\hline F/R 1.3 & User-generated events & These are the captured user-based activity events that has been identified by the logging point and will be sent to the server.\\
+		\hline F/R 1.3 & User-generated events & These are the captured user-based activity events that have been identified by the logging point and will be sent to the server.\\
 		\hline
 	\end{tabularx}
 \end{table}
@@ -151,14 +153,14 @@ obtainable at the server side but any additional captured data can be added and 
 	\label{tbl:ch2_keyLoggingAttributes}
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Logging point} & \textbf{Description} \\
-		\hline F/R 1.4.1 & Identification number & The activity identification is an incremental number of the user-based event that is logged.\\
-		\hline F/R 1.4.2 & Timestamp & This is the time the user initiated the user-based activity event. This will be the timestamp the log was written into the database as the log will be made before the rest of the intended \textit{HTTP request} is completed. \\
-		\hline F/R 1.4.3 & Activity type & Each event can be classified into user-based types. This is the user-based activity types in \Cref{tbl:ch2_userActivityTypes}.\\
-		\hline F/R 1.4.4 & User identification & Each user has a unique identification number that links the event to them if their session has been verified and can be obtained. Will not be available when the user tries to log in to the system as their session has not been set yet. \\
-		\hline F/R 1.4.5 & Request origin & In web applications, there are always requests sent back to the server and will call the primary function to handle the request. This can be logged as either the file that the request is being sent to or the Webpage from which the request came. \\
-		\hline F/R 1.4.6 & Metadata & The metadata of the event contains request parameters or other relevant request data of the event. This metadata adds more information about the user's activity.
+		\hline F/R 1.5.1 & Identification number & The activity identification is an incremental number of the user-based event that is logged.\\
+		\hline F/R 1.5.2 & Timestamp & This is the time the user initiated the user-based activity event. This will be the timestamp the log was written into the database as the log will be made before the rest of the intended \textit{HTTP request} is completed. \\
+		\hline F/R 1.5.3 & Activity type & Each event can be classified into user-based types. This is the user-based activity types in \Cref{tbl:ch2_userActivityTypes}.\\
+		\hline F/R 1.5.4 & User identification & Each user has a unique identification number that links the event to them if their session has been verified and can be obtained. Will not be available when the user tries to log in to the system as their session has not been set yet. \\
+		\hline F/R 1.5.5 & Request origin & In web applications, there are always requests sent back to the server and will call the primary function to handle the request. This can be logged as either the file that the request is being sent to or the Webpage from which the request came. \\
+		\hline F/R 1.5.6 & Metadata & The metadata of the event contains request parameters or other relevant request data of the event. This metadata adds more information about the user's activity.
 		In \Cref{fig:Ch2_Metadata_Json_Example} is an example representation of the metadata that can be created for most user-based logs. Some of the event types may not have metadata added. \\
-		\hline F/R 1.4.7 & Miscellaneous & These are any non-metadata attributes that can be consistently captured to be used in the utilisation analysis. They expand the characteristics of the obtained user-based log beyond the base attributes. \\ \hline
+		\hline F/R 1.5.7 & Miscellaneous & These are any non-metadata attributes that can be consistently captured to be used in the utilisation analysis. They expand the characteristics of the obtained user-based log beyond the base attributes. \\ \hline
 	\end{tabularx}
 \end{table}
 
@@ -216,7 +218,7 @@ To determine the user activity types for a Web application, the Web application'
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.9\textwidth]{Chapter2/Flow_MVC_Architecture/Flow_MVC_Architecture.pdf}
+	\includegraphics[width=0.95\textwidth]{Chapter2/Flow_MVC_Architecture/Flow_MVC_Architecture.pdf}
 	\caption[MVC architecture for most web-based applications]
 	{\textit{MVC architecture for most web-based applications \cite{Gu2010}}}\label{fig:ch2_flowMVC_Architecture}
 \end{figure}
@@ -244,13 +246,29 @@ Most Web applications will make of use JavaScript to control the content of the 
 	});
 \end{lstlisting}
 
-\subsection{Obtaining the element which the user interacted with}
+\subsection{Obtaining the element of user-based event}
+In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will be use a \textit{HTTP request} to send to the server when the user interacted with an \textit{HTML element}. For the functional requirements activity type (F/R 1.5.3) and metadata (F/R 1.5.6) in \Cref{tbl:ch2_keyLoggingAttributes} the \textit{HTML element} needs to be obtained to get the element's tag and identification text. This can be difficult to obtain due to \textit{bubbling}\footnote{\textbf{Bubbling} is when an event happens on an element, it first runs the handlers on it, then on its parent, then up on other ancestors. \cite{EventBubbling}.} that may occur when searching for the element that the user specifically interacted with.\par In \Cref{fig:ch2_event_bubbling} is the event propagation example of a child element that has been clicked on which executes a DOM event. The event propagation consists of three phases~\cite{EventBubbling}:
+
+\begin{itemize}
+	\item \textit{Capturing phase:} The event propagates downwards to the targeted element that the user interacted with.
+	\item \textit{Target phase:} The event reaches the targeted element to execute the DOM event.
+	\item \textit{Bubbling phase:} The event bubbles up from the targeted element
+\end{itemize}
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.75\textwidth]{Chapter2/event_bubbling/event_bubbling.pdf}
-	\caption[JavaScript event bubbling]
-	{\textit{JavaScript event bubbling~\cite{EventBubbling}}}\label{fig:ch2_event_bubbling}
+	\includegraphics[width=0.7\textwidth]{Chapter2/event_bubbling/event_bubbling.pdf}
+	\caption[JavaScript event propagation]
+	{\textit{JavaScript event propagation~\cite{EventBubbling}}}\label{fig:ch2_event_bubbling}
+\end{figure}
+
+Capturing the 
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.5\textwidth]{Chapter2/element_capturing/element_capturing.pdf}
+	\caption[JavaScript event propagation]
+	{\textit{JavaScript event propagation~\cite{EventBubbling}}}\label{fig:ch2_element_capturing}
 \end{figure}
 
 \clearpage
@@ -321,7 +339,7 @@ In \Cref{sec:ch2_serverSideLoggingpoint} the logging point at the server side ne
 \clearpage
 
 \subsection{Database interaction of the logging mechanism}\label{sec:ch2_databaseInteraction}
-In \Cref{fig:ch2_Dash_PHP_Flow,fig:ch2_DetailView_Flow} the user-generated event is captured with additional parameters that may exist with the captured event. The next process in \Cref{fig:CH2_SystemA_DB_Interaction_FlowDiagram} is save the generated user activity log in a database.\par \Cref{fig:CH2_SystemA_DB_Interaction_FlowDiagram} is the process by which the logging mechanism will create a log entry by first initialising the SQL database connection. The last parameter needed to complete the requirements of the logging points in \Cref{tbl:Ch2_System_A_Logging_Points} is the user's identification. This is obtained from the user's session that contains the user's ID number that is assigned in the Users table.\par The ActivityParameters from  \Cref{fig:ch2_Dash_PHP_Flow,fig:ch2_DetailView_Flow} are encoded as a JSON string to be saved in the RequestParameters column. After all the parameters are converted to the correct format the SQL query is created and executed to save the log entry in the SystemA\_UserActivities table of \Cref{fig:Ch2_SystemA_Basic_ERD}.
+In \Cref{fig:ch2_Dash_PHP_Flow,fig:ch2_DetailView_Flow} the user-generated event is captured with additional parameters that may exist with the captured event. The next process in \Cref{fig:CH2_SystemA_DB_Interaction_FlowDiagram} is to save the generated user activity log in a database.\par \Cref{fig:CH2_SystemA_DB_Interaction_FlowDiagram} is the process by which the logging mechanism will create a log entry by first initialising the SQL database connection. The last parameter needed to complete the requirements of the logging points in \Cref{tbl:Ch2_System_A_Logging_Points} is the user's identification. This is obtained from the user's session that contains the user's ID number that is assigned in the Users table.\par The ActivityParameters from  \Cref{fig:ch2_Dash_PHP_Flow,fig:ch2_DetailView_Flow} are encoded as a JSON string to be saved in the RequestParameters column. After all the parameters are converted to the correct format the SQL query is created and executed to save the log entry in the SystemA\_UserActivities table of \Cref{fig:Ch2_SystemA_Basic_ERD}.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
