@@ -2,6 +2,15 @@
 \label{chap:2}
 \ChapterPageStuff{2}
 
+\newcounter{thephase} \setcounter{thephase}{0}
+\newcounter{thesubphase}[thephase] \setcounter{thesubphase}{0}
+\newcounter{thesubsubphase}[thesubphase] \setcounter{thesubsubphase}{0}
+\newcommand{\phase}[1]{\refstepcounter{thephase}\textbf{F/R \arabic{thephase}}}
+\newcommand{\subphase}[1]{\refstepcounter{thesubphase}\textbf{F/R \arabic{thephase}.\arabic{thesubphase}}%
+	}
+\newcommand{\subsubphase}[1]{\refstepcounter{thesubsubphase}\textbf{F/R \arabic{thesubphase}.\arabic{thesubsubphase}}%
+}
+
 \section{Preamble} The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs. The Web-based application system on this logging mechanism will be implemented on is an energy management system for the mining industry.\par In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with where each mine group has different toolboxes linked to it and each toolbox has different dashboards linked to them which the users can access and interact with. The activities of each of these dashboards and how the user navigates through them are necessary for the system utilisation analysis.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
@@ -13,7 +22,7 @@
 
 In \Cref{Ch2:LoggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:sec_system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance by using various tools visualisation tools or creating them based on the log attributes that are available.
 
-\section{Logging mechanism}\label{Ch2:LoggingMechanism} The logging mechanism will need to meet the requirements discussed in \Cref{sec:EventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one interface to another interface. These interfaces are labelled as I/F in \Cref{fig:ch2_systemDesign}. The \Cref{fig:ch2_systemDesign} is the client interface (F/R 1) and the server interface (F/R 2) that forms the entire logging mechanism to capture the user-based activity logs.
+\section{Logging mechanism}\label{Ch2:LoggingMechanism} The logging mechanism will need to meet the requirements discussed in \Cref{sec:EventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one interface to another interface. These interfaces are labelled as I/F in \Cref{fig:ch2_systemDesign}. The \Cref{fig:ch2_systemDesign} is the client interface (\phase) and the server interface (F/R 2) that forms the entire logging mechanism to capture the user-based activity logs.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -32,9 +41,9 @@ The client's functional requirements (F/R 1) are where the user-based activity i
 	\label{tbl:ch2_clientFunctionalRequirements}
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
-		\hline F/R 1.1 & User & The user serves as the primary initiator of the user-based activity events.\\
-		\hline F/R 1.2 & User's device & The device that the user uses to access the website from where the user-based activity events are generated.\\
-		\hline F/R 1.3 & User-generated events & These are the captured user-based activity events that have been identified by the logging point and will be sent to the server.\\
+		\hline \subphase{}\label{fr:1_1_User} & User & The user serves as the primary initiator of the user-based activity events.\\
+		\hline \subphase{} & User's device & The device that the user uses to access the website from where the user-based activity events are generated.\\
+		\hline \subphase{} & User-generated events & These are the captured user-based activity events that have been identified by the logging point and will be sent to the server.\\
 		\hline
 	\end{tabularx}
 \end{table}
