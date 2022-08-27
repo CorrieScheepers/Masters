@@ -22,7 +22,7 @@
 
 In \Cref{Ch2:LoggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:sec_system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance by using various tools visualisation tools or creating them based on the log attributes that are available.
 
-\section{Logging mechanism}\label{Ch2:LoggingMechanism} The logging mechanism will need to meet the requirements discussed in \Cref{sec:EventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one interface to another interface. These interfaces are labelled as I/F in \Cref{fig:ch2_systemDesign}. The \Cref{fig:ch2_systemDesign} is the client interface (\phase{}) and the server interface (\phase{}) that forms the entire logging mechanism to capture the user-based activity logs.
+\section{Logging mechanism}\label{Ch2:LoggingMechanism} The logging mechanism will need to meet the requirements discussed in \Cref{sec:ch1_eventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one interface to another interface. These interfaces are labelled as I/F in \Cref{fig:ch2_systemDesign}. The \Cref{fig:ch2_systemDesign} is the client interface (\phase{}) and the server interface (\phase{}) that forms the entire logging mechanism to capture the user-based activity logs.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -415,8 +415,6 @@ The log availability (F/R 3.1) and completeness (F/R 3.2) functional requirement
 	\item Extracting data from other database tables related to the logs to increase readability to the software developer analysing the logs. This will make use of the database relations shown in \Cref{fig:ch2_erdOfEventLogs} from the other tables to achieve this. 
 	\item There will be always changes made to the system that can impact which possible user-based events are considered to be logged. The system utilisation analysis systems need to accommodate these changes just like the logging mechanism does. 
 \end{itemize}
-
-
 \section{Verification}
 
 \begin{table}[!htb]
