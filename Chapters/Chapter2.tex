@@ -156,7 +156,7 @@ The logging points can either be a single code segment or consist of multiple co
 
 Creating a single logging point reduces the complexity and in most cases will improve the consistency and correctness of the user-based logs. In Web applications a globally defined logging point can be used in a modified \textit{AJAX request}\footnote{\textbf{AJAX} stands for Asynchronous JavaScript And XML. It uses an XMLHttpRequest object to communicate with servers that can send and receive information in various formats, including JSON, XML, HTML, and text files. \cite{Mozilla2022a}.} that will form the base template for all or most \textit{AJAX request} used in the software system as in \Cref{sec:ch2_webApplicationArchitecture}.\par The use of a single centralised logging point doesn't guarantee that the logging mechanism will perform more efficiently and accurately than using multiple logging mechanisms. Using a single logging point may have complexity issues when it needs to capture each user-based activity consistently with different cases.
 
-\subsection{Log attributes}
+\subsection{Log attributes}\label{sec:ch2_logAttributes}
 The defined logging attributes in \Cref{tbl:ch2_keyLoggingAttributes} are the base attributes that form part of the main structure of the user-based event log. For web-based applications on the
 client side, only some of these attributes can be obtained as the rest of the attributes can be resolved on the server side. The metadata (F/R 1.4.6) can consist of the request parameters that are
 obtainable at the server side but any additional captured data can be added and sent to the server.
@@ -426,7 +426,7 @@ The log availability (F/R 3.1) and completeness (F/R 3.2) functional requirement
 	\label{tbl:ch2_verification}
 	\begin{xltabular}{\textwidth}{|l|l|c|}
 		\hline \textbf{Requirement} & \textbf{Methodology reference} & \textbf{Requirement met} \\
-		\hline \textbf{Logging points} & \Cref{sec:ch2_loggingPoints} & \Checkmark \\
+		\hline \textbf{Logging points} & \Cref{sec:ch2_userActivityTypes,sec:ch2_logAttributes,sec:ch2_loggingPoints} & \Checkmark \\
 		\hline
 	\end{xltabular}
 \end{table}
