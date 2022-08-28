@@ -253,7 +253,7 @@ Most Web applications will make of use JavaScript to control the content of the 
 	});
 \end{lstlisting}
 
-\subsection{Obtaining the element of user-based event}
+\subsection{Obtaining the element of user-based event}\label{sec:ch2_ElementObtaining}
 In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will be use a \textit{HTTP request} to send to the server when the user interacted with an \textit{HTML element}. For the functional requirements activity type (F/R 1.5.3) and metadata (F/R 1.5.6) in \Cref{tbl:ch2_keyLoggingAttributes} the \textit{HTML element} needs to be obtained to get the element's tag and identification text. This can be difficult to obtain due to \textit{bubbling}\footnote{\textbf{Bubbling} is when an event happens on an element, it first runs the handlers on it, then on its parent, then up on other ancestors. \cite{EventBubbling}.} that may occur when searching for the element that the user specifically interacted with.\par In \Cref{fig:ch2_event_bubbling} is the event propagation example of a child element that has been clicked on which executes a DOM event. The event propagation consists of three phases~\cite{EventBubbling}:
 
 \begin{itemize}
@@ -315,7 +315,11 @@ In \Cref{sec:ch2_serverSideLoggingpoint} the logging point at the server side ne
 	\item Complex parameters such as file upload streams of files that the user tries to upload. This information cannot be broken down to a simple \texttt{JSON} structure as in \Cref{fig:ch2_MetadataJsonExample}, other metadata such as the file size, name and type can rather be logged. This can also be defined as a separate user-based activity event type by detecting these complex parameters.
 \end{itemize}
 
-In \Cref{tbl:ch2_SQLLoggingTable} is the SQL data type of the parameters and the requirements that it needs will need to fulfill of \Cref{tbl:ch2_keyLoggingAttributes}. 
+In \Cref{tbl:ch2_SQLLoggingTable} is the SQL data type of the parameters and the functional requirements that it needs will need to fulfill of \Cref{tbl:ch2_keyLoggingAttributes}. Additional for more modern systems such as the \texttt{C\#}'s \textit{.NET Framework} the request origin (\ref{fr:lpa5}) can be split into two different fields:
+
+\begin{itemize}
+	\item The \textbf{Area} is the subsystem
+\end{itemize}
 
 \begin{table}[!htb]
 	\centering
@@ -328,7 +332,7 @@ In \Cref{tbl:ch2_SQLLoggingTable} is the SQL data type of the parameters and the
 		\hline \textbf{Timestamp} & DATETIME & \ref{fr:lpa2} \\
 		\hline \textbf{ActivityType} & ENUM & \ref{fr:lpa3} \\
 		\hline \textbf{UserID} & INT(4) & \ref{fr:lpa4} \\
-		\hline \textbf{Area} & VARCHAR(45) & \ref{fr:lpa5} \\
+		\hline \textbf{Subsystem} & VARCHAR(45) & \ref{fr:lpa5} \\
 		\hline \textbf{Controller} & TEXT & \ref{fr:lpa5} \\
 		\hline \textbf{GroupID} & INT(4) & \ref{fr:lpa7} \\
 		\hline \textbf{MetaData} & JSON & \ref{fr:lpa6} \\
@@ -342,12 +346,6 @@ In \Cref{tbl:ch2_SQLLoggingTable} is the SQL data type of the parameters and the
 	\caption[ERD of user activities]
 	{\textit{ERD of the user activities}}\label{fig:ch2_erdOfEventLogs}
 \end{figure}
-
-%\begin{figure}[!htb] % An h :here, t: top, b: bottom.
-%	\centering % cent the figure
-%	\includegraphics[width=0.5\textwidth]{Chapter2/SystemA_ActivityTracker/SystemA_ActivityTracker.pdf}
-%	{\textit{User activity logging mechanism database interaction}}\label{fig:ch2_databaseInteraction}
-%\end{figure}
 
 \clearpage
 
@@ -403,19 +401,28 @@ The system utilisation analysis will make use of a Web-based graphical user inte
 The log availability (F/R 3.1) and completeness (F/R 3.2) functional requirements can be achieved all the functional requirements of the user-based activity log in \Cref{sec:ch2_requirementsOfUAT} are accomplished with minimal processing of the raw logs afterwards. The minimal processing will be:
 
 \begin{itemize}
-	\item Extracting data from other database tables related to the logs to increase readability to the software developer analysing the logs. This will make use of the database relations shown in \Cref{fig:ch2_erdOfEventLogs} from the other tables to achieve this. 
+	\item Extracting data from other database tables related to the logs to increase readability to the software developer analysing the logs. This will make use of the database relations shown in \Cref{fig:ch2_erdOfEventLogs} from the other tables to achieve this process. 
 	\item There will be always changes made to the system that can impact which possible user-based events are considered to be logged. The system utilisation analysis systems need to accommodate these changes just like the logging mechanism does. 
 \end{itemize}
+
+\subsection{Log extraction}\label{sec:ch2_logExtraction}
+
+\subsection{Maintenance improvements}\label{sec:ch2_utilisationImprovements}
+
 \section{Verification}
 
 \begin{table}[!htb]
 	\centering
-	\caption[Verification]
-	{\textit{Verification}}
+	\caption[System requirements for verification]
+	{\textit{System requirements for verification}}
 	\label{tbl:ch2_verification}
 	\begin{xltabular}{\textwidth}{|l|l|c|}
 		\hline \textbf{Requirement} & \textbf{Methodology reference} & \textbf{Requirement met} \\
-		\hline \textbf{Logging points} & \Cref{sec:ch2_userActivityTypes,sec:ch2_logAttributes,sec:ch2_loggingPoints} & \Checkmark \\
+		\hline \textbf{User activity types} & \Cref{sec:ch2_requirementsOfUAT,sec:ch2_userActivityTypes} & \Checkmark \\
+		\hline \textbf{Log attributes} & \Cref{sec:ch2_logAttributes} & \Checkmark \\
+		\hline \textbf{Logging points} & \Cref{sec:ch2_loggingPoints,sec:ch2_webApplicationArchitecture,sec:ch2_ElementObtaining} & \Checkmark \\
+		\hline \textbf{Log extraction} & \Cref{sec:ch2_logExtraction} & \Checkmark \\
+		\hline \textbf{System utilisation analysis} & \Cref{sec:ch2_utilisationImprovements} & \Checkmark \\
 		\hline
 	\end{xltabular}
 \end{table}
