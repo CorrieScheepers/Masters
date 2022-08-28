@@ -318,7 +318,8 @@ In \Cref{sec:ch2_serverSideLoggingpoint} the logging point at the server side ne
 In \Cref{tbl:ch2_SQLLoggingTable} is the SQL data type of the parameters and the functional requirements that it needs will need to fulfill of \Cref{tbl:ch2_keyLoggingAttributes}. Additional for more modern systems such as the \texttt{C\#}'s \textit{.NET Framework} the request origin (\ref{fr:lpa5}) can be split into two different fields:
 
 \begin{itemize}
-	\item The \textbf{Area} is the subsystem
+	\item The \textbf{Area} is the subsystems where different MVC systems are grouped. 
+	\item The \textbf{Controller} this field will only contain the name of the controller that executes the request. 
 \end{itemize}
 
 \begin{table}[!htb]
@@ -340,14 +341,14 @@ In \Cref{tbl:ch2_SQLLoggingTable} is the SQL data type of the parameters and the
 	\end{tabularx}
 \end{table}
 
+\clearpage
+
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
 	\includegraphics[width=0.99\textwidth]{Chapter2/SystemB_ERD_Basic/SystemB_ERD_Basic.pdf}
 	\caption[ERD of user activities]
 	{\textit{ERD of the user activities}}\label{fig:ch2_erdOfEventLogs}
 \end{figure}
-
-\clearpage
 
 \subsection{Server side log parsing}
 In \Cref{fig:ch2_loggingParse} is the server side log parsing of the obtained possible user-based activity events using for a \emph{.NET Framework} software system. The defined \texttt{ActionFilterAttribute} will start the user-based activity process before the targeted process is executed. At this stage, if anything goes wrong with the logging at during the execution of this filter, it should be abandoned and let the software system continue to ensure that it doesn't interfere with the software system's operations (\ref{fr:lpa4} of \Cref{tbl:ch2_loggingPointRequirement}).\par In the case of the request method \texttt{NULL} or empty due to errors such as incorrect parameter types for the targeted procedure in the controller, the logging point should stop attempting to log the user-based log. The issue would most likely appear as a runtime error and any user-based activity logging procedures will also fail due to incomplete data or cause the logs to be not complete and consistent (\ref{fr:lpa3} of \Cref{tbl:ch2_loggingPointRequirement}).\par If the captured user-activity log contains any parameters it should be checked for any session-related parameters or any other potential user data that should be removed from the metadata to prevent any personal information from being accessed by not the owner of the user account. If it doesn't contain any request parameters the \texttt{ElementInfo} should be set to \texttt{NULL}.\par the \texttt{ElementInfo} contains all the metadata send from the client side logging point that captured the HTML element data in \Cref{fig:ch2_element_event_capturing}. In \Cref{fig:Ch2_ElementInfo} is the \texttt{JSON} data of the \texttt{ElementInfo} which consist of:
