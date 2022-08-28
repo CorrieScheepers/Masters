@@ -187,6 +187,35 @@
 
 \makeatother
 
+% counters
+\newcounter{phase}
+\renewcommand*{\thephase}{F/R~\arabic{phase}}
+
+\newcounter{subphase}[phase]
+\renewcommand*{\thesubphase}{\thephase.\arabic{subphase}}
+
+\newcounter{subsubphase}[subphase]
+\renewcommand*{\thesubsubphase}{\thesubphase.\arabic{subphase}}
+
+\newcommand*{\phase}[1]{%
+  \leavevmode
+  \refstepcounter{phase}%
+  \label{#1}%
+  \textbf{\thephase}%
+}
+\newcommand*{\subphase}[1]{%
+  \leavevmode
+  \refstepcounter{subphase}%
+  \label{#1}%
+  \textbf{\thesubphase}%
+}
+\newcommand*{\subsubphase}[1]{%
+  \leavevmode
+  \refstepcounter{subsubphase}%
+  \label{#1}%
+  \textbf{\thesubsubphase}%
+}
+
 % ---------------------------- Start the document -------------------------------------
 
 \begin{document}

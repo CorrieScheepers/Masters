@@ -2,34 +2,6 @@
 \label{chap:2}
 \ChapterPageStuff{2}
 
-\newcounter{phase}
-\renewcommand*{\thephase}{F/R~\arabic{phase}}
-
-\newcounter{subphase}[phase]
-\renewcommand*{\thesubphase}{\thephase.\arabic{subphase}}
-
-\newcounter{subsubphase}[subphase]
-\renewcommand*{\thesubsubphase}{\thesubphase.\arabic{subphase}}
-
-\newcommand*{\phase}[1]{%
-  \leavevmode
-  \refstepcounter{phase}%
-  \label{#1}%
-  \textbf{\thephase}%
-}
-\newcommand*{\subphase}[1]{%
-  \leavevmode
-  \refstepcounter{subphase}%
-  \label{#1}%
-  \textbf{\thesubphase}%
-}
-\newcommand*{\subsubphase}[1]{%
-  \leavevmode
-  \refstepcounter{subsubphase}%
-  \label{#1}%
-  \textbf{\thesubsubphase}%
-}
-
 \section{Preamble} The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs. The Web-based application system on this logging mechanism will be implemented on is an energy management system for the mining industry.\par In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with where each mine group has different toolboxes linked to it and each toolbox has different dashboards linked to them which the users can access and interact with. The activities of each of these dashboards and how the user navigates through them are necessary for the system utilisation analysis.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
@@ -51,7 +23,7 @@ In \Cref{Ch2:LoggingMechanism} the methodology to create a logging mechanism to 
 \end{figure}
 
 \subsubsection{Clients functional requirements}
-The client's functional requirements (F/R 1) are where the user-based activity is triggered. In \Cref{fig:ch2_systemDesign} the client interface consists of three main functional requirements. These interfaces in \Cref{tbl:ch2_clientFunctionalRequirements} parses the input from the user to create a basic user-based action that can be parsed and captured and parsed by the logging point to create a user-based log that is parsed onto the server for further processing. \ref{fr:clientUser}
+The client's functional requirements (F/R 1) are where the user-based activity is triggered. In \Cref{fig:ch2_systemDesign} the client interface consists of three main functional requirements. These interfaces in \Cref{tbl:ch2_clientFunctionalRequirements} parses the input from the user to create a basic user-based action that can be parsed and captured and parsed by the logging point to create a user-based log that is parsed onto the server for further processing.
 
 \setcounter{phase}{1}
 \begin{table}[!htb]
@@ -62,8 +34,8 @@ The client's functional requirements (F/R 1) are where the user-based activity i
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
 		\hline \subphase{fr:clientUser} & User & The user serves as the primary initiator of the user-based activity events.\\
-		\hline \subphase{} & User's device & The device that the user uses to access the website from where the user-based activity events are generated.\\
-		\hline \subphase{} & User-generated events & These are the captured user-based activity events that have been identified by the logging point and will be sent to the server.\\
+		\hline \subphase{fr:clientUserDevice} & User's device & The device that the user uses to access the website from where the user-based activity events are generated.\\
+		\hline \subphase{fr:clientUserEvents} & User-generated events & These are the captured user-based activity events that have been identified by the logging point and will be sent to the server.\\
 		\hline
 	\end{tabularx}
 \end{table}
@@ -87,7 +59,7 @@ The server functional requirements in \Cref{tbl:ch2_serverInterfaceRequirements}
 
 \subsection{Requirements for a user-based activity log}\label{sec:ch2_requirementsOfUAT}
 The user is the initiator of the logging mechanism. Each action or event they trigger by interacting with the user interface on their device (F/R 1.2) can be a potential user-generated event. In
-\Cref{tbl:ch2_requirementsForUserActivtyEvent} is the sub-requirements for the user (F/R 1.1) which the event log should fulfil to be classified as an user-based activity log.
+\Cref{tbl:ch2_requirementsForUserActivtyEvent} is the sub-requirements for the user (\ref{fr:clientUser}) which the event log should fulfil to be classified as an user-based activity log.
 
 \setcounter{phase}{1}
 \setcounter{subphase}{1}
