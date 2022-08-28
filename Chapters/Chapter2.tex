@@ -2,7 +2,7 @@
 \label{chap:2}
 \ChapterPageStuff{2}
 
-\section{Preamble} The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs. The Web-based application system on this logging mechanism will be implemented on is an energy management system for the mining industry.\par In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with where each mine group has different toolboxes linked to it and each toolbox has different dashboards linked to them which the users can access and interact with. The activities of each of these dashboards and how the user navigates through them are necessary for the system utilisation analysis.
+\section{Preamble} The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs. The Web-based application system on this logging mechanism will be implemented on is an energy management system for the mining industry.\par In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with where each mine group has different toolboxes linked to it and each toolbox has different dashboards linked to them which the users can access and interact with. The activities of each of these dashboards and how the user navigates through them are necessary for the system utilisation analysis.e
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -13,7 +13,7 @@
 
 In \Cref{Ch2:LoggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:sec_system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance by using various tools visualisation tools or creating them based on the log attributes that are available.
 
-\section{Logging mechanism}\label{Ch2:LoggingMechanism} The logging mechanism will need to meet the requirements discussed in \Cref{sec:ch1_eventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one interface to another interface. These interfaces are labelled as I/F in \Cref{fig:ch2_systemDesign}. The \Cref{fig:ch2_systemDesign} is the client interface (\phase{}) and the server interface (\phase{}) that forms the entire logging mechanism to capture the user-based activity logs.
+\section{Logging mechanism}\label{Ch2:LoggingMechanism} The logging mechanism will need to meet the requirements discussed in \Cref{sec:ch1_eventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one interface to another interface. These interfaces are labelled as I/F in \Cref{fig:ch2_systemDesign}. The \Cref{fig:ch2_systemDesign} is the client interface (\phase{fr:client}) and the server interface (\phase{fr:server}) that forms the entire logging mechanism to capture the user-based activity logs.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -51,8 +51,8 @@ The server functional requirements in \Cref{tbl:ch2_serverInterfaceRequirements}
 	\label{tbl:ch2_serverInterfaceRequirements}
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
-		\hline \subphase{} & User activity logger & The logging points are used to capture and create the user-based event log that will be stored in a database.\\
-		\hline \subphase{} & Database & The event log is stored in a database until it is needed for further analysis.\\
+		\hline \subphase{fr:serverActivityLogger} & User activity logger & The logging points are used to capture and create the user-based event log that will be stored in a database.\\
+		\hline \subphase{fr:serverDatabase} & Database & The event log is stored in a database until it is needed for further analysis.\\
 		\hline
 	\end{tabularx}
 \end{table}
@@ -70,12 +70,12 @@ The user is the initiator of the logging mechanism. Each action or event they tr
 	\label{tbl:ch2_requirementsForUserActivtyEvent}
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Description}\\
-		\hline \subsubphase{} & The event has to be triggered by the user interacting with the user interface using their device and not any other events that the system will self-initiate. The user needs to have interacted with the UI directly. This can also be validated by tracking if the user did interact with the UI from the HTML element ids. \\
-		\hline \subsubphase{} & The event must consist of different cases ($ca~ \epsilon~CA$ the cases consists of events) which are noteworthy to make the event log identifiable \cite{Slaninova2014}. \\
-		\hline \subsubphase{} & For certain types of event logs for F/R 1.1.2, the user-generated event should have an origin from which the event took place. \\
-		\hline \subsubphase{} & The event log should consist of attributes that expand the identity of the user-based activity. \\
-		\hline \subsubphase{} & The event must have the user as the initiator or input for the user-based activity. This will exclude all events triggered by the system as the user did not directly start the event. \\
-		\hline \subsubphase{} & Only use the first \textit{HTTP requests}\footnote{A \textbf{HTTP request} is made by a client, to a named host, which is located on a server. The request aims to access a resource on the server. \cite{IBM2021}.} that is sent to the server. \\ 
+		\hline \subsubphase{fr:requirementsUserBased1} & The event has to be triggered by the user interacting with the user interface using their device and not any other events that the system will self-initiate. The user needs to have interacted with the UI directly. This can also be validated by tracking if the user did interact with the UI from the HTML element ids. \\
+		\hline \subsubphase{fr:requirementsUserBased2} & The event must consist of different cases ($ca~ \epsilon~CA$ the cases consists of events) which are noteworthy to make the event log identifiable \cite{Slaninova2014}. \\
+		\hline \subsubphase{fr:requirementsUserBased3} & For certain types of event logs for F/R 1.1.2, the user-generated event should have an origin from which the event took place. \\
+		\hline \subsubphase{fr:requirementsUserBased1} & The event log should consist of attributes that expand the identity of the user-based activity. \\
+		\hline \subsubphase{fr:requirementsUserBased4} & The event must have the user as the initiator or input for the user-based activity. This will exclude all events triggered by the system as the user did not directly start the event. \\
+		\hline \subsubphase{fr:requirementsUserBased5} & Only use the first \textit{HTTP requests}\footnote{A \textbf{HTTP request} is made by a client, to a named host, which is located on a server. The request aims to access a resource on the server. \cite{IBM2021}.} that is sent to the server. \\ 
 		\hline
 	\end{tabularx}
 \end{table}
@@ -99,14 +99,14 @@ The user-activity logs will be split into three main event types as in \Cref{tbl
 	\label{tbl:ch2_userActivityTypes}
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Activity Type} & \textbf{Description} \\
-		\hline \subsubphase{} & Web page accessed & The user may navigate through different web pages in a session.\\
-		\hline \subsubphase{} & Session changes & This is any user activities excluding F/R 1.2.1 that modifies the user's session:
+		\hline \subsubphase{fr:uatType1} & Web page accessed & The user may navigate through different web pages in a session.\\
+		\hline \subsubphase{fr:uatType2} & Session changes & This is any user activities excluding F/R 1.2.1 that modifies the user's session:
 		\begin{itemize}
 			\item Logging into a Web application. Both Successful and failed attempted logins. This user-based activity may cause the log attributes that identify the user will be a \texttt{NULL} value as the user's session has not started yet to verify their identity,
 			\item Ending their session through by logging out or declining to extend their session when it is about to expire,
 			\item Modifying any session or other relevant variables that can be used in the utilisation analysis
 		\end{itemize}\\
-		\hline \subsubphase{} & General activity & Any events excluding the first two user-based activity types that the user initiates when they interact with the web page. Most of the user activity logs will
+		\hline \subsubphase{fr:uatType3} & General activity & Any events excluding the first two user-based activity types that the user initiates when they interact with the web page. Most of the user activity logs will
 		have this event type.\\ 
 		\hline
 	\end{tabularx}
@@ -127,11 +127,11 @@ In \Cref{sec:ch1_loggignPoints} the logging points should be strategically place
 	\label{tbl:ch2_loggingPointRequirement}
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Description} \\
-		\hline \subsubphase{} & The logging point should be placed where the user's interaction with the software system will send a \textit{request} back to the server.\\
-		\hline \subsubphase{} & Each logging point should consistently capture the user-based activity as the activity is happening. \\
-		\hline \subsubphase{} & Logging points should be globally complete to capture the user-based activities in the giving software system without too much modification between each point in the same
+		\hline \subsubphase{fr:lp1} & The logging point should be placed where the user's interaction with the software system will send a \textit{request} back to the server.\\
+		\hline \subsubphase{fr:lp2} & Each logging point should consistently capture the user-based activity as the activity is happening. \\
+		\hline \subsubphase{fr:lp3} & Logging points should be globally complete to capture the user-based activities in the giving software system without too much modification between each point in the same
 		software system. \\
-		\hline \subsubphase{} & The logging points should not interfere with the rest of the system's operations, this would be slowing down the system by causing too much overhead in each \textit{request}
+		\hline \subsubphase{fr:lp4} & The logging points should not interfere with the rest of the system's operations, this would be slowing down the system by causing too much overhead in each \textit{request}
 		that is being sent. \\
 		\hline
 	\end{tabularx}
@@ -160,14 +160,14 @@ obtainable at the server side but any additional captured data can be added and 
 	\label{tbl:ch2_keyLoggingAttributes}
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Logging point} & \textbf{Description} \\
-		\hline \subsubphase{} & Identification number & The activity identification is an incremental number of the user-based event that is logged.\\
-		\hline \subsubphase{} & Timestamp & This is the time the user initiated the user-based activity event. This will be the timestamp the log was written into the database as the log will be made before the rest of the intended \textit{HTTP request} is completed. \\
-		\hline \subsubphase{} & Activity type & Each event can be classified into user-based types. This is the user-based activity types in \Cref{tbl:ch2_userActivityTypes}.\\
-		\hline \subsubphase{} & User identification & Each user has a unique identification number that links the event to them if their session has been verified and can be obtained. Will not be available when the user tries to log in to the system as their session has not been set yet. \\
-		\hline \subsubphase{} & Request origin & In web applications, there are always requests sent back to the server and will call the primary function to handle the request. This can be logged as either the file that the request is being sent to or the Web page from which the request came. \\
-		\hline \subsubphase{} & Metadata & The metadata of the event contains request parameters or other relevant request data of the event. This metadata adds more information about the user's activity.
+		\hline \subsubphase{fr:lpa1} & Identification number & The activity identification is an incremental number of the user-based event that is logged.\\
+		\hline \subsubphase{fr:lpa2} & Timestamp & This is the time the user initiated the user-based activity event. This will be the timestamp the log was written into the database as the log will be made before the rest of the intended \textit{HTTP request} is completed. \\
+		\hline \subsubphase{fr:lpa3} & Activity type & Each event can be classified into user-based types. This is the user-based activity types in \Cref{tbl:ch2_userActivityTypes}.\\
+		\hline \subsubphase{fr:lpa4} & User identification & Each user has a unique identification number that links the event to them if their session has been verified and can be obtained. Will not be available when the user tries to log in to the system as their session has not been set yet. \\
+		\hline \subsubphase{fr:lpa5} & Request origin & In web applications, there are always requests sent back to the server and will call the primary function to handle the request. This can be logged as either the file that the request is being sent to or the Web page from which the request came. \\
+		\hline \subsubphase{fr:lpa6} & Metadata & The metadata of the event contains request parameters or other relevant request data of the event. This metadata adds more information about the user's activity.
 		In \Cref{fig:Ch2_Metadata_Json_Example} is an example representation of the metadata that can be created for most user-based logs. Some of the event types may not have metadata added. \\
-		\hline \subsubphase{} & Miscellaneous & These are any non-metadata attributes that can be consistently captured to be used in the utilisation analysis. They expand the characteristics of the obtained user-based log beyond the base attributes. \\ \hline
+		\hline \subsubphase{fr:lpa7} & Miscellaneous & These are any non-metadata attributes that can be consistently captured to be used in the utilisation analysis. They expand the characteristics of the obtained user-based log beyond the base attributes. \\ \hline
 	\end{tabularx}
 \end{table}
 
@@ -390,11 +390,11 @@ The system utilisation analysis will make use of a Web-based graphical user inte
 	\label{tbl:ch2_utilisation_requirements}
 	\begin{xltabular}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Requirement name} & \textbf{Description} \\
-		\hline \subphase{} & Log availability & \RaggedRight The user-based logs should be available for any defined period the logging mechanism was actively capturing the user-based events. \\
-		\hline \subphase{} & Log completeness & \RaggedRight The user-based logs should be complete and there should be minimal corrections made post logging. \\
-		\hline \subphase{} & Log extraction & \RaggedRight The Web-based graphical interface should allow the logs to be filtered when extracted to analyse certain defined criteria. \\
-		\hline \subphase{} & Log comparison & \RaggedRight By Using the F/R 3.2 the utilisation between different log attributes that are used as the defined criteria. This will be to group and compare different types of users, subsystems and activity types against each other etc.\\
-		\hline \subphase{} & \RaggedRight Maintenance suggestion & Maintenance suggestions can be made from the system utilisation reports by prioritising maintenance or decommissioning software systems. \\
+		\hline \subphase{fr:ur1} & Log availability & \RaggedRight The user-based logs should be available for any defined period the logging mechanism was actively capturing the user-based events. \\
+		\hline \subphase{fr:ur2} & Log completeness & \RaggedRight The user-based logs should be complete and there should be minimal corrections made post logging. \\
+		\hline \subphase{fr:ur3} & Log extraction & \RaggedRight The Web-based graphical interface should allow the logs to be filtered when extracted to analyse certain defined criteria. \\
+		\hline \subphase{fr:ur4} & Log comparison & \RaggedRight By Using the F/R 3.2 the utilisation between different log attributes that are used as the defined criteria. This will be to group and compare different types of users, subsystems and activity types against each other etc.\\
+		\hline \subphase{fr:ur5} & \RaggedRight Maintenance suggestion & Maintenance suggestions can be made from the system utilisation reports by prioritising maintenance or decommissioning software systems. \\
 		\hline
 	\end{xltabular}
 \end{table}
