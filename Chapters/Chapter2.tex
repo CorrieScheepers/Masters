@@ -2,7 +2,8 @@
 \label{chap:2}
 \ChapterPageStuff{2}
 
-\section{Preamble} The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs. The Web-based application system on this logging mechanism will be implemented on is an energy management system for the mining industry.\par In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with where each mine group has different toolboxes linked to it and each toolbox has different dashboards linked to them which the users can access and interact with. The activities of each of these dashboards and how the user navigates through them are necessary for the system utilisation analysis.
+\section{Preamble}\label{sec:ch2_preamble}
+ The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs. The Web-based application system on this logging mechanism will be implemented on is an energy management system for the mining industry.\par In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with where each mine group has different toolboxes linked to it and each toolbox has different dashboards linked to them which the users can access and interact with. The activities of each of these dashboards and how the user navigates through them are necessary for the system utilisation analysis.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -307,7 +308,7 @@ In \Cref{sec:ch2_loggingPoints} the functional requirements for the logging poin
 
 As long as the logging attributes and the \textit{HTTP request} headers are obtainable, the logging mechanism can be created on the server side to extract the data and process it. The activity type can be resolved by the defined cases e.g. if the request calls the \texttt{Index} function of the \textit{Controller} of the Web page, it can be identified as the Web page accessed user activity type (\ref{fr:uatType1}) of \Cref{tbl:ch2_userActivityTypes}.\par If the user-based event is using the \textit{Controller} or functions that modify the session, it can be classified as session changed event (\ref{fr:uatType3}) and the rest of the user-based activity events need to be tested afterwards if they meet certain criteria defined for the general activity types. If it fails all three types of classification the event is likely not user-generated or comes from \textit{AJAX request} that was executed after the initial first request. In such cases, the last HTML element id that triggered the event should not be listed as a clicked element in JavaScript.
 
-\subsection{Storing the user-based actvity logs}
+\subsection{Storing the user-based actvity logs}\label{sec:ch2_databaseStorage}
 In \Cref{sec:ch2_serverSideLoggingpoint} the logging point at the server side needs to extract the log attributes to be placed in the database. The database that is going to be used for the software system is a \texttt{MySQL} database.\par The captured parameters of the log attributes may have some sensitive user data that should not be logged. Functions can be excluded or assigned a new user activity type that will need to filter out certain parameters or not log any parameters a all. This will be any functions that include:
 
 \begin{itemize}
@@ -353,13 +354,15 @@ The log attributes in \Cref{tbl:ch2_SQLLoggingTable} will have foreign key refer
 \end{figure}
 
 \subsection{Server side log parsing}
-In \Cref{fig:ch2_loggingParse} is the server side log parsing of the obtained possible user-based activity events using for a \emph{.NET Framework} software system. The defined \texttt{ActionFilterAttribute} will start the user-based activity process before the targeted process is executed. At this stage, if anything goes wrong with the logging at during the execution of this filter, it should be abandoned and let the software system continue to ensure that it doesn't interfere with the software system's operations (\ref{fr:lpa4} of \Cref{tbl:ch2_loggingPointRequirement}).\par In the case of the request method \texttt{NULL} or empty due to errors such as incorrect parameter types for the targeted procedure in the controller, the logging point should stop attempting to log the user-based log. The issue would most likely appear as a runtime error and any user-based activity logging procedures will also fail due to incomplete data or cause the logs to be not complete and consistent (\ref{fr:lpa3} of \Cref{tbl:ch2_loggingPointRequirement}).\par If the captured user-activity log contains any parameters it should be checked for any session-related parameters or any other potential user data that should be removed from the metadata to prevent any personal information from being accessed by not the owner of the user account. If it doesn't contain any request parameters the \texttt{ElementInfo} should be set to \texttt{NULL}.\par the \texttt{ElementInfo} contains all the metadata send from the client side logging point that captured the HTML element data in \Cref{fig:ch2_element_event_capturing}. In \Cref{fig:Ch2_ElementInfo} is the \texttt{JSON} data of the \texttt{ElementInfo} which consist of:
+In \Cref{fig:ch2_loggingParse} is the server side log parsing of the obtained possible user-based activity events using for a \emph{.NET Framework} software system. The defined \texttt{ActionFilterAttribute} will start the user-based activity process before the targeted process is executed. At this stage, if anything goes wrong with the logging at during the execution of this filter, it should be abandoned and let the software system continue to ensure that it doesn't interfere with the software system's operations (\ref{fr:lpa4} of \Cref{tbl:ch2_loggingPointRequirement}).\par In the case of the request method \texttt{NULL} or empty due to errors such as incorrect parameter types for the targeted procedure in the controller, the logging point should stop attempting to log the user-based log. The issue would most likely appear as a runtime error and any user-based activity logging procedures will also fail due to incomplete data or cause the logs to be not complete and consistent (\ref{fr:lpa3} of \Cref{tbl:ch2_loggingPointRequirement}).\par If the captured user-activity log contains any parameters it should be checked for any session-related parameters or any other potential user data that should be removed from the metadata to prevent any personal information from being accessed by not the owner of the user account. If it doesn't contain any request parameters the \texttt{ElementInfo} should be set to \texttt{NULL}.\par The \texttt{ElementInfo} contains all the metadata send from the client side logging point that captured the HTML element data in \Cref{fig:ch2_element_event_capturing}. In \Cref{fig:Ch2_ElementInfo} is the \texttt{JSON} data of the \texttt{ElementInfo} which consist of:
 
 \begin{itemize}
-	\item \texttt{ElementTagName}, is the HTML element's tag name which is one of the defined accepted tag names,
-	\item \texttt{ElementID}, identification of the element if it has been assigned to the element,
-	\item \texttt{ElementDataKey}, additional captured data attributes that expands on the elements identity if it is a custom made HTML element control.
+	\item \texttt{ElementTagName}, is the HTML element's tag name which is one of the defined accepted tag names such as \texttt{button}, \texttt{label} and \texttt{td} etc.,
+	\item \texttt{ElementID}, identification of the element if it has been assigned to the element and can be obtained on the client side,
+	\item \texttt{ElementDataKey}, additional captured data attributes that expands on the elements identity if it is a custom made HTML element control. Some software systems may have other custom-created HTML elements which also can trigger a user-based activity. It can be other miscellaneous elements such as a \texttt{label} which are not normal input controls.
 \end{itemize}
+
+\clearpage
 
 \begin{lstlisting}[style=json, caption={\textit{Element properties JSON}}, label={fig:Ch2_ElementInfo}] 
 	{ "ElementTagName" : "button",
@@ -368,7 +371,7 @@ In \Cref{fig:ch2_loggingParse} is the server side log parsing of the obtained po
 	}
 \end{lstlisting}
 
-If the \texttt{FilterContext}'s requested procedure is called \texttt{Index} which is the first procedure that needs to be executed for a Web page being accessed.
+If the \texttt{FilterContext}'s requested procedure is called and it is the \texttt{Index} which is the first procedure that needs to be executed for a Web page being accessed. This activity type is the first user activity type at this point of the log parsing before it is processed again to another user activity type. \par If it is not the \texttt{Index} the process will continue to the next operation which check's if the \texttt{ElementInfo}'s \texttt{ElementDataKey} is either a null or empty value. If there is any data available the activity type can be set to the custom control defined activity type or just custom control to represent all these custom-made elements. The \texttt{ElementID} is set to custom control element or the defined custom control's identification. \par If the \texttt{ElementInfo}'s \texttt{ElementDataKey} is null or a empty value the user activity type is set to the element's defined activity type. After the activity type is resolved the request origin of the user-based activity is obtained by getting the request's absolute path.\par After the request origin has been obtained, other relevant session information such as the group that represents a certain entity data can be obtained as well as the user's identification and other relevant metadata that is available at this stage to complete the log attributes that needs to captured from \Cref{tbl:ch2_keyLoggingAttributes} to complete the user-based activity log.\par The data is parsed to the activity logger that will write the log into a database if the log was successfully obtained. This will end the logging process until a new user-based event log is ready to be processed and stored in the database.
 
 \begin{figure}[!htb]
 	\centering
@@ -392,14 +395,16 @@ The system utilisation analysis will make use of a Web-based graphical user inte
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Requirement name} & \textbf{Description} \\
 		\hline \subphase{fr:ur1} & Log availability & \RaggedRight The user-based logs should be available for any defined period the logging mechanism was actively capturing the user-based events. \\
-		\hline \subphase{fr:ur2} & Log completeness & \RaggedRight The user-based logs should be complete and there should be minimal corrections made post logging. \\
-		\hline \subphase{fr:ur3} & Log extraction & \RaggedRight The Web-based graphical interface should allow the logs to be filtered when extracted to analyse certain defined criteria. \\
+		\hline \subphase{fr:ur2} & Log completeness & \RaggedRight The user-based logs should be complete and there should be minimal corrections made post logging during the log extraction process (\ref{fr:ur3}) and visualization presentation (\ref{fr:ur4}). \\
+		\hline \subphase{fr:ur3} & Log extraction & \RaggedRight The user-based logs are extracted from the database and imported into a visualization presentation (\ref{fr:ur4}) for the user-based activity logs. \\
 		\hline \subphase{fr:ur4} & Log visual presentation & The visual presentation of the extracted logs should be shown to the user that will make use of the activity logs in a custom visual system or make use of other third-party tools. This will impact how the logs will be extracted (\ref{fr:ur4}) from the database as third-party systems may make use of an API to get the logs from the database. \\
 		\hline \subphase{fr:ur5} & Log comparison & \RaggedRight By Using the F/R 3.2 the utilisation between different log attributes that are used as the defined criteria. This will be to group and compare different types of users, subsystems and activity types against each other etc.\\
 		\hline \subphase{fr:ur6} & \RaggedRight Maintenance suggestion & Maintenance suggestions can be made from the system utilisation reports by prioritising maintenance or decommissioning software systems. This can be data or visual representations of the log comparison (\ref{fr:ur5}) using the log visual presentation systems (\ref{fr:ur6}) or creating a summary report from the visual presentation that contains the maintenance suggestions. \\
 		\hline
 	\end{tabularx}
 \end{table}
+
+\clearpage
 
 Each of these functional requirements ensures that the system utilisation analysis will be achieved for the created logging mechanism in \Cref{Ch2:LoggingMechanism}. The main user interface of the system utilisation analysis will consist of the presentation of the user-based activities (\ref{fr:ur4}). This system will either be a custom-created system to display these log or third-party software such as Microsoft's business intelligence platform, PowerBI. \par Using the third-party tools has advantages over creating custom software for the visual presentation (\ref{fr:ur4}):
 
@@ -420,19 +425,14 @@ These third-party tools do indeed have some other drawbacks such as:
 With the drawbacks listed above the third-party business intelligence platforms is the better visual presentation tools for the system utilisation analysis if it is available for use than creating and managing a custom visualisation platform.
 
 \subsection{Log availability and completeness}\label{sec:ch2_log_Availability}
-The log availability (F/R 3.1) and completeness (F/R 3.2) functional requirements can be achieved all the functional requirements of the user-based activity log in \Cref{sec:ch2_requirementsOfUAT} are accomplished with minimal processing of the raw logs afterwards. The minimal processing will be:
-
-\begin{itemize}
-	\item Extracting data from other database tables related to the logs to increase readability to the software developer analysing the logs. This will make use of the database relations shown in \Cref{fig:ch2_erdOfEventLogs} from the other tables to achieve this process. 
-	\item There will be always changes made to the system that can impact which possible user-based events are considered to be logged. The system utilisation analysis systems need to accommodate these changes just like the logging mechanism does. 
-\end{itemize}
+The log availability (F/R 3.1) and completeness (F/R 3.2) functional requirements can be achieved all the functional requirements of the user-based activity log in \Cref{sec:ch2_requirementsOfUAT} are accomplished with minimal processing of the raw logs afterwards. There will be always changes made to the system that can impact which possible user-based events are considered to be logged.
 
 \subsection{Log extraction and visual presentation}\label{sec:ch2_logExtraction}
-Log extraction refers to the methods used to obtain the logs from the database with any other relevant data that can be used in the system utilisation software. The raw logs will need to make use of the foreign references to other tables in the database to provide more detail about the user-based event log as in \Cref{fig:ch2_erdOfEventLogs}.\par
+Log extraction refers to the methods used to obtain the logs from the database with any other relevant data that can be used in the visualisation presentation (\ref{fr:ur4}). The raw logs will need to make use of the foreign references to other tables in the database to provide more detail about the user-based event log as in \Cref{fig:ch2_erdOfEventLogs}.\par In \Cref{fig:ch2_pbiExample} is an example of a visual presentation of Microsoft's PowerBI report that displays imported data. These reports will contain the extracted data of \Cref{fig:ch2_erdOfEventLogs} using either an API or will extract the data like the rest of the system if it is a custom visualisation.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.99\textwidth]{Chapter2/normal_images/power_bi_report.png}
+	\includegraphics[width=0.75\textwidth]{Chapter2/normal_images/power_bi_report.png}
 	\caption[Example of a visual presentation]
 	{\textit{Example of a visual presentation}}\label{fig:ch2_pbiExample}
 \end{figure}
@@ -450,19 +450,20 @@ The system utilisation analysis aims to provide maintenance recommendations to t
 	\caption[System utilisation analysis categories]
 	{\textit{System utilisation analysis categories}}
 	\label{tbl:ch2_utilisationCategories}
-	\begin{tabularx}{\textwidth}{|l|l|X|}
+	\begin{xltabular}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Requirement name} & \textbf{Description} \\
 		\hline \subsubphase{fr:utCategories1} & Users & The users of the software systems can be put in different categories based on who uses the software. This can be both the customer users or the employees using the software. Using the activities of the customer users will provide the data on which systems the development team needs to put their resources into. \\
 		\hline \subsubphase{fr:utCategories2} & User activity types & The user activity types in \Cref{tbl:ch2_userActivityTypes} can be used as a category to compare different user-based activity types with each other and use a sub-category for categories such as the different users that can use the system (\ref{fr:utCategories1}). \\
 		\hline \subsubphase{fr:utCategories3} & Subsystem or controllers & The request origin (\ref{fr:lpa5}) of the user-based activities can be categorise to compare different subsystems and controllers to each other.\\
 		\hline \subsubphase{fr:utCategories3} & Miscellaneous categories & This user-based activity category type will make use of the metadata attribute (\ref{fr:lpa7}) of \Cref{tbl:ch2_keyLoggingAttributes}. The other fields which are not set as main categories can be also placed in this category as they can take multiple forms.\\
 		\hline
-	\end{tabularx}
+	\end{xltabular}
 \end{table}
 
 \clearpage
 
-\section{Verification}
+\section{Verification}\label{sec:ch2_verification}
+Using the functional requirements definded in \Cref{Ch2:LoggingMechanism,ch2:sec_system_utilisation_analysis} the system can be verified that it satisfies the system requirements in \Cref{tbl:ch2_verification}.
 
 \begin{table}[!htb]
 	\centering
@@ -473,11 +474,12 @@ The system utilisation analysis aims to provide maintenance recommendations to t
 		\hline \textbf{Requirement} & \textbf{Methodology reference} & \textbf{Requirement met} \\
 		\hline \textbf{User activity types} & \Cref{sec:ch2_requirementsOfUAT,sec:ch2_userActivityTypes} & \Checkmark \\
 		\hline \textbf{Log attributes} & \Cref{sec:ch2_logAttributes} & \Checkmark \\
-		\hline \textbf{Logging points} & \Cref{sec:ch2_loggingPoints,sec:ch2_webApplicationArchitecture,sec:ch2_ElementObtaining} & \Checkmark \\
-		\hline \textbf{Log extraction and visualisation} & \Cref{sec:ch2_logExtraction} & \Checkmark \\
+		\hline \textbf{Logging points} & \Cref{sec:ch2_loggingPoints,sec:ch2_webApplicationArchitecture,sec:ch2_ElementObtaining,sec:ch2_serverSideLoggingpoint} & \Checkmark \\
+		\hline \textbf{Log extraction and visualisation} & \Cref{sec:ch2_databaseStorage,sec:ch2_logExtraction} & \Checkmark \\
 		\hline \textbf{System utilisation analysis} & \Cref{sec:ch2_utilisationImprovements} & \Checkmark \\
 		\hline
 	\end{tabularx}
 \end{table}
 
 \section{Conclusion}
+In \Cref{Ch2:LoggingMechanism} are the defined functional requirements for a logging mechanism for the system utilisation analysis in \Cref{ch2:sec_system_utilisation_analysis}. The user activity types defined in \Cref{sec:ch2_userActivityTypes} are the base of what log attributes need to be logged to create a user-based log.\par The logging points captured logs and send them to the server's logging point where it is processed and stored in writing to a database.\par The logs are extracted into a visual presentation which enables the maintenance improvement suggestions based on the utilization analysis in \Cref{ch2:sec_system_utilisation_analysis}.
