@@ -34,6 +34,11 @@
 				"language": "latex",
 				"scheme": "file",
 				"pattern": "Chapters/Chapter2.tex"
+			},
+			{
+				"language": "latex",
+				"scheme": "file",
+				"pattern": "Chapters/Chapter1.tex"
 			}
 		]
 	}
