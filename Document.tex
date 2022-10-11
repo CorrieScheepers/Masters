@@ -55,7 +55,7 @@
 \usepackage{pdfpages}
 \usepackage{cprotect}
 \usepackage{ragged2e}
-\usepackage{bbding}
+\usepackage{pifont}
 
 \usepackage[framemethod=TikZ]{mdframed}
 \mdfdefinestyle{MyFrame}{% skipabove=10pt, skipbelow=10pt, linecolor=black, outerlinewidth=1pt,
@@ -73,6 +73,10 @@
 \definecolor{lightgray}{rgb}{.9,.9,.9}
 \definecolor{darkgray}{rgb}{.4,.4,.4}
 \definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+% Check mark and cross
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{56}}
    
 % Prepare TOC
 \usepackage{tocloft}

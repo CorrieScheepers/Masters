@@ -24,7 +24,7 @@ In \Cref{Ch2:LoggingMechanism} the methodology to create a logging mechanism to 
 \end{figure}
 
 \subsubsection{Clients functional requirements}
-The client's functional requirements (F/R 1) are where the user-based activity is triggered. In \Cref{fig:ch2_systemDesign} the client interface consists of three main functional requirements. These interfaces in \Cref{tbl:ch2_clientFunctionalRequirements} parses the input from the user to create a basic user-based action that can be parsed and captured and parsed by the logging point to create a user-based log that is parsed onto the server for further processing.
+The client's functional requirements (F/R 1) are where the user-based activity is triggered. In \Cref{fig:ch2_systemDesign} the client interface consists of three main functional requirements. These interfaces in \Cref{tbl:ch2_clientFunctionalRequirements} parse the input from the user to create a basic user-based action that can be parsed and captured and parsed by the logging point to create a user-based log that is parsed onto the server for further processing.
 
 \setcounter{phase}{1}
 \begin{table}[!htb]
@@ -151,7 +151,7 @@ Creating a single logging point reduces the complexity and in most cases will im
 \subsection{Log attributes}\label{sec:ch2_logAttributes}
 The defined logging attributes in \Cref{tbl:ch2_keyLoggingAttributes} are the base attributes that form part of the main structure of the user-based event log. For web-based applications on the
 client side, only some of these attributes can be obtained as the rest of the attributes can be resolved on the server side. The metadata (\ref{fr:lpa6}) can consist of the request parameters that are
-obtainable at the server side but any additional captured data can be added and sent to the server.
+obtainable on the server side but any additional captured data can be added and sent to the server.
 
 \stepcounter{subphase}
 \begin{table}[!htb]
@@ -165,7 +165,7 @@ obtainable at the server side but any additional captured data can be added and 
 		\hline \subsubphase{fr:lpa2} & Timestamp & This is the time the user initiated the user-based activity event. This will be the timestamp the log was written into the database as the log will be made before the rest of the intended \textit{HTTP request} is completed. \\
 		\hline \subsubphase{fr:lpa3} & Activity type & Each event can be classified into user-based types. This is the user-based activity types in \Cref{tbl:ch2_userActivityTypes}.\\
 		\hline \subsubphase{fr:lpa4} & User identification & Each user has a unique identification number that links the event to them if their session has been verified and can be obtained. Will not be available when the user tries to log in to the system as their session has not been set yet. \\
-		\hline \subsubphase{fr:lpa5} & Request origin & In web applications, there are always requests sent back to the server and will call the primary function to handle the request. This can be logged as either the file that the request is being sent to or the Web page from which the request came. \\
+		\hline \subsubphase{fr:lpa5} & Request origin & In web applications, there are always requests sent back to the server which will call the primary function to handle the request. This can be logged as either the file that the request is being sent to or the Web page from which the request came. \\
 		\hline \subsubphase{fr:lpa6} & Metadata & The metadata of the event contains request parameters or other relevant request data of the event. This metadata adds more information about the user's activity.
 		In \Cref{fig:ch2_MetadataJsonExample} is an example representation of the metadata that can be created for most user-based logs. Some of the event types may not have metadata added. \\
 		\hline \subsubphase{fr:lpa7} & Miscellaneous & These are any non-metadata attributes that can be consistently captured to be used in the utilisation analysis. They expand the characteristics of the obtained user-based log beyond the base attributes. \\ \hline
@@ -383,7 +383,7 @@ If the \texttt{FilterContext}'s requested procedure is called and it is the \tex
 \clearpage
 
 \section{System utilisation analysis}\label{ch2:sec_system_utilisation_analysis}
-The system utilisation analysis will make use of a Web-based graphical user interface to view the raw logs stored in the database and use any other visualisation tools for data insights of the user-based activities. In \Cref{tbl:ch2_utilisation_requirements} is the functional requirements for the utilisation analysis.
+The system utilisation analysis will make use of a Web-based graphical user interface to view the raw logs stored in the database and use any other visualisation tools for data insights into the user-based activities. In \Cref{tbl:ch2_utilisation_requirements} is the functional requirements for the utilisation analysis.
 
 \setcounter{phase}{3}
 \setcounter{subphase}{0}
@@ -410,8 +410,8 @@ The system utilisation analysis will make use of a Web-based graphical user inte
 Each of these functional requirements ensures that the system utilisation analysis will be achieved for the created logging mechanism in \Cref{Ch2:LoggingMechanism}. The main user interface of the system utilisation analysis will consist of the presentation of the user-based activities (\ref{fr:ur4}). This system will either be a custom-created system to display these logs or third-party software such as Microsoft's business intelligence platform, PowerBI. \par Using the third-party tools has advantages over creating custom software for the visual presentation (\ref{fr:ur4}):
 
 \begin{itemize}
-	\item Thrid-party business intelligence platforms have all the necessary analytical functionality. The tables and charts needed for the visual presentation can be created with minimal programming difficulty.
-	\item The advanced tools in these third-party business intelligence platforms provide more ways the user-based activity logs can be visualised for the log comparison (\ref{fr:ur5}).
+	\item Third-party business intelligence platforms have all the necessary analytical functionality. The tables and charts needed for the visual presentation can be created with minimal programming difficulty.
+	\item The advanced tools in these third-party business intelligence platforms provide more ways for the user-based activity logs can be visualised for the log comparison (\ref{fr:ur5}).
 	\item Maintenance and editing of these third-party representations are mostly trouble-free to do. The amount of support and guides that should be available to the developer instead of relying on the creator or other developers that are available to make updates to the custom visual presentation.
 \end{itemize}
 
@@ -473,14 +473,14 @@ Using the functional requirements definded in \Cref{Ch2:LoggingMechanism,ch2:sec
 	\label{tbl:ch2_verification}
 	\begin{tabularx}{\textwidth}{|X|l|c|}
 		\hline \textbf{Requirement} & \textbf{Methodology reference} & \textbf{Requirement met} \\
-		\hline \textbf{User activity types} & \Cref{sec:ch2_requirementsOfUAT,sec:ch2_userActivityTypes} & \Checkmark \\
-		\hline \textbf{Log attributes} & \Cref{sec:ch2_logAttributes} & \Checkmark \\
-		\hline \textbf{Logging points} & \Cref{sec:ch2_loggingPoints,sec:ch2_webApplicationArchitecture,sec:ch2_ElementObtaining,sec:ch2_serverSideLoggingpoint} & \Checkmark \\
-		\hline \textbf{Log extraction and visualisation} & \Cref{sec:ch2_databaseStorage,sec:ch2_logExtraction} & \Checkmark \\
-		\hline \textbf{System utilisation analysis} & \Cref{sec:ch2_utilisationImprovements} & \Checkmark \\
+		\hline \textbf{User activity types} & \Cref{sec:ch2_requirementsOfUAT,sec:ch2_userActivityTypes} & \cmark \\
+		\hline \textbf{Log attributes} & \Cref{sec:ch2_logAttributes} & \cmark \\
+		\hline \textbf{Logging points} & \Cref{sec:ch2_loggingPoints,sec:ch2_webApplicationArchitecture,sec:ch2_ElementObtaining,sec:ch2_serverSideLoggingpoint} & \cmark \\
+		\hline \textbf{Log extraction and visualisation} & \Cref{sec:ch2_databaseStorage,sec:ch2_logExtraction} & \cmark \\
+		\hline \textbf{System utilisation analysis} & \Cref{sec:ch2_utilisationImprovements} & \cmark \\
 		\hline
 	\end{tabularx}
 \end{table}
 
 \section{Conclusion}
-In \Cref{Ch2:LoggingMechanism} are the defined functional requirements for a logging mechanism for the system utilisation analysis in \Cref{ch2:sec_system_utilisation_analysis}. The user activity types defined in \Cref{sec:ch2_userActivityTypes} are the base of what log attributes need to be logged to create a user-based log.\par The logging points captured logs and send them to the server's logging point where it is processed and stored in writing to a database.\par The logs are extracted into a visual presentation which enables the maintenance improvement suggestions based on the utilization analysis in \Cref{ch2:sec_system_utilisation_analysis}.
+In \Cref{Ch2:LoggingMechanism} are the defined functional requirements for a logging mechanism for the system utilisation analysis in \Cref{ch2:sec_system_utilisation_analysis}. The user activity types defined in \Cref{sec:ch2_userActivityTypes} are the base of what log attributes need to be logged to create a user-based log.\par The logging points captured logs and send them to the server's logging point where it is processed and stored in writing in a database.\par The logs are extracted into a visual presentation which enables the maintenance improvement suggestions based on the utilization analysis in \Cref{ch2:sec_system_utilisation_analysis}.
