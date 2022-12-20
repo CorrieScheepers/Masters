@@ -100,6 +100,8 @@ where:
 	\item $\succ \subseteq E\times E$ is the total ordered events in $E$ that belongs to a specific case that is called a trace.
 \end{itemize}
 
+The trace is 
+
 As mentioned in \Cref{section:ch1_background}, software maintenance can make use of event logs to improve software maintenance. It is a common practice in the software industry to record any detailed system run-time information into logs to be analysed later by developers or software engineers to solve software-related problems with the system as in \Cref{tbl:ch1_eventLogsUsage} \cite{Zhu2019}.\par The technique to collect numeric or textual data that describes the behaviour of a computer system is called event logging \cite{Pecchia2015, Baccanico2014}. Event logs are collected textual data containing the records of events that happened in a software system and are used for system management tasks as in \Cref{tbl:ch1_eventLogsUsage} \cite{Rong2018a, Rong2018, Baccanico2014}.
 
 \begin{table}[!htb]
@@ -121,7 +123,8 @@ As mentioned in \Cref{section:ch1_background}, software maintenance can make use
 
 \clearpage
 
-%TODO \chapter{Logging practice in software engineering}
+\subsection{Logging design}
+To design a suitable a logging mechanism for the user-based activity analysis a few important design decisions needs to be made about the loggi
 
 \subsection{Logging quality}\label{sec:ch1_loggingQuality}
 
@@ -188,7 +191,7 @@ Knowing what to log can significantly reduce any overhead the logging mechanism 
 
 The case number and timestamp attributes in \Cref{tbl:ch1_logBasicAttributes} can be defined anytime during the logging process. This is not the case for the rest of the attributes. Every log should have a defined action that will put it in a group of logs that can be defined as the event type. These event types can be either predefined of what is expected from the event action or will need to be observed later analysis of the logs in case there is no clear grouping of the logs \cite{Bekeneva2020, Fedaghi2010}.\par The sources of the log event assist on determine the location where the event took place. For event logs this essential to try to recreate scenarios or actions based on the relevant parts of the software system that participated in the event action.\par Other metadata can increase the log quality by providing additional information about software instructions that were executed. These attributes add more information that can be used to recreate the scenario or action that may be unique parameters or other events that participated in the event log.\par To get the attributes in \Cref{tbl:ch1_logBasicAttributes} an instruction generates the log and parses it onto a data set. These log instructions are called logging points in the software environment \cite{Pecchia2015, Zhu2015}. They can be any instruction such as a print function that displays the information for the user to more complex functions or libraries that can be created by third-party developers.
 
-In \Cref{fig:ch1_logParsing} is an example of a logging point parsing a log message in a structured log. The defined attributes are captured by the logging point when the event takes place or occurred. The created log message is then parsed into a structured log to be safe in a database or displayed. The logging point should be strategically placed to capture the nesseacary attributes to complete the log event \cite{Fedaghi2010}.
+In \Cref{fig:ch1_logParsing} is an example of a logging point parsing a log message in a structured log. The defined attributes are captured by the logging point when the event takes place or occurred. The created log message is then parsed into a structured log to be safe in a database or displayed. The logging point should be strategically placed to capture the required attributes to complete the log event \cite{Fedaghi2010}.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -197,7 +200,22 @@ In \Cref{fig:ch1_logParsing} is an example of a logging point parsing a log mess
 	{\textit{An illustrative example of log parsing \cite{Zhu2019}}} \label{fig:ch1_logParsing}
 \end{figure}
 
-Determine where to place the logging point in a giving software is directly impacted by what the attributes are and if the captured log will be of high quality as described in \Cref{sec:ch1_loggingQuality}. The availability of consistent high-quality logs will directly impact the process mining in the analysis of the logs \cite{Kherbouche2017}.\par To strategically place a logging point developers needs to consider what the activation of the logging point will be during the runtime of the software system \cite{Pecchia2015, Cinque2013}. The activations can be simple if a statement meets certain criteria or instructions that execute after when an event or action took place (e.g. runtime errors).
+Determine where to place the logging point in a giving software is directly impacted by what the attributes are and if the captured log will be of high quality as described in \Cref{sec:ch1_loggingQuality}. The availability of consistent high-quality logs will directly impact the process mining in the analysis of the logs \cite{Kherbouche2017}.\par To strategically place a logging point developers needs to consider what the activation of the logging point will be during the runtime of the software system \cite{Pecchia2015, Cinque2013}. The activations can be simple if a statement meets certain criteria or instructions that execute after when an event or action took place (e.g. runtime errors). \par In this case for a user-based activity log the activation points should be when the user interacts with the system through a graphical interface to perform a certain task. This action can be seen as a user-generated event and the logging points can be placed at strategic areas of the system code to capture the event taking place. 
+
+\begin{table}[!htb]
+	\centering
+	\caption[Problems with too much logging]
+	{\textit{Problems with too much logging \cite{Zhu2015}}}
+	\label{tbl:ch1_loggingTooMuch}
+	\begin{tabularx}{\textwidth}{|l|X|}
+		\hline \textbf{Problem}  & \textbf{Description} \\
+		\hline \textbf{Excess code} & Adding multiple logging points may increase the amount of code added to the software system to capture the event logs and the code may take some time to write and maintain the logging code and can increase the structural and behavioural complexity of the code in its entire life cycle. \\
+		\hline \textbf{System resource impact} & With the additional code needed to capture the logs the system resource usage such as the CPU and I/O channels will increase. This may negatively impact the performance of existing system operations or increase the cost to keep the system at the same operation speed by increasing the system resources.\\
+		\hline \textbf{Unusable logs} & Adding numerous logging points or logging too much at points can produce numerous trivial or useless logs that will not improve the system utilisation analysis. When implementing the system utilisation analysis stage the logs might need to get filtered more or modified to be more meaningful. More event logs can have missing or incomplete logging attributes due to the excessive logging points that have been added. The increase in the behavioural complexity of the log can impact the decisions that are made to improve software maintenance. \\
+		\hline
+	\end{tabularx}
+\end{table}
+
 
 \section{System utilisation analysis}\label{sec:ch1_systemUtilisation}
 In Web-based applications, the process to get usage statistics and user behaviour data is called Web analytics \cite{Kocsis2012}. Web analytics focuses on different analytics in \Cref{tbl:ch1_webAnalytics} for the analysis. These same analytics can be used for none Web-based applications as the: 
@@ -219,7 +237,7 @@ In Web-based applications, the process to get usage statistics and user behaviou
 		\begin{itemize}
 			\item how often the users visit a website,
 			\item how much time they spent on a specific website,
-			\item which site they are coming from.
+			\item navigation between different web pages of the website.
 		\end{itemize}
 		\\
 		\hline
@@ -228,26 +246,36 @@ In Web-based applications, the process to get usage statistics and user behaviou
 
 System utilisation analysis is the process of
 
+\clearpage
+
 \section{State of the Art}
+In \Cref{section:ch1_background} the importance of software maintenance is discussed in the background and that system utilisation is needed to assist with the software maintenance efforts.
+
+\subsection{State of the art summary}
 
 \begin{table}[!htb]
 	\centering
 	\caption[State of the Art]
 	{\textit{State of the Art}}
 	\label{tbl:CH1_StateOfTheART}
-	\begin{tabularx}{\textwidth}{|c|X|X|X|X|X|}
-		\hline \textbf{Ref.} & \RaggedRight \textbf{User activity types} & \RaggedRight \textbf{Log attributes} & \RaggedRight \textbf{Logging points} & \RaggedRight \textbf{Log extraction and visualisation} & \textbf{System utilisation analysis} \\
+	\begin{tabularx}{\textwidth}{|c|Y|Y|Y|Y|Y|}
+		\hline \textbf{Ref.} & \RaggedRight \textbf{Log activity types} & \RaggedRight \textbf{Log attributes} & \RaggedRight \textbf{Logging points} & \RaggedRight \textbf{Log extraction and visualisation} & \textbf{System utilisation analysis} \\
 		\hline 1 & 2 & 3 & 4 &  5 & 6 \\
+		\hline \cite{Zhu2015} & \cmark & \cmark & \cmark & \xmark & \xmark \\
 		\hline \cite{Bekeneva2020} & \cmark & \cmark & \cmark & \cmark  & \cmark \\
 		\hline \cite{Kocsis2012} & \xmark & \xmark & \xmark & \cmark & \cmark \\
 		\hline
 	\end{tabularx}
 \end{table}
 
+
 \clearpage
 
+\section{Problem statement}
+Software maintenance is a vital part of the entire life cycle of any software system. Implementing maintenance on software systems is most effective if it's done on systems that are utilised more by users. Some of these systems may also not be in use anymore and can be deprecated to improve system quality and remove unused code to not waste any resources to maintain and run it.\par A possible solution to this problem is using event logging to determine the utilisation of the system as it is a proven method industry to track system utilisation usage. Developers have access to third-party software logging tools to get the event logs. Most of the tools focus more on system runtime utilisation than user activities. There exist logging tools that can track user-based activities depending on the framework the software system is developed on.\par Developers still need to design the overall logging mechanism and decide where to place the logging points to capture the event logs in a software system. There are proven methods to create a suitable logging mechanism but not all of them include the analysis of the logs for user-based utilisation.
+
 \section{Objectives of the study}
-This study aims to develop a logging mechanism to track user-based activities to perform an analysis of these logs to improve system maintenance in a software environment. The study is divided into two components to achieve the primary goal, which is the design and implementation of the logging mechanism and the analysis of the system utilisation to improve system maintenance.
+This study aims to develop a logging mechanism to track user-based activities to perform an analysis of these logs to improve system maintenance in a software environment. The study is divided into two components to achieve the primary goal, which is the design and implementation of the logging mechanism and the analysis of the system utilisation to improve system maintenance to improve software maintenance.
 
 \subsection{Logging mechanism:}
 \begin{itemize}
