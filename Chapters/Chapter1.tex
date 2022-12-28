@@ -115,7 +115,7 @@ As mentioned in \Cref{section:ch1_background}, software maintenance can make use
 	\caption[Event logs usage]
 	{\textit{Event logs usage}}
 	\label{tbl:ch1_eventLogsUsage}
-	\begin{xltabular}{\textwidth}{|l|X|}
+	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline \textbf{Usage} & \textbf{Description} \\
 		\hline Debugging of software systems and services & Event logging is mostly used to record events or behaviours of software systems or services during its runtime \cite{Rong2018a}.\\
 		\hline Anomaly detection & Event logs can be used to detect any abnormal system behaviour using an anomalous detection algorithm using logging data \cite{Gurumdimma2016}. This can also be used to find any potential vulnerabilities or defect prediction in the software environment \cite{Dwyer2013}. \\
@@ -124,20 +124,34 @@ As mentioned in \Cref{section:ch1_background}, software maintenance can make use
 		\hline Error and failure analysis & Event logs are used to analyse the failure behaviours of software systems which enable software engineers or developers to understand the failure modes of the system, find the root cause of these failures, prevent them and improve the reliability of the future releases of the system \cite{Cinque2013}.\\
 		\hline Analysis of security alerts & In any software environment or information technology infrastructure, security is a major concern for any organisation \cite{Pathan2014, Dwyer2013}. It is important to know the overall security status of the software system. \\
 		\hline
-	\end{xltabular}
+	\end{tabularx}
 \end{table}
 
 \clearpage
 
-\subsection{Logging practice in software engineering}
-Logging practice in software engineering is not always well documented and can there be multiple implementations of different logging mechanisms in the same software system \cite{Pecchia2015, Kitchenham2007}. In modern software systems, the logging practice is a crucial part of the development of software and the maintenance of it in its entire life cycle \cite{Rong2018}.\par In \Cref{apx:loggingPractice} there has been a rise of new studies that focus on providing suitable logging practice guidelines to software engineers and developers. Logging in the industry makes use of many third-party logging libraries and frameworks such as Apache's log4net and Microsoft's ULS frameworks \cite{Zhu2015, Rong2018}.
+\subsection{Logging practice in software development}
+Logging practice in software development is not always well documented and can there be multiple implementations of different logging mechanisms in the same software system \cite{Pecchia2015, Kitchenham2007}. In modern software systems, the logging practice is a crucial part of the development of software and the maintenance of it in its entire life cycle \cite{Rong2018}.
 
-\begin{figure}[!htb]
-	\centering % cent the figure
-	\includegraphics[width=0.95\textwidth]{Chapter1/LogAdvisor/logadvisor.pdf}
-	\caption[An illustrative example of log parsing]
-	{\textit{An illustrative example of log parsing \cite{Zhu2019}}} \label{fig:ch1_logAdvisor}
-\end{figure}
+\subsubsection{Logging practice guidelines}
+In \Cref{apx:loggingPractice} there has been a rise of new studies that focus on providing suitable logging practice guidelines to software engineers and developers. Logging in the industry makes use of many third-party logging libraries and frameworks such as Apache's log4net and Microsoft's ULS frameworks \cite{Zhu2015, Rong2018}.\par Software engineers and developers can use these tools to implement logging in a compatible software system. They will still need to know how to strategically place the logging points so that the desired logs can be obtained. Using guides provided by the tools and other online guides, the logging practice can be implemented When using a third-party logging mechanism the software engineers and developers will in most cases need to:
+
+\begin{itemize}
+	\item add the logging points in the software system at locations where it can capture the desired logs,
+	\item enables the log parsing stage to write a log entry into a database.
+\end{itemize}
+
+Logging guides can give examples and suggestions on where to place the logging points but that can still be sometimes difficult for software engineers and developers to identify these desired locations. This can be difficult due to logging guides being mostly application-specific or the logging mechanism can only capture certain event types to create event logs. \par For more custom logging the software engineers and developers will need to create new logging mechanisms. This adds new requirements for the logging mechanism to be functional. For a logging practice to be successful two important problems need to be resolved \cite{Zhu2015, Zhu2019, Rong2018}:
+
+\begin{itemize}
+	\item What needs to be logged?
+	\item Where to log?
+\end{itemize}
+
+\subsubsection{What needs to be logged?}
+In \Cref{tbl:ch1_eventLogsUsage} the use of logging is diverse and will have an impact on how the logging mechanism will be designed. In this study, the purpose of the logs is to be used for user-based activity tracking, therefore what needs to be logged should be focussed on user-based events. The requirements for a user-based event should be defined and a log attribute model can be designed for those requirements.
+
+\subsubsection{Where to log?}
+Different types of logs will only be present in the software system at certain locations during runtime. Knowing what to log narrows down which locations can be used to obtain certain events while they are present.
 
 \clearpage
 
@@ -286,7 +300,9 @@ In \Cref{section:ch1_background} the importance of software maintenance is discu
 		\hline 1 & 2 & 3 & 4 &  5 & 6 \\
 		\hline \cite{Zhu2015} & \cmark & \cmark & \cmark & \xmark & \xmark \\
 		\hline \cite{Bekeneva2020} & \cmark & \cmark & \cmark & \cmark  & \cmark \\
+		\hline \cite{Pecchia2015} & \xmark & \xmark & \xmark & \cmark & \cmark \\
 		\hline \cite{Kocsis2012} & \xmark & \xmark & \xmark & \cmark & \cmark \\
+		\hline \cite{Kherbouche2017} & \xmark & \xmark & \xmark & \cmark & \cmark \\
 		\hline
 	\end{tabularx}
 \end{table}
