@@ -157,7 +157,7 @@ Different types of logs will only be present in the software system at certain l
 
 \subsection{Logging quality}\label{sec:ch1_loggingQuality}
 
-Software engineers and developers will need to make informed logging decisions to cover the necessary run-time information without negatively impacting the software system's performance \cite{Zhu2015, Zhu2019, Kherbouche2017}. An event log quality model in \Cref{fig:EventQModel} can be used define to ensure that the event logs will have consistent integrity when capturing the event log data. The event log quality model in \Cref{fig:EventQModel} consists of four different levels to define each property of the event log model:
+Software engineers and developers will need to make informed logging decisions to cover the necessary run-time information without negatively impacting the software system's performance \cite{Zhu2015, Zhu2019, Kherbouche2017}. An event log quality model in \Cref{fig:ch1_EventQModel} can be used define to ensure that the event logs will have consistent integrity when capturing the event log data. The event log quality model in \Cref{fig:ch1_EventQModel} consists of four different levels to define each property of the event log model:
 
 \begin{itemize}
 	\item Root level for the event log quality model,
@@ -168,10 +168,12 @@ Software engineers and developers will need to make informed logging decisions t
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.9\textwidth]{Chapter1/Event_Log_Model/Event_Log_Model.pdf}
+	\includegraphics[width=0.95\textwidth]{Chapter1/Event_Log_Model/Event_Log_Model.pdf}
 	\caption[The event log quality model]
-	{\textit{The event log quality model \cite{Kherbouche2017}}} \label{fig:EventQModel}
+	{\textit{The event log quality model \cite{Kherbouche2017}}} \label{fig:ch1_EventQModel}
 \end{figure}
+
+\clearpage
 
 \subsubsection{Accuracy of event logging} 
 It can become difficult to log every event in a software system as these systems will get larger and more complex during their development life cycle \cite{Stojanov2017}. Precisely capturing certain events that need to be logged needs to be consistent to ensure that the data is trustworthy and reliable to use. The log attributes (\Cref{tbl:ch1_logBasicAttributes}) of the event log also need to be precisely captured for each event log and should be correct.\par Capturing more event logs doesn't guarantee that the accuracy of the event log is on an acceptable level as the log's attributes can be incorrect or cause duplicated events logs if the data is the same in a sequence of event logs. In \Cref{tbl:ch1_loggingTooMuch} are the common problems associated with too much logging. \par The accuracy and trustworthiness of the event log are more important than capturing a large number of available event logs in a software system \cite{Zhu2015, Jans2012}. The extra unnecessary logs will also take up more storage space store which will increase costs and possibly the performance of the software system. 
@@ -185,7 +187,7 @@ It can become difficult to log every event in a software system as these systems
 		\hline \textbf{Problem}  & \textbf{Description} \\
 		\hline \textbf{Excess code} & Adding multiple logging points may increase the amount of code added to the software system to capture the event logs. The code may take some time to write and maintain. This can increase the structural and behavioural complexity of the code in its entire life cycle. \\
 		\hline \textbf{System resource impact} & With the additional code needed to capture the logs the system resource usage such as the CPU and I/O channels will increase. This may negatively impact the performance of existing system operations or increase the cost to keep the system at the same operation speed by increasing the system resources.\\
-		\hline \textbf{Unusable logs} & Adding numerous logging points or logging too much at points can produce numerous trivial or useless logs that will not improve the system utilisation analysis. When implementing the system utilisation analysis stage the logs might need to get filtered more or modified to be more meaningful. More event logs can have missing or incomplete logging attributes due to the excessive logging points that have been added. The increase in the behavioural complexity of the log can impact the decisions that are made to improve software maintenance. \\
+		\hline \textbf{Unusable logs} & Adding numerous logging points or logging too much at points can produce numerous trivial or useless logs that will not improve the system utilisation analysis. When implementing the system utilisation analysis stage the logs might need to get filtered more or modified to be more meaningful as much as $70\%$ of the logs may be irrelvant \cite{Fedaghi2010}. \par The logs are written by the software engineers and developers and can sometimes be irrelevant to other managers or system administrators when implementing a system utilisation report of the logs. More event logs can have missing or incomplete logging attributes due to the excessive logging points that have been added. The increase in the behavioural complexity of the log can impact the decisions that are made to improve software maintenance. \\
 		\hline
 	\end{tabularx}
 \end{table}
@@ -204,7 +206,7 @@ These two complexity attributes can be costly when the event logging mechanism n
 The event logs' accuracy and consistency are critical when making reliable decisions based on the identified behaviour of the software system with the historical data that exists in the event logs that is discussed in the previous event log quality dimension \cite{Stojanov2017, Kherbouche2017}. With the accuracy and trustworthiness of the event logs correctly applied, the consistency of the event logs should be on an acceptable level to be correct and verifiable when comparing it to the software system. \par An event log quality model is essential to ensure that the logs will be of high quality for the data mining process in \Cref{sec:ch1_systemUtilisation} and therefore the event log data should be consistent. To ensure the consistency of the event logs the structure of the event logging points and log parsers (\Cref{sec:ch1_loggignPoints}) should be consistent to capture all the important log attributes. The event log data should also be consistently analysed with different methods used on it as part of the consistency of the event logging process.
 
 \subsubsection{Completeness of event logging} 
-The event logs will be analysed at a later stage, the logs should be fully complete when it is being used as some of the other logging attributes might not be available at that stage. The event logs' available attributes should be accurately captured before attempting to store them in a database to ensure that there is no missing event data or missing events if the event is discarded due to it being incomplete. There are two types of completeness attributes excluding the availability attribute in the \Cref{fig:EventQModel}:
+The event logs will be analysed at a later stage, the logs should be fully complete when it is being used as some of the other logging attributes might not be available at that stage. The event logs' available attributes should be accurately captured before attempting to store them in a database to ensure that there is no missing event data or missing events if the event is discarded due to it being incomplete. There are two types of completeness attributes excluding the availability attribute in the \Cref{fig:ch1_EventQModel}:
 
 \begin{itemize}
 	\item Local completeness refers to all event data that can be captured for an instance of the event taking place that can be added as a log attribute to the event log \cite{Kherbouche2017, VanDerAalst2004}.
@@ -252,14 +254,12 @@ In \Cref{fig:ch1_logParsing} is an example of a logging point parsing a log mess
 
 Determine where to place the logging point in a giving software is directly impacted by what the attributes are and if the captured log will be of high quality as described in \Cref{sec:ch1_loggingQuality}. The availability of consistent high-quality logs will directly impact the process mining in the analysis of the logs \cite{Kherbouche2017}.\par To strategically place a logging point developers needs to consider what the activation of the logging point will be during the runtime of the software system \cite{Pecchia2015, Cinque2013}. The activation's can be simple if a statement meets certain criteria or instructions that execute after when an event or action took place (e.g. runtime errors). \par In this case for a user-based activity log the activation points should be when the user interacts with the system through a graphical interface to perform a certain task. This action can be seen as a user-generated event and the logging points can be placed at strategic areas of the system code to capture the event taking place. 
 
-\clearpage
-
 \section{System utilisation analysis}\label{sec:ch1_systemUtilisation}
-In Web-based applications, the process to get usage statistics and user behaviour data is called Web analytics \cite{Kocsis2012}. Web analytic can be used for user modelling efforts. User modelling in software engineering is the customisation and adaptation of the software systems to the users' required needs \cite{Waqar2017, Paliouras1999}. \par Web analytic focuses on different analytic in \Cref{tbl:ch1_webAnalytics} for the analysis. These same analytics can be used for none Web-based applications as the: 
+In Web-based applications, the process to get usage statistics and user behaviour data is called Web analytics \cite{Kocsis2012}. Web analytic can be used for user modelling efforts. User modelling in software engineering is the customisation and adaptation of the software systems to the users' required needs \cite{Waqar2017, Paliouras1999}. The user modelling can also include the implementation of software maintenance as the maintenance is an adaptation of the software system to user's needs.  \par Web analytic focuses on different analytic in \Cref{tbl:ch1_webAnalytics} for the analysis. These same analytics can be used for none Web-based applications as the: 
 
 \begin{itemize}
 	\item identity of the user can be captured if the software system uses a software license,
-	\item different parts of the system can be tracked.
+	\item different parts of the system can be tracked or services that are used by the user.
 \end{itemize} 
 
 \begin{table}[!htb]
@@ -281,12 +281,55 @@ In Web-based applications, the process to get usage statistics and user behaviou
 	\end{tabularx}
 \end{table}
 
-As previously stated that the logging mechanism is used to obtain the user-based event logs and system utilisation analysis will need to focus on th
+\subsection{Analytic tools for event logs}
+There exist numerous third-party analytic tools for event logging data monitoring and management to graphically visualise the log data. Choosing the correct tool to use can be dependent on what the software engineers and developers want to analyse and the availability of the tools due to external factors like cost and usability. \par Event logging monitoring and management tools are sometimes underutilised and are not often used to their full potential when analysing the event logs \cite{Fedaghi2010}. This can be due that the log quality of event logs doesn't meet the standards of \Cref{fig:ch1_EventQModel} is not met in \Cref{sec:ch1_loggingQuality} for the correct logs to be available for the system utilisation analysis.  
 
 \clearpage
 
 \section{State of the Art}
 In \Cref{section:ch1_background} the importance of software maintenance is discussed in the background and that system utilisation is needed to assist with the software maintenance efforts.
+
+\subsection{State of the art topics}
+From the literature, there were a few important focus points identified to create a logging mechanism for user-based activities. These focus points exist for the research done in \Cref{sec:ch1_eventLogging,sec:ch1_systemUtilisation}.
+
+	
+	\begin{xltabular}{\textwidth}{|l|X|X|}
+		\caption[State of the art topics]
+	{\textit{State of the art topics}}
+	\label{tbl:ch1_stateOfTheArtTopics}
+
+		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evalution criteria} \\
+		\endfirsthead
+
+		\multicolumn{3}{c}%
+		{\tablename\ \thetable{} -- continued from previous page} \\
+		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evalution criteria} \\
+		\endhead
+
+		\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
+		\endfoot
+
+		\hline
+		\endlastfoot
+
+		\hline \textbf{Log event types} & Log event types are important to first identify what events will be logged by the logging points eg. if the runtime errors need to be logged any runtime error events need to be obtained.\par The event types need to be defined to narrow down what the logging mechanism needs to do. & \RaggedRight \begin{enumerate}
+			\item Does the study contain event types classification?
+			\item Does the study primarily focus on user-based event types?
+		\end{enumerate} \\
+		\hline \textbf{Log attributes} & Each event log will need to have defined attributes that are crucial for the system utilisation stage of the logging implementation.  & \RaggedRight \begin{enumerate}
+			\item What attributes is needed for an event log or specific event log types?
+		\end{enumerate} \\
+		\hline \textbf{Logging points} & Each event log will need to have defined attributes that are crucial for the system utilisation stage of the logging implementation.  & \RaggedRight \begin{enumerate}
+			\item What attributes is needed for an event log or specific event log types?
+		\end{enumerate} \\
+		\hline \textbf{Log extraction and visualisation} & Each event log will need to have defined attributes that are crucial for the system utilisation stage of the logging implementation.  & \RaggedRight \begin{enumerate}
+			\item What attributes is needed for an event log or specific event log types?
+		\end{enumerate} \\
+		\hline \textbf{System utilisation analysis} & Each event log will need to have defined attributes that are crucial for the system utilisation stage of the logging implementation.  & \RaggedRight \begin{enumerate}
+			\item What attributes is needed for an event log or specific event log types?
+		\end{enumerate} \\
+		\hline
+	\end{xltabular}
 
 \subsection{State of the art summary}
 
@@ -296,7 +339,7 @@ In \Cref{section:ch1_background} the importance of software maintenance is discu
 	{\textit{State of the Art}}
 	\label{tbl:CH1_StateOfTheART}
 	\begin{tabularx}{\textwidth}{|c|Y|Y|Y|Y|Y|}
-		\hline \textbf{Ref.} & \RaggedRight \textbf{Log activity types} & \RaggedRight \textbf{Log attributes} & \RaggedRight \textbf{Logging points} & \RaggedRight \textbf{Log extraction and visualisation} & \textbf{System utilisation analysis} \\
+		\hline \textbf{Ref.} & \RaggedRight \textbf{Log event types} & \RaggedRight \textbf{Log attributes} & \RaggedRight \textbf{Logging points} & \RaggedRight \textbf{Log extraction and visualisation} & \textbf{System utilisation analysis} \\
 		\hline 1 & 2 & 3 & 4 &  5 & 6 \\
 		\hline \cite{Zhu2015} & \cmark & \cmark & \cmark & \xmark & \xmark \\
 		\hline \cite{Bekeneva2020} & \cmark & \cmark & \cmark & \cmark  & \cmark \\
