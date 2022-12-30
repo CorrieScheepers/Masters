@@ -28,7 +28,7 @@ Most companies will strive to increase their digital products and services over 
 	{\textit{Cost of fixing software system defects \cite{Ogheneovo2014}}}\label{fig:ch1_costsOfFixingBugs}
 \end{figure} 
 
-Maintenance of software systems is continuous and is a reduced form of software development and is aimed to modify software systems while preserving their integrity \cite{Sneed2004, Ackermann2009, Port2017}. In \Cref{tbl:ch1_maintenanceTypes}, adaptive and perfective maintenance types are most effective when maintaining a software system's integrity. Most software engineers and developers will implement these two significant types of maintenance in their maintenance procedures.\par Adaptive and perfective maintenance ensures the software system will continue to evolve to meet the system requirements to ensure that it is useable and feasible. This is also the most effective way of reducing technical debt by adapting the software system. This continuous improvement uses about $70\%$ of the maintenance resources to manage the maintenance of the software system \cite{Kumar2013}. 
+Maintenance of software systems is continuous and is a reduced form of software development and is aimed to modify software systems while preserving their integrity \cite{Sneed2004, Ackermann2009, Port2017}. In \Cref{tbl:ch1_maintenanceTypes}, adaptive and perfective maintenance types are most effective when maintaining a software system's integrity. Most software engineers and developers will implement these two significant types of maintenance in their maintenance procedures.\par Adaptive and perfective maintenance ensures the software system will continue to evolve to meet the system requirements to ensure that it is usable and feasible. This is also the most effective way of reducing technical debt by adapting the software system. This continuous improvement uses about $70\%$ of the maintenance resources to manage the maintenance of the software system \cite{Kumar2013}. 
 
 \begin{table}[!htb]
 	\centering
@@ -39,7 +39,7 @@ Maintenance of software systems is continuous and is a reduced form of software 
 		\hline
 		\textbf{Maintenance type} & \textbf{Description} & \textbf{$\%$ of maintenance activities} \\ \hline
 		Adaptive & \raggedright Adaptive maintenance in software systems is any modification or enhancements to keep it usable with a changing or changed software environment. & $\approx 35.5\%$ \\ \hline
-		Perfective & \raggedright Perfective maintenance based are modifications made based on the change of the end-user's new requirements. It can also improve the performance or maintainability of the software system in its life cycle. & $\approx 35.5\%$ \\ \hline
+		Perfective & \raggedright Perfective maintenance based are modifications made based on the change of the end-users new requirements. It can also improve the performance or maintainability of the software system in its life cycle. & $\approx 35.5\%$ \\ \hline
 		Corrective & \raggedright Corrective maintenance are improvements made to fix certain defects or errors in a software system. & $\approx 20\%$ \\ \hline
 		Preventive & \raggedright  Preventive maintenance are improvements made to software systems that prevent problems in the future. & $\approx 5\%$ \\ \hline
 	\end{tabularx}
@@ -59,9 +59,9 @@ where:
 	\item $KLoC$ (thousands of lines of code) is the size of the observed executable code in a software system 
 \end{itemize}
 
-In open-source software systems, the defect density increases due to the number of developers working on the same software system and the size of the system itself \cite{Rahmani2010}. Adding more developers to improve a software system may not always have an improvement in each of the maintenance types in \Cref{tbl:ch1_maintenanceTypes}. There might be even a need to increase the corrective maintenance efforts as more developers are already trying to resolve the existing maintenance issues.\par The size of the software system in OSS does have an impact on the defective density \cite{Rahmani2010}. Naturally larger and more complex software systems will have larger defect density as the system will be complex and some parts of it will be older than others \cite{SourceForged2009}. 
+In open-source software systems, the defect density increases due to the number of developers working on the same software system and the size of the system itself \cite{Rahmani2010}. Adding more developers to improve a software system may not always have an improvement in each of the maintenance types in \Cref{tbl:ch1_maintenanceTypes}. There might even be a need to increase the corrective maintenance efforts as more developers are already trying to resolve the existing maintenance issues.\par The size of the software system in OSS does have an impact on the defective density \cite{Rahmani2010}. Naturally larger and more complex software systems will have larger defect density as the system will be complex and some parts of it will be older than others \cite{SourceForged2009}. 
 
-In \Cref{fig:ch1_costsOfFixingBugs}, the cost of maintenance increases if the maintenance activities increase when implementing the four major types of software maintenance. These maintenance activities cannot be neglected as the software will most likely keep evolving as new features are added to keep it useable \cite{Alenezi2016}. \par In an ideal situation, the maintenance should be done during the software development planning phase. Due to time constraints and available resources, it is not easy to plan any maintenance phase for most software engineers and programmers. The cost increases of maintenance due to a lack of planning or preventive measures to keep the quality software from degrading \cite{Alenezi2016}.
+In \Cref{fig:ch1_costsOfFixingBugs}, the cost of maintenance increases if the maintenance activities increase when implementing the four major types of software maintenance. These maintenance activities cannot be neglected as the software will most likely keep evolving as new features are added to keep it usable \cite{Alenezi2016}. \par In an ideal situation, the maintenance should be done during the software development planning phase. Due to time constraints and available resources, it is difficult to plan any maintenance phase for most software engineers and programmers. The cost increases of maintenance due to a lack of planning or preventive measures to keep the quality software from degrading \cite{Alenezi2016}.
 
 \subsection{Problems with implementing software maintenance}\label{sec:ch1_maintenanceProblems}
 
@@ -117,7 +117,7 @@ As mentioned in \Cref{section:ch1_background}, software maintenance can make use
 	\label{tbl:ch1_eventLogsUsage}
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline \textbf{Usage} & \textbf{Description} \\
-		\hline Debugging of software systems and services & Event logging is mostly used to record events or behaviours of software systems or services during its runtime \cite{Rong2018a}.\\
+		\hline Debugging of software systems and services & Event logging is mostly used to record events or behaviours of software systems or services during its run-time \cite{Rong2018a}.\\
 		\hline Anomaly detection & Event logs can be used to detect any abnormal system behaviour using an anomalous detection algorithm using logging data \cite{Gurumdimma2016}. This can also be used to find any potential vulnerabilities or defect prediction in the software environment \cite{Dwyer2013}. \\
 		\hline Performance diagnosis & Software performance is important to producing quality software for the end user \cite{EvangelinGeetha2007, Baccanico2014}. This is also important to make informed decisions on how to improve the software system or service for improved performance and other resource and financial implications.\par This type of performance event logs of the software systems or services are used to monitor the software system, which is useful for resource tuning, load balancing and checking system scalability in the entire life cycle of the software system or service \cite{Song2017}. \\ 
 		\hline Auditing & In a software environment there can be significant changes to the database data that might need to log for auditing purposes \cite{Rong2018a}. All establishments and enterprises need to ensure that compliance with the industry regulations is met with their software systems by adding audit logs. They are also legally bound to have audit logs to provide legal evidence for any legal investigation or administrative tasks to ensure that accountability is maintained. \\
@@ -148,10 +148,10 @@ Logging guides can give examples and suggestions on where to place the logging p
 \end{itemize}
 
 \subsubsection{What needs to be logged?}
-In \Cref{tbl:ch1_eventLogsUsage} the use of logging is diverse and will have an impact on how the logging mechanism will be designed. In this study, the purpose of the logs is to be used for user-based activity tracking, therefore what needs to be logged should be focussed on user-based events. The requirements for a user-based event should be defined and a log attribute model can be designed for those requirements.
+In \Cref{tbl:ch1_eventLogsUsage} the use of logging is diverse and will have an impact on how the logging mechanism will be designed. In this study, the purpose of the logs is to be used for user-based activity tracking, therefore what needs to be logged should be focused on user-based events. The requirements for a user-based event should be defined and a log attribute model can be designed for those requirements.
 
 \subsubsection{Where to log?}
-Different types of logs will only be present in the software system at certain locations during runtime. Knowing what to log narrows down which locations can be used to obtain certain events while they are present.
+Different types of logs will only be present in the software system at certain locations during run-time. Knowing what to log narrows down which locations can be used to obtain certain events while they are present.
 
 \clearpage
 
@@ -174,7 +174,7 @@ Software engineers and developers will need to make informed logging decisions t
 \end{figure}
 
 \subsubsection{Accuracy of event logging} 
-It can become difficult to log every event in a software system as these systems will get larger and more complex during their development life cycle \cite{Stojanov2017}. Precisely capturing certain events that need to be logged needs to be consistent to ensure that the data is trustworthy and reliable to use. The log attributes (\Cref{tbl:ch1_logBasicAttributes}) of the event log also need to be precisely captured for each event log and should be correct.\par Capturing more event logs doesn't guarantee that the accuracy of the event log is on an acceptable level as the log's attributes can be incorrect or cause duplicated events logs if the data is the same in a sequence of event logs. In \Cref{tbl:ch1_loggingTooMuch} is the common problems associated with too much logging. \par The accuracy and trustworthiness of the event log are more important than capturing a large number of available event logs in a software system \cite{Zhu2015, Jans2012}. The extra unnecessary logs will also take up more storage space store which will increase costs and possibly the performance of the software system. 
+It can become difficult to log every event in a software system as these systems will get larger and more complex during their development life cycle \cite{Stojanov2017}. Precisely capturing certain events that need to be logged needs to be consistent to ensure that the data is trustworthy and reliable to use. The log attributes (\Cref{tbl:ch1_logBasicAttributes}) of the event log also need to be precisely captured for each event log and should be correct.\par Capturing more event logs doesn't guarantee that the accuracy of the event log is on an acceptable level as the log's attributes can be incorrect or cause duplicated events logs if the data is the same in a sequence of event logs. In \Cref{tbl:ch1_loggingTooMuch} are the common problems associated with too much logging. \par The accuracy and trustworthiness of the event log are more important than capturing a large number of available event logs in a software system \cite{Zhu2015, Jans2012}. The extra unnecessary logs will also take up more storage space store which will increase costs and possibly the performance of the software system. 
 
 \begin{table}[!htb]
 	\centering
@@ -217,7 +217,7 @@ Ensuring that both completeness levels are achieved and that the event log data 
 Knowing what to log can significantly reduce any overhead the logging mechanism may produce in the software system \cite{Jia2018, Pecchia2015}. Preserving quality (as described in \Cref{sec:ch1_loggingQuality}) is a necessity to ensure that the logs that are obtained will fulfil their purpose when analysing it.
 
 \subsubsection{Logging attributes}
-Before the logs can be parsed to a structured dataset the key attributes need to be defined that will describe the event log \cite{Bekeneva2020}. The attributes in describing in \Cref{tbl:ch1_logBasicAttributes} are the most basic attributes a log event should have. They make it possible to mine and analyse the logs based on their attributes and increase the precision and reliability of the event log \cite{Kherbouche2017}.
+Before the logs can be parsed to a structured data-set the key attributes need to be defined that will describe the event log \cite{Bekeneva2020}. The attributes in describing in \Cref{tbl:ch1_logBasicAttributes} are the most basic attributes a log event should have. They make it possible to mine and analyse the logs based on their attributes and increase the precision and reliability of the event log \cite{Kherbouche2017}.
 
 \begin{table}[!htb]
 	\centering
@@ -250,12 +250,12 @@ In \Cref{fig:ch1_logParsing} is an example of a logging point parsing a log mess
 	{\textit{An illustrative example of log parsing \cite{Zhu2019}}} \label{fig:ch1_logParsing}
 \end{figure}
 
-Determine where to place the logging point in a giving software is directly impacted by what the attributes are and if the captured log will be of high quality as described in \Cref{sec:ch1_loggingQuality}. The availability of consistent high-quality logs will directly impact the process mining in the analysis of the logs \cite{Kherbouche2017}.\par To strategically place a logging point developers needs to consider what the activation of the logging point will be during the runtime of the software system \cite{Pecchia2015, Cinque2013}. The activations can be simple if a statement meets certain criteria or instructions that execute after when an event or action took place (e.g. runtime errors). \par In this case for a user-based activity log the activation points should be when the user interacts with the system through a graphical interface to perform a certain task. This action can be seen as a user-generated event and the logging points can be placed at strategic areas of the system code to capture the event taking place. 
+Determine where to place the logging point in a giving software is directly impacted by what the attributes are and if the captured log will be of high quality as described in \Cref{sec:ch1_loggingQuality}. The availability of consistent high-quality logs will directly impact the process mining in the analysis of the logs \cite{Kherbouche2017}.\par To strategically place a logging point developers needs to consider what the activation of the logging point will be during the runtime of the software system \cite{Pecchia2015, Cinque2013}. The activation's can be simple if a statement meets certain criteria or instructions that execute after when an event or action took place (e.g. runtime errors). \par In this case for a user-based activity log the activation points should be when the user interacts with the system through a graphical interface to perform a certain task. This action can be seen as a user-generated event and the logging points can be placed at strategic areas of the system code to capture the event taking place. 
 
 \clearpage
 
 \section{System utilisation analysis}\label{sec:ch1_systemUtilisation}
-In Web-based applications, the process to get usage statistics and user behaviour data is called Web analytics \cite{Kocsis2012}. Web analytics can be used for user modelling efforts. User modelling in software engineering is the customisation and adaptation of the software systems to the users' required needs \cite{Waqar2017, Paliouras1999}. \par Web analytics focuses on different analytics in \Cref{tbl:ch1_webAnalytics} for the analysis. These same analytics can be used for none Web-based applications as the: 
+In Web-based applications, the process to get usage statistics and user behaviour data is called Web analytics \cite{Kocsis2012}. Web analytic can be used for user modelling efforts. User modelling in software engineering is the customisation and adaptation of the software systems to the users' required needs \cite{Waqar2017, Paliouras1999}. \par Web analytic focuses on different analytic in \Cref{tbl:ch1_webAnalytics} for the analysis. These same analytics can be used for none Web-based applications as the: 
 
 \begin{itemize}
 	\item identity of the user can be captured if the software system uses a software license,
@@ -264,11 +264,11 @@ In Web-based applications, the process to get usage statistics and user behaviou
 
 \begin{table}[!htb]
 	\centering
-	\caption[Web analytics for user-based data]
-	{\textit{Web analytics for user-based data}}
+	\caption[Web analytic for user-based data]
+	{\textit{Web analytic for user-based data}}
 	\label{tbl:ch1_webAnalytics}
 	\begin{tabularx}{\textwidth}{|l|X|}
-		\hline \textbf{Analytics}  & \textbf{Description} \\
+		\hline \textbf{Analytic}  & \textbf{Description} \\
 		\hline \textbf{Identity of the user} & This is any information about the user's identity in the software system. Users can have different roles when using the software system such as a system admin or general user. These roles mostly dictated what the user can access and do on a website. \\
 		\hline \textbf{Site interaction} & The different Web sites the user is accessing during their active Web session. This would also contain all the information about: 
 		\begin{itemize}
