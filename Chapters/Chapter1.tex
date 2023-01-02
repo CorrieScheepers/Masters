@@ -296,14 +296,15 @@ From the literature, there were a few important focus points identified to creat
 	\begin{xltabular}{\textwidth}{|l|X|X|}
 		\caption[State of the art topics]
 	{\textit{State of the art topics}}
-	\label{tbl:ch1_stateOfTheArtTopics}
+	\label{tbl:ch1_stateOfTheArtTopics} \\
 
-		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evalution criteria} \\
+		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria} \\
+  \hline
 		\endfirsthead
 
 		\multicolumn{3}{c}%
 		{\tablename\ \thetable{} -- continued from previous page} \\
-		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evalution criteria} \\
+		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria} \\
 		\endhead
 
 		\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
@@ -312,7 +313,7 @@ From the literature, there were a few important focus points identified to creat
 		\hline
 		\endlastfoot
 
-		\hline \textbf{Log event types} & Log event types are important to first identify what events will be logged by the logging points eg. if the runtime errors need to be logged any runtime error events need to be obtained.\par The event types need to be defined to narrow down what the logging mechanism needs to do. & \RaggedRight \begin{enumerate}
+		\textbf{Log event types} & Log event types are important to first identify what events will be logged by the logging points eg. if the runtime errors need to be logged any runtime error events need to be obtained.\par The event types need to be defined to narrow down what the logging mechanism needs to do. & \RaggedRight \begin{enumerate}
 			\item Does the study contain event types classification?
 			\item Does the study primarily focus on user-based event types?
 		\end{enumerate} \\
@@ -328,7 +329,6 @@ From the literature, there were a few important focus points identified to creat
 		\hline \textbf{System utilisation analysis} & Each event log will need to have defined attributes that are crucial for the system utilisation stage of the logging implementation.  & \RaggedRight \begin{enumerate}
 			\item What attributes is needed for an event log or specific event log types?
 		\end{enumerate} \\
-		\hline
 	\end{xltabular}
 
 \subsection{State of the art summary}
