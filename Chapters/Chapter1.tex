@@ -3,6 +3,49 @@
 \ChapterPageStuff{1}
 
 \section{Background}\label{section:ch1_background}
+In the modern era, most types of businesses will make use of digital products and services to maximise their profits \cite{Gralha2018}. This increases the need to create new innovative software systems to cater to the specific needs of the users. Software projects may vary in size, type and degree of difficulty of implementation therefore the software quality is crucial \cite{Khan2013}. There are certain defined attributes and characteristics the software systems need to adhere to, that is called software quality.\par Using any System Development Life Cycle (SDLC) methodology is crucial to make the software development process efficient and predictable such as the agile software development methodology. This enforces various degrees of disciplines to the software development process to ensure that the software quality is acceptable for the user requirements \cite{Khan2013, Al-Saiyd2015}. In \Cref{tbl:ch1_SDLC} is the Life-Cycle Phases (LCP) of SDLC.
+
+\begin{xltabular}{\textwidth}{|l|X|}
+	\caption[System Development Life Cycle phases]
+	{\textit{System Development Life Cycle phases \cite{Khan2013, DOJ2003}}}
+	\label{tbl:ch1_SDLC} \\
+    
+	\hline
+	\textbf{Life-Cycle phase} & \textbf{Description} \\
+	\hline
+	\endfirsthead
+
+	\multicolumn{2}{c}%
+	{\tablename\ \thetable{} -- continued from previous page} \\
+	\hline
+	\textbf{Life-Cycle phase} & \textbf{Description} \\
+	\endhead
+
+	\multicolumn{2}{|r|}{{Continued on next page}} \\ \hline
+	\endfoot
+
+	\hline
+	\endlastfoot
+
+	\textbf{Initiation} & The sponsor identifies a need for an opportunity and a concept proposal is created for the new opportunity. \\ \hline
+	\textbf{System Concept Development Phase} & In this phase the feasibility and appropriateness of the concept proposal are reviewed when it needs to be approved. The Systems Boundary Document identifies the scope and needs additional approval before the planning phases are implemented.   \\ \hline
+	\textbf{Planning} & In the planning phase the project management plan and other planning documents are created. These documents define the available budget, project resources, activities, schedules, tools and reviews.  \\ \hline
+	\textbf{Requirements Analysis} & In this phase the user requirements are defined and analysed. The functional requirements are created with the functional requirement document. \\ \hline
+	\textbf{Design} & In this stage the detailed requirements are completed in the System Design Document that describes the detailed logic specifications of the software system. \\ \hline
+	\textbf{Development} & In this phase the design specifications are converted into an executable software system. This also includes acquiring other third-party software or internal software to install them on certain software environments, creating and testing databases, perfroming test readiness reviews and other software development activities. \\ \hline
+	\textbf{Integration and Test} & In this phase the software systems are integrated and systematically tested to examine if it meets all the functional requirements and other accreditation activities for test approval and user approval using user tests.  \\ \hline
+	\textbf{Implementation} & This phase is initiated after the software systems passed the testing phase and are accepted by the users. This phase contains the implementation of the software system in a production environment. This phase continues until the software systems are operational in a final production environment.\\ \hline
+	\textbf{Operations and Maintenance} & In this phase continuous monitoring of the performance of the software system is done in line with the defined user requirements. Any additional modifications after the initial software development are done here and any other tasks are needed to maintain the software system. Also includes the Post-Implementation and In-Process Reviews for the software system. \\ \hline
+	\textbf{Dispostition} & This phase is any disposition activities to properly terminate the software system. Any important data that is needed for the reactivation of the software system in the future is also preserved. \\
+\end{xltabular}
+
+There exist various adoptions of the LPC listed in \Cref{tbl:ch1_SDLC} for various SDLC methodologies that are used in the software development industry \cite{Al-Saiyd2015, Jain2018}. Each LPC ensures that the software development is correctly implemented if it is part of the 
+
+Technical debt can exist in almost every software system and should be correctly managed by analysing which maintenance issues should be prioritised \cite{DeLeon-Sigg2020, Reimanis2016}.
+
+Software maintenance is an essential task in software development, and it can directly reduce the cost and effort to create new software systems or modify them \cite{Thamburaj2017}.
+
+\subsection{Software maintenance}
 
 Software maintenance according to the \textit{IEEE Standard 1219}\footnote{\textbf{IEEE Standards} documents are developed within the Technical Committees of the IEEE Societies, and the Standards Coordinating Committees of the IEEE Standards Board \cite{Mamone1994}.} is the process that includes the following phases \cite{Mamone1994, Hasan2012}:
 \begin{itemize}
@@ -16,10 +59,10 @@ Software maintenance according to the \textit{IEEE Standard 1219}\footnote{\text
 \end{itemize}
 
 %TODO Beter definisie vir technical debt
-The maintenance problems or modifications are regularly identified and usually addressed based on an initial priority ranking. This priority ranking is determined by using classification models to determine which type of maintenance needs to be done (adaptive, corrective, perfective and preventive) \cite{Tang2010, Mamone1994, Ping2010}.\par Continuous analysis of the identified maintenance problems or modifications enables the software engineers and developers to create a preliminary plan to address these issues \cite{Port2017}. Technical debt can exist in almost every software system and should be correctly managed by analysing which maintenance issues should be prioritised \cite{DeLeon-Sigg2020, Reimanis2016}.\par Implementing a suitable maintenance framework to resolve the identified issues reduces the technical debt. Various maintenance models can be used to solve these issues when implementing any one of the maintenance types. Identifying and analysing these issues is the most challenging part of software maintenance \cite{DeLeon-Sigg2020}.
+The maintenance problems or modifications are regularly identified and usually addressed based on an initial priority ranking. This priority ranking is determined by using classification models to determine which type of maintenance needs to be done (adaptive, corrective, perfective and preventive) \cite{Tang2010, Mamone1994, Ping2010}.\par Continuous analysis of the identified maintenance problems or modifications enables the software engineers and developers to create a preliminary plan to address these issues \cite{Port2017}. \par Implementing a suitable maintenance framework to resolve the identified issues reduces the technical debt. Various maintenance models can be used to solve these issues when implementing any one of the maintenance types. Identifying and analysing these issues is the most challenging part of software maintenance \cite{DeLeon-Sigg2020}.
 
 \subsection{Maintenance in software systems}
-Most companies will strive to increase their digital products and services over the software project's life cycle to maximise their profits \cite{Gralha2018}. This will increase the maintenance that needs to be done on both new and old systems \cite{Niu2018, Galster2019, Hasan2012}. Although maintenance is essential for software systems, most companies do not have a defined maintenance model or process to guide them when implementing maintenance \cite{Stojanov2017}. Software maintenance is an essential task in software development, and it can directly reduce the cost and effort to create new software systems or modify them \cite{Thamburaj2017}.\par A study about software maintenance was conducted by the United States Department of Commerce. They found that the total development cost can be as much as $60\%$-$80\%$ of the total cost for the software system's development life cycle \cite{Ogheneovo2014, Stark1996, Ackermann2009, Tang2010}. These costs will increase (as shown in \Cref{fig:ch1_costsOfFixingBugs}) to maintain much older and more complex software systems, therefore implementing maintenance can keep the software system feasible in its entire life cycle \cite{Alenezi2016, Booch1986}.
+ This will increase the maintenance that needs to be done on both new and old systems \cite{Niu2018, Galster2019, Hasan2012}. Although maintenance is essential for software systems, most companies do not have a defined maintenance model or process to guide them when implementing maintenance \cite{Stojanov2017}. \par A study about software maintenance was conducted by the United States Department of Commerce. They found that the total development cost can be as much as $60\%$-$80\%$ of the total cost for the software system's development life cycle \cite{Ogheneovo2014, Stark1996, Ackermann2009, Tang2010}. These costs will increase (as shown in \Cref{fig:ch1_costsOfFixingBugs}) to maintain much older and more complex software systems, therefore implementing maintenance can keep the software system feasible in its entire life cycle \cite{Alenezi2016, Booch1986}.
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -293,43 +336,43 @@ In \Cref{section:ch1_background} the importance of software maintenance is discu
 From the literature, there were a few important focus points identified to create a logging mechanism for user-based activities. These focus points exist for the research done in \Cref{sec:ch1_eventLogging,sec:ch1_systemUtilisation}.
 
 	
-	\begin{xltabular}{\textwidth}{|l|X|X|}
-		\caption[State of the art topics]
-	{\textit{State of the art topics}}
-	\label{tbl:ch1_stateOfTheArtTopics} \\
+\begin{xltabular}{\textwidth}{|l|X|X|}
+	\caption[State of the art topics]
+{\textit{State of the art topics}}
+\label{tbl:ch1_stateOfTheArtTopics} \\
 
-		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria} \\
-  \hline
-		\endfirsthead
+	\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria} \\
+	\hline
+	\endfirsthead
 
-		\multicolumn{3}{c}%
-		{\tablename\ \thetable{} -- continued from previous page} \\
-		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria} \\
-		\endhead
+	\multicolumn{3}{c}%
+	{\tablename\ \thetable{} -- continued from previous page} \\
+	\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria} \\
+	\endhead
 
-		\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
-		\endfoot
+	\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
+	\endfoot
 
-		\hline
-		\endlastfoot
+	\hline
+	\endlastfoot
 
-		\textbf{Log event types} & Log event types are important to first identify what events will be logged by the logging points eg. if the runtime errors need to be logged any runtime error events need to be obtained.\par The event types need to be defined to narrow down what the logging mechanism needs to do. & \RaggedRight \begin{enumerate}
-			\item Does the study contain event types classification?
-			\item Does the study primarily focus on user-based event types?
-		\end{enumerate} \\
-		\hline \textbf{Log attributes} & Each event log will need to have defined attributes that are crucial for the system utilisation stage of the logging implementation.  & \RaggedRight \begin{enumerate}
-			\item What attributes is needed for an event log or specific event log types?
-		\end{enumerate} \\
-		\hline \textbf{Logging points} & Each event log will need to have defined attributes that are crucial for the system utilisation stage of the logging implementation.  & \RaggedRight \begin{enumerate}
-			\item What attributes is needed for an event log or specific event log types?
-		\end{enumerate} \\
-		\hline \textbf{Log extraction and visualisation} & Each event log will need to have defined attributes that are crucial for the system utilisation stage of the logging implementation.  & \RaggedRight \begin{enumerate}
-			\item What attributes is needed for an event log or specific event log types?
-		\end{enumerate} \\
-		\hline \textbf{System utilisation analysis} & Each event log will need to have defined attributes that are crucial for the system utilisation stage of the logging implementation.  & \RaggedRight \begin{enumerate}
-			\item What attributes is needed for an event log or specific event log types?
-		\end{enumerate} \\
-	\end{xltabular}
+	\textbf{Log event types} & Log event types are important to first identify what events will be logged by the logging points eg. if the runtime errors need to be logged any runtime error events need to be obtained.\par The event types need to be defined to narrow down what the logging mechanism needs to do. & \RaggedRight \begin{enumerate}
+		\item Does the study contain event types classification?
+		\item Does the study primarily focus on user-based event types?
+	\end{enumerate} \\
+	\hline \textbf{Log attributes} & Each event log will need to have defined attributes that are crucial for the system utilisation stage of the logging implementation.  & \RaggedRight \begin{enumerate}
+		\item What attributes is needed for an event log or specific event log types?
+	\end{enumerate} \\
+	\hline \textbf{Logging points} & Each event log will need to have defined attributes that are crucial for the system utilisation stage of the logging implementation.  & \RaggedRight \begin{enumerate}
+		\item What attributes is needed for an event log or specific event log types?
+	\end{enumerate} \\
+	\hline \textbf{Log extraction and visualisation} & Each event log will need to have defined attributes that are crucial for the system utilisation stage of the logging implementation.  & \RaggedRight \begin{enumerate}
+		\item What attributes is needed for an event log or specific event log types?
+	\end{enumerate} \\
+	\hline \textbf{System utilisation analysis} & Each event log will need to have defined attributes that are crucial for the system utilisation stage of the logging implementation.  & \RaggedRight \begin{enumerate}
+		\item What attributes is needed for an event log or specific event log types?
+	\end{enumerate} \\
+\end{xltabular}
 
 \subsection{State of the art summary}
 
