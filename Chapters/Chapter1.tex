@@ -34,16 +34,21 @@ In the modern era, most types of businesses will make use of digital products an
 	\textbf{Design} & In this stage the detailed requirements are completed in the System Design Document that describes the detailed logic specifications of the software system. \\ \hline
 	\textbf{Development} & In this phase the design specifications are converted into an executable software system. This also includes acquiring other third-party software or internal software to install them on certain software environments, creating and testing databases, perfroming test readiness reviews and other software development activities. \\ \hline
 	\textbf{Integration and Test} & In this phase the software systems are integrated and systematically tested to examine if it meets all the functional requirements and other accreditation activities for test approval and user approval using user tests.  \\ \hline
-	\textbf{Implementation} & This phase is initiated after the software systems passed the testing phase and are accepted by the users. This phase contains the implementation of the software system in a production environment. This phase continues until the software systems are operational in a final production environment.\\ \hline
+	\textbf{Implementation} & This phase is initiated after the software systems passed the testing phase and are accepted by the users. This phase contains the implementation of the software system in a production environment and the deployment of the production version of the software. This phase continues until the software systems are operational in a final production environment.\\ \hline
 	\textbf{Operations and Maintenance} & In this phase continuous monitoring of the performance of the software system is done in line with the defined user requirements. Any additional modifications after the initial software development are done here and any other tasks are needed to maintain the software system. Also includes the Post-Implementation and In-Process Reviews for the software system. \\ \hline
 	\textbf{Dispostition} & This phase is any disposition activities to properly terminate the software system. Any important data that is needed for the reactivation of the software system in the future is also preserved. \\
 \end{xltabular}
 
-There exist various adoptions of the LPC listed in \Cref{tbl:ch1_SDLC} for various SDLC methodologies that are used in the software development industry \cite{Al-Saiyd2015, Jain2018}. Each LPC ensures that the software development is correctly implemented if it is part of the 
+There exist various adoptions of the LPC listed in \Cref{tbl:ch1_SDLC} for various SDLC methodologies that are used in the software development industry \cite{Al-Saiyd2015, Jain2018}. Each LPC ensures that the software development is correctly implemented if it is part of the adopted SDLC methodology. The SDLC methodology is implemented for the entire life cycle of the software system.\par The implementation of the  In the actual implementation of the SDLC methodology, some design patterns could stray away from the initial software designs \cite{Reimanis2016}. \par This can be due to unforeseen issues occurring during the Development phase due to some time or other resource constraints. This can also happen in the Operational and Maintenance phase to implement new design patterns for the software modification not implemented correctly. The software system's initial design might also not be flexible enough for any newer modifications. \par In both situations, some software code may be workarounds or shortcuts to resolve problems. These short-term benefits will not always translate to good long-term software quality due to prioritising functionality above good software design patterns. This decreased quality of software code will from technical debt if the software development is not correctly implemented \cite{DeLeon-Sigg2020, Reimanis2016}.\par Technical debt will always be present to some degree in software systems in its entire life cycle. The Operations and Maintenance phase of the software system is where it is usually resolved. Creating and modifying the user requirements by implementing maintenance is needed to avoid \cite{DeLeon-Sigg2020}:
 
-Technical debt can exist in almost every software system and should be correctly managed by analysing which maintenance issues should be prioritised \cite{DeLeon-Sigg2020, Reimanis2016}.
+\begin{itemize}
+	\item additional software and hardware resources needed that can be costly,
+	\item software quality issues,
+	\item make any new modifications impossible without negatively impacting existing software features or systems,
+	\item shortening the useability of the software system, the software system may need to be terminated sooner than planned.
+\end{itemize}
 
-Software maintenance is an essential task in software development, and it can directly reduce the cost and effort to create new software systems or modify them \cite{Thamburaj2017}.
+Software maintenance of the Operations and Maintenance LPC phase is an essential task in software development. It can directly reduce the cost and effort to create new software systems or modify them in the future and reduce technical debt \cite{Thamburaj2017, DeLeon-Sigg2020}. 
 
 \subsection{Software maintenance}
 
@@ -367,7 +372,7 @@ From the literature, there were a few important focus points identified to creat
 	{\textit{State of the Art}}
 	\label{tbl:CH1_StateOfTheART}
 	\begin{tabularx}{\textwidth}{|c|Y|Y|Y|Y|Y|}
-		\hline \textbf{Ref.} & \RaggedRight \textbf{Log event types} & \RaggedRight \textbf{Log attributes} & \RaggedRight \textbf{Logging points} & \RaggedRight \textbf{Log extraction and visualisation} & \textbf{System utilisation analysis} \\
+		\hline \textbf{Ref.} & \RaggedRight \textbf{Web-based applications} & \RaggedRight \textbf{Event logging} & \RaggedRight \textbf{User Activity} & \RaggedRight \textbf{Log extraction and visualisation} & \textbf{System utilisation analysis} \\
 		\hline 1 & 2 & 3 & 4 &  5 & 6 \\
 		\hline \cite{Zhu2015} & \cmark & \cmark & \cmark & \xmark & \xmark \\
 		\hline \cite{Bekeneva2020} & \cmark & \cmark & \cmark & \cmark  & \cmark \\
