@@ -357,7 +357,7 @@ With the defined log parsing and log points in \Cref{sec:ch1_loggignPoints} a lo
 
 
 \subsection{System utilisation analysis}\label{sec:ch1_systemUtilisation}
-In Web-based applications, the process to get usage statistics and user behaviour data is called Web analytics \cite{Kocsis2012}. Web analytics can be used for user modelling efforts and is a form of log analysis. User modelling in software engineering is the customisation and adaptation of the software systems to the users' required needs \cite{Waqar2017, Paliouras1999}.\par The user modelling can also include the implementation of software maintenance as the maintenance is an adaptation of the software system to user's needs which is the utilisation analysis using event logs. Web analytic focus on different analytic in \Cref{tbl:ch1_webAnalytics} for the analysis. 
+In Web-based applications, the process to get usage statistics and user behaviour data is called Web analytics \cite{Kocsis2012}. Web analytics can be used for user modelling efforts and is a form of log analysis. User modelling in software engineering is the customisation and adaptation of the software systems to the users' required needs \cite{Waqar2017, Paliouras1999}.\par The user modelling can also include the implementation of software maintenance as the maintenance is an adaptation of the software system to the user's needs which is the utilisation analysis using event logs. Web analytic focus on different analytics in \Cref{tbl:ch1_webAnalytics} for the analysis. 
 
 \begin{table}[!htb]
 	\centering
@@ -391,7 +391,7 @@ There exist numerous third-party analytic tools for event logging data monitorin
 In \Cref{section:ch1_background} the importance of software maintenance is discussed in the background and that system utilisation is needed to assist with the software maintenance efforts.
 
 \subsubsection{State of the art topics}
-From the literature, there were a few important focus points identified to create a logging mechanism for user-based activities. These focus points exist for the research done in \Cref{section:ch1_background,sec:ch1_eventLogging,sec:ch1_systemUtilisation}.
+From the literature, there were a few important focus points identified to create a logging mechanism for user-based activities. These focus points exist for the research done in \Cref{section:ch1_background, sec:ch1_eventLogging,sec:ch1_systemUtilisation}.
 
 	
 \begin{xltabular}{\textwidth}{|l|X|X|}
@@ -472,6 +472,29 @@ Using \Cref{tbl:ch1_stateOfTheArtTopics} the evaluation criteria have been appli
 \end{table}
 
 \Cref{tbl:CH1_StateOfTheART} most studies focus on either how to design and implement a logging mechanism, log analysis or software maintenance. Even if industry logging is used to improve software maintenance, most studies only focus on how to create a suitable logging mechanism for different applications as described in \Cref{apx:loggingPractice} about logging practice in software engineering.\par To improve software maintenance by using logging, a log analysis is needed. Some studies only focus on the analysis of existing logs and how to use them. There were a few studies that made use of user-based event logs for the system utilisation analysis.
+
+\clearpage
+
+\begin{xltabular}{\textwidth}{|l|X|X|}
+	\caption[State of the art]{\textit{State of the art}}\label{tbl:ch1_stateOfTheArt2}
+
+	\hline \textbf{Ref.} & \textbf{Software maintenance} & \textbf{Event logging}\\ 
+	\hline
+	\endfirsthead
+	
+	\multicolumn{3}{c}%
+	{\tablename\ \thetable{} -- continued from previous page} \\
+	\hline \textbf{Ref.} & \textbf{Software maintenance} & \textbf{Event logging}\\ 
+	\endhead
+
+	\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
+	\endfoot
+
+	\hline
+	\endlastfoot
+
+	\hline \cite{Tang2010} & \cmark & \cmark \\
+\end{xltabular}
 
 \section{Problem statement}\label{sec:ch1_problemStatement}
 Software maintenance is a vital part of the entire life cycle of any software system. Implementing maintenance on software systems is most effective if it's done on systems that are utilised more by users. Some of these systems may also not be in use anymore and can be deprecated to improve system quality and remove unused code to not waste any resources to maintain and run it.\par A possible solution to this problem is using event logging to determine the utilisation of the system as it is a proven method industry to track system utilisation usage. Developers have access to third-party software logging tools to get the event logs. Most of the tools focus more on system runtime utilisation than user activities. There exist logging tools that can track user-based activities depending on the framework the software system is developed on.\par Developers still need to design the overall logging mechanism and decide where to place the logging points to capture the event logs in a software system. There are proven methods to create a suitable logging mechanism but not all of them include the analysis of the logs for user-based utilisation.
