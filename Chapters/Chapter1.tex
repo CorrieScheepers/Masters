@@ -3,7 +3,7 @@
 \ChapterPageStuff{1}
 
 \section{Background}\label{section:ch1_background}
-In the modern era, most types of businesses will make use of digital products and services to maximise their profits \cite{Gralha2018}. This increases the need to create new innovative software systems to cater to the specific needs of the users. Software projects may vary in size, type and degree of difficulty of implementation therefore, the software quality is crucial \cite{Khan2013}. There are certain defined attributes and characteristics the software systems need to adhere to, that is called software quality \cite{Khan2013}.\par Using a System Development Life Cycle (SDLC) methodology, such as the agile software development methodology, is crucial in making the software development process efficient and predictable. This enforces various degrees of disciplines to the software development process to ensure that the software quality is acceptable for the user requirements \cite{Khan2013, Al-Saiyd2015}. \Cref{tbl:ch1_SDLC} lists the Life-Cycle Phases (LCP) of the SDLC's.
+In the modern era, most types of businesses will make use of digital products and services to maximise their profits \cite{Gralha2018}. This increases the need to create new innovative software systems to cater to the specific needs of the users. Software projects may vary in size, type and degree of difficulty of implementation therefore, the software quality is crucial \cite{Khan2013}. There are certain defined attributes and characteristics the software systems need to adhere to, that is called software quality \cite{Khan2013}.\par Using a System Development Life Cycle (SDLC) methodology, such as the agile software development methodology, is crucial in making the software development process efficient and predictable. This enforces various degrees of disciplines to the software development process to ensure that the software quality is acceptable for the user requirements \cite{Khan2013, Al-Saiyd2015}. \Cref{tbl:ch1_SDLC} lists the Life-Cycle Phases (LCP) of the SDLCs.
 
 \begin{xltabular}{\textwidth}{|l|X|}
 	\caption[System Development Life Cycle phases]
@@ -84,7 +84,7 @@ Improving the correctness of the software system and enhancing it will need to f
 	\item Delivery requirements met of the modified software system
 \end{itemize}
 
-\subsubsection{Resource cost of software maintenance}
+%\subsubsection{Resource cost of software maintenance}
 These software maintenance phases cannot be omitted when the software system is still active. To ensure that the software system can keep up with defined user requirements and new user requirements in the future software maintenance needs to be implemented.  This will increase the maintenance that needs to be done on both new and old systems \cite{Niu2018, Galster2019, Hasan2012}. In \Cref{fig:ch1_costsOfFixingBugs} is the representation of the total resource cost of implementing software maintenance.
 
 \begin{figure}[!htb]
@@ -102,7 +102,7 @@ In \Cref{fig:ch1_costsOfFixingBugs} the total resource cost will significantly i
 \end{itemize}
 
 \subsubsection{Software maintenance types}
-Maintenance problems or modifications are regularly identified and are usually addressed based on an initial priority ranking. This priority ranking is determined by using classification models to determine which type of maintenance needs to be done as descrivbe in \Cref{tbl:ch1_maintenanceTypes} for the Operations and Maintenance LCP of \Cref{tbl:ch1_SDLC} \cite{Tang2010, Mamone1994, Ping2010}.
+Maintenance problems or modifications are regularly identified and are usually addressed based on an initial priority ranking. This priority ranking is determined by using classification models to determine which type of maintenance needs to be done as described in \Cref{tbl:ch1_maintenanceTypes} for the Operations and Maintenance LCP of \Cref{tbl:ch1_SDLC} \cite{Tang2010, Mamone1994, Ping2010}.
 
 \begin{table}[!htb]
 	\centering
@@ -113,7 +113,7 @@ Maintenance problems or modifications are regularly identified and are usually a
 		\hline
 		\textbf{Maintenance type} & \textbf{Description} & \textbf{$\%$ of maintenance activities} \\ \hline
 		Adaptive & \raggedright Adaptive maintenance in software systems is any modification or enhancements to keep it usable with a changing or changed software environment. & $\approx 37.5\%$ \\ \hline
-		Perfective & \raggedright Perfective maintenance based are modifications made based on the change of the end-user's new requirements. It can also improve the performance or maintainability of the software system in its life cycle. & $\approx 37.5\%$ \\ \hline
+		Perfective & \raggedright Perfective maintenance based are modifications made based on the change of the end-users' new requirements. It can also improve the performance or maintainability of the software system in its life cycle. & $\approx 37.5\%$ \\ \hline
 		Corrective & \raggedright Corrective maintenance are improvements made to fix certain defects or errors in a software system. & $\approx 20\%$ \\ \hline
 		Preventive & \raggedright  Preventive maintenance are improvements made to software systems that prevent problems in the future. & $\approx 5\%$ \\ \hline
 	\end{tabularx}
@@ -150,10 +150,10 @@ Under most circumstances, maintenance is implemented if a software system does n
 
 \clearpage
 
-\subsubsection{Software maintenance model}\label{sec:ch1_maintenanceModel}
+\subsubsection{Software maintenance prioritisation}\label{sec:ch1_maintenanceModel}
 Due to time constraints and available resources, it is difficult to plan any maintenance operations for most software engineers and developers \cite{DeLeon-Sigg2020}. The increased resource cost of software maintenance is due to a lack of planning or preventive measures to keep the software system from degrading \cite{Alenezi2016}.\par Continuous analysis of the identified maintenance problems or modifications enables the software engineers and developers to create a preliminary plan to address these issues in an efficient process \cite{Port2017}. Implementing a suitable maintenance framework to resolve the identified issues reduces technical debt.\par Various maintenance models can be used to solve these issues when implementing any one of the maintenance types. A software maintenance model is an abstract representation of software systems' evolution to keep track of all the maintenance activities when implementing software maintenance \cite{Ren2011}. The \textit{IEEE Standard 1219} for software maintenance is the standard that should be followed when planning software maintenance as in \Cref{fig:ch1_ieeeModel}. 
 
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+\begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.65\textwidth]{Chapter1/IEEE_Model/IEEE_Model.pdf}
 	\caption[IEEE Standard 1219 model for software maintenance]
@@ -171,31 +171,28 @@ The software maintenance model in \Cref{fig:ch1_ieeeModel} emphasises that the s
 
 User engagement with the software system is what will determine if the software system is sustainable to generate revenue for the organisation. It may be the most important focus metric for the feasibility analysis to determine if a maintenance effort is worth implementing \cite{Araujo2021}. A maintenance flow model can resolve this issue such as the one in \Cref{fig:ch1_maintenanceFlow}.  
 
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+\begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.95\textwidth]{Chapter1/Maintenance_flow/Maintenance_Flow.pdf}
 	\caption[Maintenance flow model]
 	{\textit{Maintenance flow model \cite{Tang2010}}} \label{fig:ch1_maintenanceFlow}
 \end{figure}
 
-\Cref{fig:ch1_maintenanceFlow} is an example of what a practical maintenance flow model is an organisation would likely use to implement software maintenance. Initially, a developer will complete a request form or issue indicating a new problem or feature request that needs to be implemented \cite{Tang2010}.\par After all the maintenance tasks are defined, the development team will prioritise the higher-rated issues that need to be solved. This process will repeat itself until all the task for that specific software system is completed.\par To fully follow the \textit{IEEE Standard 1219} of implementing maintenance on a software system, the defects or areas of improvement should be identified. Utilisation analysis of event logs can be used to detect any hidden defects or performance issues in a software system to implement software maintenance \cite{Cinque2013, Rong2018a, Levin2019}.\par System and acceptance testing are essential to ensure that the system is still fully functional and fulfils the user's requirements. After the system is thoroughly tested and approved, it will be available to the user, and the maintenance process will start again when there are new improvements to be made to the software system.
-
-\subsubsection{Maintenance priortising}\label{sec:ch1_maintenancePriortising}
-In \Cref{sec:ch1_softwareMaintenanceIntro} it was identified that software maintenance is essential to be able to fulfil the user's requirements. For any maintenance model, as described in \Cref{sec:ch1_maintenanceModel}, to be effective the software maintenance model will need to be able to prioritise the maintenance issues efficiently. \par Most organisations' maintenance models will be based on \Cref{fig:ch1_ieeeModel} to manage their maintenance efforts for the Operation and Maintenance LCP. Up to $50\%$ of a software engineer or developer's total time invested in implementing maintenance is to understand what the software system is supposed to do \cite{Tang2010}. This is due to the problems with implementing maintenance as discussed in \Cref{sec:ch1_maintenanceProblems}.\par If the issue is a problem in the software system, the severity of the problem needs to assess to decide on the priority level to resolve it. This type of maintenance is mostly corrective and can also be preventive if it is a possible solution to prevent any software failures in the future \cite{Tang2010}. Other types of maintenance requests are either adaptive or perfective and usually placed in the development team's task queue. \par Prioritising maintenance for the user's requirement to extend the useability and increase user satisfaction is preferable to maximise profits. In most cases when there is no suitable software maintenance model used, the software maintenance is reactive \cite{Araujo2021}. However, this is not a sustainable maintenance policy for larger and more complex software systems. \par In order to prioritise maintenance more efficiently a system characterisation of the software system needs to be made. In \Cref{sec:ch1_maintenanceModel} user engagement with the software system has been identified to be an important metric when implementing maintenance.\par Knowing what the user uses or how they interact with the software system provides valuable data to the development team. But to access that data some form of tracking is needed to obtain the data automatically.
+\Cref{fig:ch1_maintenanceFlow} is an example of what a practical maintenance flow model is an organisation would likely use to implement software maintenance. Initially, a developer will complete a request form or issue indicating a new problem or feature request that needs to be implemented \cite{Tang2010}.\par After all the maintenance tasks are defined, the development team will prioritise the higher-rated issues that need to be solved. This process will repeat itself until all the task for that specific software system is completed.\par To fully follow the \textit{IEEE Standard 1219} of implementing maintenance on a software system, the defects or areas of improvement should be identified. Utilisation analysis of event logs can be used to detect any hidden defects or performance issues in a software system to implement software maintenance \cite{Cinque2013, Rong2018a, Levin2019}.\par System and acceptance testing are essential to ensure that the system is still fully functional and fulfils the user's requirements. After the system is thoroughly tested and approved, it will be available to the user, and the maintenance process will start again when there are new improvements to be made to the software system.\par In \Cref{sec:ch1_softwareMaintenanceIntro} it was identified that software maintenance is essential to be able to fulfil the user's requirements. For any maintenance model, as described in \Cref{sec:ch1_maintenanceModel}, to be effective the software maintenance model will need to be able to prioritise the maintenance issues efficiently. \par Most organisations' maintenance models will be based on \Cref{fig:ch1_ieeeModel} to manage their maintenance efforts for the Operation and Maintenance LCP. Up to $50\%$ of a software engineer or developer's total time invested in implementing maintenance is to understand what the software system is supposed to do \cite{Tang2010}. This is due to the problems with implementing maintenance as discussed in \Cref{sec:ch1_maintenanceProblems}.\par If the issue is a problem in the software system, the severity of the problem needs to assess to decide on the priority level to resolve it. This type of maintenance is mostly corrective and can also be preventive if it is a possible solution to prevent any software failures in the future \cite{Tang2010}. Other types of maintenance requests are either adaptive or perfective and usually placed in the development team's task queue. \par Prioritising maintenance for the user's requirement to extend the useability and increase user satisfaction is preferable to maximise profits. In most cases when there is no suitable software maintenance model used, the software maintenance is reactive \cite{Araujo2021}. However, this is not a sustainable maintenance policy for larger and more complex software systems. \par In order to prioritise maintenance more efficiently a system characterisation of the software system needs to be made. In \Cref{sec:ch1_maintenanceModel} user engagement with the software system has been identified to be an important metric when implementing maintenance.\par Knowing what the user uses or how they interact with the software system provides valuable data to the development team. But to access that data some form of tracking is needed to obtain the data automatically.
 
 
 \clearpage
 
 \subsection{Event logging}\label{sec:ch1_eventLogging}
-In \Cref{sec:ch1_maintenancePriortising} a tracking method is needed to capture data about user engagement with the software system for maintenance purposes. It is a common practice in the software industry to record any detailed system run-time information into event logs. These event logs can be analysed later by developers or software engineers to solve software-related problems \cite{Zhu2019}. \par Event logging is a proven implementation to get information about the behaviour of software systems \cite{Baccanico2014}. Event logs are software system-generated textual files that collect data on reported events of interest that occur during various operations of the software system. \cite{Cinque2013, Baccanico2014}.\par The technique to collect numeric or textual data that describes the behaviour of a computer system is called event logging \cite{Pecchia2015, Baccanico2014}. Event logs collect textual data containing the records of events that happened in a software system and are used for system management tasks as in \Cref{tbl:ch1_eventLogsUsage} \cite{Rong2018a, Rong2018, Baccanico2014}. Event logging has three major purposes \cite{Pecchia2015, Baccanico2014}:
+As described in \Cref{sec:ch1_maintenanceModel} a tracking method is needed to capture data about user engagement with the software system for maintenance purposes. It is a common practice in the software industry to record any detailed system run-time information into event logs. These event logs can be analysed later by developers or software engineers to solve software-related problems \cite{Zhu2019}. \par Event logging is a proven implementation to get information about the behaviour of software systems \cite{Baccanico2014}. Event logs are software system-generated textual files that collect data on reported events of interest that occur during various operations of the software system. \cite{Cinque2013, Baccanico2014}.\par The technique to collect numeric or textual data that describes the behaviour of a computer system is called event logging \cite{Pecchia2015, Baccanico2014}. Event logs collect textual data containing the records of events that happened in a software system and are used for system management tasks as in \Cref{tbl:ch1_eventLogsUsage} \cite{Rong2018a, Rong2018, Baccanico2014}. Event logging has three major purposes \cite{Pecchia2015, Baccanico2014}:
 
 \begin{itemize}
 	\item \textbf{state dump} which is reporting of values of certain variables or data structures inside the software system.
-	\item \textbf{execution tracing} is the reporting of certain states of the software system or what is currently happening in the software system,
+	\item \textbf{execution tracing} which is the reporting of certain states of the software system or what is currently happening in the software system,
 	\item \textbf{event reporting} which focuses on any desired events in the software system that has textual information of that event.
 \end{itemize}
 
-Event logs are mainly used for event reporting to support debug and system integration activities to reduce the amount of code that needs to be inspected \cite{Baccanico2014}. In \Cref{tbl:ch1_eventLogsUsage} is the most common use of event logging in the industry.
+Event logs are mainly used for event reporting to support debug and system integration activities to reduce the amount of code that needs to be inspected \cite{Baccanico2014}. \Cref{tbl:ch1_eventLogsUsage} is the most common use of event logging in the industry is described.
 
 \begin{xltabular}{\textwidth}{|l|X|}
 	\caption[Event logs usage]
@@ -222,7 +219,7 @@ Event logs are mainly used for event reporting to support debug and system integ
 		\hline Debugging of software systems and services & Event logging is mostly used to record events or behaviours of software systems or services during its run-time \cite{Rong2018a}.\\
 		\hline Anomaly detection & Event logs can be used to detect any abnormal system behaviour using an anomalous detection algorithm using logging data \cite{Gurumdimma2016}. This can also be used to find any potential vulnerabilities or defect prediction in the software environment \cite{Dwyer2013}. \\
 		\hline Performance diagnosis & Software performance is important to producing quality software for the end user \cite{EvangelinGeetha2007, Baccanico2014}. This is also important to make informed decisions on how to improve the software system or service for improved performance and other resource and financial implications.\par This type of performance event logs of the software systems or services are used to monitor the software system, which is useful for resource tuning, load balancing and checking system scalability in the entire life cycle of the software system or service \cite{Song2017}. \\ 
-		\hline Auditing & In a software environment there can be significant changes to the database data that might need to log for auditing purposes \cite{Rong2018a}. All establishments and enterprises need to ensure that compliance with the industry regulations is met with their software systems by adding audit logs. They are also legally bound to have audit logs to provide legal evidence for any legal investigation or administrative tasks to ensure that accountability is maintained. \\
+		\hline Auditing & In a software environment there can be significant changes to the database data that might need to be log for auditing purposes \cite{Rong2018a}. All establishments and enterprises need to ensure that compliance with the industry regulations is met with their software systems by adding audit logs. They are also legally bound to have audit logs to provide legal evidence for any legal investigation or administrative tasks to ensure that accountability is maintained. \\
 		\hline Error and failure analysis & Event logs are used to analyse the failure behaviours of software systems which enable software engineers or developers to understand the failure modes of the system, find the root cause of these failures, prevent them and improve the reliability of the future releases of the system \cite{Cinque2013}.\\
 		\hline Analysis of security alerts & In any software environment or information technology infrastructure, security is a major concern for any organisation \cite{Pathan2014, Dwyer2013}. It is important to know the overall security status of the software system. \\
 \end{xltabular}
@@ -230,7 +227,7 @@ Event logs are mainly used for event reporting to support debug and system integ
 \clearpage
 
 \subsubsection{Logging practice in software development}
-Logging practice in software development is not always well documented and can there be multiple implementations of different logging mechanisms in the same software system \cite{Pecchia2015, Kitchenham2007}. In modern software systems, the logging practice is a crucial part of the development of software and the maintenance of it in its entire life cycle \cite{Rong2018}.
+Logging practice in software development is not always well documented and there can be multiple implementations of different logging mechanisms in the same software system \cite{Pecchia2015, Kitchenham2007}. In modern software systems, the logging practice is a crucial part of the development of software and the maintenance of it in its entire life cycle \cite{Rong2018}.
 
 \subsubsection{Logging practice guidelines}
 In \Cref{apx:loggingPractice} there has been a rise of new studies that focus on providing suitable logging practice guidelines to software engineers and developers. Logging in the industry makes use of many third-party logging libraries and frameworks such as Apache's log4net and Microsoft's ULS frameworks \cite{Zhu2015, Rong2018}.\par Software engineers and developers can use these tools to implement logging in a compatible software system. They will still need to know how to strategically place the logging points so that the desired logs can be obtained. Using guides provided by the tools and other online guides, the logging practice can be implemented When using a third-party logging mechanism the software engineers and developers will in most cases need to:
@@ -240,10 +237,10 @@ In \Cref{apx:loggingPractice} there has been a rise of new studies that focus on
 	\item enables the log parsing stage to write a log entry into a database.
 \end{itemize}
 
-Logging guides can give examples and suggestions on where to place the logging points but that can still be sometimes difficult for software engineers and developers to identify these desired locations. This can be difficult due to logging guides being mostly application-specific or the logging mechanism can only capture certain event types to create event logs. \par For more custom logging the software engineers and developers will need to create new logging mechanisms. This adds new requirements for the logging mechanism to be functional. For a logging practice to be successful two important problems need to be resolved \cite{Zhu2015, Zhu2019, Rong2018}:
+Logging guides can give examples and suggestions on where to place the logging points but that can still be difficult on occasion for software engineers and developers to identify these desired locations. This can be difficult due to logging guides being mostly application-specific or the logging mechanism can only capture certain event types to create event logs. \par For more custom logging, the software engineers and developers will need to create new logging mechanisms. This adds new requirements for the logging mechanism to be functional. For a logging practice to be successful, two important problems need to be resolved \cite{Zhu2015, Zhu2019, Rong2018}:
 
 \begin{itemize}
-	\item \textbf{What needs to be logged?}\par In \Cref{tbl:ch1_eventLogsUsage} the use of logging is diverse and will have an impact on how the logging mechanism will be designed. In this study, the purpose of the logs is to be used for user-based activity tracking, therefore what needs to be logged should be focused on user-based events. The requirements for a user-based event should be defined and a log attribute model can be designed for those requirements.
+	\item \textbf{What needs to be logged?}\par In \Cref{tbl:ch1_eventLogsUsage} the use of logging is diverse and will have an impact on how the logging mechanism will be designed.
 	\item \textbf{Where to log?} \par Different types of logs will only be present in the software system at certain locations during run-time. Knowing what to log narrows down which locations can be used to obtain certain events while they are present.
 \end{itemize}
 
@@ -255,7 +252,7 @@ To answer these two questions the event log has to fulfil certain log quality re
 
 Software engineers and developers will need to make informed logging decisions for event logging. These decisions may affect the software system's run-time operations negatively and can impact the event logging efficiency \cite{Zhu2015, Zhu2019, Kherbouche2017}. An event log quality model in \Cref{fig:ch1_EventQModel} can be used define to ensure that the event logs will have consistent integrity when capturing the event log data.
 
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+\begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.99\textwidth]{Chapter1/Event_Log_Model/Event_Log_Model.pdf}
 	\caption[The event log quality model]
@@ -319,7 +316,7 @@ Ensuring that both completeness levels are achieved and that the event log data 
 Knowing what to log can significantly reduce any overhead the logging mechanism may produce in the software system \cite{Jia2018, Pecchia2015}. Preserving quality (as described in \Cref{sec:ch1_loggingQuality}) is a necessity to ensure that the logs that are obtained will fulfil their purpose when analysing it.
 
 \subsubsection{Logging attributes}
-Before the logs can be parsed to a structured data-set the key attributes need to be defined that will describe the event log \cite{Bekeneva2020}. The attributes in describing in \Cref{tbl:ch1_logBasicAttributes} are the most basic attributes a log event should have. 
+Before the logs can be parsed to a structured data set the key attributes that need to be defined that will describe the event log \cite{Bekeneva2020}. The attributes in describing in \Cref{tbl:ch1_logBasicAttributes} are the most basic attributes a log event should have. 
 
 \begin{table}[!htb]
 	\centering
@@ -332,7 +329,7 @@ Before the logs can be parsed to a structured data-set the key attributes need t
 		\hline Timestamp & The time and date that the log event occurred. This is part of identifying the order of events or traces along with the case number of the event log \cite{Kherbouche2017}. \\
 		\hline Event type & Each log event can be grouped with other log events that have similar actions that happened. These event-type attribute needs to be classified based on a state change, failure to execute an instruction, or due to an occurrence of activity like the availability of service \cite{Fedaghi2010}. \par The event type is usually also the log level. The log level in event logging reflects the severity of the event log \cite{Rong2020}. An event of interest may have different log levels and this makes it easier to capture certain events in which software engineers and developers are interested.\\
 		\hline Originator & The origin from which the event took place in the software system. This can be parts of the software that performs the event action or was the cause for the event to be initiated by another part of the software. \\
-		\hline Other metadata & This is any other relevant information that can be used as the event log's attribute that further expand the information of the log event. This can be one extra field or many other individual attribute fields.\\
+		\hline Other metadata & This is any other relevant information that can be used as the event log's attribute that further expands the information of the log event. This can be one extra field or many other individual attribute fields.\\
 		\hline
 	\end{tabularx}
 \end{table}
@@ -357,7 +354,7 @@ With the defined log parsing and log points in \Cref{sec:ch1_loggignPoints} a lo
 
 
 \subsection{System utilisation analysis}\label{sec:ch1_systemUtilisation}
-In Web-based applications, the process to get usage statistics and user behaviour data is called Web analytics \cite{Kocsis2012}. Web analytics can be used for user modelling efforts and is a form of log analysis. User modelling in software engineering is the customisation and adaptation of the software systems to the users' required needs \cite{Waqar2017, Paliouras1999}.\par The user modelling can also include the implementation of software maintenance as the maintenance is an adaptation of the software system to the user's needs which is the utilisation analysis using event logs. Web analytic focus on different analytics in \Cref{tbl:ch1_webAnalytics} for the analysis. 
+In Web-based applications, the process to get usage statistics and user behaviour data is called Web analytics \cite{Kocsis2012}. Web analytics can be used for user modelling efforts and is a form of log analysis. User modelling in software engineering is the customisation and adaptation of the software systems to the users' required needs \cite{Waqar2017, Paliouras1999}.\par The user modelling can also include the implementation of software maintenance as the maintenance is an adaptation of the software system to the user's needs which is the utilisation analysis using event logs. Web analytics focus on different analytics in \Cref{tbl:ch1_webAnalytics} for the analysis. 
 
 \begin{table}[!htb]
 	\centering
@@ -391,7 +388,7 @@ There exist numerous third-party analytic tools for event logging data monitorin
 In \Cref{section:ch1_background} the importance of software maintenance is discussed in the background and that system utilisation is needed to assist with the software maintenance efforts.
 
 \subsubsection{State of the art topics}
-From the literature, there were a few important focus points identified to create a logging mechanism for user-based activities. These focus points exist for the research done in \Cref{section:ch1_background, sec:ch1_eventLogging, sec:ch1_systemUtilisation}.
+From the literature, there were a few important focus points identified to create a logging mechanism for user-based activities. These focus points exist for the research done in \Cref{section:ch1_background,sec:ch1_eventLogging,sec:ch1_systemUtilisation}.
 
 	
 \begin{xltabular}{\textwidth}{|l|X|X|}
@@ -446,14 +443,14 @@ From the literature, there were a few important focus points identified to creat
 \clearpage
 
 \subsubsection{State of the art summary}
-Using \Cref{tbl:ch1_stateOfTheArtTopics} the evaluation criteria have been applied to literature studies. In \Cref{tbl:CH1_StateOfTheART} the studies have been sorted to which topic they were relevant to this study.
+Using \Cref{tbl:ch1_stateOfTheArtTopics} the evaluation criteria have been applied to literature studies. In \Cref{tbl:ch1_StateOfTheART} the studies have been sorted to which topic they were relevant to this study.
 
 \begin{table}[!htb]
 	\centering
 	\caption[State of the Art]
 	{\textit{State of the Art}}
-	\label{tbl:CH1_StateOfTheART}
-	\begin{tabularx}{\textwidth}{|p{0.1\textwidth}|Y|Y|Y|Y|Y|}
+	\label{tbl:ch1_StateOfTheART}
+	\begin{tabularx}{\linewidth}{|p{0.1\textwidth}|Y|Y|Y|Y|Y|}
 		\hline \textbf{Ref.} & \RaggedRight \textbf{Software maintenance} & \RaggedRight \textbf{Event logging} & \RaggedRight \textbf{User-activity} & \RaggedRight \textbf{Web-based applications} & \textbf{System utilisation analysis} \\
 		\hline \RaggedRight \cite{Ackermann2009, Mamone1994, Galster2019, Reimanis2016, Snipes2018, Ogheneovo2014,Stark1996} & \cmark & \xmark & \xmark & \xmark & \xmark \\
 		\hline \cite{Tang2010} & \cmark & \cmark & \xmark & \xmark & \xmark \\
@@ -471,30 +468,26 @@ Using \Cref{tbl:ch1_stateOfTheArtTopics} the evaluation criteria have been appli
 	\end{tabularx}
 \end{table}
 
-\Cref{tbl:CH1_StateOfTheART} most studies focus on either how to design and implement a logging mechanism, log analysis or software maintenance. Even if industry logging is used to improve software maintenance, most studies only focus on how to create a suitable logging mechanism for different applications as described in \Cref{apx:loggingPractice} about logging practice in software engineering.\par To improve software maintenance by using logging, a log analysis is needed. Some studies only focus on the analysis of existing logs and how to use them. There were a few studies that made use of user-based event logs for the system utilisation analysis.
+\Cref{tbl:ch1_StateOfTheART} most studies focus on either how to design and implement a logging mechanism, log analysis or software maintenance. Even if industry logging is used to improve software maintenance, most studies only focus on how to create a suitable logging mechanism for different applications as described in \Cref{apx:loggingPractice} about logging practice in software engineering.\par To improve software maintenance by using logging, a log analysis is needed. Some studies only focus on the analysis of existing logs and how to use them. There were a few studies that made use of user-based event logs for the system utilisation analysis.
 
 \clearpage
 
-\begin{xltabular}{\textwidth}{|l|X|X|}
-	\caption[State of the art]{\textit{State of the art}}\label{tbl:ch1_stateOfTheArt2}\\
-
-	\hline \textbf{Ref.} & \textbf{Software maintenance} & \textbf{Event logging}\\ 
-	\hline
-	\endfirsthead
-	
-	\multicolumn{3}{c}%
-	{\tablename\ \thetable{} -- continued from previous page} \\
-	\hline \textbf{Ref.} & \textbf{Software maintenance} & \textbf{Event logging}\\ 
-	\endhead
-
-	\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
-	\endfoot
-
-	\hline
-	\endlastfoot
-
-	\hline \cite{Tang2010} & \cmark & \cmark \\
-\end{xltabular}
+\begin{landscape}
+	\begin{table}[!htb]
+		\centering
+		\caption[State of the art]
+		{\textit{State of the art}}
+		\label{tbl:ch1_stateOfTheArt2}
+		\begin{tabularx}{\linewidth}{|l|X|X|X|X|X|X|X|}
+			\hline \textbf{Ref.} & \multicolumn{3}{c|}{\textbf{Software maintenance}}  &  \multicolumn{2}{c|}{\textbf{Event logging}} & \multicolumn{2}{c|}{\textbf{System utilisation analysis}} \\ 
+			\hline 
+			& \textbf{Types} & \textbf{Problems} & \textbf{Prioritisation} & & & & \\ 
+		
+			\hline \cite{Ackermann2009} & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark \\
+			\hline
+		\end{tabularx}	
+	\end{table}
+\end{landscape}
 
 \section{Problem statement}\label{sec:ch1_problemStatement}
 Software maintenance is a vital part of the entire life cycle of any software system. Implementing maintenance on software systems is most effective if it's done on systems that are utilised more by users. Some of these systems may also not be in use anymore and can be deprecated to improve system quality and remove unused code to not waste any resources to maintain and run it.\par A possible solution to this problem is using event logging to determine the utilisation of the system as it is a proven method industry to track system utilisation usage. Developers have access to third-party software logging tools to get the event logs. Most of the tools focus more on system runtime utilisation than user activities. There exist logging tools that can track user-based activities depending on the framework the software system is developed on.\par Developers still need to design the overall logging mechanism and decide where to place the logging points to capture the event logs in a software system. There are proven methods to create a suitable logging mechanism but not all of them include the analysis of the logs for user-based utilisation.
