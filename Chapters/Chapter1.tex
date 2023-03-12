@@ -39,7 +39,7 @@ In the modern era, most types of businesses will make use of digital products an
 	\textbf{Dispostition} & This phase is any disposition activities to properly terminate the software system. Any important data that is needed for the reactivation of the software system in the future is also preserved. Any other termination policies and activities should be defined and documented. This ensures that the termination of the software system is done correctly and completed and that the correct data is permanently removed or preserved. \\
 \end{xltabular}
 
-There exist various adoptions of the LCP listed in \Cref{tbl:ch1_SDLC} for various SDLC methodologies that are used in the software development industry \cite{Al-Saiyd2015, Jain2018}. The planning phases of the SDLC should be well documented and the software architecture should be well structured and defined. By doing this, it makes it easier for the development and maintenance-related LCPs to be implemented \cite{Ackermann2009}.\par Each LCP ensures that the software development is correctly implemented if it is part of the adopted SDLC methodology. The SDLC methodology is implemented for the entire life cycle of the software system. There will be alterations to the SDLC methodology to keep up with any new design and development requirements.\par In the actual implementation of the SDLC methodology, some design patterns could stray away from the initial software designs \cite{Reimanis2016}. This can be due to unforeseen issues occurring during the Development phase due to some time or other resource constraints. The software system's initial design might also not be flexible enough for any newer modifications that can also occur in the Operational and Maintenance phase. \par In both situations, software development could deliver workarounds or shortcuts that resolve the identified problems. These short-term benefits will not always translate to good long-term software quality due to prioritising functionality above good software design patterns. This decreased quality of the software code is caused by technical debt if the software system was not implemented with suitable SDLC practices \cite{DeLeon-Sigg2020, Reimanis2016}.\par Technical debt can be defined as the technical compromises that software engineers and developers will introduce to a software system for short-term goals that may increase the complexity and sustainability of the system in the long term \cite{Snipes2018, Gralha2018}. With the need to always deliver software systems for more innovative, complex and larger software systems the risk of introducing technical debt increases as well \cite{Reimanis2016, Khan2013}. \par The Operations and Maintenance phase of the software system is where it is usually resolved or reduced to some extent. More technical debt will increase the maintenance efforts that need to be implemented to offset the negative impact that the short-term goals can potentially create. \Cref{fig:ch1_tdRepayment} is a representation of the technical debt repayment for the software system during its entire life cycle.
+There exist various adoptions of the LCP listed in \Cref{tbl:ch1_SDLC} for various SDLC methodologies that are used in the software development industry \cite{Al-Saiyd2015}. The planning phases of the SDLC should be well documented and the software architecture should be well structured and defined. By doing this, it makes it easier for the development and maintenance-related LCPs to be implemented \cite{Ackermann2009}.\par Each LCP ensures that the software development is correctly implemented if it is part of the adopted SDLC methodology. The SDLC methodology is implemented for the entire life cycle of the software system. There will be alterations to the SDLC methodology to keep up with any new design and development requirements.\par In the actual implementation of the SDLC methodology, some design patterns could stray away from the initial software designs \cite{Reimanis2016}. This can be due to unforeseen issues occurring during the Development phase due to some time or other resource constraints. The software system's initial design might also not be flexible enough for any newer modifications that can also occur in the Operational and Maintenance phase. \par In both situations, software development could deliver workarounds or shortcuts that resolve the identified problems. These short-term benefits will not always translate to good long-term software quality due to prioritising functionality above good software design patterns. This decreased quality of the software code is caused by technical debt if the software system was not implemented with suitable SDLC practices \cite{DeLeon-Sigg2020, Reimanis2016}.\par Technical debt can be defined as the technical compromises that software engineers and developers will introduce to a software system for short-term goals that may increase the complexity and sustainability of the system in the long term \cite{Snipes2018, Gralha2018}. With the need to always deliver software systems for more innovative, complex and larger software systems the risk of introducing technical debt increases as well \cite{Reimanis2016, Khan2013}. \par The Operations and Maintenance phase of the software system is where it is usually resolved or reduced to some extent. More technical debt will increase the maintenance efforts that need to be implemented to offset the negative impact that the short-term goals can potentially create. \Cref{fig:ch1_tdRepayment} is a representation of the technical debt repayment for the software system during its entire life cycle.
 
 \clearpage
 
@@ -50,7 +50,7 @@ There exist various adoptions of the LCP listed in \Cref{tbl:ch1_SDLC} for vario
 	{\textit{Project plan with included technical debt repayment phase \cite{Wiese2021}}}\label{fig:ch1_tdRepayment}
 \end{figure} 
 
-Technical debt will always be present to some degree in software systems throughout their entire life cycle \cite{Wiese2021}. In \Cref{fig:ch1_tdRepayment} technical debt repayment is the software development activities that aim to resolve the technical debt issues that are identified after the initial deployment of the software system.\par Tickets are assigned to the identified issues that are caused by technical debt when the functional requirements are reviewed in the initial use phase. The technical debt tickets are then prioritised based on their importance and utilisation. This ensures that the Operations and Maintenance phase development efforts are efficiently implemented for user satisfaction and the software systems' sustainability. \par According to the United States Department of Commerce, the software maintenance efforts of the Operations and Maintenance LCP of the SDLC in \Cref{tbl:ch1_SDLC} will contribute to about $60\%$-$80\%$ of the total development cost for the software system's entire life cycle \cite{Ogheneovo2014, Stark1996, Ackermann2009, Tang2010}. Therefore following adequate software maintenance practices is needed to avoid \cite{DeLeon-Sigg2020}:
+Technical debt will always be present to some degree in software systems throughout their entire life cycle \cite{Wiese2021}. In \Cref{fig:ch1_tdRepayment} technical debt repayment is the software development activities that aim to resolve the technical debt issues that are identified after the initial deployment of the software system.\par Tickets are assigned to the identified issues that are caused by technical debt when the functional requirements are reviewed in the initial use phase. The technical debt tickets are then prioritised based on their importance and utilisation. This ensures that the Operations and Maintenance phase development efforts are efficiently implemented for user satisfaction and the software systems' sustainability. \par According to the United States Department of Commerce, the software maintenance efforts of the Operations and Maintenance LCP of the SDLC in \Cref{tbl:ch1_SDLC} will contribute to about $60\%$-$80\%$ of the total development cost for the software system's entire life cycle \cite{Ogheneovo2014, Ackermann2009, Tang2010}. Therefore following adequate software maintenance practices is needed to avoid \cite{DeLeon-Sigg2020}:
 
 \begin{itemize}
 	\item additional software and hardware resources needed that can be costly,
@@ -66,7 +66,7 @@ Software maintenance of the Operations and Maintenance LCP phase is an essential
 \section{State of the art}
 
 \subsection{Software maintenance}\label{sec:ch1_softwareMaintenanceIntro}{}
-Maintenance of software systems is continuous and is a reduced form of software development and is aimed at modifying software systems while preserving their integrity for current and future operations \cite{Sneed2004, Ackermann2009, Port2017}. Software maintenance aims to improve software's \cite{Mamone1994}:
+Maintenance of software systems is continuous and is a reduced form of software development and is aimed at modifying software systems while preserving their integrity for current and future operations \cite{Sneed2004, Ackermann2009, Port2017}. Software maintenance aims to improve software's:
 
 \begin{itemize}
 	\item \textbf{correctness} of the software systems will always have some defects or faults that need to be corrected to improve the software system's traceability, consistency and completeness,
@@ -102,12 +102,12 @@ In \Cref{fig:ch1_costsOfFixingBugs} the total resource cost will significantly i
 \end{itemize}
 
 \subsubsection{Software maintenance types}
-Maintenance problems or modifications are regularly identified and are usually addressed based on an initial priority ranking. This priority ranking is determined by using classification models to determine which type of maintenance needs to be done as described in \Cref{tbl:ch1_maintenanceTypes} for the Operations and Maintenance LCP of \Cref{tbl:ch1_SDLC} \cite{Tang2010, Mamone1994, Ping2010}.
+Maintenance problems or modifications are regularly identified and are usually addressed based on an initial priority ranking. This priority ranking is determined by using classification models to determine which type of maintenance needs to be done as described in \Cref{tbl:ch1_maintenanceTypes} for the Operations and Maintenance LCP of \Cref{tbl:ch1_SDLC} \cite{Tang2010, Ping2010}.
 
 \begin{table}[!htb]
 	\centering
 	\caption[Software maintenance types]
-	{\textit{Software maintenance types \cite{Ping2010,Hasan2012,Mamone1994}}}
+	{\textit{Software maintenance types \cite{Ping2010,Hasan2012}}}
 	\label{tbl:ch1_maintenanceTypes}
 	\begin{tabularx}{\textwidth}{|c|X|c|}
 		\hline
@@ -224,17 +224,12 @@ Event logs are mainly used for event reporting to support debug and system integ
 		\hline Analysis of security alerts & In any software environment or information technology infrastructure, security is a major concern for any organisation \cite{Pathan2014, Dwyer2013}. It is important to know the overall security status of the software system. \\
 \end{xltabular}
 
-\clearpage
-
-\subsubsection{Logging practice in software development}
-Logging practice in software development is not always well documented and there can be multiple implementations of different logging mechanisms in the same software system \cite{Pecchia2015, Kitchenham2007}. In modern software systems, the logging practice is a crucial part of the development of software and the maintenance of it in its entire life cycle \cite{Rong2018}.
-
-\subsubsection{Logging practice guidelines}
-In \Cref{apx:loggingPractice} there has been a rise of new studies that focus on providing suitable logging practice guidelines to software engineers and developers. Logging in the industry makes use of many third-party logging libraries and frameworks such as Apache's log4net and Microsoft's ULS frameworks \cite{Zhu2015, Rong2018}.\par Software engineers and developers can use these tools to implement logging in a compatible software system. They will still need to know how to strategically place the logging points so that the desired logs can be obtained. Using guides provided by the tools and other online guides, the logging practice can be implemented When using a third-party logging mechanism the software engineers and developers will in most cases need to:
+\paragraph{Logging practice in software development}
+Logging practice in software development is not always well documented and there can be multiple implementations of different logging mechanisms in the same software system \cite{Pecchia2015, Kitchenham2007}. In modern software systems, the logging practice is a crucial part of the development of software and the maintenance of it in its entire life cycle \cite{Rong2018}.\par In \Cref{apx:loggingPractice} there has been a rise of new studies that focus on providing suitable logging practice guidelines to software engineers and developers. Logging in the industry makes use of many third-party logging libraries and frameworks such as Apache's log4net and Microsoft's ULS frameworks \cite{Zhu2015, Rong2018}.\par Software engineers and developers can use these tools to implement logging in a compatible software system. They will still need to know how to strategically place the logging points so that the desired logs can be obtained. Using guides provided by the tools and other online guides, the logging practice can be implemented. When using a third-party logging mechanism the software engineers and developers will, in most cases, need to:
 
 \begin{itemize}
 	\item add the logging points in the software system at locations where it can capture the desired logs,
-	\item enables the log parsing stage to write a log entry into a database.
+	\item enable the log parsing stage to write a log entry into a database.
 \end{itemize}
 
 Logging guides can give examples and suggestions on where to place the logging points but that can still be difficult on occasion for software engineers and developers to identify these desired locations. This can be difficult due to logging guides being mostly application-specific or the logging mechanism can only capture certain event types to create event logs. \par For more custom logging, the software engineers and developers will need to create new logging mechanisms. This adds new requirements for the logging mechanism to be functional. For a logging practice to be successful, two important problems need to be resolved \cite{Zhu2015, Zhu2019, Rong2018}:
@@ -270,7 +265,7 @@ The event log quality model in \Cref{fig:ch1_EventQModel} consists of four diffe
 
 \clearpage
 
-\subsubsection{Accuracy of event logging} 
+\paragraph{Accuracy of event logging}\leavevmode\\
 It can become difficult to log every event in a software system as these systems will get larger and more complex during their development life cycle \cite{Stojanov2017}. Precisely capturing certain events that need to be logged needs to be consistent to ensure that the data is trustworthy and reliable to use. The log attributes of the event log also need to be precisely captured for each event log and should be correct.\par Capturing more event logs doesn't guarantee that the accuracy of the event log is on an acceptable level as the log's attributes can be incorrect or cause duplicated events logs if the data is the same in a sequence of event logs. In \Cref{tbl:ch1_loggingTooMuch} are the common problems associated with too much logging.
 
 \begin{table}[!htb]
@@ -289,7 +284,7 @@ It can become difficult to log every event in a software system as these systems
 
 The accuracy and trustworthiness of the event log are more important than capturing a large number of available event logs in a software system \cite{Zhu2015, Jans2012}. The extra unnecessary logs will also take up more storage space store which will increase costs and possibly the performance of the software system. 
 
-\subsubsection{Event log complexities}
+\paragraph{Event log complexities}\leavevmode\\
 Software always has some complexity involved and it will always increase when the software system becomes larger. For the event log quality model the complexity of the event can be split into two different complexities which are \cite{Kherbouche2017}:
 
 \begin{itemize}
@@ -299,10 +294,10 @@ Software always has some complexity involved and it will always increase when th
 
 These two complexity attributes can be costly when the event logging mechanism needs to be constantly maintained in large software systems where it can impact the rest of the system's performance or integrity of the captured event logs \cite{Ogheneovo2014}. The constant modification of the event log software can be due to technical debt as the event log system's complexities lead to technical issues when attempting to log an event or is not compatible with other systems \cite{DeLeon-Sigg2020}.  
 
-\subsubsection{Consistency of event logging} 
+\paragraph{Consistency of event logging}\leavevmode\\
 The event logs' accuracy and consistency are critical when making reliable decisions based on the identified behaviour of the software system with the historical data that exists in the event logs that is discussed in the previous event log quality dimension \cite{Stojanov2017, Kherbouche2017}. With the accuracy and trustworthiness of the event logs correctly applied, the consistency of the event logs should be on an acceptable level to be correct and verifiable when comparing it to the software system. \par An event log quality model is essential to ensure that the logs will be of high quality for the data mining process of log analysis and therefore the event log data should be consistent. To ensure the consistency of the event logs the structure of the event logging points and log parsers should be consistent to capture all the important log attributes. The event log data should also be consistently analysed with different methods used on it as part of the consistency of the event logging process.
 
-\subsubsection{Completeness of event logging} 
+\paragraph{Completeness of event logging}\leavevmode\\ 
 The event logs will be analysed at a later stage, the logs should be fully complete when it is being used as some of the other logging attributes might not be available at that stage. The event logs' available attributes should be accurately captured before attempting to store them in a database to ensure that there is no missing event data or missing events if the event is discarded due to it being incomplete. There are two types of completeness attributes excluding the availability attribute in the \Cref{fig:ch1_EventQModel}:
 
 \begin{itemize}
@@ -315,7 +310,7 @@ Ensuring that both completeness levels are achieved and that the event log data 
 \subsubsection{Logging parsing and log points}\label{sec:ch1_loggignPoints}
 Knowing what to log can significantly reduce any overhead the logging mechanism may produce in the software system \cite{Jia2018, Pecchia2015}. Preserving quality (as described in \Cref{sec:ch1_loggingQuality}) is a necessity to ensure that the logs that are obtained will fulfil their purpose when analysing it.
 
-\subsubsection{Logging attributes}
+\paragraph{Logging attributes}\leavevmode\\
 Before the logs can be parsed to a structured data set the key attributes that need to be defined that will describe the event log \cite{Bekeneva2020}. The attributes in describing in \Cref{tbl:ch1_logBasicAttributes} are the most basic attributes a log event should have. 
 
 \begin{table}[!htb]
@@ -336,8 +331,7 @@ Before the logs can be parsed to a structured data set the key attributes that n
 
 These attributes make it possible to mine and analyse the logs based on their attributes and increase the precision and reliability of the event log \cite{Kherbouche2017}. The case number and timestamp attributes in \Cref{tbl:ch1_logBasicAttributes} can be defined anytime during the logging process. This is not the case for the rest of the attributes.\par Every log should have a defined action that will put it in a group of logs that can be defined as the event type. These event types can be either predefined of what is expected from the event action or will need to be observed later analysis of the logs in case there is no clear grouping of the logs \cite{Bekeneva2020, Fedaghi2010}.
 
-\subsubsection{Log points}
-
+\paragraph{Log points}\leavevmode\\
 The sources of the log event assist on determine the location where the event took place. For event logs this essential to try to recreate scenarios or actions based on the relevant parts of the software system that participated in the event action.\par Other metadata can increase the log quality by providing additional information about software instructions that were executed. These attributes add more information that can be used to recreate the scenario or action that may be unique parameters or other events that participated in the event log.\par To get the attributes in \Cref{tbl:ch1_logBasicAttributes} an instruction generates the log and parses it onto a data set. These log instructions are called logging points in the software environment \cite{Pecchia2015, Zhu2015}. They can be any instruction such as a print function that displays the information for the user to more complex functions or libraries that can be created by third-party developers. In \Cref{fig:ch1_logParsing} is an example of a logging point parsing a log message in a structured log. 
 
 \begin{figure}[!htb]
@@ -384,11 +378,35 @@ These same analytics can be used for none Web-based applications as the:
 \subsubsection{Analytic tools for event logs}
 There exist numerous third-party analytic tools for event logging data monitoring and management to graphically visualise the log data. Choosing the correct tool to use can be dependent on what the software engineers and developers want to analyse and the availability of the tools due to external factors like cost and usability. \par Event logging monitoring and management tools are sometimes underutilised and are not often used to their full potential when analysing the event logs \cite{Fedaghi2010}. This can be due that the log quality of event logs doesn't meet the standards of \Cref{fig:ch1_EventQModel} not met in \Cref{sec:ch1_loggingQuality} for the correct logs to be available for the system utilisation analysis.  
 
+\clearpage
+
 \subsection{Gap identification}
 In \Cref{section:ch1_background} the importance of software maintenance is discussed in the background and that system utilisation is needed to assist with the software maintenance efforts.
 
 \subsubsection{State of the art topics}
-From the literature, there were a few important focus points identified to create a logging mechanism for user-based activities. These focus points exist for the research done in \Cref{section:ch1_background,sec:ch1_eventLogging,sec:ch1_systemUtilisation}.
+From the literature, there were a few important focus points identified to create a logging mechanism for user-based activities. These focus points exist for the research done in \Cref{section:ch1_background,sec:ch1_eventLogging,sec:ch1_systemUtilisation}.\par The research for this study focused on published studies for the last decade (2010-2022). There are some exceptions that are older than 20 years as software maintenance is an essential part of modern software development for the last few decades. These studies were obtained from the IEEE Digital Library in journals by focusing on three key topics:
+
+\begin{itemize}
+	\item software maintenance,
+	\item event logging,
+	\item log analysis.
+\end{itemize}
+
+Each of the three main state of the art topics divived into subtopics that explores different studies that are relevant to the main topic.
+
+\paragraph{Software Maintenance}\leavevmode\\
+Software maintenance implementation in industry and best practices when implementing software maintenance.
+
+\begin{table}[!htb]
+	\centering
+	\caption[Software maintenance state of the art topics]
+	{\textit{Web analytic for user-based data}}
+	\label{tbl:ch1_soaSoftwareMaintennace}
+	\begin{tabularx}{\textwidth}{|l|X|X|}
+		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria}\\
+		\hline
+	\end{tabularx}
+\end{table}
 
 	
 \begin{xltabular}{\textwidth}{|l|X|X|}
@@ -452,7 +470,7 @@ Using \Cref{tbl:ch1_stateOfTheArtTopics} the evaluation criteria have been appli
 	\label{tbl:ch1_StateOfTheART}
 	\begin{tabularx}{\linewidth}{|p{0.1\textwidth}|Y|Y|Y|Y|Y|}
 		\hline \textbf{Ref.} & \RaggedRight \textbf{Software maintenance} & \RaggedRight \textbf{Event logging} & \RaggedRight \textbf{User-activity} & \RaggedRight \textbf{Web-based applications} & \textbf{System utilisation analysis} \\
-		\hline \RaggedRight \cite{Ackermann2009, Mamone1994, Galster2019, Reimanis2016, Snipes2018, Ogheneovo2014,Stark1996} & \cmark & \xmark & \xmark & \xmark & \xmark \\
+		\hline \RaggedRight \cite{Ackermann2009, Mamone1994, Galster2019, Reimanis2016, Snipes2018, Ogheneovo2014} & \cmark & \xmark & \xmark & \xmark & \xmark \\
 		\hline \cite{Tang2010} & \cmark & \cmark & \xmark & \xmark & \xmark \\
 		\hline \cite{Port2017} & \cmark & \xmark & \xmark & \xmark & \cmark \\
 		\hline \cite{Zhu2015} & \cmark & \cmark & \cmark & \xmark & \xmark \\
@@ -475,19 +493,24 @@ Using \Cref{tbl:ch1_stateOfTheArtTopics} the evaluation criteria have been appli
 \begin{landscape}
 	\begin{table}[!htb]
 		\centering
+		\small
 		\caption[State of the art]
 		{\textit{State of the art}}
 		\label{tbl:ch1_stateOfTheArt2}
-		\begin{tabularx}{\linewidth}{|l|X|X|X|X|X|X|X|}
-			\hline \textbf{Ref.} & \multicolumn{3}{c|}{\textbf{Software maintenance}}  &  \multicolumn{2}{c|}{\textbf{Event logging}} & \multicolumn{2}{c|}{\textbf{System utilisation analysis}} \\ 
+		\begin{tabularx}{\linewidth}{|l|Y|Y|Y|Y|Y|Y|Y|}
+			\hline \textbf{Ref.} & \multicolumn{3}{c|}{\textbf{Software maintenance}}  &
+			  \multicolumn{3}{c|}{\textbf{Event logging}} & \multicolumn{1}{c|}{\textbf{Log analysis}} \\ 
 			\hline 
-			& \textbf{Types} & \textbf{Problems} & \textbf{Prioritisation} & & & & \\ 
+			& \textbf{Types} & \textbf{Problems} & \textbf{Prioritisation} & \textbf{Quality} & \textbf{Parsing} & \textbf{Points} & \RaggedRight \textbf{System utilisation analysis} \\ 
 		
-			\hline \cite{Ackermann2009} & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark \\
+			\hline \cite{Hasan2012} & \cmark & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark \\
+			\hline \cite{Ping2010} & \cmark & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark \\
 			\hline
 		\end{tabularx}	
 	\end{table}
 \end{landscape}
+
+In \ref{sec:ch1_softwareMaintenanceIntro} is mostly focus on software maintenance and how it could be implemented. \cite{Hasan2012,Ping2010} discusses the diffrent maintenance types that are implemeneted in industry. These studies define the maintenance types and typical activities associated when implementing it for the Operations and Maintenance LCP of \ref{tbl:ch1_SDLC}.
 
 \section{Problem statement}\label{sec:ch1_problemStatement}
 Software maintenance is a vital part of the entire life cycle of any software system. Implementing maintenance on software systems is most effective if it's done on systems that are utilised more by users. Some of these systems may also not be in use anymore and can be deprecated to improve system quality and remove unused code to not waste any resources to maintain and run it.\par A possible solution to this problem is using event logging to determine the utilisation of the system as it is a proven method industry to track system utilisation usage. Developers have access to third-party software logging tools to get the event logs. Most of the tools focus more on system runtime utilisation than user activities. There exist logging tools that can track user-based activities depending on the framework the software system is developed on.\par Developers still need to design the overall logging mechanism and decide where to place the logging points to capture the event logs in a software system. There are proven methods to create a suitable logging mechanism but not all of them include the analysis of the logs for user-based utilisation.
