@@ -265,47 +265,45 @@ The event log quality model in \Cref{fig:ch1_EventQModel} consists of four diffe
 
 \clearpage
 
-\paragraph{Accuracy of event logging}\leavevmode\\
-It can become difficult to log every event in a software system as these systems will get larger and more complex during their development life cycle \cite{Stojanov2017}. Precisely capturing certain events that need to be logged needs to be consistent to ensure that the data is trustworthy and reliable to use. The log attributes of the event log also need to be precisely captured for each event log and should be correct.\par Capturing more event logs doesn't guarantee that the accuracy of the event log is on an acceptable level as the log's attributes can be incorrect or cause duplicated events logs if the data is the same in a sequence of event logs. In \Cref{tbl:ch1_loggingTooMuch} are the common problems associated with too much logging.
-
-\begin{table}[!htb]
-	\centering
-	\caption[Problems with too much logging]
-	{\textit{Problems with too much logging \cite{Zhu2015}}}
-	\label{tbl:ch1_loggingTooMuch}
-	\begin{tabularx}{\textwidth}{|l|X|}
-		\hline \textbf{Problem}  & \textbf{Description} \\
-		\hline \textbf{Excess code} & Adding multiple logging points may increase the amount of code added to the software system to capture the event logs. The code may take some time to write and maintain. This can increase the structural and behavioural complexity of the code in its entire life cycle. \\
-		\hline \textbf{System resource impact} & With the additional code needed to capture the logs the system resource usage such as the CPU and I/O channels will increase. This may negatively impact the performance of existing system operations or increase the cost to keep the system at the same operation speed by increasing the system resources.\\
-		\hline \textbf{Unusable logs} & Adding numerous logging points or logging too much at points can produce numerous trivial or useless logs that will not improve the system utilisation analysis. When implementing the system utilisation analysis stage the logs might need to get filtered more or modified to be more meaningful as much as $70\%$ of the logs may be irrelevant \cite{Fedaghi2010}. \par The logs are written by the software engineers and developers and can sometimes be irrelevant to other managers or system administrators when implementing a log analysis report of the event logs. More event logs can have missing or incomplete logging attributes due to the excessive logging points that have been added. The increase in the behavioural complexity of the log can impact the decisions that are made to improve software maintenance. \\
-		\hline
-	\end{tabularx}
-\end{table}
-
-The accuracy and trustworthiness of the event log are more important than capturing a large number of available event logs in a software system \cite{Zhu2015, Jans2012}. The extra unnecessary logs will also take up more storage space store which will increase costs and possibly the performance of the software system. 
-
-\paragraph{Event log complexities}\leavevmode\\
-Software always has some complexity involved and it will always increase when the software system becomes larger. For the event log quality model the complexity of the event can be split into two different complexities which are \cite{Kherbouche2017}:
-
 \begin{itemize}
-	\item Structural complexity is the application of different algorithms in the software which allows the event log to be evaluated when it occurs which can alter the behaviour of the event log.
-	\item Behavioural complexity in event logging is the complexity of the behaviour of the event logs that refers to the number of smaller events in each captured trace and the different variations of these traces within an event log.
+	\item \textbf{Accuracy of event logging}\par It can become difficult to log every event in a software system as these systems will get larger and more complex during their development life cycle \cite{Stojanov2017}. Precisely capturing certain events that need to be logged needs to be consistent to ensure that the data is trustworthy and reliable to use. The log attributes of the event log also need to be precisely captured for each event log and should be correct.\par Capturing more event logs doesn't guarantee that the accuracy of the event log is on an acceptable level as the log's attributes can be incorrect or cause duplicated events logs if the data is the same in a sequence of event logs. In \Cref{tbl:ch1_loggingTooMuch} are the common problems associated with too much logging.
+
+	\begin{table}[!htb]
+		\centering
+		\caption[Problems with too much logging]
+		{\textit{Problems with too much logging \cite{Zhu2015}}}
+		\label{tbl:ch1_loggingTooMuch}
+		\begin{tabularx}{\linewidth}{|l|X|}
+			\hline \textbf{Problem}  & \textbf{Description} \\
+			\hline \textbf{Excess code} & Adding multiple logging points may increase the amount of code added to the software system to capture the event logs. The code may take some time to write and maintain. This can increase the structural and behavioural complexity of the code in its entire life cycle. \\
+			\hline \textbf{System resource impact} & With the additional code needed to capture the logs the system resource usage such as the CPU and I/O channels will increase. This may negatively impact the performance of existing system operations or increase the cost to keep the system at the same operation speed by increasing the system resources.\\
+			\hline \textbf{Unusable logs} & Adding numerous logging points or logging too much at points can produce numerous trivial or useless logs that will not improve the system utilisation analysis. When implementing the system utilisation analysis stage the logs might need to get filtered more or modified to be more meaningful as much as $70\%$ of the logs may be irrelevant \cite{Fedaghi2010}. \par The logs are written by the software engineers and developers and can sometimes be irrelevant to other managers or system administrators when implementing a log analysis report of the event logs. More event logs can have missing or incomplete logging attributes due to the excessive logging points that have been added. The increase in the behavioural complexity of the log can impact the decisions that are made to improve software maintenance. \\
+			\hline
+		\end{tabularx}
+	\end{table}
+
+	The accuracy and trustworthiness of the event log are more important than capturing a large number of available event logs in a software system \cite{Zhu2015, Jans2012}. The extra unnecessary logs will also take up more storage space store which will increase costs and possibly the performance of the software system. 
+
+	\item \textbf{Event log complexities}\par Software always has some complexity involved and it will always increase when the software system becomes larger. For the event log quality model the complexity of the event can be split into two different complexities which are \cite{Kherbouche2017}:
+
+	\begin{itemize}
+		\item Structural complexity is the application of different algorithms in the software which allows the event log to be evaluated when it occurs which can alter the behaviour of the event log.
+		\item Behavioural complexity in event logging is the complexity of the behaviour of the event logs that refers to the number of smaller events in each captured trace and the different variations of these traces within an event log.
+	\end{itemize}
+
+	These two complexity attributes can be costly when the event logging mechanism needs to be constantly maintained in large software systems where it can impact the rest of the system's performance or integrity of the captured event logs \cite{Ogheneovo2014}. The constant modification of the event log software can be due to technical debt as the event log system's complexities lead to technical issues when attempting to log an event or is not compatible with other systems \cite{DeLeon-Sigg2020}.  
+
+ 	\item \textbf{Consistency of event logging}\par The event logs' accuracy and consistency are critical when making reliable decisions based on the identified behaviour of the software system with the historical data that exists in the event logs that are discussed in the previous event log quality dimension \cite{Stojanov2017, Kherbouche2017}. With the accuracy and trustworthiness of the event logs correctly applied, the consistency of the event logs should be on an acceptable level to be correct and verifiable when comparing it to the software system. \par An event log quality model is essential to ensure that the logs will be of high quality for the data mining process of log analysis and therefore the event log data should be consistent. To ensure the consistency of the event logs the structure of the event logging points and log parsers should be consistent to capture all the important log attributes. The event log data should also be consistently analysed with different methods used on it as part of the consistency of the event logging process.
+
+	\item \textbf{Completeness of event logging}\par The event logs will be analysed at a later stage, the logs should be fully complete when it is being used as some of the other logging attributes might not be available at that stage. The event logs' available attributes should be accurately captured before attempting to store them in a database to ensure that there is no missing event data or missing events if the event is discarded due to it being incomplete. There are two types of completeness attributes excluding the availability attribute in the \Cref{fig:ch1_EventQModel}:
+
+	\begin{itemize}
+		\item Local completeness refers to all event data that can be captured for an instance of the event taking place that can be added as a log attribute to the event log \cite{Kherbouche2017, VanDerAalst2004}.
+		\item Global completeness refers to the occurrence of all possible outcomes or behaviours of the event logs that can be captured which is required for the system utilisation analysis \cite{Kherbouche2017, VanDerAalst2004}.
+	\end{itemize}
+
+	Ensuring that both completeness levels are achieved and that the event log data is complete can impact performance if certain data is not directly available during the instance when the event has occurred. The logging mechanism needs to capture this as efficiently as possible without causing performance issues to the rest of the software system's operations \cite{Zhu2015, Zhu2019}. 
 \end{itemize}
-
-These two complexity attributes can be costly when the event logging mechanism needs to be constantly maintained in large software systems where it can impact the rest of the system's performance or integrity of the captured event logs \cite{Ogheneovo2014}. The constant modification of the event log software can be due to technical debt as the event log system's complexities lead to technical issues when attempting to log an event or is not compatible with other systems \cite{DeLeon-Sigg2020}.  
-
-\paragraph{Consistency of event logging}\leavevmode\\
-The event logs' accuracy and consistency are critical when making reliable decisions based on the identified behaviour of the software system with the historical data that exists in the event logs that is discussed in the previous event log quality dimension \cite{Stojanov2017, Kherbouche2017}. With the accuracy and trustworthiness of the event logs correctly applied, the consistency of the event logs should be on an acceptable level to be correct and verifiable when comparing it to the software system. \par An event log quality model is essential to ensure that the logs will be of high quality for the data mining process of log analysis and therefore the event log data should be consistent. To ensure the consistency of the event logs the structure of the event logging points and log parsers should be consistent to capture all the important log attributes. The event log data should also be consistently analysed with different methods used on it as part of the consistency of the event logging process.
-
-\paragraph{Completeness of event logging}\leavevmode\\ 
-The event logs will be analysed at a later stage, the logs should be fully complete when it is being used as some of the other logging attributes might not be available at that stage. The event logs' available attributes should be accurately captured before attempting to store them in a database to ensure that there is no missing event data or missing events if the event is discarded due to it being incomplete. There are two types of completeness attributes excluding the availability attribute in the \Cref{fig:ch1_EventQModel}:
-
-\begin{itemize}
-	\item Local completeness refers to all event data that can be captured for an instance of the event taking place that can be added as a log attribute to the event log \cite{Kherbouche2017, VanDerAalst2004}.
-	\item Global completeness refers to the occurrence of all possible outcomes or behaviours of the event logs that can be captured which is required for the system utilisation analysis \cite{Kherbouche2017, VanDerAalst2004}.
-\end{itemize}
-
-Ensuring that both completeness levels are achieved and that the event log data is complete can impact performance if certain data is not directly available during the instance when the event has occurred. The logging mechanism needs to capture this as efficiently as possible without causing performance issues to the rest of the software system's operations \cite{Zhu2015, Zhu2019}. 
 
 \subsubsection{Logging parsing and log points}\label{sec:ch1_loggignPoints}
 Knowing what to log can significantly reduce any overhead the logging mechanism may produce in the software system \cite{Jia2018, Pecchia2015}. Preserving quality (as described in \Cref{sec:ch1_loggingQuality}) is a necessity to ensure that the logs that are obtained will fulfil their purpose when analysing it.
@@ -376,7 +374,7 @@ These same analytics can be used for none Web-based applications as the:
 \end{itemize} 
 
 \subsubsection{Analytic tools for event logs}
-There exist numerous third-party analytic tools for event logging data monitoring and management to graphically visualise the log data. Choosing the correct tool to use can be dependent on what the software engineers and developers want to analyse and the availability of the tools due to external factors like cost and usability. \par Event logging monitoring and management tools are sometimes underutilised and are not often used to their full potential when analysing the event logs \cite{Fedaghi2010}. This can be due that the log quality of event logs doesn't meet the standards of \Cref{fig:ch1_EventQModel} not met in \Cref{sec:ch1_loggingQuality} for the correct logs to be available for the system utilisation analysis.  
+There exist numerous third-party analytic tools for event logging data monitoring and management to graphically visualise the log data. Choosing the correct tool to use can be dependent on what the software engineers and developers want to analyse and the availability of the tools due to external factors like cost and usability. \par Event logging monitoring and management tools are sometimes underutilised and are not often used to their full potential when analysing the event logs \cite{Fedaghi2010}. This can be due that the log quality of event logs doesn't meet the standards of \Cref{fig:ch1_EventQModel} not met in \Cref{sec:ch1_loggingQuality} for the correct logs to be available for the system utilisation analysis. 
 
 \clearpage
 
@@ -384,30 +382,88 @@ There exist numerous third-party analytic tools for event logging data monitorin
 In \Cref{section:ch1_background} the importance of software maintenance is discussed in the background and that system utilisation is needed to assist with the software maintenance efforts.
 
 \subsubsection{State of the art topics}
-From the literature, there were a few important focus points identified to create a logging mechanism for user-based activities. These focus points exist for the research done in \Cref{section:ch1_background,sec:ch1_eventLogging,sec:ch1_systemUtilisation}.\par The research for this study focused on published studies for the last decade (2010-2022). There are some exceptions that are older than 20 years as software maintenance is an essential part of modern software development for the last few decades. These studies were obtained from the IEEE Digital Library in journals by focusing on three key topics:
+From the literature, there were a few important focus points identified to create a logging mechanism for user-based activities. These focus points exist for the research done in \Cref{sec:ch1_softwareMaintenanceIntro,sec:ch1_eventLogging,sec:ch1_systemUtilisation}.\par The research for this study focused on published studies for the last decade (2010-2022). Some exceptions are older than 20 years as software maintenance is an essential part of modern software development for the last few decades. These studies were obtained from the IEEE Digital Library in journals by focusing on three key topics: \textbf{software maintenance}, \textbf{event logging} and \textbf{log analysis}. Each of the three main states of the art topics is divided into subtopics that explore different studies that are relevant to the main topic.
 
-\begin{itemize}
-	\item software maintenance,
-	\item event logging,
-	\item log analysis.
-\end{itemize}
+\paragraph{Software maintenance} \leavevmode\\
+Software maintenance implementation in industry and best practices when implementing software maintenance subtopics are described in \Cref{tbl:ch1_soaSoftwareMaintennace}.
 
-Each of the three main state of the art topics divived into subtopics that explores different studies that are relevant to the main topic.
+\begin{table}[!htb]
+	\centering
+	\caption[Software maintenance state of the art sub topics]
+	{\textit{Web analytic for user-based data}}
+	\label{tbl:ch1_soaSoftwareMaintennace}
+	\begin{tabularx}{\linewidth}{|l|X|X|}
+		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria}\\
+		\hline Types and implementation & \RaggedRight Software maintenance types and implementation in industry. & \RaggedRight \begin{enumerate}
+			\item Did the study focus on software maintenance?
+			\item Did the study discuss different software maintenance types or implementations?
+		\end{enumerate} \\
+		\hline Problems & Challenges with implementing software maintenance. & \RaggedRight \begin{enumerate}
+			\item Did the study identify frequent problems with implementing software maintenance?
+		\end{enumerate}\\
+		\hline Models and prioritisation & How to implement software maintenance models and prioritisation techniques. & \RaggedRight \begin{enumerate}
+			\item Did the study discuss different software maintenance models?
+			\item Did the study discuss the importance of prioritisation different maintenance activities?
+		\end{enumerate} \\
+		\hline
+	\end{tabularx}
+\end{table}
 
-\paragraph{Software Maintenance}\leavevmode\\
-Software maintenance implementation in industry and best practices when implementing software maintenance.
+\clearpage
+
+The three different states of the art sub-topics for software maintenance in \Cref{tbl:ch1_soaSoftwareMaintennace} evaluate the obtained studies if they discuss software maintenance and the implementation of software maintenance.
+
+\paragraph{Event logging} \leavevmode\\
+Event logging in a software environment and activities that implement event logging state-of-the-art subtopics are described in \Cref{tbl:ch1_soaEventLogging}.
 
 \begin{table}[!htb]
 	\centering
 	\caption[Software maintenance state of the art topics]
 	{\textit{Web analytic for user-based data}}
-	\label{tbl:ch1_soaSoftwareMaintennace}
-	\begin{tabularx}{\textwidth}{|l|X|X|}
+	\label{tbl:ch1_soaEventLogging}
+	\begin{tabularx}{\linewidth}{|l|X|X|}
 		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria}\\
+		\hline Quaility & \RaggedRight Industry standards for log quality and implementations to improve logging quality.& \RaggedRight \begin{enumerate}
+			\item Did the study focus on software maintenance?
+			\item Did the study discuss different software maintenance types or implementation?
+		\end{enumerate} \\
+		\hline Problems & Challenges with implementing software maintenance. & \RaggedRight \begin{enumerate}
+			\item Did the study identified frequent problems with implementing software maintenance?
+		\end{enumerate}\\
+		\hline Models and prioritisation & How to implement software maintenance models and prioritisation techniques. & \RaggedRight \begin{enumerate}
+			\item Did the study discuss different software maintenance models?
+			\item Did the study discuss the importance of prioritisation differenent maintenance actvities?
+		\end{enumerate} \\
 		\hline
 	\end{tabularx}
 \end{table}
 
+\paragraph{Log analysis} \leavevmode\\
+Log analysis of software systems using event logging.
+
+\begin{table}[!htb]
+	\centering
+	\caption[Software maintenance state of the art topics]
+	{\textit{Web analytic for user-based data}}
+	\label{tbl:ch1_soaSoftwareMaintennace3}
+	\begin{tabularx}{\linewidth}{|l|X|X|}
+		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria}\\
+		\hline Types and implementation & \RaggedRight Software maintenance types and implementation in industry. & \RaggedRight \begin{enumerate}
+			\item Did the study focus on software maintenance?
+			\item Did the study discuss different software maintenance types or implementation?
+		\end{enumerate} \\
+		\hline Problems & Challenges with implementing software maintenance. & \RaggedRight \begin{enumerate}
+			\item Did the study identified frequent problems with implementing software maintenance?
+		\end{enumerate}\\
+		\hline Models and prioritisation & How to implement software maintenance models and prioritisation techniques. & \RaggedRight \begin{enumerate}
+			\item Did the study discuss different software maintenance models?
+			\item Did the study discuss the importance of prioritisation differenent maintenance actvities?
+		\end{enumerate} \\
+		\hline
+	\end{tabularx}
+\end{table}
+
+\clearpage
 	
 \begin{xltabular}{\textwidth}{|l|X|X|}
 	\caption[State of the art topics]
@@ -501,7 +557,7 @@ Using \Cref{tbl:ch1_stateOfTheArtTopics} the evaluation criteria have been appli
 			\hline \textbf{Ref.} & \multicolumn{3}{c|}{\textbf{Software maintenance}}  &
 			  \multicolumn{3}{c|}{\textbf{Event logging}} & \multicolumn{1}{c|}{\textbf{Log analysis}} \\ 
 			\hline 
-			& \textbf{Types} & \textbf{Problems} & \textbf{Prioritisation} & \textbf{Quality} & \textbf{Parsing} & \textbf{Points} & \RaggedRight \textbf{System utilisation analysis} \\ 
+			& \textbf{Types and implementation} & \textbf{Problems} & \textbf{Models and prioritisation} & \textbf{Quality} & \textbf{Parsing} & \textbf{Points} & \RaggedRight \textbf{System utilisation analysis} \\ 
 		
 			\hline \cite{Hasan2012} & \cmark & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark \\
 			\hline \cite{Ping2010} & \cmark & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark \\
