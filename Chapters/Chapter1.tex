@@ -66,7 +66,7 @@ Software maintenance of the Operations and Maintenance LCP phase is an essential
 \section{State of the art}
 
 \subsection{Software maintenance}\label{sec:ch1_softwareMaintenanceIntro}{}
-Maintenance of software systems is continuous and is a reduced form of software development and is aimed at modifying software systems while preserving their integrity for current and future operations \cite{Sneed2004, Ackermann2009, Port2017}. Software maintenance aims to improve software's:
+Maintenance of software systems is continuous and is a reduced form of software development and is aimed at modifying software systems while preserving their integrity for current and future operations \cite{Sneed2004, Ackermann2009, Port2017}. Software maintenance aims to improve software:
 
 \begin{itemize}
 	\item \textbf{correctness} of the software systems will always have some defects or faults that need to be corrected to improve the software system's traceability, consistency and completeness,
@@ -113,7 +113,7 @@ Maintenance problems or modifications are regularly identified and are usually a
 		\hline
 		\textbf{Maintenance type} & \textbf{Description} & \textbf{$\%$ of maintenance activities} \\ \hline
 		Adaptive & \raggedright Adaptive maintenance in software systems is any modification or enhancements to keep it usable with a changing or changed software environment. & $\approx 37.5\%$ \\ \hline
-		Perfective & \raggedright Perfective maintenance based are modifications made based on the change of the end-users' new requirements. It can also improve the performance or maintainability of the software system in its life cycle. & $\approx 37.5\%$ \\ \hline
+		Perfective & \raggedright Perfective maintenance based are modifications made based on the change of the end-users new requirements. It can also improve the performance or maintainability of the software system in its life cycle. & $\approx 37.5\%$ \\ \hline
 		Corrective & \raggedright Corrective maintenance are improvements made to fix certain defects or errors in a software system. & $\approx 20\%$ \\ \hline
 		Preventive & \raggedright  Preventive maintenance are improvements made to software systems that prevent problems in the future. & $\approx 5\%$ \\ \hline
 	\end{tabularx}
@@ -218,7 +218,7 @@ Event logs are mainly used for event reporting to support debug and system integ
 		\hline Debugging of software systems and services & Event logging is mostly used to record events or behaviours of software systems or services during its run-time \cite{Rong2018a}.\\
 		\hline Anomaly detection & Event logs can be used to detect any abnormal system behaviour using an anomalous detection algorithm using logging data \cite{Gurumdimma2016}. This can also be used to find any potential vulnerabilities or defect prediction in the software environment \cite{Dwyer2013}. \\
 		\hline Performance diagnosis & Software performance is important to producing quality software for the end user \cite{EvangelinGeetha2007, Baccanico2014}. This is also important to make informed decisions on how to improve the software system or service for improved performance and other resource and financial implications.\par This type of performance event logs of the software systems or services are used to monitor the software system, which is useful for resource tuning, load balancing and checking system scalability in the entire life cycle of the software system or service \cite{Song2017}. \\ 
-		\hline Auditing & In a software environment there can be significant changes to the database data that might need to be log for auditing purposes \cite{Rong2018a}. All establishments and enterprises need to ensure that compliance with the industry regulations is met with their software systems by adding audit logs. They are also legally bound to have audit logs to provide legal evidence for any legal investigation or administrative tasks to ensure that accountability is maintained. \\
+		\hline Auditing & In a software environment there can be significant changes to the database data that might need to be logged for auditing purposes \cite{Rong2018a}. All establishments and enterprises need to ensure that compliance with the industry regulations is met with their software systems by adding audit logs. They are also legally bound to have audit logs to provide legal evidence for any legal investigation or administrative tasks to ensure that accountability is maintained. \\
 		\hline Error and failure analysis & Event logs are used to analyse the failure behaviours of software systems which enable software engineers or developers to understand the failure modes of the system, find the root cause of these failures, prevent them and improve the reliability of the future releases of the system \cite{Cinque2013}.\\
 		\hline Analysis of security alerts & In any software environment or information technology infrastructure, security is a major concern for any organisation \cite{Pathan2014, Dwyer2013}. It is important to know the overall security status of the software system. \\
 \end{xltabular}
@@ -228,7 +228,7 @@ Logging practice in software development is not always well documented and there
 
 \begin{itemize}
 	\item add the logging points in the software system at locations where it can capture the desired logs,
-	\item enable the log parsing stage to write a log entry into a database.
+	\item enables the log parsing stage to write a log entry into a database.
 \end{itemize}
 
 Logging guides can give examples and suggestions on where to place the logging points but that can still be difficult on occasion for software engineers and developers to identify these desired locations. This can be difficult due to logging guides being mostly application-specific or the logging mechanism can only capture certain event types to create event logs. \par For more custom logging, the software engineers and developers will need to create new logging mechanisms. This adds new requirements for the logging mechanism to be functional. For a logging practice to be successful, two important problems need to be resolved \cite{Zhu2015, Zhu2019, Rong2018}:
