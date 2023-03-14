@@ -73,7 +73,7 @@ Maintenance of software systems is continuous and is a reduced form of software 
 	\item \textbf{enhancements} of the software system to improve existing software components to adapt to changes to the user's requirements and to improve system performance and sustainability. 
 \end{itemize}
 
-Improving the correctness of the software system and enhancing it will need to follow a defined maintenance process to implement it. According to the \textit{IEEE Standard 1219}\footnote{\textbf{IEEE Standards} documents are developed within the Technical Committees of the IEEE Societies, and the Standards Coordinating Committees of the IEEE Standards Board \cite{Mamone1994}.} software maintenance includes the following phases \cite{Mamone1994, Hasan2012}:
+Improving the correctness of the software system and enhancing it will need to follow a defined maintenance process to implement it. According to the \textit{IEEE Standard 1219}\footnote{\textbf{IEEE Standards} documents are developed within the Technical Committees of the IEEE Societies, and the Standards Coordinating Committees of the IEEE Standards Board \cite{Mamone1994}.} software maintenance includes the following phases \cite{Mamone1994, Hasan2012,Stojanov2017}:
 \begin{itemize}
 	\item Identifying the problem or modification and classification of it
 	\item Analysis of the identification of the maintenance issue
@@ -223,7 +223,7 @@ Event logs are mainly used for event reporting to support debug and system integ
 		\hline Analysis of security alerts & In any software environment or information technology infrastructure, security is a major concern for any organisation \cite{Pathan2014, Dwyer2013}. It is important to know the overall security status of the software system. \\
 \end{xltabular}
 
-\paragraph{Logging practice in software development}
+\paragraph{Logging practice in software development}\leavevmode\\
 Logging practice in software development is not always well documented and there can be multiple implementations of different logging mechanisms in the same software system \cite{Pecchia2015, Kitchenham2007}. In modern software systems, the logging practice is a crucial part of the development of software and the maintenance of it in its entire life cycle \cite{Rong2018}.\par In \Cref{apx:loggingPractice} there has been a rise of new studies that focus on providing suitable logging practice guidelines to software engineers and developers. Logging in the industry makes use of many third-party logging libraries and frameworks such as Apache's log4net and Microsoft's ULS frameworks \cite{Zhu2015, Rong2018}.\par Software engineers and developers can use these tools to implement logging in a compatible software system. They will still need to know how to strategically place the logging points so that the desired logs can be obtained. Using guides provided by the tools and other online guides, the logging practice can be implemented. When using a third-party logging mechanism the software engineers and developers will, in most cases, need to:
 
 \begin{itemize}
@@ -341,7 +341,7 @@ The sources of the log event assist on determine the location where the event to
 The defined attributes are captured by the logging point when the event takes place or occurred. The created log message is then parsed into a structured log to be safe in a database or displayed. The logging point should be strategically placed to capture the required attributes to complete the log event \cite{Fedaghi2010}.\par Determine where to place the logging point in a giving software is directly impacted by what the attributes are and if the captured log will be of high quality as described in \Cref{sec:ch1_loggingQuality}. The availability of consistent high-quality logs will directly impact the process mining in the analysis of the logs \cite{Kherbouche2017}.\par To strategically place a logging point developers needs to consider what the activation of the logging point will be during the runtime of the software system \cite{Pecchia2015, Cinque2013}. The activations can be simple if a statement meets certain criteria or instructions that execute after when an event or action took place (e.g. runtime errors). \par The log level or event type of \Cref{tbl:ch1_logBasicAttributes} can be used to determine where the log points should be placed. The aim of the placement of the logging point should try to capture all the log attributes when the event of interest has happened.
 
 \subsubsection{Log analysis in Web-based applications}
-With the defined log parsing and log points in \Cref{sec:ch1_loggignPoints} a log analysis can be made from the stored event logs. The log analysis is the data mining process focussed on the software system's generated event logs \cite{Slaninova2014}.\par The log analysis will make use of the defined log attributes in \Cref{tbl:ch1_logBasicAttributes} to complete it. Each software system will have some variation of the log attributes in \Cref{tbl:ch1_logBasicAttributes}. For a Web-based application, the log attributes will also contain any data about the requests between a web server and web client and its responses \cite{Slaninova2014, Dhanalakshmi2016}. This will also reflect on the log level at which weblogs are obtained for log analysis.
+With the defined log parsing and log points in \Cref{sec:ch1_loggignPoints} a log analysis can be made from the stored event logs. The log analysis is the data mining process focussed on the software system's generated event logs \cite{Slaninova2014,Hasiloglu2018}.\par The log analysis will make use of the defined log attributes in \Cref{tbl:ch1_logBasicAttributes} to complete it. Each software system will have some variation of the log attributes in \Cref{tbl:ch1_logBasicAttributes}. For a Web-based application, the log attributes will also contain any data about the requests between a web server and web client and its responses \cite{Slaninova2014, Dhanalakshmi2016}. This will also reflect on the log level at which weblogs are obtained for log analysis.
 
 
 \subsection{Log analysis}\label{sec:ch1_systemUtilisation}
@@ -381,7 +381,7 @@ There exist numerous third-party analytic tools for event logging data monitorin
 In \Cref{section:ch1_background} the importance of software maintenance is discussed in the background and that system utilisation is needed to assist with the software maintenance efforts.
 
 \subsubsection{State of the art topics}
-From the literature, there were a few important focus points identified to create a logging mechanism for user-based activities. These focus points exist for the research done in \Cref{sec:ch1_softwareMaintenanceIntro,sec:ch1_eventLogging,sec:ch1_systemUtilisation}.\par The research for this study focused on published studies for the last decade (2010-2022). Some exceptions are older than 20 years as software maintenance is an essential part of modern software development for the last few decades. These studies were obtained from the IEEE Digital Library in journals by focusing on three key topics: \textbf{software maintenance}, \textbf{event logging} and \textbf{log analysis}. Each of the three main states of the art topics is divided into subtopics that explore different studies that are relevant to the main topic.
+From the literature, there were a few important focus points identified to create a logging mechanism for user-based activities. These focus points exist for the research done in \Cref{sec:ch1_softwareMaintenanceIntro,sec:ch1_eventLogging,sec:ch1_systemUtilisation}.\par The research for this study focused on published accredited, peer-reviewed journals or articles for the last two decades (2000-2022). Some exceptions are older than 20 years as software maintenance is an essential part of modern software development for the last few decades. These studies were obtained from the IEEE Digital Library in journals by focusing on three key topics: \textbf{software maintenance}, \textbf{event logging} and \textbf{log analysis}. Each of the three main states of the art topics is divided into subtopics that explore different studies that are relevant to the main topic.
 
 \paragraph{Software maintenance} \leavevmode\\
 Software maintenance implementation in industry and best practices when implementing software maintenance subtopics are described in \Cref{tbl:ch1_soaSoftwareMaintennace}.
@@ -389,7 +389,7 @@ Software maintenance implementation in industry and best practices when implemen
 \begin{table}[!htb]
 	\centering
 	\caption[Software maintenance state of the art sub topics]
-	{\textit{Web analytic for user-based data}}
+	{\textit{Software maintenance state of the art sub topics}}
 	\label{tbl:ch1_soaSoftwareMaintennace}
 	\begin{tabularx}{\linewidth}{|l|X|X|}
 		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria}\\
@@ -410,138 +410,64 @@ Software maintenance implementation in industry and best practices when implemen
 
 \clearpage
 
-The three different states of the art sub-topics for software maintenance in \Cref{tbl:ch1_soaSoftwareMaintennace} evaluate the obtained studies if they discuss software maintenance and the implementation of software maintenance.
+The three different states of the art sub-topics for software maintenance in \Cref{tbl:ch1_soaSoftwareMaintennace} evaluate the obtained studies if they discuss software maintenance and the implementation of software maintenance. These sub-topics focus on what is needed to implement software maintenance for any giving software environment using industry standards.
 
 \paragraph{Event logging} \leavevmode\\
 Event logging in a software environment and activities that implement event logging state-of-the-art subtopics are described in \Cref{tbl:ch1_soaEventLogging}.
 
 \begin{table}[!htb]
 	\centering
-	\caption[Software maintenance state of the art topics]
-	{\textit{Web analytic for user-based data}}
+	\caption[Event logging state of the art topics]
+	{\textit{Event logging state of the art topics}}
 	\label{tbl:ch1_soaEventLogging}
 	\begin{tabularx}{\linewidth}{|l|X|X|}
 		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria}\\
 		\hline Quaility & \RaggedRight Industry standards for log quality and implementations to improve logging quality.& \RaggedRight \begin{enumerate}
-			\item Did the study focus on software maintenance?
-			\item Did the study discuss different software maintenance types or implementations?
+			\item Did the study provide a comprehensive overview of how to achieve or improve logging quality?
+			\item Did the study provide an event log quality model that is used in industry?
 		\end{enumerate} \\
-		\hline Problems & Challenges with implementing software maintenance. & \RaggedRight \begin{enumerate}
-			\item Did the study identify frequent problems with implementing software maintenance?
-		\end{enumerate}\\
-		\hline Models and prioritisation & How to implement software maintenance models and prioritisation techniques. & \RaggedRight \begin{enumerate}
-			\item Did the study discuss different software maintenance models?
-			\item Did the study discuss the importance of prioritisation different maintenance activities?
+		\hline Points & How to implement software maintenance models and prioritisation techniques that are used in industry. & \RaggedRight \begin{enumerate}
+			\item Did the study discuss what needs to be logged or how to identify key logging attributes from certain software events?
+			\item Did the study aim to create or identify key logging points for specific log analysis purposes?
 		\end{enumerate} \\
+		\hline Parsing & Challenges with implementing software maintenance. & \RaggedRight \begin{enumerate}
+			\item Did the study aim to create or identify key logging points for specific log analysis purposes in a software environment?
+			\item Did the study provide methodologies or standards for log parsing to adhere to a log quality model?
+		\end{enumerate}\\	
 		\hline
 	\end{tabularx}
 \end{table}
 
+The event logging sub-topics aim to create or use a suitable logging mechanism for the log analysis requirements through the captured logging points. In \Cref{tbl:ch1_soaEventLogging} aims to obtain studies that will adhere to best industry practices to create the logging mechanism and use or create the design methodology that is needed for the logging mechanism.
+
+\clearpage
+
 \paragraph{Log analysis} \leavevmode\\
-Log analysis of software systems using event logging.
+Log analysis of software systems using event logging state-of-the-art topics is described in \Cref{tbl:ch1_soaLogAnalysis}.
 
 \begin{table}[!htb]
 	\centering
-	\caption[Software maintenance state of the art topics]
-	{\textit{Web analytic for user-based data}}
+	\caption[Log analysis state of the art topics]
+	{\textit{Log analysis state of the art topics}}
 	\label{tbl:ch1_soaLogAnalysis}
 	\begin{tabularx}{\linewidth}{|l|X|X|}
 		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria}\\
 		\hline System utilisation analysis & \RaggedRight Software maintenance types and implementation in industry. & \RaggedRight \begin{enumerate}
 			\item How is system utilisation analysis done for software systems?
-			\item How to use event logging for system utilisation analysis?
+			\item Did the study attempt to use event logging for software maintenance purposes?
 		\end{enumerate} \\
 		\hline
 	\end{tabularx}
 \end{table}
 
-\clearpage
-	
-\begin{xltabular}{\textwidth}{|l|X|X|}
-	\caption[State of the art topics]
-{\textit{State of the art topics}}
-\label{tbl:ch1_stateOfTheArtTopics} \\
-
-	\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria} \\
-	\hline
-	\endfirsthead
-
-	\multicolumn{3}{c}%
-	{\tablename\ \thetable{} -- continued from previous page} \\
-	\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria} \\
-	\endhead
-
-	\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
-	\endfoot
-
-	\hline
-	\endlastfoot
-
-	\textbf{Software maintenance} & Software maintenance implementation in industry and best practices when implementing software maintenance. & \RaggedRight \begin{enumerate}
-		\item Did the study focus on software maintenance?
-		\item How to implement software maintenance and resource management of software maintenance?
-		\item How to improve software maintenance?
-	\end{enumerate} \\
-	
-	\hline \textbf{Event logging} & Event logging in a software environment. The use of event logging and industry practices of event logging. & \RaggedRight \begin{enumerate}
-		\item How event logging is used in software engineering?
-		\item What event logging design and implementation are used?
-	\end{enumerate} \\
-
-	\hline \textbf{User-activity} & Defining user-based events in software systems and tracking the events. & 
- \RaggedRight \begin{enumerate}
-		\item How to classify user-based events?
-		\item Methods to track user-based events?
-	\end{enumerate} \\
-
-	\hline \textbf{Web-based applications} & Logging for Web-based applications. & 
- \RaggedRight \begin{enumerate}
-		\item User-based event logging defined for Web-based applications?
-		\item Log analysis of Web-logs defined?
-	\end{enumerate} \\
-
-	\hline \textbf{System utilisation analysis} & System utilisation analysis of software systems using event logging. & \RaggedRight \begin{enumerate}
-		\item How is system utilisation analysis done for software systems?
-		\item How to use event logging for system utilisation analysis?
-	\end{enumerate} \\
-\end{xltabular}
-
-\clearpage
+In \Cref{tbl:ch1_soaLogAnalysis} topics focus more on studies that implement a log analysis for software maintenance. Tracking certain events is therefore important for the log analysis to ensure that log quality's precision criteria can be achieved of \Cref{sec:ch1_loggingQuality}. To efficiently make use of or create log analysis report for software maintenance.
 
 \subsubsection{State of the art summary}
-Using \Cref{tbl:ch1_stateOfTheArtTopics} the evaluation criteria have been applied to literature studies. In \Cref{tbl:ch1_StateOfTheART} the studies have been sorted to which topic they were relevant to this study.
-
-\begin{table}[!htb]
-	\centering
-	\caption[State of the Art]
-	{\textit{State of the Art}}
-	\label{tbl:ch1_StateOfTheART}
-	\begin{tabularx}{\linewidth}{|p{0.1\textwidth}|Y|Y|Y|Y|Y|}
-		\hline \textbf{Ref.} & \RaggedRight \textbf{Software maintenance} & \RaggedRight \textbf{Event logging} & \RaggedRight \textbf{User-activity} & \RaggedRight \textbf{Web-based applications} & \textbf{System utilisation analysis} \\
-		\hline \RaggedRight \cite{Ackermann2009, Mamone1994, Galster2019, Reimanis2016, Snipes2018, Ogheneovo2014} & \cmark & \xmark & \xmark & \xmark & \xmark \\
-		\hline \cite{Tang2010} & \cmark & \cmark & \xmark & \xmark & \xmark \\
-		\hline \cite{Port2017} & \cmark & \xmark & \xmark & \xmark & \cmark \\
-		\hline \cite{Zhu2015} & \cmark & \cmark & \cmark & \xmark & \xmark \\
-		\hline \cite{Cinque2013} & \xmark & \cmark & \xmark & \xmark & \cmark \\
-		\hline \cite{Baccanico2014, Zhu2019,Kherbouche2017, Bekeneva2020, Jia2018} & \xmark & \cmark & \xmark & \xmark & \xmark \\
-		\hline \cite{Pecchia2015} & \xmark & \cmark & \xmark & \xmark & \cmark \\
-		\hline \cite{Slaninova2014, Dhanalakshmi2016, Waqar2017} & \xmark & \xmark & \cmark & \cmark & \cmark \\
-		\hline \cite{Hasiloglu2018} & \xmark & \xmark & \xmark & \cmark & \cmark \\
-		\hline \cite{Kocsis2012} & \xmark & \xmark & \xmark & \cmark & \cmark \\
-		\hline \cite{Rong2020} & \xmark & \cmark & \xmark & \xmark & \cmark \\
-		\hline \cite{Wang2008, Paliouras1999} & \xmark & \xmark & \xmark & \cmark & \cmark \\
-		\hline
-	\end{tabularx}
-\end{table}
-
-\Cref{tbl:ch1_StateOfTheART} most studies focus on either how to design and implement a logging mechanism, log analysis or software maintenance. Even if industry logging is used to improve software maintenance, most studies only focus on how to create a suitable logging mechanism for different applications as described in \Cref{apx:loggingPractice} about logging practice in software engineering.\par To improve software maintenance by using logging, a log analysis is needed. Some studies only focus on the analysis of existing logs and how to use them. There were a few studies that made use of user-based event logs for the system utilisation analysis.
-
-\clearpage
+Using the defined criteria create for the state-of-the-art topics in \Cref{tbl:ch1_soaEventLogging,tbl:ch1_soaLogAnalysis,tbl:ch1_soaSoftwareMaintennace} the state of art for the obtained studies is mad in \Cref{tbl:ch1_stateOfTheArt2}.
 
 \begin{landscape}
 	\begin{table}[!htb]
 		\centering
-		\small
 		\caption[State of the art]
 		{\textit{State of the art}}
 		\label{tbl:ch1_stateOfTheArt2}
@@ -552,27 +478,92 @@ Using \Cref{tbl:ch1_stateOfTheArtTopics} the evaluation criteria have been appli
 			& \textbf{Types and implementation} & \textbf{Problems} & \textbf{Models and prioritisation} & \textbf{Quality} & \textbf{Parsing} & \textbf{Points} & \RaggedRight \textbf{System utilisation analysis} \\ 
 		
 			\hline \cite{Ogheneovo2014} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
-			\hline \cite{Tang2010} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
+			\hline \cite{Tang2010} & Partial & Partial & \cmark & \xmark & \xmark & \xmark & \xmark \\
 			\hline \cite{Sneed2004} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
-			\hline \cite{Port2017} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
-			\hline \cite{Hasan2012,Ping2010} & \cmark & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark \\
-			\hline \cite{Niu2018} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
-			\hline \cite{Kumar2013} & \cmark & \xmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
+			\hline \cite{Stojanov2017} & \xmark & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
+			\hline \cite{Hasan2012,Ping2010, Galster2019, Niu2018} & \cmark & Partial & \xmark & \xmark & \xmark & \xmark & \xmark \\
+			\hline \cite{Kumar2013} & Partial & Partial & \cmark & \xmark & \xmark & \xmark & \xmark \\
 			\hline \cite{Lenarduzzi2017} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
-			\hline \cite{Ren2011,Vijayasarathy2016,Araujo2021} & Partial & \xmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
+			\hline \cite{Ren2011,Vijayasarathy2016,Araujo2021} & Partial & \xmark & \cmark & \xmark & \xmark & \xmark & \xmark \\	
+			\hline \cite{Zhu2019} & \xmark & \xmark & \xmark & Partial & \cmark & Partial & \xmark \\
+			\hline \cite{Rong2018} & \xmark & \xmark & \xmark & \cmark & Partial & Partial & \xmark \\
+			\hline \cite{Song2017} & \xmark & \xmark & \xmark & Partial & Partial & Partial & \cmark \\
+			\hline \cite{Zhu2015} & \xmark & \xmark & \xmark & \cmark & \cmark & \cmark & \xmark \\
+			\hline \cite{Kherbouche2017} & \xmark & \xmark & \xmark & \cmark & Pasrtial & Partial & \xmark \\
+			\hline \cite{Fedaghi2010} & \xmark & \xmark & \xmark & \cmark & Partial & \cmark & \xmark \\
+			\hline \cite{Jans2012} & \xmark & \xmark & \xmark & \cmark & Partial & Partial & \cmark \\
+
+			\hline \cite{Hasiloglu2018,Slaninova2014,Dhanalakshmi2016} & \xmark & \xmark & \xmark & Partial & \cmark & \cmark & Partial \\
+			\hline \cite{Kocsis2012,Waqar2017,Paliouras1999} & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
 			\hline
 		\end{tabularx}	
 	\end{table}
 \end{landscape}
 
-\paragraph{Software maintenance} \leavevmode\\
-In \Cref{sec:ch1_softwareMaintenanceIntro} is mostly focused on software maintenance and how it could be implemented. \cite{Hasan2012,Ping2010} discusses the different maintenance types that are implemented in the industry. These studies define the maintenance types and typical activities associated when implementing it for the Operations and Maintenance LCP of \Cref{tbl:ch1_SDLC}.\par The \cite{Kumar2013} journal also expands further on different types of maintenance that can be implemented but also make use of various maintenance methodologies to measure the performance of the implemented maintenance models. The study aims to align the development practices to maintenance models that will improve maintenance performance. \par From these studies \cite{Hasan2012,Ping2010,Kumar2013} the more reactive maintenance activities of \Cref{tbl:ch1_maintenanceTypes} will consume most of the available maintenance resources. Prioritisation of which type of maintenance can impact the maintenance performance and other complexities can cause issues with maintenance. The different problems with maintenance are explored in \Cref{sec:ch1_maintenanceProblems}. The journals of \cite{Ogheneovo2014,Sneed2004} defines the different problems with implementing software maintenance. The main problems are discussed  
+In \Cref{tbl:ch1_stateOfTheArt2} the studies that have been marked with the partial status satisfied the sub-topics evaluation criteria to some extent. These studies still contained much-needed literature for the sub-topic even if it was marked as practically satisfying the evaluation criteria.\par In \Cref{tbl:ch1_stateOfTheArt2} the three main topics have split the obtained literature into two main parts. The first part is only about software maintenance and how to implement and prioritise software maintenance using a suitable software maintenance model. The second part is about event logging and log analysis. In \Cref{tbl:ch1_stateOfTheArtComments} provides a summary of the literature in each study. 
+
+\begin{xltabular}{\linewidth}{|l|X|}
+	\caption[State of the art comments]
+	{\textit{State of the art comments}}
+	\label{tbl:ch1_stateOfTheArtComments} \\
+
+	\hline \textbf{Ref.} & \textbf{Comments} \\
+	\hline
+	\endfirsthead
+
+	\multicolumn{2}{c}%
+	{\tablename\ \thetable{} -- continued from previous page} \\
+	\hline \textbf{Ref.} & \textbf{Comments} \\
+	\endhead
+
+	\hline \multicolumn{2}{|r|}{{Continued on next page}} \\ \hline
+	\endfoot
+
+	\hline
+	\endlastfoot
+
+	\hline \cite{Ogheneovo2014} & Defines the different problems with implementing software maintenance. Also studies the relationship with the explored complexities that causes problems in software maintenance in \Cref{sec:ch1_maintenanceProblems}. \\
+
+	\hline \cite{Tang2010} & This study explores how software maintenance tasks are implemented with a practical software maintenance model. Looks at the decision-making process of how to prioritise adaptive and perfective software maintenance types. \\
+
+	\hline \cite{Sneed2004} & Defines the different problems with implementing software maintenance specifically the difficulties with managing the development process for software maintenance. \\ 
+
+	\hline \cite{Stojanov2017} & This study examines the software maintenance efforts when implementing a software maintenance model. Also examines how theses maintenance tasks are prioritised and divided among the software developers. \\
+
+	\hline \cite{Hasan2012,Ping2010, Galster2019, Niu2018} & Discusses the different maintenance types that are implemented in the industry and the need for software maintenance. These studies define the maintenance types and typical activities associated when implementing it for the Operations and Maintenance LCP of \Cref{tbl:ch1_SDLC}. \\
+
+	\hline \cite{Kumar2013} & This study aims to measure the effectiveness of using maintenance models by using key maintenance performance indicators. \\
+
+	\hline \cite{Lenarduzzi2017} & This study aims to analyse different software maintenance models and their characteristics. \\
+
+	\hline \cite{Ren2011,Vijayasarathy2016,Araujo2021} & These studies primarily discuss the implementation of suitable software maintenance models for software maintenance activities. Classification and prioritisation methodologies are reviewed in these studies especially \cite{Ren2011} comparing different software maintenance models. \\
+
+	\hline \cite{Zhu2019} & This study focuses on log parsing and how to identify and create logging points for the identified log attributes. \\
+
+	\hline \cite{Rong2018} & This study examines how logging practices are implemented in the industry. The study also examines the number of publications on logging practices in software engineering further discussed in \Cref{apx:loggingPractice}. \\
+
+	\hline \cite{Song2017} & In this study the relationship of designing and implementing event log models for data mining.  \\
+
+	\hline \cite{Zhu2015} & In this study, the importance of how to log and what to log is summarised to aid software developers to create efficient logging mechanisms.  \\
+
+	\hline \cite{Kherbouche2017} & This study examines what development practices can be implemented to improve or maintain event log quality.  \\
+
+	\hline \cite{Fedaghi2010} & This study aims to classify events based on their characteristics to ensure that unnecessary logging is reduced.  \\
+
+	\hline \cite{Jans2012} & This study focus on the process mining of event logs to implement log analysis.  \\
+
+	\hline \cite{Hasiloglu2018,Slaninova2014,Dhanalakshmi2016} & This study aims to create a logging mechanism to get audit logs from a Web application. \\
+
+	\hline \cite{Kocsis2012,Waqar2017,Paliouras1999} & These study aims to implement Web analytics on user behaviour data. Using third-party tools to create the analysis reports on the user-based events.  \\
+\end{xltabular}
+
+The summarised comments made of each study in \Cref{tbl:ch1_stateOfTheArtComments} emphasize the divide between software maintenance and event logging with the analysis of the logs included.
 
 \section{Problem statement}\label{sec:ch1_problemStatement}
-Software maintenance is a vital part of the entire life cycle of any software system. Implementing maintenance on software systems is most effective if it's done on systems that are utilised more by users. Some of these systems may also not be in use anymore and can be deprecated to improve system quality and remove unused code to not waste any resources to maintain and run it.\par A possible solution to this problem is using event logging to determine the utilisation of the system as it is a proven method industry to track system utilisation usage. Developers have access to third-party software logging tools to get the event logs. Most of the tools focus more on system runtime utilisation than user activities. There exist logging tools that can track user-based activities depending on the framework the software system is developed on.\par Developers still need to design the overall logging mechanism and decide where to place the logging points to capture the event logs in a software system. There are proven methods to create a suitable logging mechanism but not all of them include the analysis of the logs for user-based utilisation.
+Software maintenance is a vital part of the entire life cycle of any software system. In \Cref{sec:ch1_maintenanceProblems} there exist multiple challenges that can make it harder to improve maintenance efforts with the limited available resources. It is beneficial to prioritise maintenance to ensure that the limited resources are efficiently used. \par A possible solution to this problem is using event logging to determine the utilisation of the system as it is a proven method industry to track system utilisation usage. Software developers have access to third-party software logging tools to get the event logs. Most of the tools focus more on system runtime utilisation than user activities. There exist logging tools that can track user-based activities depending on the framework the software system is developed on.\par Although there exist tools that can track events that are generated by the user, it is not guaranteed that log quality will be at an acceptable level. Some much-needed logging attributes might even not be logged that will aid with the log analysis.\par Designing and implementing a logging mechanism might bridge the gap between software maintenance and log analysis to create a system utilisation report.\par Software Developers still need to design the overall logging mechanism and decide where to place the logging points to capture the event logs in a software system. There are proven methods to create a suitable logging mechanism but not all of them include the analysis of the logs for user-based utilisation to improve software maintenance.
 
 \section{Objectives of the study}\label{sec:ch1_objectives}
-This study aims to design and implement a logging mechanism to track user-based activities to perform an analysis of these logs to improve system maintenance in a software environment. The study is divided into two components to achieve the primary goal, which is the design and implementation of the logging mechanism and the analysis of the system utilisation to improve system maintenance to improve software maintenance.
+In \Cref{sec:ch1_problemStatement} the problem of efficiently implementing software maintenance has been identified. There is a need to create a system utilisation analysis report from event logs that are captured using a logging mechanism. \par The study is divided into two components to achieve the primary goal, which is the design and the implementation of the logging mechanism. For the log analysis of the system utilisation to improve system maintenance.
 
 \subsection{Logging mechanism:}
 \begin{enumerate}
@@ -588,13 +579,13 @@ This study aims to design and implement a logging mechanism to track user-based 
 
 \section{Overview of the dissertation}
 \subsubsection{Chapter 1: Introduction}
-This chapter contains the background of software maintenance and system utilisation analysis. It defines the complexities and general issues with software maintenance when implementing it and not implementing it.
+This chapter contains the background of software maintenance, event logging and system utilisation analysis. It defines the complexities and general issues with software maintenance for software developers. The need to efficiently use limited resources requires software developers to implement better software maintenance decisions. Event logging is a proven method to get system information that can be used to aid with prioritising software maintenance to implement it efficiently.
 
 \subsubsection{Chapter 2: Methodology}
 This chapter contains the design of the generic method used to create a logging mechanism from a set of defined logging points and log attributes. The software system for which the logging mechanism is made is a Web-based application. The second part of this chapter is the system utilisation analysis by using the captured logs to create an analysis report.
 
 \subsubsection{Chapter 3: Results}
-This chapter contains the results for the defined methodology to create a logging mechanism for system utilisation analysis of Chapter 2. The obtained results will be discussed and validated if they resolved the problem statement of \Cref{sec:ch1_problemStatement} and fulfilled the objectives of the study in \Cref{sec:ch1_objectives}.
+This chapter contains the results of implementing a logging mechanism on a case study web-based application as designed in Chapter 2. The results of the implemented logging mechanism are analysed as part of a system utilisation analysis and recommendations are made on how to improve the maintenance of the case study web-based application. The obtained results are discussed and validated to show how they address the problem statement and fulfil the study objectives.
 
 \subsubsection{Chapter 4: Conclusion}
-This chapter will provide the conclusion of creating a logging mechanism for system utilisation analysis to improve software maintenance for a Web-based application. Limitations and recommendations will also be made based on the methodology and results.
+This chapter provides the conclusion of creating a logging mechanism for system utilisation analysis to improve software maintenance for a Web-based application. Limitations and recommendations are also made based on the methodology and results.
