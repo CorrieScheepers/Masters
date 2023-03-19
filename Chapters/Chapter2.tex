@@ -3,18 +3,48 @@
 \ChapterPageStuff{2}
 
 \section{Preamble}\label{sec:ch2_preamble}
- The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs. The Web-based application system on this logging mechanism will be implemented on is an energy management system for the mining industry.\par In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with where each mine group has different toolboxes linked to it and each toolbox has different dashboards linked to them which the users can access and interact with. The activities of each of these dashboards and how the user navigates through them are necessary for the system utilisation analysis.
+ The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs. The development of the solution for the identified problem in \Cref{sec:ch1_problemStatement} will be specifically made for a Web-based application.\par Web-based applications are one the most widely used software implementations that can benefit from a system utilisation analysis using user-based event logs. These software systems have many different designs, for this study Web-applications that require the user to be logged in to an active session in the software system will be used as in \Cref{fig:ch2_webSystemBasic}.
+
+ \begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.95\textwidth]{img/Chapter2/systemOverview/systemOverview.pdf}
+	\caption[Basic design of a software system]
+	{\textit{Basic design of a software system}}\label{fig:ch2_webSystemBasic}
+\end{figure}
+ 
+ In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with different systems. These systems can be different pages or sections of the website and can be further divided into subsystems. \par In \Cref{sec:ch2_loggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:sec_system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance by using various tools visualisation tools or creating them based on the log attributes that are available.
+
+\clearpage
+
+\section{Development of solution}\label{sec:ch2_developementOfSolution}
+In \Cref{sec:ch1_objectives} the objectives of the study are split into two main parts that need to be implemented to solve the identified problem. The two main parts are to create a logging mechanism to capture the user-based activity logs and log analysis to prioritise software maintenance as shown in \Cref{fig:ch2_developmentOfSolution}.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.85\textwidth]{Chapter2/SystemA_Dashboard/SystemA_Dashboard.pdf}
-	\caption[Basic design of an energy management system]
-	{\textit{Basic design of an energy management system}}\label{fig:ch2_webSystemBasic}
+	\includegraphics[width=0.95\textwidth]{img/Chapter2/developmentOfSolution/developementOfSolution.pdf}
+	\caption[Development of solution overview]
+	{\textit{Development of solution overview}}\label{fig:ch2_developmentOfSolution}
 \end{figure}
 
-In \Cref{Ch2:LoggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:sec_system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance by using various tools visualisation tools or creating them based on the log attributes that are available.
+\Cref{fig:ch2_developmentOfSolution} is a high-level overview of the development of the solution. The 
 
-\section{Logging mechanism}\label{Ch2:LoggingMechanism} The logging mechanism will need to meet the requirements discussed in \Cref{sec:ch1_eventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one interface to another interface. These interfaces are labelled as I/F in \Cref{fig:ch2_systemDesign}. The \Cref{fig:ch2_systemDesign} is the client interface (\phase{fr:client}) and the server interface (\phase{fr:server}) that forms the entire logging mechanism to capture the user-based activity logs.
+\setcounter{phase}{0}
+\begin{table}[!htb]
+	\centering
+	\caption[Development of solution design requirements]
+	{\textit{Development of solution design requirements}}
+	\label{tbl:ch2_developmenetRequirements}
+	\begin{tabularx}{\textwidth}{|l|l|X|}
+		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
+		\hline \phase{fr:logAttributes} & Indetify log attributes & The log attributes need tobe identified what is needed to complete the log analysis for software maintenance prioritisation. The log attributes forms the characteristics of the obtained event which for this study focuses on user-based events. \\
+		\hline \phase{fr:loggingPoints} & User's device & The device that the user uses to access the website from where the user-based activity events are generated.\\
+		\hline \phase{fr:logTools} & User-generated events & These are the captured user-based activity events that have been identified by the logging point and will be sent to the server.\\
+		\hline
+	\end{tabularx}
+\end{table}
+
+\subsection{Logging mechanism development of solution overview}
+The logging mechanism will need to meet the requirements discussed in \Cref{sec:ch1_eventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one interface to another interface. These interfaces are labelled as I/F in \Cref{fig:ch2_systemDesign}. The \Cref{fig:ch2_systemDesign} is the client interface (\phase{fr:client}) and the server interface (\phase{fr:server}) that forms the entire logging mechanism to capture the user-based activity logs.
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -23,7 +53,11 @@ In \Cref{Ch2:LoggingMechanism} the methodology to create a logging mechanism to 
 	{\textit{Logging mechanism architecture design}}\label{fig:ch2_systemDesign}
 \end{figure}
 
-\subsubsection{Clients functional requirements}
+\clearpage
+
+\section{Logging mechanism}\label{sec:ch2_loggingMechanism} 
+
+\subsection{Clients functional requirements}
 The client's functional requirements (F/R 1) are where the user-based activity is triggered. In \Cref{fig:ch2_systemDesign} the client interface consists of three main functional requirements. These interfaces in \Cref{tbl:ch2_clientFunctionalRequirements} parse the input from the user to create a basic user-based action that can be parsed and captured and parsed by the logging point to create a user-based log that is parsed onto the server for further processing.
 
 \setcounter{phase}{1}
@@ -41,7 +75,7 @@ The client's functional requirements (F/R 1) are where the user-based activity i
 	\end{tabularx}
 \end{table}
 
-\subsubsection{Server's functional requirements}\label{sec:ch2_serverFunctionalRequirements}
+\subsection{Server's functional requirements}\label{sec:ch2_serverFunctionalRequirements}
 The server functional requirements in \Cref{tbl:ch2_serverInterfaceRequirements} for \Cref{fig:ch2_systemDesign} is the rest of the logging mechanism. At this stage, the obtained user-generated event of \Cref{fig:ch2_user_based_actvity_classification} will be attempted to be completed into a user-based activity log and stored in a database by the logging point. \par 
 
 \stepcounter{phase}
@@ -53,7 +87,7 @@ The server functional requirements in \Cref{tbl:ch2_serverInterfaceRequirements}
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
 		\hline \subphase{fr:serverActivityLogger} & User activity logger & The logging points are used to capture and create the user-based event log that will be stored in a database.\\
-		\hline \subphase{fr:serverDatabase} & Database & The event log is stored in a database until it is needed for further analysis.\\
+		\hline \subphase{fr:serverDatabase} & Database & The event log is stored in a structured database until it is needed for further log analysis.\\
 		\hline
 	\end{tabularx}
 \end{table}
@@ -104,7 +138,7 @@ The user-activity logs will be split into three main event types as in \Cref{tbl
 		\hline \subsubphase{fr:uatType2} & Session changes & This is any user activities excluding \ref{fr:uatType1} that modifies the user's session:
 		\begin{itemize}
 			\item Logging into a Web application. Both Successful and failed attempted logins. This user-based activity may cause the log attributes that identify the user will be a \texttt{NULL} value as the user's session has not started yet to verify their identity,
-			\item Ending their session through by logging out or declining to extend their session when it is about to expire,
+			\item Ending their session by logging out or declining to extend their session when it is about to expire,
 			\item Modifying any session or other relevant variables that can be used in the utilisation analysis
 		\end{itemize}\\
 		\hline \subsubphase{fr:uatType3} & General activity & Any events excluding the first two user-based activity types that the user initiates when they interact with the web page. Most of the user activity logs will
@@ -254,33 +288,6 @@ Most Web applications will make of use JavaScript to control the content of the 
 	});
 \end{lstlisting}
 
-\subsection{Obtaining the element of user-based event}\label{sec:ch2_ElementObtaining}
-In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will be use a \textit{HTTP request} to send to the server when the user interacted with an \textit{HTML element}. For the functional requirements activity type (F/R 1.5.3) and metadata (F/R 1.5.6) in \Cref{tbl:ch2_keyLoggingAttributes} the \textit{HTML element} needs to be obtained to get the element's tag and identification text. This can be difficult to obtain due to \textit{bubbling}\footnote{\textbf{Bubbling} is when an event happens on an element, it first runs the handlers on it, then on its parent, then up on other ancestors. \cite{EventBubbling}.} that may occur when searching for the element that the user specifically interacted with.\par In \Cref{fig:ch2_event_bubbling} is the event propagation example of a child element that has been clicked on which executes a DOM event. The event propagation consists of three phases~\cite{EventBubbling}:
-
-\begin{itemize}
-	\item \textit{Capturing phase:} The event propagates downwards to the targeted element that the user interacted with.
-	\item \textit{Target phase:} The event reaches the targeted element to execute the DOM event.
-	\item \textit{Bubbling phase:} The event bubbles up from the targeted element
-\end{itemize}
-
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
-	\centering % cent the figure
-	\includegraphics[width=0.6\textwidth]{Chapter2/event_bubbling/event_bubbling.pdf}
-	\caption[JavaScript event propagation]
-	{\textit{JavaScript event propagation~\cite{EventBubbling}}}\label{fig:ch2_event_bubbling}
-\end{figure}
-
-Capturing the targeted element may be difficult as some Web pages may have more complex HTML where the event propagation may sometimes not obtain the correct element information which the user interacted with. Another DOM event may have started during the initial element's event, therefore it is more accurate to obtain the targeted element by obtaining the last known element the user hovered over on the user interface.\par In \Cref{fig:ch2_element_event_capturing} is the flow diagram to capture the element user interacted with for the user-based activity log. This code segment will be initiated during the \texttt{beforeSend} operation of the \textit{AJAX request} to filter HTML elements by predefined allowed elements to use. Filtering the element tag names ensures that unwanted more complex elements or more basic elements that are not expected to be the initiator of the event will be used. \par If the Web location already changed or no element exists, the contents of the page might have already changed during the event propagation. The last known element that the user hovered on must be used as most likely might have been the element that the user interacted with. This will ensure there is always an element that has been detected and parsed with the request header in most UI changes.
-
-\clearpage
-
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
-	\centering % cent the figure
-	\includegraphics[width=0.5\textwidth]{Chapter2/element_capturing/element_capturing.pdf}
-	\caption[HTML element capturing flow diagram]
-	{\textit{HTML element capturing flow diagram}}\label{fig:ch2_element_event_capturing}
-\end{figure}
-
 \subsection{Client functional requirements interaction}
 \par In \Cref{fig:ch2_user_based_actvity_classification} is the complete process of the user interacting with the user interface to trigger a user-based activity event to be logged later for the client's functional requirements. It starts with the user interacting with the user interface. In the \texttt{beforeSend} operation of the \textit{AJAX request} the HTML element's id and tag should be attempted. The default activity type is set to general activity (\ref{fr:uatType3}) until it is further processed later in the logging mechanism.\par If the activity has any additional metadata such as other request parameters, it will also be logged by adding searching for it in the \texttt{beforeSend} operation. The other metadata can also be captured in this stage from the client side like the element that the user clicked to initiate the event. The captured metadata is placed in a custom request header afterwards, and the \textit{AJAX request} continues its normal operations and sends the data back to the server.
 
@@ -407,7 +414,7 @@ The system utilisation analysis will make use of a Web-based graphical user inte
 
 \clearpage
 
-Each of these functional requirements ensures that the system utilisation analysis will be achieved for the created logging mechanism in \Cref{Ch2:LoggingMechanism}. The main user interface of the system utilisation analysis will consist of the presentation of the user-based activities (\ref{fr:ur4}). This system will either be a custom-created system to display these logs or third-party software such as Microsoft's business intelligence platform, PowerBI. \par Using the third-party tools has advantages over creating custom software for the visual presentation (\ref{fr:ur4}):
+Each of these functional requirements ensures that the system utilisation analysis will be achieved for the created logging mechanism in \Cref{sec:ch2_loggingMechanism}. The main user interface of the system utilisation analysis will consist of the presentation of the user-based activities (\ref{fr:ur4}). This system will either be a custom-created system to display these logs or third-party software such as Microsoft's business intelligence platform, PowerBI. \par Using the third-party tools has advantages over creating custom software for the visual presentation (\ref{fr:ur4}):
 
 \begin{itemize}
 	\item Third-party business intelligence platforms have all the necessary analytical functionality. The tables and charts needed for the visual presentation can be created with minimal programming difficulty.
@@ -438,7 +445,7 @@ Log extraction refers to the methods used to obtain the logs from the database w
 	{\textit{Example of a visual presentation}}\label{fig:ch2_pbiExample}
 \end{figure}
 
-\subsection{Maintenance improvements}\label{sec:ch2_utilisationImprovements}
+\subsection{Maintenance prioritisation}\label{sec:ch2_utilisationImprovements}
 The system utilisation analysis aims to provide maintenance recommendations to the developers to improve their maintenance efforts by:
 
 \begin{itemize}
@@ -463,24 +470,5 @@ The system utilisation analysis aims to provide maintenance recommendations to t
 
 \clearpage
 
-\section{Verification}\label{sec:ch2_verification}
-Using the functional requirements defined in \Cref{Ch2:LoggingMechanism,ch2:sec_system_utilisation_analysis} the system can be verified that it satisfies the system requirements in \Cref{tbl:ch2_verification}.
-
-\begin{table}[!htb]
-	\centering
-	\caption[System requirements for verification]
-	{\textit{System requirements for verification}}
-	\label{tbl:ch2_verification}
-	\begin{tabularx}{\textwidth}{|X|X|c|}
-		\hline \textbf{Requirement} & \textbf{Methodology reference} & \textbf{Satisfied} \\
-		\hline \textbf{User activity types} & \Cref{sec:ch2_requirementsOfUAT,sec:ch2_userActivityTypes} & \cmark \\
-		\hline \textbf{Log attributes} & \Cref{sec:ch2_logAttributes} & \cmark \\
-		\hline \textbf{Logging points} & \Cref{sec:ch2_loggingPoints,sec:ch2_webApplicationArchitecture,sec:ch2_ElementObtaining,sec:ch2_serverSideLoggingpoint} & \cmark \\
-		\hline \textbf{Log extraction and visualisation} & \Cref{sec:ch2_databaseStorage,sec:ch2_logExtraction} & \cmark \\
-		\hline \textbf{System utilisation analysis} & \Cref{sec:ch2_utilisationImprovements} & \cmark \\
-		\hline
-	\end{tabularx}
-\end{table}
-
 \section{Conclusion}
-In \Cref{Ch2:LoggingMechanism} are the defined functional requirements for a logging mechanism for the system utilisation analysis in \Cref{ch2:sec_system_utilisation_analysis}. The user activity types defined in \Cref{sec:ch2_userActivityTypes} are the base of what log attributes need to be logged to create a user-based log.\par The logging points captured logs and send them to the server's logging point where it is processed and stored in writing in a database.\par The logs are extracted into a visual presentation which enables the maintenance improvement suggestions based on the utilisation analysis in \Cref{ch2:sec_system_utilisation_analysis}.
+In \Cref{sec:ch2_loggingMechanism} are the defined functional requirements for a logging mechanism for the system utilisation analysis in \Cref{ch2:sec_system_utilisation_analysis}. The user activity types defined in \Cref{sec:ch2_userActivityTypes} are the base of what log attributes need to be logged to create a user-based log.\par The logging points capture logs and send them to the server's logging point where it is processed and stored in writing in a database.\par The logs are extracted into a visual presentation which enables the maintenance improvement suggestions based on the utilisation analysis in \Cref{ch2:sec_system_utilisation_analysis}.
