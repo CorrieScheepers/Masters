@@ -26,7 +26,7 @@ In \Cref{sec:ch1_objectives} the objectives of the study are split into two main
 	{\textit{Development of solution overview}}\label{fig:ch2_developmentOfSolution}
 \end{figure}
 
-\Cref{fig:ch2_developmentOfSolution} is a high-level overview of the development of the solution. The 
+\Cref{fig:ch2_developmentOfSolution} is a high-level overview of the development of the solution. For the logging mechanism the 
 
 \setcounter{phase}{0}
 \begin{table}[!htb]
@@ -37,11 +37,14 @@ In \Cref{sec:ch1_objectives} the objectives of the study are split into two main
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
 		\hline \phase{fr:logAttributes} & Indetify log attributes & The log attributes need tobe identified what is needed to complete the log analysis for software maintenance prioritisation. The log attributes forms the characteristics of the obtained event which for this study focuses on user-based events. \\
-		\hline \phase{fr:loggingPoints} & User's device & The device that the user uses to access the website from where the user-based activity events are generated.\\
-		\hline \phase{fr:logTools} & User-generated events & These are the captured user-based activity events that have been identified by the logging point and will be sent to the server.\\
+		\hline \phase{fr:loggingPoints} & Logging point creation & The device that the user uses to access the website from where the user-based activity events are generated.\\
+		\hline \phase{fr:logTools} & Create or use analysis tools & These are the captured user-based activity events that have been identified by the logging point and will be sent to the server.\\
+		\hline \phase{fr:maintenancePrioritising} & Maintenance prioritising & Create a maintenance prioritising report based on the log analysis for software maintenance. \\
 		\hline
 	\end{tabularx}
 \end{table}
+
+\clearpage
 
 \subsection{Logging mechanism development of solution overview}
 The logging mechanism will need to meet the requirements discussed in \Cref{sec:ch1_eventLogging} to capture the required logs to apply system utilisation analysis on it. \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user's activities. In this figure, the logging mechanism is split up into two functional requirements parts (F/R) which consist of the client and server functional requirements.\par Each functional requirement has an interface requirement that transfers the data from one interface to another interface. These interfaces are labelled as I/F in \Cref{fig:ch2_systemDesign}. The \Cref{fig:ch2_systemDesign} is the client interface (\phase{fr:client}) and the server interface (\phase{fr:server}) that forms the entire logging mechanism to capture the user-based activity logs.
