@@ -277,3 +277,18 @@ In this section, the integration of the utilisation analysis and logging mechani
 \section{Conclusion}
 Conclude the chapter about the development of the logging mechanism and utilisation analysis.
 
+Most Web applications will make of use JavaScript to control the content of the page that is being displayed to the user. The primary method would be making use of an \textit{AJAX request} to communicate with the server to fulfil the user's action.\par The \textit{AJAX request} has some key features that will enable the logging points discussed in \Cref{sec:ch2_loggingPoints} to capture some logging attributes and classify the event as a user-based activity. \par The \texttt{beforeSend} setting of the \textit{AJAX request} enables tracking in real-time for the HTML element id and its HTML tag or other possible log attributes that need to be added to the request for the log point to capture it. The captured HTML element id, HTML tag and some other parameters can be added as a custom request header that will be sent to the server.
+
+\begin{lstlisting}[caption={\textit{AJAX request example \cite{API.jQuery2022}}}, label={fig:ch2_ajaxBeforesend}]  
+	$.ajax({
+		url: "https://fiddle.jshell.net/favicon.png",
+		beforeSend: function (xhr) {
+			xhr.overrideMimeType("text/plain; charset=x-user-defined");
+		}
+	}).done(function (data) {
+		if (console && console.log) {
+			console.log("Sample of data:", data.slice(0, 100));
+		}
+	});
+\end{lstlisting}
+
