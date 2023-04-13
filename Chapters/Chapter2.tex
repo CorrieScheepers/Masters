@@ -477,7 +477,7 @@ These third-party tools do indeed have some other drawbacks such as:
 With the drawbacks listed above the third-party business intelligence platforms is the better visual presentation tools for the system utilisation analysis if it is available for use than creating and managing a custom visualisation platform.
 
 \subsection{Maintenance prioritisation}\label{sec:ch2_utilisationImprovements}
-Maintenance prioritisation is done from the log analysis. The maintenance priortising functional requirements (\ref{fr:maintenancePrioritising}) are shown in \Cref{tbl:ch2_maintenancePriortising}.
+Maintenance prioritisation is done from the log analysis. The maintenance prioritising functional requirements (\ref{fr:maintenancePrioritising}) are shown in \Cref{tbl:ch2_maintenancePriortising}.
 
 \setcounter{phase}{4}
 \setcounter{subphase}{0}
@@ -498,6 +498,25 @@ The system utilisation analysis aims to provide maintenance recommendations to t
 \begin{itemize}
 	\item Prioritising the maintenance efforts on more frequently used systems.
 	\item Decommission unused systems. The user-based activities provide a quantitative reason why certain systems can be decommissioned due to inactivity from the users.
+\end{itemize}
+
+\begin{equation}
+	M_{PF} = A_X \times \frac{A_X - A_{Min}}{A_{Max} - A_{Min}} \times P_{N},
+\end{equation}
+
+\begin{equation}
+	M_{PF} = A_X \times A_{N} \times P_{N}
+\end{equation}
+
+where:
+
+\begin{itemize}
+	\item $M_{PF}$ is the maintenance priority factor,
+	\item $A_X$ is the total user activities for the subsystem,
+	\item $A_{Min}$ is the total minimum user activities for a subsystem,
+	\item $A_{Max}$ is the total maximum user activities for a subsystem,
+	\item $A_{N}$ is the normalised activity for $A_X$,
+	\item $P_{N}$ is the normalised priority factor for the subsystem.
 \end{itemize}
 
 \subsubsection{System utilisation analysis categories}
