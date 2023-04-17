@@ -488,7 +488,8 @@ Maintenance prioritisation is done from the log analysis. The maintenance priori
 	\label{tbl:ch2_maintenancePriortising}
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
-		\hline \subphase{fr:systemUtiReq} & System utilisation analysis categories & \RaggedRight The system utilisation analysis categories is needed to complete the log analysis. These categories will provide the nesseacary data to make recommendations on how to prioritise software maintenance by using these log analysis metrics.\\
+		\hline \subphase{fr:systemUtiReq} & System utilisation analysis categories & \RaggedRight The system utilisation analysis categories is needed to complete the log analysis. These categories will provide the needed data to make recommendations on how to prioritise software maintenance by using these log analysis metrics.\\
+		\hline \subphase{fr:maintenanceFactor} & Maintenance factor & \RaggedRight The maintenance factor measures the amount of maintenance required for a given software system. This will be used to prioritise the software maintenance efforts of the software developers using a scoring system. \\
 		\hline
 	\end{tabularx}
 \end{table}
@@ -501,10 +502,12 @@ The system utilisation analysis aims to provide maintenance recommendations to t
 \end{itemize}
 
 \begin{equation}
+	\label{eq:ch2_maintenanceFactor}
 	M_{PF} = A_X \times \frac{A_X - A_{Min}}{A_{Max} - A_{Min}} \times P_{N},
 \end{equation}
 
 \begin{equation}
+	\label{eq:ch2_maintenanceFactorSimplified}
 	M_{PF} = A_X \times A_{N} \times P_{N}
 \end{equation}
 
@@ -519,10 +522,10 @@ where:
 	\item $P_{N}$ is the normalised priority factor for the subsystem.
 \end{itemize}
 
+\clearpage
+
 \subsubsection{System utilisation analysis categories}
 The system utilisation analysis categories functional requirements (\ref{fr:systemUtiReq}) is used to categorise the log data for the maintenance prioritising metrics. In \Cref{tbl:ch2_utilisationCategories} is the system utilisation analysis categories functional requirements (\ref{fr:systemUtiReq}).
-
-\clearpage
 
 \begin{table}[!htb]
 	\centering

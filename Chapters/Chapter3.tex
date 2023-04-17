@@ -3,10 +3,46 @@
 \ChapterPageStuff{3}
 
 \section{Introduction}
+In \Cref{sec:ch2_preamble} the methodology is created for a web based software system. As describe in this section that a user can have multiple systems and subssyrtems linked to their account. The implementation is done for multiple software systems in this section.
 
 \section{Implementation}
 
 \subsection{System Implementation}
+
+\begin{table}[!htb]
+	\centering
+	\caption[Logging attributes]
+	{\textit{Logging attributes}}
+	\label{tbl:ch3_Log_Attributes}
+	\begin{tabularx}{\textwidth}{|l|l|X|}
+		\hline \textbf{Column name} & \textbf{Requirement ID} & \textbf{Description}\\
+		\hline \texttt{laa\_ID} & \ref{fr:lpa1} & User based actvity identifier. \\
+		\hline \texttt{laa\_TimeStamp} & \ref{fr:lpa2} & Timesstamp when the activity has occur. \\
+		\hline \texttt{laa\_ActivityType} & \ref{fr:lpa3} & Activity type of the log event. \\
+		\hline \texttt{fk\_u\_ID} & \ref{fr:lpa4} & Identification number of the user associated with the log event. \\
+		\hline \texttt{laa\_Area} & \ref{fr:lpa5} & System where the activity has occur. \\
+		\hline \texttt{laa\_Controller} & \ref{fr:lpa5} & Subsystem where the activity has occur. \\
+		\hline \texttt{laa\_MetaData} & \ref{fr:lpa6} & Metadata captured from the \textit{HTTP request}. \\
+		\hline \texttt{fk\_g\_ID} & \ref{fr:lpa7} & Additional identifiers for the log event. \\
+		\hline
+	\end{tabularx}
+\end{table}
+
+\begin{lstlisting}[style=json, caption={\textit{Metadata JSON}}, label={fig:ch3_MetadataJson}] 
+	{
+		"RequestOrigin": "/System/Subsystem1/",
+		"RequestElementID": "ButtonSaveCsv",
+		"RequestParameters": {
+			"aTagIDs": [
+				"6284",
+				"20320"
+			],
+			"aToDate": "2020-04-06",
+			"aGroupID": 2,
+			"aFromDate": "2020-03-30"
+		}
+	}
+\end{lstlisting}
 
 \subsubsection{Obtaining the element of user-based event}\label{sec:ch2_ElementObtaining}
 In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will be use a \textit{HTTP request} to send to the server when the user interacted with an \textit{HTML element}. For the functional requirements activity type (F/R 1.5.3) and metadata (F/R 1.5.6) in \Cref{tbl:ch2_keyLoggingAttributes} the \textit{HTML element} needs to be obtained to get the element's tag and identification text. This can be difficult to obtain due to \textit{bubbling}\footnote{\textbf{Bubbling} is when an event happens on an element, it first runs the handlers on it, then on its parent, then up on other ancestors. \cite{EventBubbling}.} that may occur when searching for the element that the user specifically interacted with.\par In \Cref{fig:ch2_event_bubbling} is the event propagation example of a child element that has been clicked on which executes a DOM event. The event propagation consists of three phases~\cite{EventBubbling}:
@@ -36,6 +72,8 @@ Capturing the targeted element may be difficult as some Web pages may have more 
 \end{figure}
 
 \subsection{Verification}
+
+\subsubsection{Log attributes}
 
 \section{Case studies}
 
