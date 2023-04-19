@@ -54,7 +54,7 @@ The two main parts are to create a logging mechanism to capture the user-based a
 	\label{tbl:ch2_developmenetRequirements}
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
-		\hline \phase{fr:logAttributes} & Identify log attributes & \RaggedRight The log attributes need to be identified what is needed to complete the log analysis for software maintenance prioritisation. The log attributes form the characteristics of the obtained event which for this study focuses on user-based events. \\
+		\hline \phase{fr:logAttributes} & Identify log attributes & \RaggedRight The log attributes need to be identified as what is needed to complete the log analysis for software maintenance prioritisation. The log attributes form the characteristics of the obtained event which for this study focuses on user-based events. \\
 		\hline \phase{fr:loggingPoints} & Logging point creation & \RaggedRight Log points capture the desired log attributes when the user-based event is taking place. In \Cref{sec:ch1_loggignPoints} logging points should be strategically placed in the software system to capture the event logs. This stage of the development includes identifying where the log points should be placed, log creation and database interactions.\\
 		\hline \phase{fr:logAnalysis} & \RaggedRight Create or use log analysis tools & Make use of suitable third-party tools or create software to do log analysis on the stored event logs. \\
 		\hline \phase{fr:maintenancePrioritising} & \RaggedRight Maintenance prioritising & Create a maintenance prioritising report based on the log analysis for software maintenance using the log analysis tool. The report aims to visualise the system utilisation of certain parts of the system and determine maintenance prioritisation.\\
@@ -67,7 +67,7 @@ The functional requirements (\textbf{F/R}) in \Cref{tbl:ch2_developmenetRequirem
 \section{Logging mechanism}\label{sec:ch2_loggingMechanism}
 The logging mechanism system design will be defined in this section. This is to create a generic method of how to create a suitable logging mechanism to capture specific user-based event logs. This also defines any other sub-functional requirements to identify the log attributes (\ref{fr:logAttributes}) and logging point creation (\ref{fr:loggingPoints}).
 
-\subsection{Log attributes requirements}
+\subsection{Log attributes requirements}\label{sec:ch2_logAttributesRequirements}
 The log attributes functional requirement (\ref{fr:logAttributes}) focuses on the possible events that the user has been involved with when interacting with the software system. In \Cref{tbl:ch2_loggingAttributesFunctionalRequirements} are the functional requirements of \ref{fr:logAttributes}.
 
 \setcounter{phase}{1}
@@ -397,7 +397,7 @@ If the \texttt{request header} contains the \texttt{Index} keyword which is the 
 \clearpage
 
 \section{Log analysis}\label{ch2:sec_system_utilisation_analysis}
-The log analysis system design will be defined in this section. There are no restrictions on what log analysis tools developers can use but they need to use or implement one that will able to do the log analysis. This section also defines all the sub-functional requirements for the creation or use of log analysis tools (\ref{fr:logAnalysis}) and maintenance priortising (\ref{fr:maintenancePrioritising}).
+The log analysis system design will be defined in this section. There are no restrictions on what log analysis tools developers can use but they need to use or implement one that will able to do the log analysis. This section also defines all the sub-functional requirements for the creation or use of log analysis tools (\ref{fr:logAnalysis}) and maintenance prioritising (\ref{fr:maintenancePrioritising}).
 
 \subsection{Create or use log analysis tools}
 The log analysis (\ref{fr:logAnalysis}) makes use of either third-party analytical tools or custom-created software log analysis implementations. Developers should use the implementation that will fulfil their log analysis needs. In \Cref{tbl:ch2_logAnalysis} is the log analysis functional requirements (\ref{fr:logAnalysis}).

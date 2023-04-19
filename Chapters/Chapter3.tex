@@ -3,11 +3,16 @@
 \ChapterPageStuff{3}
 
 \section{Introduction}
-In \Cref{sec:ch2_preamble} the methodology is created for a web based software system. As describe in this section that a user can have multiple systems and subssyrtems linked to their account. The implementation is done for multiple software systems in this section.
+In \Cref{sec:ch2_preamble} the methodology is created for a web based software system. As describe in this section that a user can have multiple systems and subssyrtems linked to their account. The implementation is done for multiple software systems in this section. The system implementation will focus more on the development of the logging mechanism and the critic analysis will be of the Priortising of software maintenance using a utilisation analysis.
 
 \section{Implementation}
+To implement the development of solution that is discussed in \Cref{sec:ch2_developementOfSolution} three different software systems will be used. These systems is created make use of \texttt{APS.NET Core Web SDK} and \texttt{PHP}. Usisng these systems will enable to create a logging mechanism for newer and older software systems.
 
 \subsection{System Implementation}
+When working with both \texttt{ASP.NET Core Web SDK} and \texttt{PHP}, there may be similarities and shared system implementations. However, discrepancies may arise between the two technologies, particularly in the area of logging mechanisms. It is important to note the specific implementation and resulting behaviors to effectively troubleshoot any issues that may occur.
+
+\subsubsection{Log attibutes}\label{sec:ch3_logAtrributes}
+Using the functional requirements discussed in \Cref{sec:ch2_logAttributesRequirements}
 
 \begin{table}[!htb]
 	\centering
@@ -71,7 +76,28 @@ Capturing the targeted element may be difficult as some Web pages may have more 
 	{\textit{HTML element capturing flow diagram}}\label{fig:ch2_element_event_capturing}
 \end{figure}
 
-\subsection{Verification}
+\clearpage
+
+\begin{landscape}
+	\subsection{Verification}
+
+	\begin{table}[!htb]
+		\centering
+		\small
+		\caption[System requirements for verification]
+		{\textit{System requirements for verification}}
+		\label{tbl:ch2_verification}
+		\begin{tabularx}{\linewidth}{|l|X|X|X|c|}
+			\hline \textbf{Main Requirement} & \textbf{Functional requirement} & \textbf{Methodology reference} & \textbf{Implementation reference} & \textbf{Satisfied} \\ 
+			\hline \multirow{3}{*}{Logging attributes (\ref{fr:logAttributes})} & User-based event log characteristics (\ref{fr:userEventReq}) & \Cref{sec:ch2_requirementsOfUAT} &  & \cmark \\
+				& User activity types (\ref{fr:userActReq}) & \Cref{sec:ch2_userActivityTypes} &  & \cmark \\ \cline{2-5}
+				& User-based event log characteristics (\ref{fr:subLogAttributes}) & \Cref{sec:ch2_logAttributesRequirements} & \Cref{sec:ch3_logAtrributes} & \cmark \\ \cline{2-5}\cline{2-5}
+			\hline
+		\end{tabularx}
+	\end{table}
+\end{landscape}
+
+\clearpage
 
 \subsubsection{Log attributes}
 
