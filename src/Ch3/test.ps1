@@ -1,1 +1,0 @@
-phpmetrics --report-html=myreport.html C:\WEB\SOURCE\MTB

@@ -1,0 +1,435 @@
+SystemName,SubSystemId,Project,SystemId,Deleted,Priority
+Energy | Systems | Monthly view,72,1,NULL,1,8
+Energy | Systems | Daily,73,1,NULL,1,8
+Energy | Systems | Report,83,1,NULL,1,8
+Energy | Electricity | Costs,171,1,NULL,1,8
+Energy | Electricity | Usage,172,1,NULL,1,8
+Energy | Electricity | Account info,173,1,NULL,1,8
+_UNLINK_20200910 | CustomViews | [Harmony] Compressed Air Analysis,191,1,NULL,0,0
+_UNLINK_20200910 |  CustomViews | [Harmony] Energy Totals,192,1,NULL,0,0
+_UNLINK_20220531 |  CustomViews | [Harmony] Kusasalethu services overview [DEMO],207,1,NULL,0,0
+Energy | Electricity | Time-Of-Use,208,1,NULL,1,7
+Energy | Risks | Carbon tax,209,1,NULL,1,7
+Energy | Risks | Reactive power,210,1,NULL,1,7
+Energy | Opportunities | Maximum demand,211,1,NULL,1,7
+Energy | Risks | Electricity cost inflation,212,1,NULL,1,7
+Energy | Opportunities | Potential initiatives,213,1,NULL,1,7
+Energy | Opportunities | Tax Rebates,232,1,NULL,0,7
+_UNLINK_20210528 | Operational Status | Operational Status [DEMO],253,1,NULL,0,0
+_UNLINK_20210602 | Service delivery | Service delivery [DEMO],254,1,NULL,0,0
+Energy | Electricity | Account analysis,257,1,NULL,1,7
+Energy | Initiatives | Daily,258,1,NULL,1,7
+Energy | Initiatives | Monthly view,259,1,NULL,1,7
+Energy | Systems | Data analysis,268,1,NULL,1,7
+Energy | Initiatives | Performance tracking,275,1,NULL,1,7
+_UNLINK_20220603 | CustomViews | [Harmony] Kusasalethu [Live pages],279,1,NULL,0,0
+_UNLINK_20200910 | CustomViews | [Harmony] Production performance [DEMO],284,1,NULL,0,0
+_UNLINK_20220603 | CustomViews | [Harmony] Tshepong,285,1,NULL,0,0
+_UNLINK_20190927 | CustomViews | [Harmony] COO [DEMO][UserLoginLanding],290,1,NULL,0,0
+_UNLINK_20190927 | CustomViews | [Harmony] Engineer [DEMO][UserLoginLanding],291,1,NULL,0,0
+Energy | Electricity | Summary [Duplicate Sub],305,1,NULL,1,5
+Energy | Risks | Summary [Duplicate Sub],306,1,NULL,1,5
+Energy | Opportunities | Summary [Duplicate Sub],307,1,NULL,1,5
+_RETIRED_20210609 | Environment | Operations,310,1,NULL,0,0
+_RETIRED_20210609 | Environment | Land Management,314,1,NULL,0,0
+_UNLINK_20190927 | Environment | Report,315,1,NULL,0,0
+Environment | Overview | Diesel,316,2,NULL,1,9
+Environment | Overview | Electricity,317,2,NULL,1,9
+Environment | Overview | Explosives,318,2,NULL,1,9
+Environment | Overview | Liquid cyanide,319,2,NULL,1,9
+Environment | Overview | Petrol,320,2,NULL,1,9
+_RETIRED_20210609 | Environment | Overview | Scrap plastic,321,1,NULL,0,0
+Environment | Overview | Scrap steel,322,2,NULL,1,9
+_RETIRED_20210609 | Environment | Overview | Scrap timber,323,1,NULL,0,0
+Environment | Overview | Tonnes treated,324,2,NULL,1,9
+Environment | Overview | Total CO2,325,2,NULL,1,9
+Environment | Overview | Water,326,2,NULL,1,9
+_RETIRED_20210609 | Environment | Land Management | Detail,327,1,NULL,0,0
+Energy | Systems | Daily (Horizons),333,1,NULL,1,6
+Energy | Initiatives | Report,336,1,NULL,1,8
+Water | Initiatives | Monthly,343,1,NULL,1,6
+Water | Initiatives | Daily,344,1,NULL,1,6
+_UNLINK_20200930 | CustomViews | [Lonmin] Karee [Live pages],361,1,NULL,0,0
+_UNLINK_20200930 | CustomViews | [Lonmin] Production performance [DEMO],362,1,NULL,0,0
+_UNLINK_20200930 | CustomViews | [Lonmin] Compressed air [DEMO],363,1,NULL,0,0
+_UNLINK_20200930 | CustomViews | [Lonmin] Water [DEMO],364,1,NULL,0,0
+_UNLINK_20200930 | CustomViews | [Lonmin] Electricity [DEMO],365,1,NULL,0,0
+_UNLINK_20200930 | CustomViews | [Lonmin] Compressed air consumption [DEMO],366,1,NULL,0,0
+>UNLINK_20210621 | Efficiency Initiatives (Yearly) | Daily,382,1,NULL,0,0
+_UNLINK_20200904 | Assets | Efficiency [Monitoring] (MTB2),405,2,NULL,0,0
+_UNLINK_20200904 | Assets | Skip Spillage [Monitoring] (MTB2),406,2,NULL,0,0
+_UNLINK_20200904 | Assets | Water Quality [Monitoring] (MTB2),407,2,NULL,0,0
+_UNLINK_20210301 | Water | [Harmony] Water Build Up [Demo],408,2,NULL,0,0
+Maintenance initiatives | Performance overview,411,1,NULL,1,9
+_UNLINK_20210827 CustomViews | [Sibanye] Commodity tracking,414,2,NULL,0,0
+_RETIRED_20210913| Environment | [Sasol] GHG overview [DEMO],415,1,NULL,0,0
+_UNLINK_20200701 | Environment | [Sasol] Carbon tax overview [DEMO],416,1,NULL,0,0
+Air | Initiatives | Daily,420,1,NULL,1,5
+Air | Initiatives | Monthly,421,1,NULL,1,5
+_UNLINK_20200930 | CustomViews | [Lonmin] EPL [Live pages],422,1,NULL,0,0
+Energy | Systems Tracker | Report,423,1,NULL,1,6
+Energy | Systems Tracker | Monthly view,424,1,NULL,1,6
+Energy | Systems Tracker | Daily,425,1,NULL,1,6
+_UNLINK_20210602 | Service delivery | Services [Monitoring] (MTB2),427,2,NULL,0,0
+_UNLINK_20200930 | CustomViews | [Lonmin] Marikana Smelter,429,2,NULL,0,0
+PTB Viewer | [Harmony] Digital Twin (Demo),430,2,NULL,0,9
+>UNLINK_20210610 | Assets | Water reticulation [Monitoring] (MTB2),431,2,NULL,0,0
+_RETIRED_20210602 | ServiceDelivery | Water | Daily,433,1,NULL,0,0
+_RETIRED_20210602 | ServiceDelivery | Water | Monthly,434,1,NULL,0,0
+_RETIRED_20210602 | ServiceDelivery | Compressed Air | Daily,436,1,NULL,0,0
+_RETIRED_20210602 | ServiceDelivery | Compressed Air | Monthly,437,1,NULL,0,0
+_RETIRED_20210602 | ServiceDelivery | Cooling | Daily,439,1,NULL,0,0
+_RETIRED_20210602 | ServiceDelivery | Cooling | Monthly,440,1,NULL,0,0
+_RETIRED_20210602 | ServiceDelivery | Ventilation | Daily,442,1,NULL,0,0
+_RETIRED_20210602 | ServiceDelivery | Ventilation | Monthly,443,1,NULL,0,0
+_UNLINK_20210827 CustomViews | [Sibanye] Compressed Air,444,2,NULL,0,0
+Air | Initiatives | Report,446,1,NULL,1,4
+_UNLINK_<20210301 | Energy | Electricity | [HARMONY] Budget Totals [DEMO],447,2,NULL,0,0
+_UNLINK_<20210301|Energy | Electricity | [HARMONY] Budget Profiles [DEMO],449,2,NULL,0,0
+Energy | Initiatives | Internal daily,450,1,NULL,1,5
+Energy | Initiatives | Internal monthly,451,1,NULL,1,5
+SmartViews | [HAR] MoabKhotsong | Cooling (SmartView),452,2,NULL,1,6
+>MTB | Reset Password (unlinked but in use in PHP),455,2,NULL,1,2
+>UNLINK_20210602 | Action Tracker | Harmony | Ventilation,456,2,NULL,0,0
+SmartViews | [HAR] MoabOperations | CompressedAir (SmartView),460,2,NULL,1,6
+SmartViews | [HAR] MoabOperations | Water (SmartView),461,2,NULL,1,6
+SmartViews | [HAR] MoabKhotsong | Electricity (SmartView),462,2,NULL,1,6
+Air | Initiatives | Pressure Reduction,463,2,NULL,0,0
+SmartViews | [HAR] Tshepong | CompressedAir (SmartView),465,2,NULL,1,6
+SmartViews | [HAR] Tshepong | Electricity (SmartView),466,2,NULL,1,6
+SmartViews | [HAR] Tshepong | Water (SmartView),467,2,NULL,1,6
+SmartViews | [HAR] Tshepong | Cooling (SmartView),468,2,NULL,1,6
+Energy | Electricity | [HARMONY] Budget Tool,469,2,NULL,1,9
+_UNLINK_SmartViews | [SSR] CommodityAnalysis,471,2,NULL,0,0
+Action Tracker | Harmony | Water,472,2,NULL,1,6
+>UNLINK_20210602 | Action Tracker | Harmony | Compressed Air,473,2,NULL,0,0
+SmartViews | [SSM] WPL,474,2,NULL,1,6
+SmartViews | [SSM] K3HeatPumps,475,2,NULL,0,0
+SmartViews | [SSM] EPL,477,2,NULL,1,6
+SmartViews | [SSM] Karee,478,2,NULL,1,6
+_UNLINK_<20210301 | Mongo Prod Testing,479,1,NULL,0,0
+>UNLINK_20220829 ServiceDelivery | Cooling | BACTool,484,2,NULL,0,0
+SmartViews | [IMP] Pressure Reduction,486,2,NULL,0,0
+Energy | Systems Tracker (Budget)| Daily,488,1,NULL,1,7
+Energy | Systems Tracker (Budget)| Monthly view,489,1,NULL,1,7
+Energy | Systems Tracker (Budget)| Report,490,1,NULL,1,7
+CustomViews | HAR |  Water reticulation,491,2,NULL,0,0
+SmartViews | [HAR] Phakisa Nyala Cluster | CompressedAir (SmartView),494,2,NULL,1,5
+SmartViews | [HAR] Phakisa Nyala Cluster | Water (SmartView),495,2,NULL,1,5
+SmartViews | [HAR] Phakisa Nyala Cluster | Cooling (SmartView),496,2,NULL,1,5
+SmartViews | [HAR] Phakisa Nyala Cluster | Electricity (SmartView),497,2,NULL,1,5
+SmartViews | [HAR] GreatNoligwa | Cooling (SmartView),498,2,NULL,1,5
+Action Tracker | ETA | Development,499,2,NULL,0,0
+Action Tracker | ETA | Solutions,502,2,NULL,1,7
+SmartViews | [HAR] Doornkop | Water (SmartView),509,2,NULL,1,5
+SmartViews | [HAR] Doornkop | Compressed air (SmartView),510,2,NULL,1,5
+SmartViews | [HAR] Masimong | Compressed air (SmartView),511,2,NULL,1,5
+SmartViews | [HAR] Masimong | Water (SmartView),512,2,NULL,1,5
+SmartViews | [HAR] Kusasalethu | Compressed air (SmartView),513,2,NULL,1,5
+SmartViews | [HAR] Kusasalethu | Water (SmartView),514,2,NULL,1,5
+SmartViews | [HAR] Target 1 | Water (SmartView),515,2,NULL,1,5
+Energy | Electricity | [SSR] Budget Tool,516,2,NULL,1,5
+SmartViews | [HAR] Bambanani | Electricity (SmartView),518,2,NULL,1,5
+SmartViews | [HAR] GreatNoligwa | Electricity (SmartView),519,2,NULL,1,5
+SmartViews | [HAR] Target | Electricity (SmartView),520,2,NULL,1,5
+SmartViews | [HAR] Masimong | Electricity (SmartView),521,2,NULL,1,5
+SmartViews | [HAR] Kusasalethu | Electricity (SmartView),522,2,NULL,1,5
+SmartViews | [HAR] Doornkop | Electricity (SmartView),523,2,NULL,1,5
+SmartViews | [HAR] Masimong | Cooling (SmartView),524,2,NULL,1,5
+SmartViews | [HAR] Bambanani | Compressed air (SmartView),525,2,NULL,1,5
+SmartViews | [HAR] Bambanani | Water (SmartView),526,2,NULL,1,5
+SmartViews | [HAR] Target 1 | Cooling (SmartView),528,2,NULL,1,5
+SmartViews | [IMP] Supply Pressure,529,2,NULL,0,0
+Air | Initiatives | Hierarchical View | Daily,532,1,NULL,1,3
+Air | Initiatives | Hierarchical View | Monthly,533,1,NULL,1,3
+SmartViews | [IMP] Performance Analysis (CA),534,2,NULL,1,3
+SmartViews | [IMP] 16 Shaft BAC,539,2,NULL,0,0
+CustomViews | [HAR] Target Diesel Management,540,2,NULL,1,5
+CustomViews | [HAR] Environmental Initial Water Quality Samples,542,2,NULL,1,5
+Energy | Electricity | [IMP] Budget Tool,545,2,NULL,1,5
+SmartViews | [AAP] | Project Viewer,549,2,NULL,0,0
+SmartViews | [IMP] CA KPI Tracking,550,2,NULL,0,0
+SmartViews | [IMP] CA Daily View,551,2,NULL,0,0
+>UNLINK_20210602 | smartview | Harmony MTB | Demo SUE,552,2,NULL,0,0
+smartviews | [IMP] CA KPI Tracking_02,553,2,NULL,0,0
+smartviews | [IMP] CAConValMonitor,554,2,NULL,0,0
+SmartViews | [IMP] CompressedAir,555,2,NULL,0,0
+CustomViews | [HAR] | Kusasalethu Temperature Viewer RE06,557,2,NULL,0,0
+SmartViews | Harmony | Matrix,558,2,NULL,0,0
+SmartViews | [HAR] Kusasalethu | Cooling (SmartView),559,2,NULL,1,5
+energy | Implats | 2021-06-01_Shaft Budget Overview,560,2,NULL,0,0
+CustomViews | [HAR] | DigitalTwinning,561,2,NULL,0,0
+>MTB | POPI (unlinked but in use in PHP),569,2,NULL,1,2
+Environment | Harmony | Social KPI (Data Reviewer),574,2,NULL,1,7
+Environment | Harmony | Social KPI_Demo_Rev,575,2,NULL,1,7
+SmartViews | [SSM] EPL Compressor analysis,584,2,NULL,1,5
+SmartViews | [SSM] WPL Compressor analysis,585,2,NULL,1,5
+SmartViews | [SSM] Karee  Compressor analysis,586,2,NULL,1,5
+_UNLINK_SmartViews | [SSM] Commodity analysis_MTB report_V1.1 - Marikana,587,2,NULL,0,0
+Custom views | Harmony | Kusasalethu Temperature Profile Viewer RE07 - Demo,589,2,NULL,0,0
+Custom views | Harmony | 92L BF Monitoring - RE03,591,2,NULL,0,0
+Environment | Overview | Rock Mined,592,2,NULL,1,7
+SmartViews | [SSR] Overview,594,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Marikana) | PGM Concentrators,595,2,NULL,0,0
+Smart views | Sibanye-Stillwater (Marikana) | Marikana - synchromine,596,2,NULL,0,0
+Environment | Harmony | Report Action Tracker ,601,2,NULL,1,8
+Environment | Harmony | SMME Action Tracker ,602,2,NULL,1,8
+Smart views | Impala Platinum | Impala Utilities,604,2,NULL,0,0
+Enviromental | [Harmony] |Water Extracted,608,2,NULL,1,8
+Environmental | Harmony | MTB Env Water,610,2,NULL,1,8
+Environmental | Harmony | MTB Env Elec,611,2,NULL,1,8
+Smart views | Sibanye-Stillwater (Gold) | SSG Load curtailment tool,612,2,NULL,0,0
+Smart views | Sibanye-Stillwater (Rustenburg) | PGM Budget vs Actual_V1.0,613,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Marikana) | Load curtailment  view,617,2,NULL,0,0
+Smart views | Impala Platinum | Impala Compressors,618,2,NULL,1,5
+Smart views | Sibanye-Stillwater (Rustenburg) | Overview rev1,619,2,NULL,0,0
+>UNLINK_20220310 | Smart views | Sibanye-Stillwater (Gold) | Kloof CA Demand Side Analysis (1.0),622,2,NULL,0,0
+Environmental | Harmony | MTB Environmental Diesel v2,624,2,NULL,1,8
+Environmental | Harmony | MTB Environmental Petrol,625,2,NULL,1,8
+Environmental | Harmony | MTB Environmental Tonnes Treated,626,2,NULL,1,8
+Environmental | Harmony | MTB Environmental Explosives,627,2,NULL,1,8
+Smart views | Sibanye-Stillwater (Rustenburg) | Marikana Load Curtailment,628,2,NULL,0,0
+Custom views | Harmony | Overview Page,630,2,NULL,0,0
+Custom views | Harmony | Production Overview,631,2,NULL,0,0
+Custom views | Harmony | Compressed air overview,632,2,NULL,0,0
+Custom views | Harmony | Overview Crews,633,2,NULL,0,0
+Custom views | Harmony | Production Overview revision 2,634,2,NULL,0,0
+Custom views | Harmony | Overview Page revision3,635,2,NULL,0,0
+Custom views | Harmony | Budget Tracker,636,2,NULL,0,0
+Custom views | Harmony | Water Overview - Mock up,637,2,NULL,0,0
+Custom views | Harmony | Ventilation overview,638,2,NULL,0,0
+Custom views | Harmony | Ventilation,640,2,NULL,0,0
+Custom views | Harmony | Materials,641,2,NULL,1,5
+Custom views | Harmony | Safety,642,2,NULL,0,0
+Custom views | Harmony | Energy,643,2,NULL,0,0
+Smart views | Sibanye-Stillwater (Rustenburg) | Compressed air overview,645,2,NULL,0,0
+Smart views | Sibanye-Stillwater (Rustenburg) | Compressed Air,646,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Gold) | BEATRIX LOAD CURTAILMENT no prediction,647,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Gold) | COOKE LOAD CURTAILMENT no prediction,648,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Gold) | DRIEFONTEIN LOAD CURTAILMENT no prediction,649,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Gold) | KLOOF LOAD CURTAILMENT no prediction,650,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Gold) | BURNSTONE LOAD CURTAILMENT no prediction,651,2,NULL,0,0
+Smart views | Sibanye-Stillwater (Rustenburg) | Rustenburg Load Curtailment,653,2,NULL,0,0
+Custom views | Harmony | Power BI template conditionmonitoring (SW) 02D,654,2,NULL,1,5
+Smart views | Sibanye-Stillwater (Marikana) | Marikana data monitoring R23,656,2,NULL,0,0
+N/A | Impala Platinum | MinPro Compressed Air Tracking,658,2,NULL,1,5
+N/A | Sandbox | Test Report,662,2,NULL,0,0
+Custom views | Harmony | Harmony Moab Khotsong Water FINAL,664,2,NULL,0,0
+Custom views | Harmony | Harmony Moab Khotsong Compressed Air FINAL,665,2,NULL,0,0
+Smart views | Sibanye-Stillwater (Marikana) | Condition monitoring example,666,2,NULL,0,0
+Custom views | Harmony | Tshepong Ventilation Smartview,667,2,NULL,1,5
+Smart views | Impala Platinum | Impala Compressed air overview V1,669,2,NULL,1,5
+_UNLINK_N/A | Sibanye-Stillwater (Rustenburg) | UG2 feeder breakdown V1.0,671,2,NULL,0,0
+_UNLINK_N/A | Sibanye-Stillwater (Rustenburg) | UG2 feeder breakdown V1.0,672,2,NULL,0,0
+_UNLINK_N/A | Sibanye-Stillwater (Rustenburg) | UG2 feeder breakdown V1.0,673,2,NULL,0,0
+Smart views | Harmony | Moab Khotsong Energy Overview,674,2,NULL,1,5
+Smart views | Harmony | Moab Khotsong Ventilation Overview,675,2,NULL,1,5
+Smart views | Harmony | Moab Khotsong Water Overview,676,2,NULL,1,5
+Smart views | Harmony | Moab Khotsong People Overview,677,2,NULL,1,5
+_UNLINK_N/A | Sibanye-Stillwater (Rustenburg) | COMM feeder breakdown V1.0,678,2,NULL,0,0
+Smart views | Harmony | Mponeng Water Overview,679,2,NULL,1,5
+Smart views | Harmony | Mponeng Ventilation Overview,680,2,NULL,1,5
+Smart views | Harmony | Moab Khotsong Compressed Air Overview,681,2,NULL,1,5
+_UNLINK_N/A | Sibanye-Stillwater (Rustenburg) | PLATS feeder breakdown V1.0,682,2,NULL,0,0
+_UNLINK_N/A | Sibanye-Stillwater (Rustenburg) | WTN feeder breakdown V1.0,683,2,NULL,0,0
+_UNLINK_N/A | Sibanye-Stillwater (Rustenburg) | TUR feeder breakdown V1.0,684,2,NULL,0,0
+_UNLINK_N/A | Sibanye-Stillwater (Rustenburg) | KD1 feeder breakdown V1.0,685,2,NULL,0,0
+_UNLINK_N/A | Sibanye-Stillwater (Rustenburg) | 6PT feeder breakdown V1.0,686,2,NULL,0,0
+_UNLINK_N/A | Sibanye-Stillwater (Rustenburg) | KD2 feeder breakdown V1.0,687,2,NULL,0,0
+_UNLINK_N/A | Sibanye-Stillwater (Rustenburg) | WLT feeder breakdown V1.0,689,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Rustenburg) | 7PT feeder breakdown V1.0,690,2,NULL,0,0
+Smart views | Harmony | Mponeng Energy Overview,692,2,NULL,1,5
+Smart views | Harmony | Kusasalethu Ventilation Overview Smartview,693,2,NULL,1,5
+Smart views | Harmony | Doornkop Energy Overview,696,2,NULL,1,5
+Smart views | Harmony | Kusasalethu Energy Overview,697,2,NULL,1,5
+Smart views | Harmony | Tshepong Energy Overview,698,2,NULL,1,5
+_UNLINK_Smart views | Sibanye-Stillwater (Marikana) | Marikana budget tracker,700,2,NULL,0,0
+Smart views | Harmony | Tshepong Water Overview,701,2,NULL,1,5
+Smart views | Harmony | Tshepong Ventilation Smartview,702,2,NULL,1,5
+Smart views | Sibanye-Stillwater (Marikana) | WPL CA Supply side,703,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Marikana) | EPL CA Supply side,704,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Marikana) | Karee CA Supply side,705,2,NULL,0,0
+_UNLINK_Smart views | Sandbox | Test Report v2,707,2,NULL,0,0
+Action Tracker | ETA | Solutions | Sandbox | Test Report - For Deletion,708,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Marikana) | Rowland Dewatering Smartview,710,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Marikana) | E3 CA demand,712,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Marikana) | Saffy CA demand,713,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Marikana) | K3 CA demand,714,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Marikana) | Rowland CA demand,715,2,NULL,0,0
+Custom views | Harmony | Doornkop Ventilation Overview,716,2,NULL,1,5
+Smart views | Sibanye-Stillwater (Rustenburg) | Prediction Rustenburg Load curtailment - Copy,717,2,NULL,0,0
+Energy | Systems Tracker (Impala) | Daily,719,1,NULL,1,6
+Energy | Systems Tracker (Impala) | Monthly,720,1,NULL,1,6
+Energy | Systems Tracker (Impala) | Report,721,1,NULL,1,6
+Custom views | Harmony | Target Energy Overview,722,2,NULL,1,6
+Custom views | Harmony | Phakisa Energy Overview,723,2,NULL,1,6
+Smart views | Sibanye-Stillwater (Rustenburg) | Prediction Marikana Load curtailment,726,2,NULL,0,0
+Smart views | Harmony | Moab Khotsong Production Overview,730,2,NULL,1,5
+Smart views | Harmony | Joel Energy Overview,732,2,NULL,1,5
+Smart views | Harmony | Moab Khotsong Safety Overview,733,2,NULL,1,5
+_UNLINK_Smart views | Sibanye-Stillwater (Gold) | Kloof Dewatering Smartview Monitoring,734,2,NULL,0,0
+Smart views | Impala Platinum | Impala Control Valves,735,2,NULL,1,5
+Smart views | Sibanye-Stillwater (Gold) | Kloof CA Demand Side Analysis Monitoring,741,2,NULL,0,0
+Custom views | Harmony | Phakisa Overview Page | Harmony | Phakisa Water Overview,743,2,NULL,1,5
+Custom views | Harmony | Phakisa Overview Page | Harmony | Phakisa Compressed Air Overview,744,2,NULL,1,5
+_UNLINK_Smart views | Sibanye-Stillwater (Rustenburg) | RPM POD smart view,745,2,NULL,0,0
+Environment | Sandbox | Test Report v2,746,2,NULL,0,0
+Smart views | Sibanye-Stillwater (PGM) | Compressed air overview,747,2,NULL,0,0
+Smart views | Sibanye-Stillwater (PGM) | PGM POD overview,749,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Rustenburg) | POD Overview,750,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Rustenburg) | RPM POD smart view,751,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Rustenburg) | Compressed air,752,2,NULL,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Rustenburg) | Prediction PGM Load curtailment addRev2,761,2,NULL,0,0
+_UNLINK_Smart views | Impala Platinum | Impala load curtailment prediction,775,2,NULL,0,0
+Energy | Electricity,170,1,1,1,7
+Energy | Energy,189,1,1,1,7
+Energy | Report,190,1,1,1,7
+Energy | Opportunities [Summary],223,1,1,1,7
+Energy | Risks [Summary],224,1,1,1,7
+Energy | Summary [Risk & Opp.],225,1,1,1,7
+Energy | Systems,288,1,1,1,7
+Energy | Initiatives,417,1,1,1,7
+Energy | Systems Tracker,426,1,1,1,7
+Action Tracker | Harmony | Energy,458,2,1,1,7
+Energy | Systems (Budget),487,1,1,1,6
+Energy | Systems Tracker (Impala),718,1,1,1,6
+Environment | Overview,311,2,3,1,9
+Environment | Harmony | Environmental (AT),470,2,3,1,8
+SmartViews | [SAS] CarbonTax,480,2,3,1,8
+Environment | Operations,546,2,3,1,9
+Environmental | Water audit,566,2,3,1,9
+Mobile | HAR | Diesel | Logs,568,2,3,1,9
+Environment | Harmony | Grievence Register (AT),588,2,3,1,7
+Environment | Harmony | LED Spend,597,2,3,1,7
+Environment | Sasol | Carbon model,598,2,3,1,7
+Environment | Harmony | CSI Document Tracker ,599,2,3,1,7
+Environment | Harmony | KPI Analysis,607,2,3,1,7
+Environment | Harmony | Surface Water (Data Reviewer),763,2,3,1,7
+CustomViews | Sibanye | Water Dashboard,453,2,4,1,5
+CustomViews | [HAR | Bambanani,492,2,4,0,0
+CustomViews | [HAR] Load Curtailment,517,2,4,1,5
+CustomViews | [HAR] Target,541,2,4,1,5
+CustomViews | [HAR] Environmental Water Management,543,2,4,1,5
+CustomViews | [HAR] Tshepong | Belts Status,544,2,4,1,5
+CustomViews | [HAR] Tshepong | Decline service  water,547,2,4,1,5
+N/A | Harmony | 2021-05-03_Mponeng_FP_Performance_Smartview_R01,563,2,4,1,5
+N/A | Harmony | Digital_Twinning_Roll_Matrix_R01,567,2,4,1,5
+smartview | Harmony | Harmony data monitoring_R01,570,2,4,1,5
+Custom views | Harmony | Joel_Blasting_R01,576,2,4,1,5
+Custom views | Sibanye-Stillwater (Gold) | Sibanye Gold Curtailment data monitoring_R04,577,2,4,1,5
+Custom views | Harmony | TSH_72L and 76L pump stations_MTB Custom View,578,2,4,1,5
+Custom views | Harmony | TSH_Compressed air_MTB Custom View,579,2,4,1,5
+Custom views | Impala Platinum | Impala data monitoring_R01,580,2,4,1,5
+Custom views | Sibanye-Stillwater (Gold) | Beatrix 4 data monitoring R01,614,2,4,1,5
+Custom views | Harmony | Kusasalethu 100L Isolation Monitor,620,2,4,1,5
+Smart views | Impala Platinum | Impala Tag Audit R01,621,2,4,1,5
+Custom views | Harmony | Harmony power factor V1,629,2,4,1,5
+Custom views | Harmony | Harmony Budget tracker tool V1.0,657,2,4,1,5
+Custom views | Harmony | Harmony power factor Realtime,736,2,4,1,5
+Custom views | Harmony | Kusasalethu Temperature Viewer RE06,754,2,4,1,5
+Custom views | Harmony | Tshepong Belts,758,2,4,1,5
+smartview | Harmony | Harmony data monitoring_R01 | Harmony | Condition Monitoring Data R01,776,2,4,1,5
+Air | Initiatives,418,1,5,1,3
+Air | Initiatives | Hierarchical View,531,1,5,1,3
+Water | Initiatives,419,1,6,1,3
+Assets | Condition [Monitoring] (MTB2),404,2,13,1,7
+Assets | [Har] Work Orders Action Tracker,503,2,13,1,7
+Assets | Operational [Monitoring] (MTB2),562,2,13,1,7
+Assets | Harmony | Condition Monitoring Top level Mock up,727,2,13,1,7
+Assets | Harmony | Mponeng Mock up,728,2,13,1,7
+Smart views | Harmony | Analytics Moab Khotsong Comp Eff,731,2,13,1,5
+Smart views | Harmony | Analytics Tshepong SLA,739,2,13,1,5
+ServiceDelivery | Water Action Tracker,432,2,20,1,6
+ServiceDelivery | CompressedAir Action Tracker,435,2,20,1,6
+>UNLINK_20220829 ServiceDelivery | Cooling,438,2,20,0,0
+ServiceDelivery | Ventilation ActionTracker ,441,2,20,1,6
+Action Tracker | Harmony | Service Delivery,454,2,20,1,6
+Action Tracker | Harmony | LOS,581,2,20,1,6
+Operational Improvement | Operational improvement,271,1,22,1,5
+Maintenance initiatives | Daily,409,1,26,1,8
+Maintenance initiatives | Montly,410,1,26,1,8
+Document | Documents,412,2,27,1,7
+Mobile | Logs,413,2,28,1,8
+Action Tracker | Sibanye Rustenburg | General,428,2,29,1,7
+Action Tracker | Sasol,457,2,29,1,7
+Action Tracker | Marikana,476,2,29,1,7
+Action Tracker | Sibanye Gold | Energy Management,500,2,29,1,7
+Action Tracker | Sibanye Gold | Service Delivery,501,2,29,1,7
+Action Tracker | Impala | Leak Tracker,535,2,29,1,7
+Action Tracker | Impala | General,536,2,29,1,7
+Action Tracker | Anglo American Platinum,548,2,29,1,7
+Action Tracker | ETA | PGM Live Views,571,2,29,1,7
+Action Tracker | Sibanye PGM | General,742,2,29,1,7
+Action Tracker | Marula | General,760,2,29,1,7
+SmartViews | [HAR] MoabOperations (SmartView),459,2,30,1,5
+SmartViews | [HAR] Tshepong (SmartView),464,2,30,1,5
+SmartViews | [SSM] CompressedAir,481,2,30,1,5
+SmartViews | [SSM] Energy,482,2,30,1,5
+_UNLINK__UNLINK_SmartViews | [SSG] BenchmarkViewer,485,2,30,1,5
+SmartViews | [HAR] Phakisa Nyala Cluster (SmartView),493,2,30,1,5
+SmartViews | [HAR] Target 1 (SmartView),504,2,30,1,5
+SmartViews | [HAR] Masimong (SmartView),505,2,30,1,5
+SmartViews | [HAR] Doornkop (SV),506,2,30,1,5
+SmartViews | [HAR] Bambanani (SmartView),507,2,30,1,5
+SmartViews | [HAR] Kusasalethu (SmartView),508,2,30,1,5
+SmartViews | [SSM] Shaft Intensities,530,2,30,1,5
+SmartViews | [SSR] Compressors Analysis,537,2,30,1,5
+SmartViews | [IMP] CoolingVentilation,556,2,30,1,5
+_UNLINK_SmartViews | [SSR] Winder Analysis,572,2,30,0,0
+SmartViews | [SSM] Winder Analysis,573,2,30,1,5
+Smart views | Sibanye-Stillwater (Marikana) | Marikana data monitoring_R01,582,2,30,1,5
+SmartViews | [SSM] Compressor analysis,583,2,30,1,5
+Smart views | Sibanye-Stillwater (Rustenburg) | Rustenburg data monitoring_R01,593,2,30,1,5
+Smart views | Sibanye-Stillwater (Rustenburg) | PGM Load Curtailment,600,2,30,1,5
+Smart views | Sibanye-Stillwater (Marikana) | PGM Load curtailment tool,603,2,30,1,5
+_UNLINK_Smart views | Sibanye-Stillwater (Gold) | K1 Air Summary,605,2,30,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Gold) | K1 Water Summary,606,2,30,0,0
+Smart views | Sibanye-Stillwater (Marikana) | Marikana Tag Audit R01,615,2,30,1,5
+Smart views | Impala Platinum | 2022-02-10 BudgetTracker SW V2,616,2,30,1,5
+Smart views | Sibanye-Stillwater (Gold) | Kloof CA Demand Side Analysis (1.2),623,2,30,1,5
+Smart views | Sibanye-Stillwater (Gold) | Strike monitoring,639,2,30,1,5
+_UNLINK_Smart views | Sibanye-Stillwater (Rustenburg) | Siphumelele CA Demand Side Analysis,652,2,30,0,0
+_UNLINK_Smart views | Sibanye-Stillwater (Rustenburg) | ESG view V1.0,655,2,30,0,0
+Smart views | Sibanye-Stillwater (Gold) | Kloof Dewatering Smartview,659,2,30,1,5
+N/A | Sibanye-Stillwater (Marikana) | CA overview,660,2,30,1,5
+Smart views | Sibanye-Stillwater (Marikana) | Marikana CA demand,661,2,30,1,5
+Smart views | Sibanye-Stillwater (Gold) | Kloof CA Supply side,663,2,30,1,5
+Smart views | Sibanye-Stillwater (Gold) | Budget tracker,668,2,30,1,5
+SmartViews | [HAR] Mponeng,670,2,30,1,5
+Smart views | Harmony | Moab Khotsong Overview Page,688,2,30,1,5
+Smart views | Harmony | Mponeng Overview Page,691,2,30,1,5
+Smart views | Harmony | Kusasalethu Overview Page,694,2,30,1,5
+Smart views | Harmony | Doornkop Overview Page,695,2,30,1,5
+Smart views | Harmony | Tshepong Overview Page,699,2,30,1,5
+_UNLINK_Smart views | Sibanye-Stillwater (Rustenburg) | RPM Budget vs Actual V1.0,706,2,30,0,0
+Smart views | [HAR] | Mponeng Shaft,709,2,30,1,5
+Smart views | Sibanye-Stillwater (Marikana) | 4B CA demand,711,2,30,1,5
+Custom views | Harmony | Target Overview Page,724,2,30,1,5
+Custom views | Harmony | Phakisa Overview Page,725,2,30,1,5
+SmartViews | [IMP] Compressed Air,729,2,30,1,5
+Smart views | Harmony | Joel Overview Page,737,2,30,1,5
+Smart views | Impala Platinum | Impala KPI Tracker,738,2,30,1,5
+Smart views | Anglo American Platinum | AAP Mock Up OPSCO View V1,740,2,30,1,5
+Smart views | Sibanye-Stillwater (Gold) | SSG Load curtailment tool - Prediction,748,2,30,1,5
+Smart views | Sibanye-Stillwater (Rustenburg) | Prediction PGM Load curtailment (1),753,2,30,1,5
+Smart views | Sibanye-Stillwater (Gold) | SSG Load curtailment tool - Updated,755,2,30,1,5
+Smart views | Sibanye-Stillwater (Rustenburg) | PGM shaft performance analysis,756,2,30,1,5
+Smart views | Sibanye-Stillwater (Gold) | K10 Pumping Model - updated,757,2,30,1,5
+Smart views | Sibanye-Stillwater (Rustenburg) | Commodity analysis_MTB report_V1.1,762,2,30,1,5
+Smart views | Sibanye-Stillwater (Gold) | Emergency dam view,764,2,30,1,5
+Action Tracker | Marula | General | Marula Platinum | Marula SmartViews Tonnes,765,2,30,1,6
+Smart views | Marula Platinum | Marula Smartviews Logistics,766,2,30,1,5
+Smart views | Marula Platinum | Marula SmartViews HR,767,2,30,1,5
+Smart views | Marula Platinum | Marula SmartViews Compressed Air D01,768,2,30,1,5
+Smart views | Marula Platinum | Marula SmartViews Water D01,769,2,30,1,5
+Smart views | Anglo American Platinum | Load Curtailment Prediction,770,2,30,1,5
+Smart views | Anglo American Platinum | Operational view,771,2,30,1,5
+Smart views | Harmony | Harmony load curtailment,772,2,30,1,5
+Smart views | Harmony | Prediction Harmony Load curtailment (1),773,2,30,1,5
+_UNLINK_Smart views | Impala Platinum | Impala load curtailment,774,2,30,0,0
+Smart views | Sibanye-Stillwater (Gold) | Business impact model,777,2,30,1,5
+Smart views | Impala Platinum | Impala LC,778,2,30,1,5
+PTB Viewer | Digital Twin project viewer,448,2,31,1,9
+PTB Viewer | Expanded Demo,483,2,31,0,0
+PTB Viewer | Digital Twin Client,538,2,32,1,9
+ServiceDelivery | Review pack data,445,2,33,1,9
