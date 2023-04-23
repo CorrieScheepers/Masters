@@ -503,19 +503,18 @@ The system utilisation analysis aims to provide maintenance recommendations to t
 
 \begin{equation}
 	\label{eq:ch2_maintenanceFactor}
-	M_{PF} = A_X \times \frac{A_X - A_{Min}}{A_{Max} - A_{Min}} \times P_{N},
+	M_{PF} = \frac{A_X - A_{Min}}{A_{Max} - A_{Min}} \times P_{N},
 \end{equation}
 
 \begin{equation}
 	\label{eq:ch2_maintenanceFactorSimplified}
-	M_{PF} = A_X \times A_{N} \times P_{N}
+	M_{PF} = A_{N} \times P_{N}
 \end{equation}
 
 where:
 
 \begin{itemize}
 	\item $M_{PF}$ is the maintenance priority factor,
-	\item $A_X$ is the total user activities for the subsystem,
 	\item $A_{Min}$ is the total minimum user activities for a subsystem,
 	\item $A_{Max}$ is the total maximum user activities for a subsystem,
 	\item $A_{N}$ is the normalised activity for $A_X$,
