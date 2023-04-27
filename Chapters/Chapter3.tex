@@ -3,16 +3,15 @@
 \ChapterPageStuff{3}
 
 \section{Introduction}
-In \Cref{sec:ch2_preamble} the methodology is created for a web based software system. As describe in this section that a user can have multiple systems and subssyrtems linked to their account. The implementation is done for multiple software systems in this section. The system implementation will focus more on the development of the logging mechanism and the critic analysis will be of the Priortising of software maintenance using a utilisation analysis.
+In \Cref{sec:ch2_preamble}, the methodology was created for a web-based software system. As described in this section, a user can have multiple systems and subsystems linked to their account. The implementation is done for multiple software systems in this section. The system implementation will focus more on the development of the logging mechanism, and the critical analysis will prioritise software maintenance using a utilisation analysis.
 
-\section{Implementation}
-To implement the development of solution that is discussed in \Cref{sec:ch2_developementOfSolution} three different software systems will be used. These systems is created make use of \texttt{APS.NET Core Web SDK} and \texttt{PHP}. Usisng these systems will enable to create a logging mechanism for newer and older software systems.
+\section{Implementation and verification}
+To implement the development of solution that is discussed in \Cref{sec:ch2_developementOfSolution} will be implemented and verfied on a test system. The test system is created in a \texttt{APS.NET Core Web SDK} software environment. 
 
 \subsection{System Implementation}
-When working with both \texttt{ASP.NET Core Web SDK} and \texttt{PHP}, there may be similarities and shared system implementations. However, discrepancies may arise between the two technologies, particularly in the area of logging mechanisms. It is important to note the specific implementation and resulting behaviors to effectively troubleshoot any issues that may occur.
 
 \subsubsection{Log attibutes}\label{sec:ch3_logAtrributes}
-Using the functional requirements discussed in \Cref{sec:ch2_logAttributesRequirements}
+Using the functional requirements discussed in \Cref{sec:ch2_logAttributesRequirements} data columns is made for the user based event's log attributes. These log attributes for a structured database is defined in \Cref{tbl:ch3_Log_Attributes}. 
 
 \begin{table}[!htb]
 	\centering
@@ -33,6 +32,8 @@ Using the functional requirements discussed in \Cref{sec:ch2_logAttributesRequir
 	\end{tabularx}
 \end{table}
 
+
+
 \begin{lstlisting}[style=json, caption={\textit{Metadata JSON}}, label={fig:ch3_MetadataJson}] 
 	{
 		"RequestOrigin": "/System/Subsystem1/",
@@ -48,6 +49,15 @@ Using the functional requirements discussed in \Cref{sec:ch2_logAttributesRequir
 		}
 	}
 \end{lstlisting}
+
+\begin{landscape}
+	\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+		\centering % cent the figure
+		\includegraphics[width=0.99\linewidth]{img/ch3/analysis/UAT_menu.png}
+		\caption[Interactive user actvity viewer]
+		{\textit{Interactive user actvity viewer}}\label{fig:ch3_UAT_menu}
+	\end{figure}
+\end{landscape}
 
 \subsubsection{Obtaining the element of user-based event}\label{sec:ch2_ElementObtaining}
 In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will be use a \textit{HTTP request} to send to the server when the user interacted with an \textit{HTML element}. For the functional requirements activity type (F/R 1.5.3) and metadata (F/R 1.5.6) in \Cref{tbl:ch2_keyLoggingAttributes} the \textit{HTML element} needs to be obtained to get the element's tag and identification text. This can be difficult to obtain due to \textit{bubbling}\footnote{\textbf{Bubbling} is when an event happens on an element, it first runs the handlers on it, then on its parent, then up on other ancestors. \cite{EventBubbling}.} that may occur when searching for the element that the user specifically interacted with.\par In \Cref{fig:ch2_event_bubbling} is the event propagation example of a child element that has been clicked on which executes a DOM event. The event propagation consists of three phases~\cite{EventBubbling}:
