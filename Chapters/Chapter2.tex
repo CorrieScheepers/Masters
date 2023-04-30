@@ -12,7 +12,7 @@
 	{\textit{Basic design of a software system}}\label{fig:ch2_webSystemBasic}
 \end{figure}
  
- In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with different systems. These systems can be different pages or sections of the website and can be further divided into subsystems. \par In \Cref{sec:ch2_loggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:sec_system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance by using various tools visualisation tools or creating them based on the log attributes that are available.
+ In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with different systems. These systems can be different pages or sections of the website and can be further divided into subsystems. \par In \Cref{sec:ch2_loggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:sec_system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance by using various tools visualisation tools or creating them based on the available log attributes.
 
  \clearpage
 
@@ -461,18 +461,18 @@ The log analysis tool functional requirement (\ref{fr:logAnalysisTool}) is to en
 Each of these functional requirements ensures that the system utilisation analysis will be achieved for the created logging mechanism in \Cref{sec:ch2_loggingMechanism}. The main user interface of the system utilisation analysis will consist of the presentation of the user-based activities (\ref{fr:ur4}). This system will either be a custom-created system to display these logs or third-party software such as Microsoft's business intelligence platform, PowerBI. \par Using the third-party tools has advantages over creating custom software for the visual presentation (\ref{fr:ur4}):
 
 \begin{itemize}
-	\item \RaggedRight Third-party business intelligence platforms have all the necessary analytical functionality. The tables and charts needed for the visual presentation can be created with minimal programming difficulty.
-	\item \RaggedRight The advanced tools in these third-party business intelligence platforms provide more ways for the user-based activity logs can be visualised for the log comparison (\ref{fr:ur5}).
-	\item \RaggedRight Maintenance and editing of these third-party representations are mostly trouble-free to do. The amount of support and guides that should be available to the developer instead of relying on the creator or other developers that are available to make updates to the custom visual presentation.
-\end{itemize}
+	\item \RaggedRight Third-party BI platforms provide all necessary analytical functionality, making it easy to create visual representations with minimal programming.
+	\item \RaggedRight The advanced tools in these platforms offer many ways to visualize user-based activity logs for log comparison (\ref{fr:ur5}).
+	\item \RaggedRight Maintenance and editing of these representations are usually trouble-free, with ample support and guides available for developers to make updates to custom visual presentations.
+	\end{itemize}
 
 These third-party tools do indeed have some other drawbacks such as:
 
 \begin{itemize}
-	\item \RaggedRight Third-party business intelligence platforms most likely will require some sort of subscription that can be very costly for a company licence.
-	\item \RaggedRight Extra courses might be needed to fully use the capabilities of these platforms.
-	\item \RaggedRight Additional functionality such as APIs might be needed for the log extraction (\ref{fr:ur3}) to import the data to the platform.
-\end{itemize}
+	\item \RaggedRight Third-party BI platforms are likely to require a subscription, which can be costly for a company license.
+	\item \RaggedRight Additional courses may be necessary to fully utilize the capabilities of these platforms.
+	\item \RaggedRight Additional functionality, may be required for log extraction (\ref{fr:ur3}) to import data into the platform.
+	\end{itemize}
 
 With the drawbacks listed above the third-party business intelligence platforms is the better visual presentation tools for the system utilisation analysis if it is available for use than creating and managing a custom visualisation platform.
 

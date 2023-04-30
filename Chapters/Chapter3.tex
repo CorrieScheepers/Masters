@@ -99,12 +99,12 @@ In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will 
 	{\textit{JavaScript event propagation~\cite{EventBubbling}}}\label{fig:ch2_event_bubbling}
 \end{figure}
 
-Capturing the targeted element may be difficult as some Web pages may have more complex HTML where the event propagation may sometimes not obtain the correct element information which the user interacted with. Another DOM event may have started during the initial element's event, therefore it is more accurate to obtain the targeted element by obtaining the last known element the user hovered over on the user interface.\par In \Cref{fig:ch2_element_event_capturing} is the flow diagram to capture the element user interacted with for the user-based activity log. This code segment will be initiated during the \texttt{beforeSend} operation of the \textit{AJAX request} to filter HTML elements by predefined allowed elements to use. Filtering the element tag names ensures that unwanted more complex elements or more basic elements that are not expected to be the initiator of the event will be used. \par If the Web location already changed or no element exists, the contents of the page might have already changed during the event propagation. The last known element that the user hovered on must be used as most likely might have been the element that the user interacted with. This will ensure there is always an element that has been detected and parsed with the request header in most UI changes.
+Capturing the targeted element may be difficult as some web pages may have more complex HTML, which can cause event propagation to fail to obtain the correct element information that the user interacted with. In such cases, it is more accurate to obtain the targeted element by identifying the last known element that the user hovered over on the user interface, as another DOM event may have started during the initial element's event.\par \Cref{fig:ch2_element_event_capturing} shows the flow diagram to capture the element that the user interacted with for the user-based activity log. This code segment will be initiated during the \texttt{beforeSend} operation of the \textit{AJAX request} to filter HTML elements by predefined allowed elements. Filtering the element tag names ensures that unwanted, more complex elements or basic elements that are not expected to be the initiator of the event, will be excluded.\par If the web location has already changed or no element exists, it is possible that the contents of the page have already changed during the event propagation. Therefore, the last known element that the user hovered over must be used, as it is most likely to be the element that the user interacted with. This approach ensures that there is always an element that has been detected and parsed with the request header in most UI changes.
 
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.5\textwidth]{Chapter2/element_capturing/element_capturing.pdf}
+	\includegraphics[width=0.6\textwidth]{Chapter2/element_capturing/element_capturing.pdf}
 	\caption[HTML element capturing flow diagram]
 	{\textit{HTML element capturing flow diagram}}\label{fig:ch2_element_event_capturing}
 \end{figure}
@@ -142,29 +142,6 @@ Capturing the targeted element may be difficult as some Web pages may have more 
 \end{landscape}
 
 \subsubsection{System B results}
-
-\begin{landscape}
-	\begin{figure}[!htb]
-		\centering % cent the figure
-		\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_B_subsystems_1.pdf}
-		\caption[Case study 1 subsystem activities part 1]
-		{\textit{Case study 1 subsystem activities part 1}}\label{fig:ch3_saS1S24}
-	\end{figure} 
-
-	\begin{figure}[!htb]
-		\centering % cent the figure
-		\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_B_subsystems_2.pdf}
-		\caption[Case study 1 subsystem activities part 1]
-		{\textit{Case study 1 subsystem activities part 1}}\label{fig:ch3_saS1S25}
-	\end{figure} 
-
-	\begin{figure}[!htb]
-		\centering % cent the figure
-		\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_B_subsystems_3.pdf}
-		\caption[Case study 1 subsystem activities part 1]
-		{\textit{Case study 1 subsystem activities part 1}}\label{fig:ch3_saS1S26}
-	\end{figure} 
-\end{landscape}
 
 \clearpage
 
