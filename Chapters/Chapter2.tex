@@ -501,10 +501,7 @@ The system utilisation analysis aims to provide maintenance recommendations to t
 	\item Decommission unused systems. The user-based activities provide a quantitative reason why certain systems can be decommissioned due to inactivity from the users.
 \end{itemize}
 
-\begin{equation}
-	\label{eq:ch2_maintenanceFactor}
-	M_{PF} = \frac{A_X - A_{Min}}{A_{Max} - A_{Min}} \times P_{N},
-\end{equation}
+This can be achieved by implementing a maintenance prioritising using \Cref{eq:ch2_maintenanceFactorSimplified}:
 
 \begin{equation}
 	\label{eq:ch2_maintenanceFactorSimplified}
@@ -515,10 +512,36 @@ where:
 
 \begin{itemize}
 	\item $M_{PF}$ is the maintenance priority factor,
-	\item $A_{Min}$ is the total minimum user activities for a subsystem,
-	\item $A_{Max}$ is the total maximum user activities for a subsystem,
-	\item $A_{N}$ is the normalised activity for $A_X$,
+	\item $A_{N}$ is the normalised activity for the total logs obtained per subsystem,
 	\item $P_{N}$ is the normalised priority factor for the subsystem.
+\end{itemize}
+
+The normalised user activities per subsystem are described by \Cref{eq:ch2_eventNormalised}:
+
+\begin{equation}
+	\label{eq:ch2_eventNormalised}
+	A_{N} = \frac{A_X - A_{Min}}{A_{Max} - A_{Min}},
+\end{equation}
+
+where:
+
+\begin{itemize}
+	\item $A_X$ is the total obtained user activities for the specified subsystem
+	\item $A_{Min}$ is the total minimum user activities for a subsystem,
+	\item $A_{Max}$ is the total maximum user activities for a subsystem.
+\end{itemize}
+
+The normalised priority factor $P_N$ is described in:
+
+\begin{equation}
+	\label{eq:ch2_priorityNormalised}
+	P_{N} = \frac{P_X - P_{Min}}{P_{Max} - P_{Min}},
+\end{equation}
+
+\begin{itemize}
+	\item $P_X$ is the total obtained users that have access to the subsystem,
+	\item $P_{Min}$ is the total minimum number of users that have access to any subsystem,
+	\item $P_{Max}$ is the total maximum number of users that have access to any subsystem.
 \end{itemize}
 
 \clearpage
