@@ -6,12 +6,37 @@
 In \Cref{sec:ch2_preamble}, the methodology was created for a web-based software system. As described in this section, a user can have multiple systems and subsystems linked to their account. The implementation is done for multiple software systems in this section. The system implementation will focus more on the development of the logging mechanism, and the critical analysis will prioritise software maintenance using a utilisation analysis.
 
 \section{Implementation and verification}
-To implement the development of solution that is discussed in \Cref{sec:ch2_developementOfSolution} will be implemented and verfied on a test system. The test system is created in a \texttt{APS.NET Core Web SDK} software environment. 
+In this sections the implementation of the development of solution will be discussed using a test system to verify it. The test system is created in a \texttt{ASP.NET COre Web SDK} software environment.
 
-\subsection{System Implementation}
+\subsection{User activity types}
+For the test system the basic use will be:
 
-\subsubsection{Log attibutes}\label{sec:ch3_logAtrributes}
-Using the functional requirements discussed in \Cref{sec:ch2_logAttributesRequirements} data columns is made for the user based event's log attributes. These log attributes for a structured database is defined in \Cref{tbl:ch3_Log_Attributes}. 
+\begin{itemize}
+	\item monitor reasource usage dynamic dashboards,
+	\item generate \texttt{PDF} reports of the displayed data.
+\end{itemize}
+
+Reporting and monitoring are important for this test system so the user activity types will need to focus on these activty types.
+
+\begin{table}[!htb]
+	\centering
+	\caption[Test user activity types]{\textit{Test user activity types}}
+	\label{tbl:ch3_testActivityTypes}
+	\begin{tabularx}{\textwidth}{|X|l|X|}
+		\hline \textbf{Activity} & \textbf{Functional requirement} & \textbf{Description} \\
+		\hline \texttt{SystemAccess} & \ref{fr:uatType1} & \RaggedRight This actvity type detects when a user has navigated to a certain subsystem. \\ 
+		\hline \texttt{General} & \ref{fr:uatType3} & \RaggedRight This general actvity type is for all other actviities that user initiates that send \textit{HTTP request} back to the server. \\
+		\hline \texttt{ReportExport} & \ref{fr:uatType3} & \RaggedRight The other main functionality of the system is for reporting purposes. Seperating this type of actvity in its own category to capture all report generation actvities that the user initiated. \\ 
+		\hline
+	\end{tabularx}
+\end{table}
+
+\Cref{tbl:ch3_testActivityTypes} doesn't contain any session changes (\ref{fr:uatType3}) user types. These actviities is only trigger when the user log's into their system or terminate their session by pressing the log out button.
+
+\clearpage
+
+\subsection{Log attibutes}\label{sec:ch3_logAtrributes}
+Using the functional requirements discussed in \Cref{sec:ch2_logAttributesRequirements} data columns is made for the user based event's log attributes. These log attributes for a structured database are defined in \Cref{tbl:ch3_Log_Attributes}. 
 
 \begin{table}[!htb]
 	\centering
@@ -20,23 +45,23 @@ Using the functional requirements discussed in \Cref{sec:ch2_logAttributesRequir
 	\label{tbl:ch3_Log_Attributes}
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Column name} & \textbf{Requirement ID} & \textbf{Description}\\
-		\hline \texttt{laa\_ID} & \ref{fr:lpa1} & User based actvity identifier. \\
-		\hline \texttt{laa\_TimeStamp} & \ref{fr:lpa2} & Timesstamp when the activity has occur. \\
-		\hline \texttt{laa\_ActivityType} & \ref{fr:lpa3} & Activity type of the log event. \\
-		\hline \texttt{fk\_u\_ID} & \ref{fr:lpa4} & Identification number of the user associated with the log event. \\
-		\hline \texttt{laa\_Area} & \ref{fr:lpa5} & System where the activity has occur. \\
-		\hline \texttt{laa\_Controller} & \ref{fr:lpa5} & Subsystem where the activity has occur. \\
-		\hline \texttt{laa\_MetaData} & \ref{fr:lpa6} & Metadata captured from the \textit{HTTP request}. \\
-		\hline \texttt{fk\_g\_ID} & \ref{fr:lpa7} & Additional identifiers for the log event. \\
+		\hline \texttt{ID} & \ref{fr:lpa1} & User based actvity primary identifier. \\
+		\hline \texttt{TimeStamp} & \ref{fr:lpa2} & Date timesstamp when the activity has occur. \\
+		\hline \texttt{ActivityType} & \ref{fr:lpa3} & Activity type of the log event. \\
+		\hline \texttt{UserId} & \ref{fr:lpa4} & Identification number of the user associated with the log event. \\
+		\hline \texttt{SystemId} & \ref{fr:lpa5} & System where the activity has occur. \\
+		\hline \texttt{SubsystemId} & \ref{fr:lpa5} & Subsystem where the activity has occur. \\
+		\hline \texttt{MetaData} & \ref{fr:lpa6} & Metadata captured from the \textit{HTTP request}. \\
+		\hline \texttt{ClientId} & \ref{fr:lpa7} & Additional identifiers for the log event. In this case different configuration of the same system for a specific client. \\
 		\hline
 	\end{tabularx}
 \end{table}
 
-
+The data columns in \Cref{tbl:ch3_Log_Attributes} is used in structured database which is \texttt{MySQL} database. This database have pre existing tables that expand on other data such as the \texttt{UserId}, \texttt{SystemId} and \texttt{SubSystemId}. For the \texttt{MetaData} the \texttt{JSON} is similar to \Cref{fig:ch3_MetadataJson}.
 
 \begin{lstlisting}[style=json, caption={\textit{Metadata JSON}}, label={fig:ch3_MetadataJson}] 
 	{
-		"RequestOrigin": "/System/Subsystem1/",
+		"RequestOrigin": "/System/Subsystem1/GetData",
 		"RequestElementID": "ButtonSaveCsv",
 		"RequestParameters": {
 			"aTagIDs": [
@@ -50,14 +75,13 @@ Using the functional requirements discussed in \Cref{sec:ch2_logAttributesRequir
 	}
 \end{lstlisting}
 
-\begin{landscape}
-	\begin{figure}[!htb] % An h :here, t: top, b: bottom.
-		\centering % cent the figure
-		\includegraphics[width=0.99\linewidth]{img/ch3/analysis/UAT_menu.png}
-		\caption[Interactive user actvity viewer]
-		{\textit{Interactive user actvity viewer}}\label{fig:ch3_UAT_menu}
-	\end{figure}
-\end{landscape}
+In \Cref{fig:ch3_MetadataJson} the main \texttt{JSON} parameters captures the following additional data for the user based event:
+
+\begin{itemize}
+	\item \texttt{RequestOrigin} is the full file path of the subsystem that is being used and function to fullfil the \textit{HTTP request}. Some of the subsystems consist of multiple individual files and this traces the origin of the \textit{HTTP request} function user based actviity accessed.
+	\item \texttt{RequestElementID} is the last \textit{HTTP} element identifircation that the user interacted with that intiated the user based actvity.
+	\item \texttt{RequestParameters} is the request parameters that are send with the \textit{HTTP request}. Any sensitive user data is either igonred by adding flags to certain subsystems or individual functions to not obtain the request's parameters.
+\end{itemize}
 
 \subsubsection{Obtaining the element of user-based event}\label{sec:ch2_ElementObtaining}
 In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will be use a \textit{HTTP request} to send to the server when the user interacted with an \textit{HTML element}. For the functional requirements activity type (F/R 1.5.3) and metadata (F/R 1.5.6) in \Cref{tbl:ch2_keyLoggingAttributes} the \textit{HTML element} needs to be obtained to get the element's tag and identification text. This can be difficult to obtain due to \textit{bubbling}\footnote{\textbf{Bubbling} is when an event happens on an element, it first runs the handlers on it, then on its parent, then up on other ancestors. \cite{EventBubbling}.} that may occur when searching for the element that the user specifically interacted with.\par In \Cref{fig:ch2_event_bubbling} is the event propagation example of a child element that has been clicked on which executes a DOM event. The event propagation consists of three phases~\cite{EventBubbling}:
@@ -77,7 +101,6 @@ In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will 
 
 Capturing the targeted element may be difficult as some Web pages may have more complex HTML where the event propagation may sometimes not obtain the correct element information which the user interacted with. Another DOM event may have started during the initial element's event, therefore it is more accurate to obtain the targeted element by obtaining the last known element the user hovered over on the user interface.\par In \Cref{fig:ch2_element_event_capturing} is the flow diagram to capture the element user interacted with for the user-based activity log. This code segment will be initiated during the \texttt{beforeSend} operation of the \textit{AJAX request} to filter HTML elements by predefined allowed elements to use. Filtering the element tag names ensures that unwanted more complex elements or more basic elements that are not expected to be the initiator of the event will be used. \par If the Web location already changed or no element exists, the contents of the page might have already changed during the event propagation. The last known element that the user hovered on must be used as most likely might have been the element that the user interacted with. This will ensure there is always an element that has been detected and parsed with the request header in most UI changes.
 
-\clearpage
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -88,7 +111,18 @@ Capturing the targeted element may be difficult as some Web pages may have more 
 
 \clearpage
 
-\subsubsection{Log attributes}
+\input{Chapters/tables/testB_Normilised.tex}
+
+\section{Verification}
+
+\begin{landscape}
+	\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+		\centering % cent the figure
+		\includegraphics[width=0.99\linewidth]{img/ch3/analysis/UAT_menu.png}
+		\caption[Interactive user actvity viewer]
+		{\textit{Interactive user actvity viewer}}\label{fig:ch3_UAT_menu}
+	\end{figure}
+\end{landscape}
 
 \section{Case studies}
 
