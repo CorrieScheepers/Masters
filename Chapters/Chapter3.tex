@@ -33,7 +33,7 @@ Reporting and monitoring are important for this test system so the user activity
 
 \Cref{tbl:ch3_testActivityTypes} doesn't contain any session changes (\ref{fr:uatType3}) user types. These activities are only triggered when the user log's into their system or terminates their session by pressing the log-out button.
 
-\subsection{Log attibutes}\label{sec:ch3_logAtrributes}
+\subsection{Log attibutes}\label{sec:ch3_implementationLogAtrributes}
 Using the functional requirements discussed in \Cref{sec:ch2_logAttributesRequirements} data columns are made for the user-based event's log attributes. These log attributes for a structured database are defined in \Cref{tbl:ch3_Log_Attributes}. 
 
 \begin{table}[!htb]
@@ -86,7 +86,7 @@ In \Cref{fig:ch3_MetadataJson} the main \texttt{JSON} parameters capture the fol
 \end{itemize}
 
 \subsection{Logging points}
-Table \ref{tbl:ch2_loggingPointRequirement} outlines the functional requirements for placing logging points in the software system. It's crucial to maintain consistency when capturing logs and placing them in a global location for all HTTP requests will ensure consistency. Filters can be used during the test system as it is a \texttt{ASP.NET Core Web SDK}. The filters can be initialised during the software system startup phase.\par For other web-based systems the central point where the \textit{HTTP requests} go through should be used to place single or multiple logging points. In other cases adding it for smaller groups of subsystems is also viable as long as the logs can be consistently captured when the requests come through. \par The filter of the test system is the primary component of the logging mechanism. It is responsible for capturing client-side log attributes and metadata using server-side parsing, as shown in Figure \ref{fig:ch2_loggingParse}. \par In \Cref{sec:ch3_logAtrributes} it has been discussed that some of the logs may contain sensitive data that should not be logged especially the metadata's request parameters. Adding a flag to indicate that certain subsystems' requests need to be ignored for the event logging should be added.\par This can also exclude certain parameters from being saved into the database. For the test system, it is an attribute added to certain controllers to ignore the obtained event logs and terminate the logging process.
+Table \ref{tbl:ch2_loggingPointRequirement} outlines the functional requirements for placing logging points in the software system. It's crucial to maintain consistency when capturing logs and placing them in a global location for all HTTP requests will ensure consistency. Filters can be used during the test system as it is a \texttt{ASP.NET Core Web SDK}. The filters can be initialised during the software system startup phase.\par For other web-based systems the central point where the \textit{HTTP requests} go through should be used to place single or multiple logging points. In other cases adding it for smaller groups of subsystems is also viable as long as the logs can be consistently captured when the requests come through. \par The filter of the test system is the primary component of the logging mechanism. It is responsible for capturing client-side log attributes and metadata using server-side parsing, as shown in Figure \ref{fig:ch2_loggingParse}. \par In \Cref{sec:ch3_implementationLogAtrributes} it has been discussed that some of the logs may contain sensitive data that should not be logged especially the metadata's request parameters. Adding a flag to indicate that certain subsystems' requests need to be ignored for the event logging should be added.\par This can also exclude certain parameters from being saved into the database. For the test system, it is an attribute added to certain controllers to ignore the obtained event logs and terminate the logging process.
 
 \subsubsection{Obtaining the element of user-based event}\label{sec:ch2_ElementObtaining}
 In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will be using a \textit{HTTP request} to send to the server when the user interacted with an \textit{HTML element}. For the functional requirements activity type (F/R 1.5.3) and metadata (F/R 1.5.6) in \Cref{tbl:ch2_keyLoggingAttributes} the \textit{HTML element} needs to be obtained to get the element's tag and identification text.\par This can be difficult to obtain due to \textit{bubbling}\footnote{\textbf{Bubbling} is when an event happens on an element, it first runs the handlers on it, then on its parent, then up on other ancestors. \cite{EventBubbling}.} that may occur when searching for the element that the user specifically interacted with. \Cref{fig:ch2_event_bubbling} is the event bubbling propagation.
@@ -121,18 +121,29 @@ If the web location has already changed or no element exists, the contents of th
 
 \clearpage
 
+\subsection{Log analysis}\label{sec:ch3_implementationLogAnalysis}
+In \Cref{ch2:sec_system_utilisation_analysis}, the functional requirements for log analysis are defined. For this implementation of log analysis, a custom log analysis tool is created to:
+
+\begin{itemize}
+\item Visually present user-based event logs through the log analysis tool as required in \Cref{tbl:ch2_logAnalysisToolFR}.
+\item Filter user-based event logs through different criteria described in \Cref{tbl:ch2_utilisationCategories}.
+\item Analyse logs for maintenance prioritisation as shown in \Cref{tbl:ch2_maintenancePriortising}.
+\end{itemize}
+
 \section{Verification}
+The log analysis tool will be used to verify the implementation of the logging mechanism on the test system.
+
+\subsection{Log mechanism}
+The captured log attributes of \Cref{tbl:ch3_Log_Attributes} that are captured by the logging points is shown in \Cref{fig:ch3_UAT_menu}.
+
+\begin{figure}[!htb]
+	\centering % cent the figure
+	\includegraphics[width=0.99\linewidth]{img/ch3/analysis/UAT_menu.png}
+	\caption[Interactive user activity viewer]
+	{\textit{Interactive user activity viewer}}\label{fig:ch3_UAT_menu}
+\end{figure}
 
 \input{Chapters/tables/testB_Normilised.tex}
-
-\begin{landscape}
-	\begin{figure}[!htb]
-		\centering % cent the figure
-		\includegraphics[width=0.99\linewidth]{img/ch3/analysis/UAT_menu.png}
-		\caption[Interactive user activity viewer]
-		{\textit{Interactive user activity viewer}}\label{fig:ch3_UAT_menu}
-	\end{figure}
-\end{landscape}
 
 \section{Case studies}
 
@@ -152,6 +163,15 @@ If the web location has already changed or no element exists, the contents of th
 \end{landscape}
 
 \subsubsection{System B results}
+
+\begin{landscape}
+	\begin{figure}[!htb]
+		\centering % cent the figure
+		\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_B_subsystems_1.pdf}
+		\caption[Case study 2 subsystem activities part 1]
+		{\textit{Case study 2 subsystem activities part 1}}\label{fig:ch3_sbS1S246}
+	\end{figure} 
+\end{landscape}
 
 \clearpage
 
