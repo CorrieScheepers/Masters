@@ -5,7 +5,7 @@
 \section{Preamble}\label{sec:ch2_preamble}
  The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs. The development of the solution for the identified problem in \Cref{sec:ch1_problemStatement} will be specifically made for a Web-based application.\par Web-based applications are one the most widely used software implementations that can benefit from a system utilisation analysis using user-based event logs. These software systems have many different designs, for this study Web-applications that require the user to be logged in to an active session in the software system will be used as in \Cref{fig:ch2_webSystemBasic}.
 
- \begin{figure}[!htb] % An h :here, t: top, b: bottom.
+ \begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.95\textwidth]{img/Chapter2/systemOverview/systemOverview.pdf}
 	\caption[Basic design of a software system]
@@ -19,7 +19,7 @@
 \section{Development of solution}\label{sec:ch2_developementOfSolution}
 In \Cref{sec:ch1_objectives} the objectives of the study are split into two main parts that need to be implemented to solve the identified problem. The logging mechanism and log analysis of the obtained logs. A basic system design can be made for the logging mechanism. In \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user-based event logs.
 
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+\begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.95\textwidth]{Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
 	\caption[Logging mechanism basic system design]
@@ -37,7 +37,7 @@ The two main parts are to create a logging mechanism to capture the user-based a
 
 \clearpage
 
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+\begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.95\textwidth]{img/Chapter2/developmentOfSolution/developementOfSolution.pdf}
 	\caption[Development of solution overview]
@@ -174,7 +174,7 @@ The defined logging attributes in \Cref{tbl:ch2_keyLoggingAttributes} are the ba
 
 \clearpage
 
-Each of these log attributes combined creates the base log from which key logging points can be created in the software system to capture the user-based activity logs in \Cref{tbl:ch2_keyLoggingAttributes}. The activity type (\ref{fr:lpa3}) is can be assigned during the user-based activity identification phase with a default value and resolved to a new activity type based on metadata or other parameters by:
+Each of these log attributes combined creates the base log from which key logging points can be created in the software system to capture the user-based activity logs in \Cref{tbl:ch2_keyLoggingAttributes}. The activity type (\ref{fr:lpa3}) can be assigned during the user-based activity identification phase with a default value and resolved to a new activity type based on metadata or other parameters by:
 
 \begin{itemize}
 	\item If it alters any of the session variables that are relevant to the system utilisation analysis,
@@ -224,7 +224,7 @@ To determine the user activity types for a Web application, the Web application'
 	\item \textit{View:} This shows the results of the data contained in the \textit{Model} and enables the user to manipulate the data. The user will only interact with this part of the Web application.
 \end{itemize}
 
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+\begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.9\textwidth]{Chapter2/Flow_MVC_Architecture/Flow_MVC_Architecture.pdf}
 	\caption[MVC architecture for most web-based applications]
@@ -335,7 +335,7 @@ In \Cref{fig:ch2_erdOfEventLogs} is an ERD diagram that describes the relationsh
 \clearpage
 
 \subsubsection{Server side logging point}\label{sec:ch2_serverSideLoggingpoint}
-In \Cref{sec:ch2_loggingPoints} the functional requirements for the logging point need to be fulfilled to create a suitable logging point for a software system to track user-based activities. The \textit{HTTP request} will call a function in the system, subsystem or web page to execute the user's actions, these \textit{request} information can be obtained and parsed onto the logging point.\par The logging attribute can be created as a centralised code segment that all the software system's components can execute before executing the targeted software system in Web applications such as:
+In \Cref{sec:ch2_loggingPoints} the functional requirements for the logging point need to be fulfilled to create a suitable logging point for a software system to track user-based activities. The \textit{HTTP request} will call a function in the system, subsystem or web page to execute the user's actions, this \textit {request} information can be obtained and parsed onto the logging point.\par The logging attribute can be created as a centralised code segment that all the software system's components can execute before executing the targeted software system in Web applications such as:
 
 \begin{itemize}
 	\item In most software frameworks the \textit{HTTP request} data can be extracted from the in-build \textit{HTTP request} models to obtain the custom request headers set on the client side. There should be at least a common global location in the software where a single logging point can be called for every \textit{HTTP} function to execute the logging point first before continuing with the rest of the main targeted function. The rest of the log attributes can also be obtained during the execution run time:
