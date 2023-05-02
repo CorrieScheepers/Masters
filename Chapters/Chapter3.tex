@@ -88,10 +88,19 @@ In \Cref{fig:ch3_MetadataJson} the main \texttt{JSON} parameters capture the fol
 \subsection{Logging points}
 Table \ref{tbl:ch2_loggingPointRequirement} outlines the functional requirements for placing logging points in the software system. It's crucial to maintain consistency when capturing logs and placing them in a global location for all HTTP requests will ensure consistency. Filters can be used during the test system as it is a \texttt{ASP.NET Core Web SDK}. The filters can be initialised during the software system startup phase.\par For other web-based systems the central point where the \textit{HTTP requests} go through should be used to place single or multiple logging points. In other cases adding it for smaller groups of subsystems is also viable as long as the logs can be consistently captured when the requests come through. \par The filter of the test system is the primary component of the logging mechanism. It is responsible for capturing client-side log attributes and metadata using server-side parsing, as shown in Figure \ref{fig:ch2_loggingParse}. \par In \Cref{sec:ch3_implementationLogAtrributes} it has been discussed that some of the logs may contain sensitive data that should not be logged especially the metadata's request parameters. Adding a flag to indicate that certain subsystems' requests need to be ignored for the event logging should be added.\par This can also exclude certain parameters from being saved into the database. For the test system, it is an attribute added to certain controllers to ignore the obtained event logs and terminate the logging process.
 
-\subsubsection{Obtaining the element of user-based event}\label{sec:ch2_ElementObtaining}
-In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will be using a \textit{HTTP request} to send to the server when the user interacted with an \textit{HTML element}. For the functional requirements activity type (F/R 1.5.3) and metadata (F/R 1.5.6) in \Cref{tbl:ch2_keyLoggingAttributes} the \textit{HTML element} needs to be obtained to get the element's tag and identification text.\par This can be difficult to obtain due to \textit{bubbling}\footnote{\textbf{Bubbling} is when an event happens on an element, it first runs the handlers on it, then on its parent, then up on other ancestors. \cite{EventBubbling}.} that may occur when searching for the element that the user specifically interacted with. \Cref{fig:ch2_event_bubbling} is the event bubbling propagation.
+\clearpage
+
+\begin{figure}[!htb]
+	\centering % cent the figure
+	\includegraphics[width=0.75\textwidth]{Chapter2/DetailView_Flow/DetailView_Flow.pdf}
+	\caption[User activity logging process]
+	{\textit{User activity logging process}}\label{fig:ch3_loggingProcess}
+\end{figure}
 
 \clearpage
+
+\subsubsection{Obtaining the element of user-based event}\label{sec:ch2_ElementObtaining}
+In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will be using a \textit{HTTP request} to send to the server when the user interacted with an \textit{HTML element}. For the functional requirements activity type (F/R 1.5.3) and metadata (F/R 1.5.6) in \Cref{tbl:ch2_keyLoggingAttributes} the \textit{HTML element} needs to be obtained to get the element's tag and identification text.\par This can be difficult to obtain due to \textit{bubbling}\footnote{\textbf{Bubbling} is when an event happens on an element, it first runs the handlers on it, then on its parent, then up on other ancestors. \cite{EventBubbling}.} that may occur when searching for the element that the user specifically interacted with. \Cref{fig:ch2_event_bubbling} is the event bubbling propagation.
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -131,9 +140,9 @@ In \Cref{ch2:sec_system_utilisation_analysis}, the functional requirements for l
 \end{itemize}
 
 \section{Verification}
-The log analysis tool will be used to verify the implementation of the logging mechanism on the test system.
+The log analysis tool will be used to verify the implementation of the logging mechanism on the test system. This system is created in a \texttt{.NET Framework} software environment and uses a \texttt{MySQL} database to store the logging events.
 
-\subsection{Log mechanism}
+\subsection{Log attributes}
 The captured log attributes of \Cref{tbl:ch3_Log_Attributes} that are captured by the logging points are shown in \Cref{fig:ch3_UAT_menu}.
 
 \begin{figure}[!htb]
@@ -143,14 +152,21 @@ The captured log attributes of \Cref{tbl:ch3_Log_Attributes} that are captured b
 	{\textit{Interactive user activity viewer}}\label{fig:ch3_UAT_menu}
 \end{figure}
 
-\Cref{fig:ch3_UAT_menu} the 
+\Cref{fig:ch3_UAT_menu} confirms that the required log attributes defined in \Cref{tbl:ch3_Log_Attributes} are being tracked for the test systems. The user interface created to display the logs is designed to be more understandable for users who analyze the logs. The meta-data is displayed in a \texttt{JSON} format as in \Cref{fig:ch3_JSON_Test_Result}.
+
+\clearpage
 
 \begin{figure}[!htb]
 	\centering % cent the figure
-	\includegraphics[width=0.99\linewidth]{img/ch3/analysis/UAT_menu_activities.png}
-	\caption[Interactive user activity viewer]
-	{\textit{Interactive user activity viewer}}\label{fig:ch3_UAT_menuActivities}
+	\includegraphics[width=0.65\linewidth]{img/ch3/analysis/UAT_request_params.png}
+	\caption[JSON test request parameter data]
+	{\textit{JSON test request parameter data}}\label{fig:ch3_JSON_Test_Result}
 \end{figure}
+
+\Cref{fig:ch3_JSON_Test_Result} includes additional parameters described in \Cref{fig:ch3_MetadataJson}. The \texttt{RequestElementID} is obtained using the element capturing method described in \Cref{fig:ch2_element_event_capturing}, while the other metadata parameters are captured using the built-in methods available in \texttt{C\#}.
+
+\subsection{Log analysis}
+The log analysis of the obtained logs shown in \Cref{fig:ch3_UAT_menu} is done in the same interactive dashboard. \Cref{fig:ch3_UAT_menuAnalysis} is a comparison of the obtained logs for the subsystems.
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -161,13 +177,22 @@ The captured log attributes of \Cref{tbl:ch3_Log_Attributes} that are captured b
 
 \clearpage
 
+\Cref{tbl:ch2_utilisationCategories} provides the functional requirements for various utilization categories. By comparing these categories to each other in the obtained user logs, different categories can be compared, as shown in \Cref{fig:ch3_UAT_menuAnalysis}. Furthermore, \Cref{fig:ch3_UAT_menuActivities} compares different types of user activities.
+
+\begin{figure}[!htb]
+	\centering % cent the figure
+	\includegraphics[width=0.99\linewidth]{img/ch3/analysis/UAT_menu_activities.png}
+	\caption[Interactive user activity log analysis]
+	{\textit{Interactive user activity log analysis}}\label{fig:ch3_UAT_menuActivities}
+\end{figure}
+
 \subsection{Maintenance priortising}
-For the test system, maintenance prioritisation recommendations can be made as described in \Cref{sec:ch2_utilisationImprovements}. A rating system can be used to rank the most critical software systems that need to be prioritised, which can aid in software maintenance efforts.\par Using \Cref{eq:ch2_maintenanceFactorSimplified} the maintenance priority factor $M_{PF}$ can be determined for a set of systems {$S1,~S_2,~...,~S_N$} which has captured user activities per system $A_X$. The system will also have a number of users linked to each system $P_X$. These parameters are set for the test system as in \Cref{tbl:ch3_testData}.
+For the test system, maintenance prioritisation recommendations can be made as described in \Cref{sec:ch2_utilisationImprovements}. A rating system can be used to rank the most critical software systems that need to be prioritised, which can aid in software maintenance efforts.\par Using \Cref{eq:ch2_maintenanceFactorSimplified} the maintenance priority factor $M_{PF}$ can be determined for a set of systems {$S1,~S_2,~...,~S_N$} which has captured user activities per system $A_X$. The system will also have several users linked to each system $P_X$. These parameters are set for the test system as in \Cref{tbl:ch3_testData}.
 
 \begin{table}[!htb]
 	\centering
-	\caption[Data for validation test system]
-	{\textit{Data for validation test system}}
+	\caption[Data for validating test system]
+	{\textit{Data for validating test system}}
 	\label{tbl:ch3_testData}
 	\begin{tabularx}{\textwidth}{|X|X|X|}
 		\hline \textbf{System ($S_X$)} & \textbf{Users per system ($P_X$)} & \textbf{Number of events ($A_X$)} \\
@@ -181,7 +206,7 @@ For the test system, maintenance prioritisation recommendations can be made as d
 	\end{tabularx}
 \end{table}
 
-The activities in \Cref{tbl:ch3_testData} are only for one single user that generated test data by navigating through the system and interacting with it that is also shown in \Cref{fig:ch3_UAT_menuActivities,fig:ch3_UAT_menuAnalysis}. For the test system $S$, it is expected that the $S_1$ should have the highest maintenance priority factor as it has:
+The activities in \Cref{tbl:ch3_testData} were generated by a single user who navigated through and interacted with the system, as shown in \Cref{fig:ch3_UAT_menuActivities,fig:ch3_UAT_menuAnalysis}. To compare the effect of the total number of user activities per system, we focus on $S_3$ to $S_6$, which have similar numbers of active users who can access the system. For the test system $S$, it is expected that $S_1$ will have the highest maintenance priority factor, given that it has:
 
 \begin{itemize}
 	\item The second highest number of users linked to it. This should increase its normalised active user factor.
@@ -191,6 +216,8 @@ The activities in \Cref{tbl:ch3_testData} are only for one single user that gene
 $S_4$ has the least total number of user events but has about the same number of users linked to it. This should have the lowest maintenance factor as a lower number of activities will indicate that the system is not used as much as systems like $S_3$ and $S_6$. These other two systems have higher captured user events.\par Using \Cref{eq:ch2_priorityNormalised} to calculate each subsystem's normalised priority factor using the number of users that have access to the system; also using \Cref{eq:ch2_eventNormalised} to calculate the normalised activities, the results are shown in \Cref{tbl:apx_testB_Normilised}.
 
 \input{Chapters/tables/testB_Normilised.tex}
+
+In \Cref{tbl:apx_testB_Normilised}, $P_N$ for $S_1$ and $S_2$ is the highest, as most users have access to them. Additionally, $S_1$ and $S_5$ have the highest $A_N$ rating, indicating that they were the most used systems. As previously stated, it is expected that $S_1$ will require the most maintenance activities. The systems with lower maintenance activities and still have similar active users linked to them have a lower maintenance priority factor.
 
 \section{Case studies}
 
