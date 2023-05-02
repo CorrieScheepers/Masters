@@ -162,7 +162,7 @@ The captured log attributes of \Cref{tbl:ch3_Log_Attributes} that are captured b
 \clearpage
 
 \subsection{Maintenance priortising}
-for the test system, the maintenance prioritising recommendations can be made as described in \Cref{sec:ch2_utilisationImprovements}.
+For the test system, maintenance prioritisation recommendations can be made as described in \Cref{sec:ch2_utilisationImprovements}. A rating system can be used to rank the most critical software systems that need to be prioritised, which can aid in software maintenance efforts.\par Using \Cref{eq:ch2_maintenanceFactorSimplified} the maintenance priority factor $M_{PF}$ can be determined for a set of systems {$S1,~S_2,~...,~S_N$} which has captured user activities per system $A_X$. The system will also have a number of users linked to each system $P_X$. These parameters are set for the test system as in \Cref{tbl:ch3_testData}.
 
 \begin{table}[!htb]
 	\centering
@@ -170,16 +170,25 @@ for the test system, the maintenance prioritising recommendations can be made as
 	{\textit{Data for validation test system}}
 	\label{tbl:ch3_testData}
 	\begin{tabularx}{\textwidth}{|X|X|X|}
-		\hline \textbf{System} & $P_X$ & $A_X$ \\
-		\hline System1 & 226 & 11 \\
-		\hline System2 & 269 & 5 \\
-		\hline System3 & 156 & 8 \\
-		\hline System4 & 155 & 1 \\
-		\hline System5 & 145 & 13 \\
-		\hline System6 & 154 & 8 \\
+		\hline \textbf{System ($S_X$)} & \textbf{Users per system ($P_X$)} & \textbf{Number of events ($A_X$)} \\
+		\hline $S_1$ & 226 & 11 \\
+		\hline $S_2$ & 269 & 5 \\
+		\hline $S_3$ & 156 & 8 \\
+		\hline $S_4$ & 155 & 1 \\
+		\hline $S_5$ & 145 & 13 \\
+		\hline $S_6$ & 154 & 8 \\
 		\hline
 	\end{tabularx}
 \end{table}
+
+The activities in \Cref{tbl:ch3_testData} are only for one single user that generated test data by navigating through the system and interacting with it that is also shown in \Cref{fig:ch3_UAT_menuActivities,fig:ch3_UAT_menuAnalysis}. For the test system $S$, it is expected that the $S_1$ should have the highest maintenance priority factor as it has:
+
+\begin{itemize}
+	\item The second highest number of users linked to it. This should increase its normalised active user factor.
+	\item It has the second-highest number of observed user events that were captured.
+\end{itemize}
+
+$S_4$ has the least total number of user events but has about the same number of users linked to it. This should have the lowest maintenance factor as a lower number of activities will indicate that the system is not used as much as systems like $S_3$ and $S_6$. These other two systems have higher captured user events.\par Using \Cref{eq:ch2_priorityNormalised} to calculate each subsystem's normalised priority factor using the number of users that have access to the system; also using \Cref{eq:ch2_eventNormalised} to calculate the normalised activities, the results are shown in \Cref{tbl:apx_testB_Normilised}.
 
 \input{Chapters/tables/testB_Normilised.tex}
 
