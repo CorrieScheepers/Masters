@@ -225,28 +225,55 @@ In \Cref{tbl:apx_testB_Normilised}, $P_N$ for $S_1$ and $S_2$ is the highest, as
 A similar implementation that was done in \Cref{sec:ch3_implementation} will be applied to case studies of different software systems.
 
 \subsection{Case study identification}
-To fully examine the application of this study, three separate case studies will be used.
+To fully examine the application of this study, three separate case studies will be used. All the case studies are Web-based applications where users need credentials to log in and have restrictive access to some parts of the system. These case studies are identified in \Cref{tbl:ch3_caseStudies}.
 
 \begin{table}[!htb]
 	\centering
-	\caption[Data for validating test system]
-	{\textit{Data for validating test system}}
+	\caption[Case studies]
+	{\textit{Case studies}}
 	\label{tbl:ch3_caseStudies}
 	\begin{tabularx}{\textwidth}{|X|X|X|}
-		\hline \textbf{Case study} & \textbf{Software } & \textbf{Number of events ($A_X$)} \\
-		\hline $S_1$ & 226 & 11 \\
-		\hline $S_2$ & 269 & 5 \\
-		\hline $S_3$ & 156 & 8 \\
-		\hline $S_4$ & 155 & 1 \\
-		\hline $S_5$ & 145 & 13 \\
-		\hline $S_6$ & 154 & 8 \\
+		\hline \textbf{Case study} & \textbf{Software framework} & \textbf{Description} \\
+		\hline System A & \texttt{ASP.NET Core Web SDK} & \RaggedRight Energy management software system that consists of both internal and external client users. \\
+		\hline System B & \texttt{PHP} & \RaggedRight An older energy management software system that consists of both internal and external client users. \\
+		\hline System C & \texttt{ASP.NET Core Web SDK} & \RaggedRight Administrative software system used by internal users of a company. Consist mostly of configuration tools for System A and System B and is only accessible to internal users. \\
 		\hline
 	\end{tabularx}
 \end{table}
 
-\subsection{Case study results}
+These case studies in \Cref{tbl:ch3_caseStudies} are used as they have different use cases and software framework implementations. System A and System B are similar software systems but use older and newer software frameworks. For these differences, the logging mechanism needs to be implemented in different ways to capture user-based activities.\par For the three subsystems the following results will be obtained:
 
-\subsubsection{System A results}
+\begin{itemize}
+	\item Define the most important user activity types.
+	\item Define how the logging point is implemented for the specific subsystem to obtain the user-based event logs.
+	\item Only the top 40 most used subsystems according to the total amount of user activities for a single month (October 2022).
+	\item The normalised priority for each subsystem of the main system will be calculated using \Cref{eq:ch2_priorityNormalised} using the active users that have access to the system.
+	\item The normalised activities of each subsystem will be calculated using \Cref{eq:ch2_eventNormalised}.
+	\item The maintenance priority factor will be calculated for each of the subsystems using \Cref{eq:ch2_maintenanceFactorSimplified}.
+\end{itemize}
+
+\clearpage
+
+\subsection{Case study A results}
+System A is a \texttt{ASP.NET Core Web SDK} software system. The software system has 3 basic user activity types as shown in \Cref{tbl:ch3_systemAActivityTypes}.
+
+\begin{table}[!htb]
+	\centering
+	\caption[System A activity types]{\textit{System A activity types}}
+	\label{tbl:ch3_systemAActivityTypes}
+	\begin{tabularx}{\textwidth}{|X|l|X|}
+		\hline \textbf{Activity} & \textbf{Functional requirement} & \textbf{Description} \\
+		\hline \texttt{SystemAccess} & \ref{fr:uatType1} & \RaggedRight This activity type detects when a user has navigated to a certain subsystem. \\ 
+		\hline \texttt{General} & \ref{fr:uatType3} & \RaggedRight This general activity type is for all other activities that the user initiates that send \textit{HTTP request} back to the server.  \\
+		\hline \texttt{ReportExport} & \ref{fr:uatType3} & \RaggedRight The other main function of the system is for reporting purposes. \\ 
+		\hline
+	\end{tabularx}
+\end{table}
+
+To capture the user activity types defined in \Cref{tbl:ch3_systemAActivityTypes} the logging point is placed in a central place in the software code. Using action filters that are available in \texttt{ASP.NET Core} the single logging point can be placed in the software system to capture the user-based event logs.
+
+\subsubsection{Maintenance priortising}
+For System A the $P_N$
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -255,7 +282,7 @@ To fully examine the application of this study, three separate case studies will
 	{\textit{Case study 1 subsystem activities part 1}}\label{fig:ch3_saS1S246}
 \end{figure} 
 
-\subsubsection{System B results}
+\subsection{Case study B results}
 
 \begin{figure}[!htb]
 	\centering % cent the figure
