@@ -5,7 +5,7 @@
 \section{Introduction}
 In \Cref{sec:ch2_preamble}, the methodology was created for a web-based software system. As described in this section, a user can have multiple systems and subsystems linked to their account. The implementation is done for multiple software systems in this section. The system implementation will focus more on the development of the logging mechanism, and the critical analysis will prioritise software maintenance using a utilisation analysis.
 
-\section{Implementation}
+\section{Implementation}\label{sec:ch3_implementation}
 In this section, the implementation of the development of the solution will be discussed using a test system to verify it. The test system is created in a \texttt{ASP.NET Core Web SDK} software environment.
 
 \subsection{User activity types}
@@ -219,9 +219,30 @@ $S_4$ has the least total number of user events but has about the same number of
 
 In \Cref{tbl:apx_testB_Normilised}, $P_N$ for $S_1$ and $S_2$ is the highest, as most users have access to them. Additionally, $S_1$ and $S_5$ have the highest $A_N$ rating, indicating that they were the most used systems. As previously stated, it is expected that $S_1$ will require the most maintenance activities. The systems with lower maintenance activities and still have similar active users linked to them have a lower maintenance priority factor.
 
+\clearpage
+
 \section{Case studies}
+A similar implementation that was done in \Cref{sec:ch3_implementation} will be applied to case studies of different software systems.
 
 \subsection{Case study identification}
+To fully examine the application of this study, three separate case studies will be used.
+
+\begin{table}[!htb]
+	\centering
+	\caption[Data for validating test system]
+	{\textit{Data for validating test system}}
+	\label{tbl:ch3_caseStudies}
+	\begin{tabularx}{\textwidth}{|X|X|X|}
+		\hline \textbf{Case study} & \textbf{Software } & \textbf{Number of events ($A_X$)} \\
+		\hline $S_1$ & 226 & 11 \\
+		\hline $S_2$ & 269 & 5 \\
+		\hline $S_3$ & 156 & 8 \\
+		\hline $S_4$ & 155 & 1 \\
+		\hline $S_5$ & 145 & 13 \\
+		\hline $S_6$ & 154 & 8 \\
+		\hline
+	\end{tabularx}
+\end{table}
 
 \subsection{Case study results}
 
