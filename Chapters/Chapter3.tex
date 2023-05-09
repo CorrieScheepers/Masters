@@ -224,8 +224,9 @@ In \Cref{tbl:apx_testB_Normilised}, $P_N$ for $S_1$ and $S_2$ is the highest, as
 \section{Case studies}
 A similar implementation that was done in \Cref{sec:ch3_implementation} will be applied to case studies of different software systems.
 
+
 \subsection{Case study identification}
-To fully examine the application of this study, three separate case studies will be used. All the case studies are Web-based applications where users need credentials to log in and have restrictive access to some parts of the system. These case studies are identified in \Cref{tbl:ch3_caseStudies}.
+To fully examine the application of this study, three separate case studies will be used. All the case studies are web-based applications where users need credentials to log in and have restricted access to some parts of the system. These case studies are identified in \Cref{tbl:ch3_caseStudies}.
 
 \begin{table}[!htb]
 	\centering
@@ -241,16 +242,16 @@ To fully examine the application of this study, three separate case studies will
 	\end{tabularx}
 \end{table}
 
-These case studies in \Cref{tbl:ch3_caseStudies} are used as they have different use cases and software framework implementations. System A and System B are similar software systems but use older and newer software frameworks. For these differences, the logging mechanism needs to be implemented in different ways to capture user-based activities.\par For the three subsystems the following results will be obtained:
+These case studies in \Cref{tbl:ch3_caseStudies} are being used because they have different use cases and software framework implementations. System A and System B are similar software systems but use older and newer software frameworks. Due to these differences, the logging mechanism needs to be implemented in different ways to capture user-based activities.\par For the three subsystems, the following results will be obtained:
 
 \begin{itemize}
-	\item Define the most important user activity types.
-	\item Define how the logging point is implemented for the specific subsystem to obtain the user-based event logs.
-	\item Only the top 40 most used subsystems according to the total amount of user activities for a single month (October 2022).
-	\item The normalised priority for each subsystem of the main system will be calculated using \Cref{eq:ch2_priorityNormalised} using the active users that have access to the system.
-	\item The normalised activities of each subsystem will be calculated using \Cref{eq:ch2_eventNormalised}.
-	\item The maintenance priority factor will be calculated for each of the subsystems using \Cref{eq:ch2_maintenanceFactorSimplified}.
-	\item The normalisation of the priority factor is only for users that have access to the subsystem. All users are used for the calculation even if the user hasn't interacted with the subsystem in the current time frame.
+\item Defining the most important user activity types.
+\item Defining how the logging point is implemented for the specific subsystem to obtain the user-based event logs.
+\item Only the top 40 most used subsystems according to the total number of user activities for a single month (October 2022) will be considered.
+\item The normalised priority for each subsystem of the main system will be calculated using \Cref{eq:ch2_priorityNormalised} based on the active users who have access to the system.
+\item The normalised activities of each subsystem will be calculated using \Cref{eq:ch2_eventNormalised}.
+\item The maintenance priority factor will be calculated for each of the subsystems using \Cref{eq:ch2_maintenanceFactorSimplified}.
+\item The normalisation of the priority factor is only for users who have access to the subsystem and interacted with the subsystem. All other users who do not meet this requirement will be excluded.
 \end{itemize}
 
 \subsection{Case study A results}
@@ -269,10 +270,10 @@ System A is a \texttt{ASP.NET Core Web SDK} software system. The software system
 	\end{tabularx}
 \end{table}
 
-To capture the user activity types defined in \Cref{tbl:ch3_systemAActivityTypes} the logging point is placed in a central place in the software code. Using action filters that are available in \texttt{ASP.NET Core} the single logging point can be placed in the software system to capture the user-based event logs.\par For the more additional meta-data such as the HTML element that is associated with the user-based event is also captured. Using the HTML event capturing method of \Cref{fig:ch3_element_event_capturing} the element information is captured and stored along with the request parameters in the same format as in \Cref{fig:ch3_MetadataJson}.
+To capture the user activity types defined in \Cref{tbl:ch3_systemAActivityTypes}, the logging point is placed in a central place in the software code. Using action filters that are available in \texttt{ASP.NET Core}, the single logging point can be placed in the software system to capture the user-based event logs. Additional metadata, such as the HTML element associated with the user-based event, is also captured. Using the HTML event capturing method shown in \Cref{fig:ch3_element_event_capturing}, the element information is captured and stored along with the request parameters in the same format as in \Cref{fig:ch3_MetadataJson}.
 
-\subsubsection{Maintenance priortising}
-\Cref{tbl:apx_projectA_Normilised} has the results of implementing \Cref{eq:ch2_priorityNormalised,eq:ch2_eventNormalised,eq:ch2_maintenanceFactorSimplified} to calculate the normalised priority ($P_N$), normalised activity ($A_X$), and maintenance factor ($M_{PF}$). The results of \Cref{tbl:apx_projectA_Normilised} are visually presented in \Cref{fig:ch3_caseAAnalysis}.\par In \Cref{fig:ch3_caseAAnalysis}, the subsystem $S_{582}$ had the most user-based events genereted with an average of $72.75$ user-based events per user. The lower $P_{N}$ reduced its maintenance priority factor to be the $4^{th}$ highest for all subsystems.\par Subsystem $S_{538}$ has the $5^{th}$ highest number of recorded user-based activities. it also had the most users that have access to the subsystem. The higher $P_N$ had a bigger impact on its maintenance performance factor. From these results, the maintenance prioritising should be for the systems in the order of $P_R$ in \Cref{tbl:apx_projectA_Normilised}.
+\subsubsection{Maintenance prioritisation}
+\Cref{tbl:apx_projectA_Normilised} shows the results of implementing \Cref{eq:ch2_priorityNormalised,eq:ch2_eventNormalised,eq:ch2_maintenanceFactorSimplified} to calculate the normalised priority ($P_N$), normalised activity ($A_X$), and maintenance factor ($M_{PF}$). The results are visually presented in \Cref{fig:ch3_caseAAnalysis}.\par In \Cref{fig:ch3_caseAAnalysis}, subsystem $S_{582}$ had the most user-based events generated, with an average of $72.75$ user-based events per user. The lower $P_N$ reduced its maintenance priority factor to be the $4_{th}$ highest for all subsystems. Subsystem $S_{538}$ had the $5^{th}$ highest number of recorded user-based activities and the most users that have access to the subsystem. The higher $P_N$ had a bigger impact on its maintenance performance factor. From these results, the maintenance prioritisation should be for the systems in the order of $P_R$ in \Cref{tbl:apx_projectA_Normilised}.
 
 \clearpage
 
