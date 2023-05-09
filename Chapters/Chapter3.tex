@@ -117,13 +117,13 @@ In \Cref{fig:ch2_event_bubbling} is the event propagation example of a child ele
 	\item \textit{Bubbling phase:} The event bubbles up from the targeted element
 \end{itemize}
 
-Capturing the targeted element may be difficult as some web pages may have more complex HTML, which can cause event propagation to fail to obtain the correct element information that the user interacted with. In such cases, it is more accurate to obtain the targeted element by identifying the last known element that the user hovered over on the user interface, as another DOM event may have started during the initial element's event.\par \Cref{fig:ch2_element_event_capturing} shows the flow diagram to capture the element that the user interacted with for the user-based activity log. This code segment will be initiated during the \texttt{beforeSend} operation of the \textit{AJAX request} to filter HTML elements by predefined allowed elements. Filtering the element tag names ensures that unwanted, more complex elements or basic elements that are not expected to be the initiator of the event, will be excluded. 
+Capturing the targeted element may be difficult as some web pages may have more complex HTML, which can cause event propagation to fail to obtain the correct element information that the user interacted with. In such cases, it is more accurate to obtain the targeted element by identifying the last known element that the user hovered over on the user interface, as another DOM event may have started during the initial element's event.\par \Cref{fig:ch3_element_event_capturing} shows the flow diagram to capture the element that the user interacted with for the user-based activity log. This code segment will be initiated during the \texttt{beforeSend} operation of the \textit{AJAX request} to filter HTML elements by predefined allowed elements. Filtering the element tag names ensures that unwanted, more complex elements or basic elements that are not expected to be the initiator of the event, will be excluded. 
 
 \begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.55\textwidth]{Chapter2/element_capturing/element_capturing.pdf}
 	\caption[HTML element capturing flow diagram]
-	{\textit{HTML element capturing flow diagram}}\label{fig:ch2_element_event_capturing}
+	{\textit{HTML element capturing flow diagram}}\label{fig:ch3_element_event_capturing}
 \end{figure}
 
 If the web location has already changed or no element exists, the contents of the page may have already changed during the event propagation. Therefore, the last known element that the user hovered over must be used, as it is most likely to be the element that the user interacted with. This approach ensures that there is always an element that has been detected and parsed with the request header in most UI changes.
@@ -163,7 +163,7 @@ The captured log attributes of \Cref{tbl:ch3_Log_Attributes} that are captured b
 	{\textit{JSON test request parameter data}}\label{fig:ch3_JSON_Test_Result}
 \end{figure}
 
-\Cref{fig:ch3_JSON_Test_Result} includes additional parameters described in \Cref{fig:ch3_MetadataJson}. The \texttt{RequestElementID} is obtained using the element capturing method described in \Cref{fig:ch2_element_event_capturing}, while the other metadata parameters are captured using the built-in methods available in \texttt{C\#}.
+\Cref{fig:ch3_JSON_Test_Result} includes additional parameters described in \Cref{fig:ch3_MetadataJson}. The \texttt{RequestElementID} is obtained using the element capturing method described in \Cref{fig:ch3_element_event_capturing}, while the other metadata parameters are captured using the built-in methods available in \texttt{C\#}.
 
 \subsection{Log analysis}
 The log analysis of the obtained logs shown in \Cref{fig:ch3_UAT_menu} is done in the same interactive dashboard. \Cref{fig:ch3_UAT_menuAnalysis} is a comparison of the obtained logs for the subsystems.
@@ -250,9 +250,8 @@ These case studies in \Cref{tbl:ch3_caseStudies} are used as they have different
 	\item The normalised priority for each subsystem of the main system will be calculated using \Cref{eq:ch2_priorityNormalised} using the active users that have access to the system.
 	\item The normalised activities of each subsystem will be calculated using \Cref{eq:ch2_eventNormalised}.
 	\item The maintenance priority factor will be calculated for each of the subsystems using \Cref{eq:ch2_maintenanceFactorSimplified}.
+	\item The normalisation of the priority factor is only for users that have access to the subsystem. All users are used for the calculation even if the user hasn't interacted with the subsystem in the current time frame.
 \end{itemize}
-
-\clearpage
 
 \subsection{Case study A results}
 System A is a \texttt{ASP.NET Core Web SDK} software system. The software system has 3 basic user activity types as shown in \Cref{tbl:ch3_systemAActivityTypes}.
@@ -270,16 +269,18 @@ System A is a \texttt{ASP.NET Core Web SDK} software system. The software system
 	\end{tabularx}
 \end{table}
 
-To capture the user activity types defined in \Cref{tbl:ch3_systemAActivityTypes} the logging point is placed in a central place in the software code. Using action filters that are available in \texttt{ASP.NET Core} the single logging point can be placed in the software system to capture the user-based event logs.
+To capture the user activity types defined in \Cref{tbl:ch3_systemAActivityTypes} the logging point is placed in a central place in the software code. Using action filters that are available in \texttt{ASP.NET Core} the single logging point can be placed in the software system to capture the user-based event logs.\par For the more additional meta-data such as the HTML element that is associated with the user-based event is also captured. Using the HTML event capturing method of \Cref{fig:ch3_element_event_capturing} the element information is captured and stored along with the request parameters in the same format as in \Cref{fig:ch3_MetadataJson}.
 
 \subsubsection{Maintenance priortising}
-For System A the $P_N$
+\Cref{tbl:apx_projectA_Normilised} has the results of implementing \Cref{eq:ch2_priorityNormalised,eq:ch2_eventNormalised,eq:ch2_maintenanceFactorSimplified} to calculate the normalised priority ($P_N$), normalised activity ($A_X$), and maintenance factor ($M_{PF}$). The results of \Cref{tbl:apx_projectA_Normilised} are visually presented in \Cref{fig:ch3_caseAAnalysis}.\par In \Cref{fig:ch3_caseAAnalysis}, the subsystem $S_{582}$ had the most user-based events genereted with an average of $72.75$ user-based events per user. The lower $P_{N}$ reduced its maintenance priority factor to be the $4^{th}$ highest for all subsystems.\par Subsystem $S_{538}$ has the $5^{th}$ highest number of recorded user-based activities. it also had the most users that have access to the subsystem. The higher $P_N$ had a bigger impact on its maintenance performance factor. From these results, the maintenance prioritising should be for the systems in the order of $P_R$ in \Cref{tbl:apx_projectA_Normilised}.
+
+\clearpage
 
 \begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_A_subsystems_1.pdf}
 	\caption[Case study 1 subsystem activities part 1]
-	{\textit{Case study 1 subsystem activities part 1}}\label{fig:ch3_saS1S246}
+	{\textit{Case study 1 subsystem activities part 1}}\label{fig:ch3_caseAAnalysis}
 \end{figure} 
 
 \subsection{Case study B results}
