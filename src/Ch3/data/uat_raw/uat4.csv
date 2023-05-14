@@ -1,4 +1,4 @@
-laa_ID,laa_TimeStamp,laa_Area,fk_u_ID,laa_Controller,laa_ActivityType,fk_g_ID
+ID,TimeStamp,Area,UserId,Controller,ActivityType,GroupID
 8423606,2022-10-10 00:11,LoginPage,NULL,/Login/Authenticate,LoginAttempt,NULL
 8423607,2022-10-10 00:13,ASTIR,993,/ASTIR/,MenuAccessed,NULL
 8423608,2022-10-10 00:13,ASTIR,993,/ASTIR/TagDataViewer/,MenuAccessed,NULL

@@ -1,4 +1,4 @@
-laa_ID,laa_TimeStamp,laa_Area,fk_u_ID,laa_Controller,laa_ActivityType,fk_g_ID
+ID,TimeStamp,Area,UserId,Controller,ActivityType,GroupID
 8384027,2022-10-05 00:04,Support,1207,/Support/Tickets,MenuAccessed,NULL
 8384028,2022-10-05 00:04,Support,1207,/Support/Tickets/GetInformedUsers,CustomControls,NULL
 8384029,2022-10-05 00:04,Support,1207,/Support/Tickets/GetAssignedUsers,CustomControls,NULL

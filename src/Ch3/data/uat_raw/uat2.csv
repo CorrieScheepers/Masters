@@ -1,4 +1,4 @@
-laa_ID,laa_TimeStamp,laa_Area,laa_Controller,fk_u_ID,laa_ActivityType,fk_g_ID
+ID,TimeStamp,Area,Controller,UserId,ActivityType,GroupID
 8356845,2022-10-01 00:04,LoginPage,/Login/Authenticate,NULL,LoginAttempt,NULL
 8356846,2022-10-01 00:04,LoginPage,/POPI,493,MenuAccessed,NULL
 8356847,2022-10-01 00:04,ASTIR,/ASTIR/,493,MenuAccessed,NULL
