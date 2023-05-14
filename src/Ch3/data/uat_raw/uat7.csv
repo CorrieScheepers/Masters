@@ -1,4 +1,4 @@
-laa_ID,laa_TimeStamp,laa_Area,fk_u_ID,laa_Controller,laa_ActivityType,fk_g_ID
+ID,TimeStamp,Area,UserId,Controller,ActivityType,GroupID
 8523255,2022-10-20 00:17,LoginPage,NULL,/Login/Authenticate,LoginAttempt,NULL
 8523256,2022-10-20 00:17,Support,1211,/Support/Tickets,MenuAccessed,NULL
 8523257,2022-10-20 02:28,LoginPage,NULL,/Login/Authenticate,LoginAttempt,NULL
