@@ -245,7 +245,7 @@ These case studies in \Cref{tbl:ch3_caseStudies} are being used because they hav
 \begin{itemize}
 \item Defining the most important user activity types.
 \item Defining how the logging point is implemented for the specific subsystem to obtain the user-based event logs.
-\item Only the top 40 most used subsystems according to the total number of user activities for a single month (October 2022) will be considered.
+\item Only the subsystems' user activities that are in the upper quartile is used for each case study that was recorded in October 2022.
 \item The normalised priority for each subsystem of the main system will be calculated using \Cref{eq:ch2_priorityNormalised} based on the active users who have access to the system.
 \item The normalised activities of each subsystem will be calculated using \Cref{eq:ch2_eventNormalised}.
 \item The maintenance priority factor will be calculated for each of the subsystems using \Cref{eq:ch2_maintenanceFactorSimplified}.
@@ -261,9 +261,9 @@ System A is a \texttt{ASP.NET Core Web SDK} software system. The software system
 	\label{tbl:ch3_systemAActivityTypes}
 	\begin{tabularx}{\textwidth}{|X|l|X|}
 		\hline \textbf{Activity} & \textbf{Functional requirement} & \textbf{Description} \\
-		\hline \texttt{SystemAccess} & \ref{fr:uatType1} & \RaggedRight This activity type detects when a user has navigated to a certain subsystem. \\ 
-		\hline \texttt{General} & \ref{fr:uatType3} & \RaggedRight This general activity type is for all other activities that the user initiates that send \textit{HTTP request} back to the server.  \\
-		\hline \texttt{ReportExport} & \ref{fr:uatType3} & \RaggedRight The other main function of the system is for reporting purposes. \\ 
+		\hline \texttt{Dash} & \ref{fr:uatType1} & \RaggedRight This activity type detects when a user has navigated to a certain subsystem. \\ 
+		\hline \texttt{DetailView} & \ref{fr:uatType3} & \RaggedRight This general activity type is for all other activities that the user initiates that send \textit{HTTP request} back to the server.  \\
+		\hline \texttt{Report} & \ref{fr:uatType3} & \RaggedRight The other main function of the system is for reporting purposes. \\ 
 		\hline
 	\end{tabularx}
 \end{table}
@@ -277,8 +277,18 @@ To capture the user activity types defined in \Cref{tbl:ch3_systemAActivityTypes
 	{\textit{User activity types breakdown of System A}}\label{fig:ch3_caseABreakdown}
 \end{figure} 
 
+\clearpage
+
+The \Cref{fig:ch3_caseABreakdown} the majority of the user activities for the case study A's subsystems is the Dash user activity type. Most of the subsystems don't have many inputs for the user to enter data on the system. It provides information back to the user that causes the majority of the user activities. 
+
 \subsubsection{Maintenance prioritisation}
-\Cref{tbl:apx_projectA_Normilised} shows the results of implementing \Cref{eq:ch2_priorityNormalised,eq:ch2_eventNormalised,eq:ch2_maintenanceFactorSimplified} to calculate the normalised priority ($P_N$), normalised activity ($A_X$), and maintenance factor ($M_{PF}$). The results are visually presented in \Cref{fig:ch3_caseAAnalysis}.\par In \Cref{fig:ch3_caseAAnalysis}, subsystem $S_{582}$ had the most user-based events generated, with an average of $72.75$ user-based events per user. The lower $P_N$ reduced its maintenance priority factor to be the $4_{th}$ highest for all subsystems. Subsystem $S_{538}$ had the $5^{th}$ highest number of recorded user-based activities and the most users that have access to the subsystem. The higher $P_N$ had a bigger impact on its maintenance performance factor. From these results, the maintenance prioritisation should be for the systems in the order of $P_R$ in \Cref{tbl:apx_projectA_Normilised}. 
+The maintenance prioritisation factor for the upper quartile user activities of the subsystem for case study A is calculated in \Cref{tbl:apx_caseA}.
+
+\input{Chapters/tables/caseA.tex}
+
+\Cref{tbl:apx_caseA} shows the results of implementing \Cref{eq:ch2_priorityNormalised,eq:ch2_eventNormalised,eq:ch2_maintenanceFactorSimplified} to calculate the normalised priority ($P_N$), normalised activity ($A_X$), and maintenance factor ($M_{PF}$). The \Cref{tbl:apx_caseA} only contains the upper quartile subsystems of all the total subsystems of \Cref{tbl:apx_projectA_Normilised}. The results are visually presented in \Cref{fig:ch3_caseAAnalysis} collected from \Cref{tbl:apx_caseA} with the user activity breakdown.
+
+\clearpage
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -287,18 +297,21 @@ To capture the user activity types defined in \Cref{tbl:ch3_systemAActivityTypes
 	{\textit{Case study 1 subsystem activities part 1}}\label{fig:ch3_caseAAnalysis}
 \end{figure}
 
-\input{Chapters/tables/caseA.tex}
+\par In \Cref{fig:ch3_caseAAnalysis}, subsystem $S_{582}$ had the most user-based events generated, with an average of $72.75$ user-based events per user. The lower $P_N$ reduced its maintenance priority factor to be the $4_{th}$ highest for all subsystems. Subsystem $S_{538}$ had the $5^{th}$ highest number of recorded user-based activities and the most users that have access to the subsystem. The higher $P_N$ had a bigger impact on its maintenance performance factor.\par For systems such as $S_{413}$ the majority of the user activities were from actions that the user performed other than accessing the subsystem which is the DetailView user activity type. This is different from the other top five systems that had a majority of Dash user activity types. Users only viewed the content of the web page for that subsystem. From these results, the maintenance prioritisation should be for the systems in the order of $P_R$ in \Cref{tbl:apx_caseA}. 
 
 \clearpage
 
 \subsection{Case study B results}
+System B is an older system than A and C that is primarily created in \texttt{PHP}. This system has the same type of user activities as System A's \Cref{tbl:ch3_systemAActivityTypes}. To capture the user types of \Cref{tbl:ch3_systemAActivityTypes} this system used multiple logging points.\par The use of the multiple logging points was to:
 
-\begin{figure}[!htb]
-	\centering % cent the figure
-	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_B_subsystems_1.pdf}
-	\caption[Case study 2 subsystem activities part 1]
-	{\textit{Case study 2 subsystem activities part 1}}\label{fig:ch3_sbS1S246}
-\end{figure} 
+\begin{itemize}
+	\item Ensure each subsystem's user activities could be captured as there wasn't any central point in the software architecture to capture the request. 
+	\item The system consisted of groups of smaller software systems where the logging points could be added.
+	\item Some adjustments had to be made to the logging points to ensure that the log's quality is maintained when it is captured. 
+	\item Consistency was also important so each logging has some minor differences added to ensure that it can consistently capture certain user-based events. \
+\end{itemize}
+
+The user activity type breakdown for this case study is shown in \Cref{fig:ch3_caseBBreakdown}.
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -307,11 +320,46 @@ To capture the user activity types defined in \Cref{tbl:ch3_systemAActivityTypes
 	{\textit{Case study 1 subsystem activities part 1}}\label{fig:ch3_caseBBreakdown}
 \end{figure}
 
+\begin{figure}[!htb]
+	\centering % cent the figure
+	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_B_subsystems_1.pdf}
+	\caption[Case study 2 subsystem activities part 1]
+	{\textit{Case study 2 subsystem activities part 1}}\label{fig:ch3_sbS1S246}
+\end{figure} 
+
 \input{Chapters/tables/caseB.tex}
 
 \clearpage
 
 \subsection{Case study C results}
+System C is also a \texttt{APS.NET Core Web SDK} software system. The software system has 7 primary user activity types that are described in \Cref{tbl:ch3_systemCActivityTypes}.
+
+\begin{table}[!htb]
+	\centering
+	\caption[System A activity types]{\textit{System C activity types}}
+	\label{tbl:ch3_systemCActivityTypes}
+	\begin{tabularx}{\textwidth}{|l|l|X|}
+		\hline \textbf{Activity} & \textbf{Functional requirement} & \textbf{Description} \\
+		\hline \texttt{MenuAccessed} & \ref{fr:uatType1} & \RaggedRight This activity type is for when a user has navigated to a certain subsystem. \\ 
+		\hline \texttt{HTMLElement} & \ref{fr:uatType3} & \RaggedRight This general activity type is for all other activities that the user initiates that send \textit{HTTP request} back to the server. This user type primarily is associated with HTML elements that the user used to interact with the subsystem. The sub-user activities of this primary user activity type are: \begin{itemize}
+			\item SpanClicked,
+			\item ButtonClicked, 
+			\item DivClicked, 
+			\item HyperLinkClicked,
+			\item ListClicked, 
+			\item LabelClicked, 
+			\item ImageClicked, 
+			\item FormInput, 
+			\item SelectClicked
+		\end{itemize} \\
+		\hline \texttt{CustomControls} & \ref{fr:uatType3} & \RaggedRight System C has some custom-made HTML elements that have the same functionality as the \texttt{HTMLElement} user activity type. \\ 
+		\hline \texttt{LoginAttempt} & \ref{fr:uatType2} & \RaggedRight This is a user activity for a log-out attempt by the user using the logout options available in the system to end their session. \\ 
+		\hline \texttt{LogoutAttempt} & \ref{fr:uatType2} & \RaggedRight This is a user activity when the user uses any of the log-in page controls. \\
+		\hline \texttt{ResetPassword} & \ref{fr:uatType2} & \RaggedRight This is a user activity when the user uses any of the reset password page controls. \\
+		\hline \texttt{SessionTracking} & \ref{fr:uatType2} & \RaggedRight System C has some data stored in their session. Any changes to this data are tracked when the user interacts with any controls on the web page to change certain session data. \\
+		\hline
+	\end{tabularx}
+\end{table}
 
 \begin{figure}[!htb]
 	\centering % cent the figure
