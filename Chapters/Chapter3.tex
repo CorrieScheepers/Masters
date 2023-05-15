@@ -293,8 +293,8 @@ The maintenance prioritisation factor for the upper quartile user activities of 
 \begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_A_subsystems_1.pdf}
-	\caption[Case study 1 subsystem activities part 1]
-	{\textit{Case study 1 subsystem activities part 1}}\label{fig:ch3_caseAAnalysis}
+	\caption[Maintenance performance calculation for system A]
+	{\textit{Maintenance performance calculation for system A}}\label{fig:ch3_caseAAnalysis}
 \end{figure}
 
 \par In \Cref{fig:ch3_caseAAnalysis}, subsystem $S_{582}$ had the most user-based events generated, with an average of $72.75$ user-based events per user. The lower $P_N$ reduced its maintenance priority factor to be the $4_{th}$ highest for all subsystems. Subsystem $S_{538}$ had the $5^{th}$ highest number of recorded user-based activities and the most users that have access to the subsystem. The higher $P_N$ had a bigger impact on its maintenance performance factor.\par For systems such as $S_{413}$ the majority of the user activities were from actions that the user performed other than accessing the subsystem which is the DetailView user activity type. This is different from the other top five systems that had a majority of Dash user activity types. Users only viewed the content of the web page for that subsystem. From these results, the maintenance prioritisation should be for the systems in the order of $P_R$ in \Cref{tbl:apx_caseA}. 
@@ -311,23 +311,29 @@ System B is an older system than A and C that is primarily created in \texttt{PH
 	\item Consistency was also important so each logging has some minor differences added to ensure that it can consistently capture certain user-based events. \
 \end{itemize}
 
-The user activity type breakdown for this case study is shown in \Cref{fig:ch3_caseBBreakdown}.
+The logging points don't track any of the elements that the user interacted with the system. Only some of the request parameters are tracked for any of the user-based activities. The metadata will only contain the \texttt{RequestParameters} used in \Cref{fig:ch3_MetadataJson}. The user activity type breakdown for this case study is shown in \Cref{fig:ch3_caseBBreakdown}.
 
 \begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_B_breakdown.pdf}
-	\caption[Case study 1 subsystem activities part 1]
-	{\textit{Case study 1 subsystem activities part 1}}\label{fig:ch3_caseBBreakdown}
+	\caption[User activity types breakdown of System B]
+	{\textit{User activity types breakdown of System B}}\label{fig:ch3_caseBBreakdown}
 \end{figure}
+
+In \Cref{fig:ch3_caseBBreakdown} the Dash user activity type is about $99.5\%$ of all recorded user activities. System B has fewer subsystems that require the user to interact with the web page to add data. The system mostly has web pages that display data only for the user. There weren't any Report user activity types as the users didn't create any reports to export from these subsystems.
+
+\clearpage
+
+\subsubsection{Maintenance prioritisation}
+
+\input{Chapters/tables/caseB.tex}
 
 \begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_B_subsystems_1.pdf}
-	\caption[Case study 2 subsystem activities part 1]
-	{\textit{Case study 2 subsystem activities part 1}}\label{fig:ch3_sbS1S246}
+	\caption[Maintenance performance calculation for system B]
+	{\textit{Maintenance performance calculation for system B}}\label{fig:ch3_sbS1S246}
 \end{figure} 
-
-\input{Chapters/tables/caseB.tex}
 
 \clearpage
 
