@@ -299,8 +299,6 @@ The maintenance prioritisation factor for the upper quartile user activities of 
 
 \par In \Cref{fig:ch3_caseAAnalysis}, subsystem $S_{582}$ had the most user-based events generated, with an average of $72.75$ user-based events per user. The lower $P_N$ reduced its maintenance priority factor to be the $4_{th}$ highest for all subsystems. Subsystem $S_{538}$ had the $5^{th}$ highest number of recorded user-based activities and the most users that have access to the subsystem. The higher $P_N$ had a bigger impact on its maintenance performance factor.\par For systems such as $S_{413}$ the majority of the user activities were from actions that the user performed other than accessing the subsystem which is the DetailView user activity type. This is different from the other top five systems that had a majority of Dash user activity types. Users only viewed the content of the web page for that subsystem. From these results, the maintenance prioritisation should be for the systems in the order of $P_R$ in \Cref{tbl:apx_caseA}. 
 
-\clearpage
-
 \subsection{Case study B results}
 System B is an older system than A and C that is primarily created in \texttt{PHP}. This system has the same type of user activities as System A's \Cref{tbl:ch3_systemAActivityTypes}. To capture the user types of \Cref{tbl:ch3_systemAActivityTypes} this system used multiple logging points.\par The use of the multiple logging points was to:
 
@@ -320,20 +318,23 @@ The logging points don't track any of the elements that the user interacted with
 	{\textit{User activity types breakdown of System B}}\label{fig:ch3_caseBBreakdown}
 \end{figure}
 
-In \Cref{fig:ch3_caseBBreakdown} the Dash user activity type is about $99.5\%$ of all recorded user activities. System B has fewer subsystems that require the user to interact with the web page to add data. The system mostly has web pages that display data only for the user. There weren't any Report user activity types as the users didn't create any reports to export from these subsystems.
-
-\clearpage
+In \Cref{fig:ch3_caseBBreakdown} the \texttt{Dash} user activity type is about $99.5\%$ of all recorded user activities. System B has fewer subsystems that require the user to interact with the web page to add data. The system mostly has web pages that display data only for the user. There weren't any \texttt{Report} user activity types as the users didn't create any reports to export from these subsystems.
 
 \subsubsection{Maintenance prioritisation}
+The maintenance prioritisation factor for the upper quartile user activities of the subsystem for case study B is calculated in \Cref{tbl:apx_caseB}.
 
 \input{Chapters/tables/caseB.tex}
+
+The upper quartile of the maintenance performance of the subsystems of \Cref{tbl:apx_projectB_Normilised} are used to create the results of \Cref{tbl:apx_projectB_Normilised} using \Cref{eq:ch2_eventNormalised,eq:ch2_maintenanceFactorSimplified,eq:ch2_priorityNormalised}. The results of \Cref{tbl:apx_caseB} are visually presented in \Cref{fig:ch3_systemsBBar}.
 
 \begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_B_subsystems_1.pdf}
 	\caption[Maintenance performance calculation for system B]
-	{\textit{Maintenance performance calculation for system B}}\label{fig:ch3_sbS1S246}
+	{\textit{Maintenance performance calculation for system B}}\label{fig:ch3_systemsBBar}
 \end{figure} 
+
+In \Cref{fig:ch3_systemsBBar} all of the subsystems have the majority \texttt{Dash} user activity type. About $99.5\%$ of the user activities is \texttt{Dash} user activity. This is due to that this older system made in \texttt{PHP} is only used for monitoring energy systems. The subsystems have simple inputs such as date pickers and category pickers for data. These type of inputs only refreshes the page which causes the more \texttt{Dash} activities to load new data for the user.\par $S_{417}$ has the most user activities, almost $2.5$ times higher than the second system $S_{409}$ and has the most users being active on this system. The number of user activities significantly decreases with the lower priority rank.
 
 \clearpage
 
@@ -385,18 +386,27 @@ This logging point is similar to the one used for system A but differs only in t
 	{\textit{Case study 1 subsystem activities part 1}}\label{fig:ch3_caseCBreakdown}
 \end{figure}
 
-The user activity breakdown in \Cref{fig:ch3_caseCBreakdown} the majority of the user activities is \texttt{MenuAccessed} user activity type. 
+\clearpage
+
+The user activity breakdown in \Cref{fig:ch3_caseCBreakdown} the majority of the user activities for system C is \texttt{CustomControl} user activity type. The more interaction with the system increases the total amount of the general user activity types (\texttt{CustomControl} and \texttt{HTMLElement}).
+
+\subsubsection{Maintenance prioritisation}
+The maintenance prioritisation factor for the upper quartile user activities of the subsystem for case study C is calculated in \Cref{tbl:apx_caseC}.
+
+\input{Chapters/tables/caseC.tex}
+
+The upper quartile of the maintenance performance of the subsystems of \Cref{tbl:apx_projectC_Normilised} are used to create the results of \Cref{tbl:apx_projectC_Normilised} using \Cref{eq:ch2_eventNormalised,eq:ch2_maintenanceFactorSimplified,eq:ch2_priorityNormalised}. The results of \Cref{tbl:apx_caseC} are visually presented in \Cref{fig:ch3_systemCBar}.
+
+\clearpage
 
 \begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_C_subsystems_1.pdf}
-	\caption[Case study 2 subsystem activities part 1]
-	{\textit{Case study 2 subsystem activities part 1}}\label{fig:ch3_test}
+	\caption[Maintenance performance calculation for system B]
+	{\textit{Maintenance performance calculation for system B}}\label{fig:ch3_systemCBar}
 \end{figure} 
 
-\input{Chapters/tables/caseC.tex}
-
-\clearpage
+In \Cref{fig:ch3_systemCBar} the top three subsystems ($S_{97}$, $S_{93}$ and $S_{12}$) majority user actvities are from general activity types. The high usage of these subsystems with a high amount of users linked to each one of them increased their maintenance priority factor. Other systems such as $S_{6}$, $S_{1}$ and $S_{82}$ have a higher priority normalisation than $S_{12}$ but have a significantly lower user activity normalisation. 
 
 \subsection{Critical analysis results}
 
