@@ -27,8 +27,8 @@
 		"workbench.colorTheme": "Monokai",
 		"latex-workshop.latex.autoClean.run": "onBuilt",
 		"latex-workshop.synctex.afterBuild.enabled": true,
-		"latex-workshop.docker.enabled": false,
-		"latex-workshop.docker.image.latex": "",
+		"latex-workshop.docker.enabled": true,
+		"latex-workshop.docker.image.latex": "ghcr.io/xu-cheng/texlive-full",
 		"grammarly.selectors": [
 			{
 				"language": "latex",

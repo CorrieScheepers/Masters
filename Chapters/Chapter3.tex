@@ -367,12 +367,16 @@ System C is also a \texttt{APS.NET Core Web SDK} software system. The software s
 	\end{tabularx}
 \end{table}
 
-\begin{figure}[!htb]
-	\centering % cent the figure
-	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_C_subsystems_1.pdf}
-	\caption[Case study 2 subsystem activities part 1]
-	{\textit{Case study 2 subsystem activities part 1}}\label{fig:ch3_test}
-\end{figure} 
+For System C, the user activities listed in Table \ref{tbl:ch3_systemCActivityTypes} have been expanded to include the captured HTML elements that the users interacted with. As stated in Table \ref{tbl:ch3_caseStudies}, System C is an administrative software system used for configuring and managing Systems A and B. Compared to the monitoring software subsystems of Systems A and B, the user interaction in System C involves more complex user interactions.\par To facilitate analysis for the maintenance prioritisation the increased user activity types in Table \ref{tbl:ch3_systemCActivityTypes} can be grouped. The \texttt{HTMLElement} type is a grouped user activity type of the smaller individual user activity types. Despite their differences, these activity types share a common base functionality where it primarily shows the users' engagement with the system.\par System C uses a single logging point at the server side to capture the user event logs. The logging point for this implementation of the logging mechanism makes use of an action filter to:
+
+\begin{itemize}
+	\item ensures that the logging point is executed before the rest of the request is serviced by the function that is called by the subsystem,
+	\item globally defined for all the controllers for the system,
+	\item capture any additional user activity attributes,
+	\item save the completed log into the database before the logging process is finally terminated.
+\end{itemize}
+
+This logging point is similar to the one used for system A but differs only in the key logging attributes that it needs to capture. Due to the HTML element's tag name used to define some of the user activities of \Cref{tbl:ch3_systemCActivityTypes}, the client side uses a similar logging point to capture the HTML element that the user interacted with.\par The client-side logging point adds the last or clicked HTML element that the user used for the user-based event and saves it in a custom request header. \Cref{fig:ch3_caseCBreakdown} is the user activity breakdown of the system C's activity types in \Cref{tbl:ch3_systemCActivityTypes}.
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -380,6 +384,15 @@ System C is also a \texttt{APS.NET Core Web SDK} software system. The software s
 	\caption[Case study 1 subsystem activities part 1]
 	{\textit{Case study 1 subsystem activities part 1}}\label{fig:ch3_caseCBreakdown}
 \end{figure}
+
+The user activity breakdown in \Cref{fig:ch3_caseCBreakdown} the majority of the user activities is \texttt{MenuAccessed} user activity type. 
+
+\begin{figure}[!htb]
+	\centering % cent the figure
+	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_C_subsystems_1.pdf}
+	\caption[Case study 2 subsystem activities part 1]
+	{\textit{Case study 2 subsystem activities part 1}}\label{fig:ch3_test}
+\end{figure} 
 
 \input{Chapters/tables/caseC.tex}
 
