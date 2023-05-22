@@ -99,7 +99,7 @@ Table \ref{tbl:ch2_loggingPointRequirement} outlines the functional requirements
 
 \clearpage
 
-\subsubsection{Obtaining the element of user-based event}\label{sec:ch2_ElementObtaining}
+\subsubsection{Obtaining the element of user-based event}\label{sec:ch3_ElementObtaining}
 In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will be using a \textit{HTTP request} to send to the server when the user interacted with an \textit{HTML element}. For the functional requirements activity type (F/R 1.5.3) and metadata (F/R 1.5.6) in \Cref{tbl:ch2_keyLoggingAttributes} the \textit{HTML element} needs to be obtained to get the element's tag and identification text.\par This can be difficult to obtain due to \textit{bubbling}\footnote{\textbf{Bubbling} is when an event happens on an element, it first runs the handlers on it, then on its parent, then up on other ancestors. \cite{EventBubbling}.} that may occur when searching for the element that the user specifically interacted with. \Cref{fig:ch2_event_bubbling} is the event bubbling propagation.
 
 \begin{figure}[!htb]
@@ -252,7 +252,7 @@ These case studies in \Cref{tbl:ch3_caseStudies} are being used because they hav
 \item The normalisation of the priority factor is only for users who have access to the subsystem and interacted with the subsystem. All other users who do not meet this requirement will be excluded.
 \end{itemize}
 
-\subsection{Case study A results}
+\subsection{Case study A results}\label{sec:ch3_csA}
 System A is a \texttt{ASP.NET Core Web SDK} software system. The software system has 3 basic user activity types as shown in \Cref{tbl:ch3_systemAActivityTypes}.
 
 \begin{table}[!htb]
@@ -299,7 +299,7 @@ The maintenance prioritisation factor for the upper quartile user activities of 
 
 \par In \Cref{fig:ch3_caseAAnalysis}, subsystem $S_{582}$ had the most user-based events generated, with an average of $72.75$ user-based events per user. The lower $P_N$ reduced its maintenance priority factor to be the $4_{th}$ highest for all subsystems. Subsystem $S_{538}$ had the $5^{th}$ highest number of recorded user-based activities and the most users that have access to the subsystem. The higher $P_N$ had a bigger impact on its maintenance performance factor.\par For systems such as $S_{413}$ the majority of the user activities were from actions that the user performed other than accessing the subsystem which is the DetailView user activity type. This is different from the other top five systems that had a majority of Dash user activity types. Users only viewed the content of the web page for that subsystem. From these results, the maintenance prioritisation should be for the systems in the order of $P_R$ in \Cref{tbl:apx_caseA}. 
 
-\subsection{Case study B results}
+\subsection{Case study B results}\label{sec:ch3_csB}
 System B is an older system than A and C that is primarily created in \texttt{PHP}. This system has the same type of user activities as System A's \Cref{tbl:ch3_systemAActivityTypes}. To capture the user types of \Cref{tbl:ch3_systemAActivityTypes} this system used multiple logging points.\par The use of the multiple logging points was to:
 
 \begin{itemize}
@@ -338,7 +338,7 @@ In \Cref{fig:ch3_systemsBBar} all of the subsystems have the majority \texttt{Da
 
 \clearpage
 
-\subsection{Case study C results}
+\subsection{Case study C results}\label{sec:ch3_csC}
 System C is also a \texttt{APS.NET Core Web SDK} software system. The software system has 7 primary user activity types that are described in \Cref{tbl:ch3_systemCActivityTypes}.
 
 \begin{table}[!htb]
@@ -409,5 +409,85 @@ The upper quartile of the maintenance performance of the subsystems of \Cref{tbl
 In \Cref{fig:ch3_systemCBar} the top three subsystems ($S_{97}$, $S_{93}$ and $S_{12}$) majority user actvities are from general activity types. The high usage of these subsystems with a high amount of users linked to each one of them increased their maintenance priority factor. Other systems such as $S_{6}$, $S_{1}$ and $S_{82}$ have a higher priority normalisation than $S_{12}$ but have a significantly lower user activity normalisation. 
 
 \subsection{Critical analysis results}
+
+\subsubsection{Summary of comparison between case studies}
+The three case studies result in \Cref{sec:ch3_csA,sec:ch3_csB,sec:ch3_csC} have some similarities and differences between them. The logging mechanism used for case study A and C is similar to each other. Both case studies make use of the MVC architecture that has been discussed in \Cref{sec:ch2_webApplicationArchitecture}:
+
+\begin{itemize}
+	\item Both systems have a modified application of the \Cref{sec:ch3_ElementObtaining} client-side event logging to obtain the HTML element the user interacted with. Their software architecture f
+	\item Making use of action filters in \texttt{C\#} to create a single logging point on the server side to capture any user-based events. 
+	\item The log quality of these two case studies is similar as both systems would identify user-based events through the action filter used as a logging point. 
+\end{itemize}
+
+The older subsystems of case study C use multiple logging points in their logging mechanism to capture logs. The same user-based event types as case study A's \Cref{tbl:ch3_systemAActivityTypes} are obtained through the multiple logging points.
+
+\subsubsection{Value add per case study}
+In each case study some obstacles needed to be overcome to create a suitable logging mechanism for the log analysis. Some of the unique obstacles and the value added for each case study:
+
+\begin{itemize}
+	\item \textbf{Case Study A}
+		\begin{itemize}
+			\item Case study A is a similar software system that is used in Case study B. Making use of a single logging point 
+		\end{itemize}
+	\item \textbf{Case Study B}
+	\begin{itemize}
+		\item Case studies A and B are similar systems that are used the same way by the users. To capture
+	\end{itemize}
+	\item \textbf{Case Study C}
+	\begin{itemize}
+		\item Case studies A and B are similar systems that are used the same way by the users. To capture
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Summary of positive points}
+
+\subsubsection{Summary of negative points}
+
+\clearpage
+
+\subsubsection{Functional requirement addressed}
+The functional requirements that were defined in \Cref{chap:2} for case studies A, B and C are addressed in \Cref{tbl:ch3_functionalRequirements}.
+
+\begin{table}[!htb]
+	\centering
+	\caption[Functional requirements addressed]{\textit{Functional requirements addressed}}
+	\label{tbl:ch3_functionalRequirements}
+	\begin{tabularx}{\textwidth}{|X|X|Y|Y|Y|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Sub functional requirement}} & \multicolumn{3}{|c|}{\textbf{Case study}} \\
+		\cline{2-4}
+		 & \textbf{A} & \textbf{B} & \textbf{C} \\
+		% Add your functional requirements and case study information here
+		\hline \ref{fr:requirementsUserBased1} & \cmark & \cmark & \cmark \\
+		\hline \ref{fr:requirementsUserBased2} & \cmark & \cmark & \cmark \\
+		\hline \ref{fr:requirementsUserBased3} & \cmark & \cmark & \cmark \\
+		\hline \ref{fr:requirementsUserBased4} & \cmark & \cmark & \cmark \\
+		\hline \ref{fr:requirementsUserBased5} & \cmark & \cmark & \cmark \\
+		\hline \ref{fr:requirementsUserBased6} & \cmark & \cmark & \cmark \\
+		\hline \ref{fr:uatType1} & \cmark & \cmark & \cmark \\
+		\hline \ref{fr:uatType2} & \xmark & \xmark & \cmark \\
+		\hline \ref{fr:uatType3} & \cmark & \cmark & \cmark \\
+		\hline \ref{fr:subLogAttributes} & \cmark & \cmark & \cmark \\
+		% Logging point requirements
+		\hline \ref{fr:lp1} & \cmark & \cmark & \cmark \\
+		\hline \ref{fr:lp2} & \cmark & Mostly & \cmark \\
+		\hline \ref{fr:lp3} & \cmark & Mostly & \cmark \\
+		\hline \ref{fr:lp4} & \cmark & \cmark & \cmark \\
+		\hline \ref{fr:serverDatabase} & \cmark & \cmark & \cmark \\
+		% Log analysis tool
+		\hline \ref{fr:ur1} & \cmark & Mostly & \cmark \\
+		\hline \ref{fr:ur2} & \cmark & Mostly & \cmark \\
+		\hline \ref{fr:ur3} & \cmark & \cmark & Mostly \\
+		\hline \ref{fr:ur4} & \cmark & \cmark & \cmark \\
+		\hline \ref{fr:ur5} & \cmark & \cmark & \cmark \\
+		\hline \ref{fr:ur6} & \cmark & \cmark & \cmark \\
+		\hline
+	\end{tabularx}
+\end{table}
+
+In \Cref{tbl:ch3_functionalRequirements} the functional requirements for the log attributes (\ref{fr:logAttributes}) defined in \Cref{tbl:ch2_loggingAttributesFunctionalRequirements} all three case studies met the requirements that were defined. In each case study, only user-based events were captured for the defined user activity types for each case study. For each case study the log attributes were defined that are captured from the obtained user-based event.\par The logging point functional requirement (\ref{fr:loggingPoints}) case study A and C addressed all the sub-functional requirements. Case study B did not meet all the requirements as the \ref{fr:lp2} and \ref{fr:lp3} is not fully met. In this older system, the use of multiple logging points needs modifications to work for groups or individual subsystems. This can cause inconsistencies in the log quality as some potential user-based event logs may not be consistently identified.
+
+
+\subsubsection{Gaps identified}
 
 \section{Conclusion}
