@@ -416,10 +416,18 @@ The three case studies result in \Cref{sec:ch3_csA,sec:ch3_csB,sec:ch3_csC} have
 \begin{itemize}
 	\item Both systems have a modified application of the \Cref{sec:ch3_ElementObtaining} client-side event logging to obtain the HTML element the user interacted with. Their software architecture f
 	\item Making use of action filters in \texttt{C\#} to create a single logging point on the server side to capture any user-based events. 
-	\item The log quality of these two case studies is similar as both systems would identify user-based events through the action filter used as a logging point. 
+	\item The log quality of these two case studies is similar as both systems would identify user-based events through the action filter used as a logging point.
 \end{itemize}
 
-The older subsystems of case study C use multiple logging points in their logging mechanism to capture logs. The same user-based event types as case study A's \Cref{tbl:ch3_systemAActivityTypes} are obtained through the multiple logging points.
+The older subsystems of case study C use multiple logging points in the logging mechanism to capture logs. The same user-based event types were identified that case study A has as defined in \Cref{tbl:ch3_systemAActivityTypes}. Case study C has thus:
+
+\begin{itemize}
+	\item Multiple logging points than the case study A and B. 
+	\item Higher chance in the variance of the log quality than case study A and B's logging points. Different subsystems require modification of the logging points to ensure that the user-based event logs are captured for case study C.
+	\item Decreased adaptability and maintainability due to the increased logging points.
+\end{itemize}
+
+Each case study had distinct breakdowns of their user activity types. For case study A and B which have the same user activity type the analysis of \Cref{fig:ch3_caseABreakdown,fig:ch3_caseBBreakdown} had different results. Most of case study B's user activities were of the type \texttt{Dash}.  This is due to how the system works by only refreshing the entire page to obtain new data. \par There weren't many \texttt{DetailView} activity types for these older subsystems with a more simple design as case study B's subsystem. Case study B had about $30\%$ of its activities of the type \texttt{DetailView}. The more complex subsystems with more input needed from users increased this user type's share of the total captured logs.\par These logs could have also been broken up into other more descriptive user activity types such as case study C. For case study A it was not needed as the purpose of its maintenance priority is more comparable to the software system in case study B which has a similar operational goal.\par All three case studies' user-based event logs are stored in a structured database with case study A and B using the same data structures. For the log analysis, case study A and B use the same analysis procedures. \par Case study C's logs didn't have a corresponding subsystem data table for the log analysis. Additional post-logging operations are used to group all the different request URLs into subsystems. For a more complex and bigger software system used in case study C it was preferable to use this method to categorise the logs into subsystems using the request URLs target controller file.\par The priority normalisation for case study A was better and had a higher impact on the maintenance priority factor than case study A and C. Even if there were systems that had a higher total amount of user activity the total number of active users had a higher impact than the amount of activities for most subsystems. \par Case study B's highest subsystem ranked for maintenance priority had all the highest normalised priority and user activities. This subsystem is a home page that all users have access to and use to navigate through the rest of the system. \par Case study C had two subsystems where the maintenance priority factor was higher than $0.1$. Even if a lot of users have been active on a subsystem the amount of captured user activities had a higher impact on the maintenance priority factor than case study A and B.
 
 \subsubsection{Value add per case study}
 In each case study some obstacles needed to be overcome to create a suitable logging mechanism for the log analysis. Some of the unique obstacles and the value added for each case study:
@@ -427,21 +435,40 @@ In each case study some obstacles needed to be overcome to create a suitable log
 \begin{itemize}
 	\item \textbf{Case Study A}
 		\begin{itemize}
-			\item Case study A is a similar software system that is used in Case study B. Making use of a single logging point 
+			\item Newer and similar operational software system as the software system in case study B used.
+			\item Used the same logging mechanism as case study C to capture the same user-based event types as case study B.
 		\end{itemize}
 	\item \textbf{Case Study B}
 	\begin{itemize}
-		\item Case studies A and B are similar systems that are used the same way by the users. To capture
+		\item Multiple implementations of different logging points to capture all the needed log attributes.
+		\item Simpler software system than case study A and C but with unique challenges to place each logging point for different subsystems.
 	\end{itemize}
 	\item \textbf{Case Study C}
 	\begin{itemize}
-		\item Case studies A and B are similar systems that are used the same way by the users. To capture
+		\item More complex software systems are used with multiple different user activity types than case study A and B.
+		\item Subsystems were defined by the request URLs target controller. There was a defined data table that contain the subsystem data but some of the software components didn't have a defined subsystem entry even if it can be a stand-alone subsystem.
+		\item More complex log extraction due to subsystem classification.
 	\end{itemize}
 \end{itemize}
 
 \subsubsection{Summary of positive points}
+From the observations made of each case study few positive points can be summarised:
+
+\begin{itemize}
+	\item Similiar architecture software systems can use the same logging points that don't require too many modifications.
+	\item Log quality for similar logging mechanisms is about the same to compare software systems to each other in a log analysis.
+	\item Log analysis tools can be used on all captured logs with the correct log extraction process used.
+	\item Log analysis can be used for the maintenance priority factor calculations.
+	\item Lowest ranked maintenance priorities can be reviewed if they are still valuable to keep in the software system.
+\end{itemize}
 
 \subsubsection{Summary of negative points}
+
+\begin{itemize}
+	\item Some systems needed additional logging points that were each modified to obtain the desired user-based event logs.
+	\item Log quality may differ for different implementations of logging points. This can also happen in the same software system with multiple logging points.
+	\item Log quality may impact the maintenance priority factor as some of the variables can have extreme cases where values are extremely high. Certain subsystems don't have a meaningful impact on the user but are needed to use the rest of the system such as a navigation page.
+\end{itemize}
 
 \clearpage
 
@@ -452,9 +479,9 @@ The functional requirements that were defined in \Cref{chap:2} for case studies 
 	\centering
 	\caption[Functional requirements addressed]{\textit{Functional requirements addressed}}
 	\label{tbl:ch3_functionalRequirements}
-	\begin{tabularx}{\textwidth}{|X|X|Y|Y|Y|}
+	\begin{tabularx}{\textwidth}{|X|Y|Y|Y|}
 		\hline
-		\multicolumn{1}{|c|}{\textbf{Sub functional requirement}} & \multicolumn{3}{|c|}{\textbf{Case study}} \\
+		\multicolumn{1}{|c|}{\textbf{Sub functional requirement}} & \multicolumn{3}{c|}{\textbf{Case study}} \\
 		\cline{2-4}
 		 & \textbf{A} & \textbf{B} & \textbf{C} \\
 		% Add your functional requirements and case study information here
@@ -481,11 +508,13 @@ The functional requirements that were defined in \Cref{chap:2} for case studies 
 		\hline \ref{fr:ur4} & \cmark & \cmark & \cmark \\
 		\hline \ref{fr:ur5} & \cmark & \cmark & \cmark \\
 		\hline \ref{fr:ur6} & \cmark & \cmark & \cmark \\
+		% Maintenance priority
+		
 		\hline
 	\end{tabularx}
 \end{table}
 
-In \Cref{tbl:ch3_functionalRequirements} the functional requirements for the log attributes (\ref{fr:logAttributes}) defined in \Cref{tbl:ch2_loggingAttributesFunctionalRequirements} all three case studies met the requirements that were defined. In each case study, only user-based events were captured for the defined user activity types for each case study. For each case study the log attributes were defined that are captured from the obtained user-based event.\par The logging point functional requirement (\ref{fr:loggingPoints}) case study A and C addressed all the sub-functional requirements. Case study B did not meet all the requirements as the \ref{fr:lp2} and \ref{fr:lp3} is not fully met. In this older system, the use of multiple logging points needs modifications to work for groups or individual subsystems. This can cause inconsistencies in the log quality as some potential user-based event logs may not be consistently identified.
+In \Cref{tbl:ch3_functionalRequirements} the functional requirements for the log attributes (\ref{fr:logAttributes}) defined in \Cref{tbl:ch2_loggingAttributesFunctionalRequirements} all three case studies met the requirements that were defined. In each case study, only user-based events were captured for the defined user activity types for each case study. For each case study the log attributes were defined that are captured from the obtained user-based event.\par The logging point functional requirement (\ref{fr:loggingPoints}) case study A and C addressed all the sub-functional requirements. Case study B did not meet all the requirements as the \ref{fr:lp2} and \ref{fr:lp3} is not fully met. In this older system, the use of multiple logging points needs modifications to work for groups or individual subsystems. This can cause inconsistencies in the log quality as some potential user-based event logs may not be consistently identified.\par The log analysis functional requirements ()\ref{fr:logAnalysis}) by using or creating a log analysis tool. The log quality (\ref{fr:logQuality}) for case study A and B were complete as the user-based events could be efficiently obtained from the software system. Case study B had lower log quality as the availability and completeness of the logs were lower due to the use of multiple logging points. Log extraction (\ref{fr:ur3}) for case study C was mostly achieved as extra post-logging activities with the log analysis tool had to be used to create subsystems using the logs.
 
 
 \subsubsection{Gaps identified}
