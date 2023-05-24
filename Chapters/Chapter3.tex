@@ -6,17 +6,17 @@
 In \Cref{sec:ch2_preamble}, the methodology was created for a web-based software system. As described in this section, a user can have multiple systems and subsystems linked to their account. The implementation is done for multiple software systems in this section. The system implementation will focus more on the development of the logging mechanism, and the critical analysis will prioritise software maintenance using a utilisation analysis.
 
 \section{Implementation}\label{sec:ch3_implementation}
-In this section, the implementation of the solution development will be discussed using a test system to verify it. The test system is created in a \texttt{ASP.NET Core Web SDK} software environment.
+In this section, the implementation of the development of the solution will be discussed using a test system to verify it. The test system is created in a \texttt{ASP.NET Core Web SDK} software environment.
 
 \subsection{User activity types}
-In \Cref{fig:ch2_user_based_actvity_classification} the user-based clarification flow diagram uses \Cref{tbl:ch2_requirementsForUserActivtyEvent} to identify and capture some of the log attributes. Event logs should consist of multiple cases (\ref{fr:requirementsUserBased2}) that are the primary identifiers for the event log, which are the types of user activity.\par Using the basic operations of the system and what users interact with the types of user activation, can be made for each software system. For the test system, the basic use will be:
+In \Cref{fig:ch2_user_based_actvity_classification} the user-based clarification flow diagram uses the \Cref{tbl:ch2_requirementsForUserActivtyEvent} to identify and capture some of the log attributes. The event logs should consist of multiple cases (\ref{fr:requirementsUserBased2}) that are the primary identifiers for the event log which is the user activity types.\par Using the basic operations of the system and what users interact with the user activate types can be made for each software system. For the test system, the basic use will be:
 
 \begin{itemize}
 	\item monitor resource usage dynamic dashboards,
 	\item generate \texttt{PDF} reports of the displayed data.
 \end{itemize}
 
-Reporting and monitoring are important for this test system, so the user activity types will need to focus on these activity types. To satisfy the \ref{fr:requirementsUserBased2}, \ref{fr:requirementsUserBased5} and \ref{fr:requirementsUserBased6} the user actvity types is defined in \Cref{tbl:ch3_testActivityTypes}.
+Reporting and monitoring are important for this test system so the user activity types will need to focus on these activity types. To satisfy the \ref{fr:requirementsUserBased2}, \ref{fr:requirementsUserBased5} and \ref{fr:requirementsUserBased6} the user actvity types is defined in \Cref{tbl:ch3_testActivityTypes}.
 
 \begin{table}[!htb]
 	\centering
@@ -31,10 +31,10 @@ Reporting and monitoring are important for this test system, so the user activit
 	\end{tabularx}
 \end{table}
 
-\Cref{tbl:ch3_testActivityTypes} doesn't contain any session changes (\ref{fr:uatType3}) user types. These activities are only triggered when the user logs into their system or terminates their session by pressing the log-out button.
+\Cref{tbl:ch3_testActivityTypes} doesn't contain any session changes (\ref{fr:uatType3}) user types. These activities are only triggered when the user log's into their system or terminates their session by pressing the log-out button.
 
 \subsection{Log attibutes}\label{sec:ch3_implementationLogAtrributes}
-Using the functional requirements discussed in \Cref{sec:ch2_logAttributesRequirements} data columns are made for the log attributes of the user-based event. These log attributes for a structured database are defined in \Cref{tbl:ch3_Log_Attributes}. 
+Using the functional requirements discussed in \Cref{sec:ch2_logAttributesRequirements} data columns are made for the user-based event's log attributes. These log attributes for a structured database are defined in \Cref{tbl:ch3_Log_Attributes}. 
 
 \begin{table}[!htb]
 	\centering
@@ -86,7 +86,7 @@ In \Cref{fig:ch3_MetadataJson} the main \texttt{JSON} parameters capture the fol
 \end{itemize}
 
 \subsection{Logging points}
-Table \ref{tbl:ch2_loggingPointRequirement} outlines the functional requirements for placing logging points in the software system. It is crucial to maintain consistency when capturing logs and placing them in a global location for all HTTP requests will ensure consistency. Filters can be used during the test system as it is a \texttt{ASP.NET Core Web SDK}. The filters can be initialised during the software system startup phase.\par For other web-based systems the central point where the \textit{HTTP requests} go through should be used to place single or multiple logging points. In other cases, adding it for smaller groups of subsystems is also viable as long as the logs can be consistently captured when the requests come through. \par The filter of the test system is the primary component of the logging mechanism. It is responsible for capturing client-side log attributes and metadata using server-side parsing, as shown in Figure \ref{fig:ch2_loggingParse}. \par In \Cref{sec:ch3_implementationLogAtrributes} it has been discussed that some of the logs may contain sensitive data that should not be logged, especially the metadata request parameters. Adding a flag to indicate that certain subsystem requests need to be ignored for event logging should be added.\par This can also exclude certain parameters from being saved into the database. For the test system, it is an attribute added to certain controllers to ignore the obtained event logs and terminate the logging process.\par The logging process in Figure \ref{fig:ch3_loggingProcess} is placed on the client-side filter, which executes before the rest of the request is handled. It is important to check whether the request has an action parameter to ensure that the function being executed is called by a request and not by the internal system.\par If the request has a report action parameter, user activity should be set to either \texttt{Activity1} or \texttt{Activity2}. The rest of the request parameters should be obtained and formatted as a \texttt{JSON} string to be stored in the database. It is important to ensure that sensitive data is not logged, and adding a flag to exclude certain requests from being logged is a good practice.
+Table \ref{tbl:ch2_loggingPointRequirement} outlines the functional requirements for placing logging points in the software system. It's crucial to maintain consistency when capturing logs and placing them in a global location for all HTTP requests will ensure consistency. Filters can be used during the test system as it is a \texttt{ASP.NET Core Web SDK}. The filters can be initialised during the software system startup phase.\par For other web-based systems the central point where the \textit{HTTP requests} go through should be used to place single or multiple logging points. In other cases adding it for smaller groups of subsystems is also viable as long as the logs can be consistently captured when the requests come through. \par The filter of the test system is the primary component of the logging mechanism. It is responsible for capturing client-side log attributes and metadata using server-side parsing, as shown in Figure \ref{fig:ch2_loggingParse}. \par In \Cref{sec:ch3_implementationLogAtrributes} it has been discussed that some of the logs may contain sensitive data that should not be logged especially the metadata's request parameters. Adding a flag to indicate that certain subsystems' requests need to be ignored for the event logging should be added.\par This can also exclude certain parameters from being saved into the database. For the test system, it is an attribute added to certain controllers to ignore the obtained event logs and terminate the logging process.\par The logging process in Figure \ref{fig:ch3_loggingProcess} is placed on the client-side filter, which executes before the rest of the request is handled. It is important to check whether the request has an action parameter to ensure that the function being executed is called by a request and not by the internal system.\par If the request has a report action parameter, the user activity should be set to either \texttt{Activity1} or \texttt{Activity2}. The rest of the request parameters should be obtained and formatted as a \texttt{JSON} string to be stored in the database. It is important to ensure that sensitive data is not logged, and adding a flag to exclude certain requests from being logged is a good practice.
 
 \clearpage
 
@@ -100,7 +100,7 @@ Table \ref{tbl:ch2_loggingPointRequirement} outlines the functional requirements
 \clearpage
 
 \subsubsection{Obtaining the element of user-based event}\label{sec:ch3_ElementObtaining}
-In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will use a \textit{HTTP request} to send to the server when the user interacts with an \textit{HTML element}. For the functional requirements activity type (F/R 1.5.3) and metadata (F/R 1.5.6) in \Cref{tbl:ch2_keyLoggingAttributes} the \textit{HTML element} needs to be obtained to get the element's tag and identification text.\par This can be difficult to obtain due to \textit{bubbling}\footnote{\textbf{Bubbling} is when an event happens on an element, it first runs the handlers on it, then on its parent, then up on other ancestors. \cite{EventBubbling}.} that may occur when searching for the element that the user specifically interacted with. \Cref{fig:ch2_event_bubbling} is the event bubbling propagation.
+In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will be using a \textit{HTTP request} to send to the server when the user interacted with an \textit{HTML element}. For the functional requirements activity type (F/R 1.5.3) and metadata (F/R 1.5.6) in \Cref{tbl:ch2_keyLoggingAttributes} the \textit{HTML element} needs to be obtained to get the element's tag and identification text.\par This can be difficult to obtain due to \textit{bubbling}\footnote{\textbf{Bubbling} is when an event happens on an element, it first runs the handlers on it, then on its parent, then up on other ancestors. \cite{EventBubbling}.} that may occur when searching for the element that the user specifically interacted with. \Cref{fig:ch2_event_bubbling} is the event bubbling propagation.
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -109,12 +109,12 @@ In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will 
 	{\textit{JavaScript event propagation~\cite{EventBubbling}}}\label{fig:ch2_event_bubbling}
 \end{figure}
 
-In \Cref{fig:ch2_event_bubbling} is the example of an event propagation of a child element that has been clicked on that executes a DOM event. Event propagation consists of three phases~\cite{EventBubbling}:
+In \Cref{fig:ch2_event_bubbling} is the event propagation example of a child element that has been clicked on which executes a DOM event. The event propagation consists of three phases~\cite{EventBubbling}:
 
 \begin{itemize}
 	\item \textit{Capturing phase:} The event propagates downwards to the targeted element that the user interacted with.
 	\item \textit{Target phase:} The event reaches the targeted element to execute the DOM event.
-	\item \textit{Bubbling phase:} The event bubbles up from the target element.
+	\item \textit{Bubbling phase:} The event bubbles up from the targeted element
 \end{itemize}
 
 Capturing the targeted element may be difficult as some web pages may have more complex HTML, which can cause event propagation to fail to obtain the correct element information that the user interacted with. In such cases, it is more accurate to obtain the targeted element by identifying the last known element that the user hovered over on the user interface, as another DOM event may have started during the initial element's event.\par \Cref{fig:ch3_element_event_capturing} shows the flow diagram to capture the element that the user interacted with for the user-based activity log. This code segment will be initiated during the \texttt{beforeSend} operation of the \textit{AJAX request} to filter HTML elements by predefined allowed elements. Filtering the element tag names ensures that unwanted, more complex elements or basic elements that are not expected to be the initiator of the event, will be excluded. 
