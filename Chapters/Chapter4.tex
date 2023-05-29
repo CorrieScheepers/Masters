@@ -2,32 +2,22 @@
 \label{chap:4}
 \ChapterPageStuff{4}
 
-\section{Introduction}
 \section{Discussion}
 
-\subsection{Discussion}
+\subsection{Contributions made to literature}
+A problem with software maintenance practices were identified were software developers struggle to implement software maintenance. These software maintenance actvities were primarly not correctly priortised. A method was needed to identify these software systems and create prioritization reccemdations for software maintenance. Event logging is an existing software tool that was identfiied from literature in \Cref{chap:2}
+The study was split into two main study objectives that represent the logging mechanism and the log analysis to make recommendations for software maintenance. To create recommendations for software maintenance using a log analysis, the logging mechanism had to be designed to capture the desired user-based event logs. \par A generic methodology was created for a logging mechanism that focuses on the needed logging points, logging attributes and the overall log quality defined from obtained literature for best log practices in the industry. For software maintenance recommendations the log analysis is focussed on using the user-based event logs. The addition of the requirements for the specific log analysis for software maintenance recommendations narrows down the scope of which industry practices are needed for the logging mechanism.\par The combination of these two separate study objectives creates a new generic methodology defined in \Cref{chap:2}. This generic methodology 
 
-\subsection{objectives}
+\subsection{Value added to industry}
+The methodology in \Cref{chap:2} is used on different case studies in \Cref{sec:ch3_caseStudies}. Each of these case studies explored the different applications of the generic logging mechanism to obtain user-based events. The results proved that the logging mechanism can get the desired user-based activities. However, some additional adaptions were needed for each case study to ensure that the log quality is acceptable for consistent reliable log analysis.\par These adaptations were due to the software environment (software languages and design methodologies used) and the purpose of the software system. Older systems had to make use of different logging points to yield the same result as newer software systems that can use less or one logging point.\par These systems used the same user-based event type as they had similar software operational use cases. Systems with the same software architecture but which had different operational use cases also had different adaptations to their logging mechanism. These adaptions were to ensure that the desired log attributes were correctly obtained for the log analysis. \par The maintenance prioritisation recommendations for each study case made use of the defined generic methodology. The log analysis for each case study was similar as the log requirements for the user-based utilisation for all the case studies were only different for each of their user-based event types. These user-based event types represent the operational use cases for the case study to further observe the type of utilisation of the subsystems. \par The results proved that the generic methodology defined in \Cref{chap:2} can be implemented on different software systems with different operational use cases for each case study. 
 
-\begin{landscape}
-	\subsubsection{Verification}
+\subsection{Validation startegy}
+\Cref{chap:2,chap:3} the defined methodology is used to achieve the objectives of the study described in \Cref{sec:ch1_objectives}:
 
-	\begin{table}[!htb]
-		\centering
-		\small
-		\caption[System requirements for verification]
-		{\textit{System requirements for verification}}
-		\label{tbl:ch2_verification}
-		\begin{tabularx}{\linewidth}{|l|X|X|X|c|}
-			\hline \textbf{Main Requirement} & \textbf{Functional requirement} & \textbf{Methodology reference} & \textbf{Implementation reference} & \textbf{Satisfied} \\ 
-			\hline \multirow{3}{*}{Logging attributes (\ref{fr:logAttributes})} & User-based event log characteristics (\ref{fr:userEventReq}) & \Cref{sec:ch2_requirementsOfUAT} &  & \cmark \\
-				& User activity types (\ref{fr:userActReq}) & \Cref{sec:ch2_userActivityTypes} &  & \cmark \\ \cline{2-5}
-				& User-based event log characteristics (\ref{fr:subLogAttributes}) & \Cref{sec:ch2_logAttributesRequirements} & \Cref{sec:ch3_implementationLogAtrributes} & \cmark \\ \cline{2-5}\cline{2-5}
-			\hline
-		\end{tabularx}
-	\end{table}
-\end{landscape}
+\begin{enumerate}
+	\item 
+\end{enumerate}
 
-\section{Recommendation}
+\subsection{Recommendations}
 
 \section{Conclusion}

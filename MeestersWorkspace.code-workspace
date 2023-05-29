@@ -44,6 +44,11 @@
 				"language": "latex",
 				"scheme": "file",
 				"pattern": "Chapters/Chapter3.tex"
+			},
+			{
+				"language": "latex",
+				"scheme": "file",
+				"pattern": "Chapters/Chapter4.tex"
 			}
 		],
 		"workbench.colorCustomizations": {
