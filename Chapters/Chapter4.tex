@@ -5,11 +5,11 @@
 \section{Discussion}
 
 \subsection{Contributions made to literature}
-A problem with software maintenance practices was identified where software developers struggle to
+A problem with software maintenance practices is identified where software developers struggle to
 implement software maintenance. These software maintenance activities were primarily not correctly
-prioritised. A method was needed to identify these software systems and create prioritization
-recommendations for software maintenance. Event logging is an existing software tool that was
-identified from literature in \Cref{chap:1} that can be used to identify systems that need software
+prioritised. A method was needed to identify these software systems and create prioritisation
+recommendations for software maintenance. Event logging is an existing software tool 
+identified from literature in \Cref{chap:1} that can identify systems needing software
 maintenance. \par The study was split into two main study objectives that represent the logging
 mechanism and the log analysis to make recommendations for software maintenance. To create
 recommendations for software maintenance using a log analysis, the logging mechanism had to be
@@ -25,25 +25,25 @@ combination of these two separate study objectives creates a new generic methodo
 \subsection{Value added to industry}
 The methodology in \Cref{chap:2} is used on different case studies in \Cref{sec:ch3_caseStudies}.
 Each of these case studies explored the different applications of the generic logging mechanism to
-obtain user-based events. The results proved that the logging mechanism can get the desired
-user-based activities. However, some additional adaptions were needed for each case study to ensure
-that the log quality is acceptable for consistent reliable log analysis.\par These adaptations were
-due to the software environment (software languages and design methodologies used) and the purpose
-of the software system. Older systems had to make use of different logging points to yield the same
-result as newer software systems that can use less or one logging point.\par These systems used the
-same user-based event type as they had similar software operational use cases. Systems with the same
-software architecture but which had different operational use cases also had different adaptations
-to their logging mechanism. These adaptions were to ensure that the desired log attributes were
-correctly obtained for the log analysis. \par The maintenance prioritisation recommendations for
-each study case made use of the defined generic methodology. The log analysis for each case study
-was similar as the log requirements for the user-based utilisation for all the case studies were
-only different for each of their user-based event types. These user-based event types represent the
-operational use cases for the case study to further observe the type of utilisation of the
-subsystems. \par The results proved that the generic methodology defined in \Cref{chap:2} can be
-implemented on different software systems with different operational use cases for each case study.
-In the web development industry similar software systems as as the case study or different software
-systems, will benefit from the implementation of this methodology to improve software maintenance
-decisions using these software maintenance prioritisation recommendations.
+obtain user-based events. The results proved that the logging mechanism could get the desired
+user-based activities. However, additional adaptions were needed for each case study to ensure the
+log quality was acceptable for consistent, reliable log analysis.\par These adaptations were due to
+the software environment (software languages and design methodologies used) and the purpose of the
+software system. Older systems had to use different logging points to yield the same result as newer
+software systems that can use less or one logging point.\par These systems used the same user-based
+event type with similar operational software use cases. Systems with the same software architecture
+but different operational use cases also had different adaptations to their logging mechanism. These
+adaptions ensured that the desired log attributes were correctly obtained for the log analysis. \par
+The maintenance prioritisation recommendations for each study case made use of the defined generic
+methodology. The log analysis for each case study was similar as the log requirements for the
+user-based utilisation for all the case studies were only different for each of their user-based
+event types. These user-based event types represent the operational use cases for the case study to
+further observe the type of utilisation of the subsystems. \par The results proved that the generic
+methodology defined in \Cref{chap:2} could be implemented on different software systems with
+different operational use cases for each case study. In the web development industry, similar
+software systems as the case study or different software systems will benefit from implementing this
+methodology to improve software maintenance decisions using these recommendations for
+prioritisation.
 
 \subsection{Validation startegy}
 To validate whether the study objectives have been met, the following validation strategy is
@@ -63,8 +63,8 @@ implemented:
 	obtain user-based data to do a system utilisation analysis to provide evidence for software
 	maintenance prioritising. This needs for the study forms the basis for what is needed to resolve
 	the identified problem.
-	\item \textbf{Study objectives:} From the need for the study there were two primary objectives
-	identified which are the logging mechanism objective and the log analysis objective.\par The
+	\item \textbf{Study objectives:} From the need for the study, two primary objectives were
+	identified: the logging mechanism objective and the log analysis objective.\par The
 	logging mechanism objective is to use existing methodologies to create a logging mechanism to
 	capture user-based event logs. This also includes improving the log quality to increase the
 	accuracy and trustworthiness of the log analysis.\par The log analysis study objective is to use
@@ -86,7 +86,7 @@ implemented:
 		system's normal operation too much.
 	 \end{itemize}
 
-	 To validate the logging analysis study objective the following main functional requirements
+	 To validate the logging analysis study objective, the following main functional requirements
 	 need to be implemented:
 	 \begin{itemize}
 		\item Using or creating a \textbf{log analysis} tool to extract the log data and transform
@@ -99,12 +99,12 @@ implemented:
 	 After analysing the results of the case studies when applying the methodology and verifying
 	 which functional requirements are met for each case study has been addressed as shown in
 	 \Cref{tbl:ch3_functionalRequirements}. There were some exceptions where certain functional
-	 requirements were not met, this was discussed why this happen for each specific case study.
+	 requirements were not met. This was discussed why this happened for each specific case study.
 \end{enumerate}
 
 \section{Recommendations}
 In \Cref{sec:ch3_caseStudies} the case studies highlighted the limitations of the methodology used.
-To improve the methodology the functional requirements needs can be expanded on of the methodology.
+To improve the methodology the functional requirements can be expanded on of the methodology.
 
 \subsection{Logging qaulity}
 In \Cref{sec:ch1_loggingQuality} described the event log quality as an essential part of the logging
@@ -112,9 +112,9 @@ mechanism. The event logs need to be accurate, manage complexity structure, and 
 complete. For the methodology used not all of the dimensions of \Cref{fig:ch1_EventQModel} are used
 to design the logging mechanism.\par This presents Case Study B's logging points functional
 requirement (\ref{fr:loggingPoints}). The multiple logging points introduced inconsistencies in the
-event logs for the groups of subsystems used. There are studies on how to improve event log quality,
-but creating an event log quality model specifically for user-based event logging can increase the
-log quality. The event log quality model doesn't have to have all the needed properties of
+event logs for the groups of subsystems used. There are studies on improving event log quality, but
+creating an event log quality model specifically for user-based event logging can increase the log
+quality. The event log quality model doesn't have to have all the needed properties of
 \Cref{fig:ch1_EventQModel}, but be modified for user-based event logging as
 \Cref{fig:ch1_EventQModel} is a more generic log quality model for all types of event logging.
 
@@ -135,29 +135,28 @@ for the final results. There aren't many differences between some activity types
 how important each user type is also another limitation of this study.\par Normalisation is used in
 \Cref{eq:ch2_maintenanceFactorSimplified,eq:ch2_eventNormalised,eq:ch2_priorityNormalised} to make a
 comparable scale for both of the main variables for the software maintenance prioritisation. While
-normalisation did yield comparable results, there were numerous outliers on the low and high end of
-each variable. The data doesn't follow a specific distribution or pattern as $S_{582}$ of Case Study
-A that had a $A_N=1$. This subsystem had the highest $A_N$ but the $4^{th}$ highest $M_{PF}$ due to
+normalisation yielded comparable results, there were numerous outliers on each variable's low and
+high ends. The data doesn't follow a specific distribution or pattern as $S_{582}$ of Case Study A
+with $A_N=1$. This subsystem had the highest $A_N$ but the $4^{th}$ highest $M_{PF}$ due to
 its lower unique active user base.\par Using different techniques to formulate a software
 maintenance priority factor may have placed $S_{582}$ higher if the effect of the total unique users
-wasn't used as the primary prioritisation factor. There is a need to be able to accurately rank each
-subsystem with each other.
+wasn't used as the primary prioritisation factor. There is a need to be able to rank each subsystem
+with each other accurately.
 
 \section{Conclusion}
 
 \subsection{In summary}
 \begin{itemize}
-	\item There is a need to improve software maintenance activities in the industry but software
+	\item There is a need to improve software maintenance activities in the industry, but software
 	maintenance prioritisation is still a problem for most software developers.
-	\item Event-based logging is a proving method that has been used to get valuable information
-	about a software system.
+	\item Event-based logging is a proven method to get valuable information about a software
+	system.
 	\item A log analysis of the utilisation of the software system can provide the needed evidence
 	to prioritise software systems based on the extracted log data.
 	\item Creating a user-based event logging mechanism to implement a system utilisation analysis
 	is the solution to the identified problem.
-	\item Three different case studies with two distinct operational use cases verified the designed
-	methodology for this study.
-	\item The gap was validated by the methodology until the problem statement has resolved.
+	\item Three different case studies with two different operational use cases verified the
+	designed methodology for this study.
 \end{itemize}
 
 \subsection{In conclusion}
