@@ -42,8 +42,26 @@ To validate whether the study objectives have been met, the following validation
 			
 			\item The log analysis is verified by making use of a third-party log analysis tool or implementation of a log analysis (\textbf{\ref{fr:logAnalysis}}). For the log analysis to succeed, the quality must be acceptable. This is verified by the logging points' performance and the usability of the logs without too many post-logging corrections made.
 			
-			\item The method of creating software maintenance Prioritising
+			\item Creating software maintenance prioritising (\textbf{\ref{fr:maintenancePrioritising}}) from the results of the log analysis. In the log analysis the different sub-systems maintenance priority ($M_{PF}$) are calculated from the normalised total active users ($P_N$) multiplied with the normalised total user activity ($A_N$) for a speficfied subsystem in \Cref{eq:ch2_priorityNormalised,eq:ch2_maintenanceFactorSimplified,eq:ch2_eventNormalised}.\par These results are verified with the test case study and Case Studies A, B and C in \Cref{sec:ch3_caseStudies} on different software systems with different operational use cases. The results obtain for the maintenance prriority validates the implementation of the previous above using the defined user based logs to do the log analysis for maintenance priority. 
 		\end{itemize}
+
+	\item \textbf{Study objectives:} The study objectives in \Cref{sec:ch1_objectives} is validated through the method used in \Cref{chap:2} by:
+		\begin{itemize}
+			\item \textbf{Logging mechanism:}
+			  \begin{enumerate}
+				\item The log attributes needs to be defined for the log analysis. In this study the log analysis is for maintenance prioritisation. The method created demostartes the needed functional requirements to create needed criteria for which events in the software system is an user-based event.
+				\item User-based events classification objective is validated by the defined functional requirements for a user-based event log. The method to only use the needed log attributes and user activity types defines what events are potentially user-based events.
+				\item Logging points is the main structure of the logging mechanism. A guideline on how to strategically place logging points in a software system is provided in \Cref{sec:ch2_loggingPoints}. This section focus on how to log in both client and server side to get all the needed log attributes.
+			  \end{enumerate}
+
+			\item \textbf{Log analysis:}
+			 \begin{enumerate}
+				\item 
+			 \end{enumerate}
+		\end{itemize}
+
+	\item
+	\item \textbf{Problem statement:} The need for the study identified that software maintenance is problem in industry due to how developers prioritise their maintenance actviities. If mainten
 \end{enumerate}
 
 \section{Recommendations}

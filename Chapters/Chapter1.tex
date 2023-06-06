@@ -568,14 +568,15 @@ In \Cref{sec:ch1_problemStatement} the problem of efficiently implementing softw
 
 \subsection{Logging mechanism:}\label{sec:ch1_osLogging}
 \begin{enumerate}
-	\item Define logging points for the base event log that needs to be captured. The requirements for a user-based event log should be also defined.
-	\item Design and implement logging points to capture the event logs using the user-based event log requirements and log attributes.
+	\item Define what log attributes is needed for a comprehensive user utilisation log analysis.
+	\item Develop a method to identify user-based events and capture the data needed to complete log attributes.
+	\item Develop logging points that form the main structure of the logging mechanism to capture the user-based events and store them in a structured database.
 \end{enumerate}
 
-\subsection{Analysis of the system utilisation to improve software maintenance}\label{sec:ch1_osAnalysis}
+\subsection{Log analysis:}\label{sec:ch1_osAnalysis}
 \begin{enumerate}
-	\item Implement a log analysis for the system utilisation of the different software components.
-	\item Investigate the results and make recommendations to improve software maintenance.
+	\item Evualte the log quality of the entire logging mechanism.
+	\item Implement a system utilisation analysis to prove which software components need to be prioritise for maintenance.
 \end{enumerate}
 
 \section{Overview of the dissertation}
