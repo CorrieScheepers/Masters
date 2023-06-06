@@ -523,33 +523,33 @@ In \Cref{tbl:ch1_stateOfTheArt2} the studies that have been marked with the part
 	\hline
 	\endlastfoot
 
-	\hline \cite{Ogheneovo2014} & Defines the different problems with implementing software maintenance. Also studies the relationship with the explored complexities that causes problems in software maintenance in \Cref{sec:ch1_maintenanceProblems}. \\
+	\hline \cite{Ogheneovo2014} & Defines the different problems with implementing software maintenance. It also studies the relationship with the explored complexities that causes problems in software maintenance in \Cref{sec:ch1_maintenanceProblems}. \\
 
-	\hline \cite{Tang2010} & This study explores how software maintenance tasks are implemented with a practical software maintenance model. Looks at the decision-making process of how to prioritise adaptive and perfective software maintenance types. \\
+	\hline \cite{Tang2010} & This study explores how software maintenance tasks are implemented with a practical software maintenance model. Look at the decision-making process of prioritising adaptive and perfective software maintenance types. \\
 
-	\hline \cite{Sneed2004} & Defines the different problems with implementing software maintenance specifically the difficulties with managing the development process for software maintenance. \\ 
+	\hline \cite{Sneed2004} & Defines the different problems with implementing software maintenance, specifically the difficulties with managing the development process for software maintenance. \\ 
 
-	\hline \cite{Stojanov2017} & This study examines the software maintenance efforts when implementing a software maintenance model. Also examines how these maintenance tasks are prioritised and divided among the software developers. \\
+	\hline \cite{Stojanov2017} & This study examines the software maintenance efforts when implementing a software maintenance model. It also examines how software developers prioritise and divide these maintenance tasks. \\
 
-	\hline \cite{Hasan2012,Ping2010, Galster2019, Niu2018} & Discusses the different maintenance types that are implemented in the industry and the need for software maintenance. These studies define the maintenance types and typical activities associated when implementing it for the Operations and Maintenance LCP of \Cref{tbl:ch1_SDLC}. \\
+	\hline \cite{Hasan2012,Ping2010, Galster2019, Niu2018} & Discusses the different maintenance types implemented in the industry and the need for software maintenance. These studies define the maintenance types and typical activities associated when implementing it for the Operations and Maintenance LCP of \Cref{tbl:ch1_SDLC}. \\
 
-	\hline \cite{Kumar2013} & This study aims to measure the effectiveness of using maintenance models by using key maintenance performance indicators. \\
+	\hline \cite{Kumar2013} & This study aims to measure the effectiveness of using maintenance models using key performance indicators. \\
 
 	\hline \cite{Lenarduzzi2017} & This study aims to analyse different software maintenance models and their characteristics. \\
 
-	\hline \cite{Ren2011,Vijayasarathy2016,Araujo2021} & These studies primarily discuss the implementation of suitable software maintenance models for software maintenance activities. Classification and prioritisation methodologies are reviewed in these studies especially \cite{Ren2011} comparing different software maintenance models. \\
+	\hline \cite{Ren2011,Vijayasarathy2016,Araujo2021} & These studies primarily discuss the implementation of suitable software maintenance models for software maintenance activities. These studies review classification and prioritisation methodologies, especially \cite{Ren2011} comparing different software maintenance models. \\
 
 	\hline \cite{Zhu2019} & This study focuses on log parsing and how to identify and create logging points for the identified log attributes. \\
 
-	\hline \cite{Rong2018} & This study examines how logging practices are implemented in the industry. The study also examines the number of publications on logging practices in software engineering further discussed in \Cref{apx:loggingPractice}. \\
+	\hline \cite{Rong2018} & This study examines how logging practices are implemented in the industry. The study also examines the number of publications on logging practices in software engineering, further discussed in \Cref{apx:loggingPractice}. \\
 
-	\hline \cite{Song2017} & In this study the relationship of designing and implementing event log models for data mining.  \\
+	\hline \cite{Song2017} & In this study, the relationship of designing and implementing event log models for data mining.  \\
 
-	\hline \cite{Zhu2015} & In this study, the importance of how to log and what to log is summarised to aid software developers to create efficient logging mechanisms.  \\
+	\hline \cite{Zhu2015} & In this study, the importance of how to log and what to log is summarised to aid software developers in creating efficient logging mechanisms.  \\
 
 	\hline \cite{Kherbouche2017} & This study examines what development practices can be implemented to improve or maintain event log quality.  \\
 
-	\hline \cite{Fedaghi2010} & This study aims to classify events based on their characteristics to ensure that unnecessary logging is reduced.  \\
+	\hline \cite{Fedaghi2010} & This study aims to classify events based on their characteristics to reduce unnecessary logging.  \\
 
 	\hline \cite{Jans2012} & This study focuses on the process mining of event logs to implement log analysis.  \\
 
@@ -558,13 +558,13 @@ In \Cref{tbl:ch1_stateOfTheArt2} the studies that have been marked with the part
 	\hline \cite{Kocsis2012,Waqar2017,Paliouras1999} & These study aims to implement Web analytics on user behaviour data. Using third-party tools to create the analysis reports on the user-based events.  \\
 \end{xltabular}
 
-The summarised comments made of each study in \Cref{tbl:ch1_stateOfTheArtComments} emphasize the divide between software maintenance and event logging with the analysis of the logs included.
+The summarised comments of each study in \Cref{tbl:ch1_stateOfTheArtComments} emphasise the divide between software maintenance and event logging with the analysis of the logs included.
 
 \section{Problem statement}\label{sec:ch1_problemStatement}
-Software maintenance is a vital part of the entire life cycle of any software system. In \Cref{sec:ch1_maintenanceProblems} there exist multiple challenges that can make it harder to improve maintenance efforts with the limited available resources. It is beneficial to prioritise maintenance to ensure that the limited resources are efficiently used. \par A possible solution to this problem is using event logging to determine the utilisation of the system as it is a proven method industry to track system utilisation usage. Software developers have access to third-party software logging tools to get the event logs. Most of the tools focus more on system runtime utilisation than user activities. There exist logging tools that can track user-based activities depending on the framework the software system is developed on.\par Although there exist tools that can track events that are generated by the user, it is not guaranteed that log quality will be at an acceptable level. Some much-needed logging attributes might even not be logged that will aid with the log analysis.\par Designing and implementing a logging mechanism might bridge the gap between software maintenance and log analysis to create a system utilisation report.\par Software Developers still need to design the overall logging mechanism and decide where to place the logging points to capture the event logs in a software system. There are proven methods to create a suitable logging mechanism but not all of them include the analysis of the logs for user-based utilisation to improve software maintenance.
+Software maintenance is a vital part of the entire life cycle of any software system. In \Cref{sec:ch1_maintenanceProblems} multiple challenges can make it harder to improve maintenance efforts with the limited available resources. It is beneficial to prioritise maintenance to ensure that the limited resources are efficiently used. \par A possible solution to this problem is using event logging to determine the utilisation of the system as it is a proven method industry to track system utilisation usage. Software developers can access third-party software logging tools to get the event logs. Most of the tools focus more on system runtime utilisation than user activities. There exist logging tools that can track user-based movements depending on the framework the software system is developed on.\par Although there are live tools that can track events that the user generates, it is not guaranteed that log quality will be acceptable. Some much-needed logging attributes that will aid with the log analysis might not be logged.\par Designing and implementing a logging mechanism might bridge the gap between software maintenance and log analysis to create a system utilisation report.\par Software Developers still need to design the overall logging mechanism and decide where to place the logging points to capture the event logs in a software system. There are proven methods to create a suitable logging mechanism, but not all of them include the analysis of the records for user-based utilisation to improve software maintenance.
 
 \section{Objectives of the study}\label{sec:ch1_objectives}
-In \Cref{sec:ch1_problemStatement} the problem of efficiently implementing software maintenance has been identified. There is a need to create a system utilisation analysis report from event logs that are captured using a logging mechanism. \par The study is divided into two components to achieve the primary goal, which is the design and the implementation of the logging mechanism. For the log analysis of the system utilisation to improve system maintenance.
+In \Cref{sec:ch1_problemStatement} the problem of efficiently implementing software maintenance has been identified. There is a need to create a system utilisation analysis report from event logs captured using a logging mechanism. \par The study is divided into two components to achieve the primary goal: the design and the implementation of the logging mechanism. For the log analysis of the system utilisation to improve system maintenance.
 
 \subsection{Logging mechanism:}\label{sec:ch1_osLogging}
 \begin{enumerate}
@@ -576,18 +576,18 @@ In \Cref{sec:ch1_problemStatement} the problem of efficiently implementing softw
 \subsection{Log analysis:}\label{sec:ch1_osAnalysis}
 \begin{enumerate}
 	\item Evualte the log quality of the entire logging mechanism.
-	\item Implement a system utilisation analysis to prove which software components need to be prioritise for maintenance.
+	\item Implement a system utilisation analysis to prove which software components must be prioritised for maintenance.
 \end{enumerate}
 
 \section{Overview of the dissertation}
 \subsubsection{Chapter 1: Introduction}
-This chapter contains the background of software maintenance, event logging and system utilisation analysis. It defines the complexities and general issues with software maintenance for software developers. The need to efficiently use limited resources requires software developers to implement better software maintenance decisions. Event logging is a proven method to get system information that can be used to aid with prioritising software maintenance to implement it efficiently.
+This chapter contains the background of software maintenance, event logging and system utilisation analysis. It defines the complexities and general issues with software maintenance for software developers. Efficiently using limited resources requires software developers to implement better software maintenance decisions. Event logging is a proven method to get system information that can be used to aid with prioritising software maintenance to implement it efficiently.
 
 \subsubsection{Chapter 2: Methodology}
-This chapter contains the design of the generic method used to create a logging mechanism from a set of defined logging points and log attributes. The software system for which the logging mechanism is made is a Web-based application. The second part of this chapter is the system utilisation analysis by using the captured logs to create an analysis report.
+This chapter contains the design of the generic method used to create a logging mechanism from a set of defined logging points and attributes. The software system for which the logging mechanism is made is a Web-based application. The second part of this chapter is the system utilisation analysis using the captured logs to create an analysis report.
 
 \subsubsection{Chapter 3: Results}
-This chapter contains the results of implementing a logging mechanism on a case study web-based application as designed in Chapter 2. The results of the implemented logging mechanism are analysed as part of a system utilisation analysis and recommendations are made on how to improve the maintenance of the case study web-based application. The obtained results are discussed and validated to show how they address the problem statement and fulfil the study objectives.
+This chapter contains the results of implementing a logging mechanism on a case study web-based application as designed in Chapter 2. The results of the implemented logging mechanism are analysed as part of a system utilisation analysis, and recommendations are made on improving the maintenance of the case study web-based application. The results are discussed and validated to show how they address the problem statement and fulfil the study objectives.
 
 \subsubsection{Chapter 4: Conclusion}
-This chapter provides the conclusion of creating a logging mechanism for system utilisation analysis to improve software maintenance for a Web-based application. Limitations and recommendations are also made based on the methodology and results.
+This chapter concludes by creating a logging mechanism for system utilisation analysis to improve software maintenance for a Web-based application. Limitations and recommendations are also made based on the methodology and results.
