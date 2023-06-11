@@ -483,10 +483,9 @@ Using the defined criteria created for the state-of-the-art topics in \Cref{tbl:
 			\hline \cite{Tang2010} & Partial & Partial & \cmark & \xmark & \xmark & \xmark & \xmark \\
 			\hline \cite{Sneed2004} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
 			\hline \cite{Stojanov2017} & \xmark & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
-			\hline \cite{Hasan2012}, \cite{Ping2010}, \cite{Galster2019}, \cite{Niu2018} & \cmark & Partial & \xmark & \xmark & \xmark & \xmark & \xmark \\
-			\hline \cite{Kumar2013} & Partial & Partial & \cmark & \xmark & \xmark & \xmark & \xmark \\
+			\hline \cite{Galster2019} & \cmark & Partial & \xmark & \xmark & \xmark & \xmark & \xmark \\
 			\hline \cite{Lenarduzzi2017} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
-			\hline \cite{Ren2011,Vijayasarathy2016,Araujo2021} & Partial & \xmark & \cmark & \xmark & \xmark & \xmark & \xmark \\	
+			\hline \cite{Araujo2021} & Partial & \xmark & \cmark & \xmark & \xmark & \xmark & \xmark \\	
 			\hline \cite{Zhu2019} & \xmark & \xmark & \xmark & Partial & \cmark & Partial & \xmark \\
 			\hline \cite{Rong2018} & \xmark & \xmark & \xmark & \cmark & Partial & Partial & \xmark \\
 			\hline \cite{Song2017} & \xmark & \xmark & \xmark & Partial & Partial & Partial & \cmark \\
@@ -524,16 +523,6 @@ In \Cref{tbl:ch1_stateOfTheArt2}, the studies marked with the partial status sat
 	\hline
 	\endlastfoot 
 
-	\hline \cite{Stojanov2017} &  \\
-
-	\hline \cite{Hasan2012,Ping2010, Galster2019, Niu2018} & Discusses the different maintenance types implemented in the industry and the need for software maintenance. These studies define the maintenance types and typical activities associated when implementing it for the Operations and Maintenance LCP of \Cref{tbl:ch1_SDLC}. \\
-
-	\hline \cite{Kumar2013} & This study aims to measure the effectiveness of using maintenance models using key performance indicators. \\
-
-	\hline \cite{Lenarduzzi2017} & This study aims to analyse different software maintenance models and their characteristics. \\
-
-	\hline \cite{Ren2011,Vijayasarathy2016,Araujo2021} & These studies primarily discuss the implementation of suitable software maintenance models for software maintenance activities. These studies review classification and prioritisation methodologies, especially \cite{Ren2011} comparing different software maintenance models. \\
-
 	\hline \cite{Zhu2019} & This study focuses on log parsing and how to identify and create logging points for the identified log attributes. \\
 
 	\hline \cite{Rong2018} & This study examines how logging practices are implemented in the industry. The study also examines the number of publications on logging practices in software engineering, further discussed in \Cref{apx:loggingPractice}. \\
@@ -556,6 +545,7 @@ In \Cref{tbl:ch1_stateOfTheArt2}, the studies marked with the partial status sat
 The summarised comments of each study in \Cref{tbl:ch1_stateOfTheArtComments} emphasise the divide between software maintenance and event logging with the analysis of the logs included.
 
 \clearpage
+\subsubsection{Software maintenance related studies}
 
 \begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=On the Relationship between Software Complexity and Maintenance Costs\cite{Ogheneovo2014}]
 	\begin{minipage}[t]{0.25\textwidth}
@@ -645,15 +635,86 @@ The summarised comments of each study in \Cref{tbl:ch1_stateOfTheArtComments} em
 	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.65\textwidth}
-		text
+		This study's decision-making results are created from the obtained maintenance tasks of the developers. It specifically only looks at the contribution of these maintenance task from each developer and how efficiently distribute the work among them.
 	\end{minipage}
 	\tcblower
-	\textbf{Study keywords:} keywords
+	\textbf{Study keywords:} Maintenance engineering, Market research, Companies, Software maintenance
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=Supporting Software Architecture Maintenance by Providing Task-specific Recommendations \cite{Galster2019}]
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Study summary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		This study discusses the different maintenance types implemented in the industry and the need for software maintenance. These study define the maintenance types and typical activities associated when implementing it for the Operations and Maintenance LCP of \Cref{tbl:ch1_SDLC}.
+	\end{minipage}
+
+	% Add space here
+	\vspace{0.75em} 
+
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Commentary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		These studies examines the software maintenance process in industry not the improvement of it. Mainly focusses on the types of maintenance task needed and that the correct approach to implementing maintenance is needed for it be efficient.
+	\end{minipage}
+	\tcblower
+	\textbf{Study keywords:} Software maintenance; natural language processing; software architecture; text classification
 \end{tcolorbox}
 
 \clearpage
 
-\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=On the Relationship between Software Complexity and Maintenance Costs\cite{Ogheneovo2014}]
+\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=Analyzing Forty Years of Software Maintenance Models\cite{Lenarduzzi2017}]
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Study summary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		This study aims to analyse different software maintenance models and their characteristics for the last 4 decades.
+	\end{minipage}
+
+	% Add space here
+	\vspace{0.75em} 
+
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Commentary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		This study didn't provide any ways to improve software maintenance but on the limitations on software maintenance in industry. This study highlighted these limitations by the slow adaptability of software maintenance models, limited comparison in literature due to closed source models and replicability of the researched studies.
+	\end{minipage}
+	\tcblower
+	\textbf{Study keywords:} Software Maintenance; Systematic Literature Review
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=A Software Maintenance Methodology: An Approach Applied to Software Aging\cite{Araujo2021}]
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Study summary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		The study primarily discuss the implementation of suitable software maintenance models for software maintenance activities. These studies review classification and prioritisation methodologies and comparing different software maintenance models.
+	\end{minipage}
+
+	% Add space here
+	\vspace{0.75em} 
+
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Commentary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		ALthough software maintenance improvemenets where made to rejuvenate software systems. The study could not provide a guideline on how 
+	\end{minipage}
+	\tcblower
+	\textbf{Study keywords:} Software aging and rejuvenation; methodology; software maintenance
+\end{tcolorbox}
+
+\clearpage
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=Test\cite{Ogheneovo2014}]
 	\begin{minipage}[t]{0.25\textwidth}
 		\textbf{Study summary:}
 	\end{minipage}
