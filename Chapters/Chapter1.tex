@@ -491,11 +491,12 @@ Using the defined criteria created for the state-of-the-art topics in \Cref{tbl:
 			\hline \cite{Song2017} & \xmark & \xmark & \xmark & Partial & Partial & Partial & \cmark \\
 			\hline \cite{Zhu2015} & \xmark & \xmark & \xmark & \cmark & \cmark & \cmark & \xmark \\
 			\hline \cite{Kherbouche2017} & \xmark & \xmark & \xmark & \cmark & Partial & Partial & \xmark \\
-			\hline \cite{Fedaghi2010} & \xmark & \xmark & \xmark & \cmark & Partial & \cmark & \xmark \\
-			\hline \cite{Jans2012} & \xmark & \xmark & \xmark & \cmark & Partial & Partial & \cmark \\
-
-			\hline \cite{Hasiloglu2018,Slaninova2014,Dhanalakshmi2016} & \xmark & \xmark & \xmark & Partial & \cmark & \cmark & Partial \\
-			\hline \cite{Kocsis2012,Waqar2017,Paliouras1999} & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
+			\hline \cite{Hasiloglu2018} & \xmark & \xmark & \xmark & Partial & \cmark & \cmark & Partial \\
+			\hline \cite{Slaninova2014} & \xmark & \xmark & \xmark & Partial & \cmark & \cmark & Partial \\
+			\hline \cite{Dhanalakshmi2016} & \xmark & \xmark & \xmark & Partial & \cmark & \cmark & Partial \\
+			\hline \cite{Kocsis2012} & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
+			\hline \cite{Waqar2017} & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
+			\hline \cite{Paliouras1999} & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
 			\hline
 		\end{tabularx}	
 	\end{table}
@@ -522,20 +523,6 @@ In \Cref{tbl:ch1_stateOfTheArt2}, the studies marked with the partial status sat
 
 	\hline
 	\endlastfoot 
-
-	\hline \cite{Zhu2019} & This study focuses on log parsing and how to identify and create logging points for the identified log attributes. \\
-
-	\hline \cite{Rong2018} & This study examines how logging practices are implemented in the industry. The study also examines the number of publications on logging practices in software engineering, further discussed in \Cref{apx:loggingPractice}. \\
-
-	\hline \cite{Song2017} & In this study, the relationship of designing and implementing event log models for data mining.  \\
-
-	\hline \cite{Zhu2015} & In this study, the importance of how to log and what to log is summarised to aid software developers in creating efficient logging mechanisms.  \\
-
-	\hline \cite{Kherbouche2017} & This study examines what development practices can be implemented to improve or maintain event log quality.  \\
-
-	\hline \cite{Fedaghi2010} & This study aims to classify events based on their characteristics to reduce unnecessary logging.  \\
-
-	\hline \cite{Jans2012} & This study focuses on the process mining of event logs to implement log analysis.  \\
 
 	\hline \cite{Hasiloglu2018,Slaninova2014,Dhanalakshmi2016} & This study aims to create a logging mechanism to get audit logs from a Web application. \\
 
@@ -706,10 +693,132 @@ The summarised comments of each study in \Cref{tbl:ch1_stateOfTheArtComments} em
 	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.65\textwidth}
-		Although software maintenance improvements were made to rejuvenate software systems. The study could not provide a guideline on how 
+		The study doesn't provide a guideline to efficiently implement maintenance but on which software maintenance strategies can be used for older systems.
 	\end{minipage}
 	\tcblower
 	\textbf{Study keywords:} Software aging and rejuvenation; methodology; software maintenance
+\end{tcolorbox}
+
+\subsubsection{Event logging}
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=Tools and Benchmarks for Automated Log Parsing\cite{Zhu2019}]
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Study summary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		This study focuses on log parsing and benchmarking different log parsing methods. 
+	\end{minipage}
+
+	% Add space here
+	\vspace{0.75em} 
+
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Commentary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		Highlight the efficiency that event logging needs to adhere to. The study uses mainly log parsers for systems diagnostics and not specifically for user-based event logging.
+	\end{minipage}
+	\tcblower
+	\textbf{Study keywords:} AIOps; anomaly detection; log analysis; log management; log parsing
+\end{tcolorbox}
+
+\clearpage
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=A Systematic Review of Logging Practice in Software Engineering\cite{Rong2018}]
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Study summary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		This study examines how logging practices are implemented in the industry. The study also examines the number of publications on logging practices in software engineering, further discussed in \Cref{apx:loggingPractice}. This emphasizes the lack of research done for logging practices.
+	\end{minipage}
+
+	% Add space here
+	\vspace{0.75em} 
+
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Commentary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		This study further highlights the need to create comprehensive methods for developers to implement a logging practice. There isn't enough research done on logging practices and specific use cases are beneficial to the software industry. 
+	\end{minipage}
+	\tcblower
+	\textbf{Study keywords:} Logging Practice; Software Engineering; Systematic Literature Review
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=Efficient Alignment Between Event Logs and Process Models\cite{Song2017}]
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Study summary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		In this study, the relationship of designing and implementing event log models for the data mining process.
+	\end{minipage}
+
+	% Add space here
+	\vspace{0.75em} 
+
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Commentary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		This study discusses the importance of using the correct logging models to make the data mining process efficient without providing a method to design a complete logging mechanism.
+	\end{minipage}
+	\tcblower
+	\textbf{Study keywords:} Event logs; alignment; process decomposition; process models; trace replaying; trace segmentation
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=Learning to Log: Helping Developers Make Informed Logging Decisions \cite{Zhu2015}]
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Study summary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		In this study, the importance of how to log and what to log is summarised to aid software developers in creating efficient logging mechanisms. 
+	\end{minipage}
+
+	% Add space here
+	\vspace{0.75em} 
+
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Commentary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		This study provides a generic method of how to do event logging based on the intended log analysis. The study provides important guidelines discussed in the literature review for event logging and log analysis that needs to be part of the method of a new logging mechanism.
+	\end{minipage}
+	\tcblower
+	\textbf{Study keywords:} keywords
+\end{tcolorbox}
+
+\clearpage
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=owards a better assessment of event logs quality
+	Mohammed\cite{Kherbouche2017}]
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Study summary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		This study examines what development practices can be implemented to improve or maintain event log quality.
+	\end{minipage}
+
+	% Add space here
+	\vspace{0.75em} 
+
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Commentary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		The event logging quality assessment highlights the importance of maintaining an acceptable log quality to make the logs consistent and complete. It also ensures that the logging mechanism can accurately capture the logs with the least structural and behavioural complexity. 
+	\end{minipage}
+	\tcblower
+	\textbf{Study keywords:} event logs; process mining; process mining algorithms; qualitative model
 \end{tcolorbox}
 
 \clearpage
