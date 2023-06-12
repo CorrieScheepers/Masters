@@ -48,21 +48,31 @@ The following validation strategy is implemented for this study:
 
 \begin{table}[!htb]
 	\centering
-	\tablestyle[sansbold]
-	\caption[Web analytic for user-based data]
-	{\textit{Web analytic for user-based data}}
+	\caption[Study validation]
+	{\textit{Study validation}}
 	\label{tbl:ch4_ValidationStart}
 	\begin{tabularx}{\textwidth}{Xp{3cm}p{3cm}}
 		\toprule
 		\textbf{Objective}  & \textbf{Section} & \textbf{Objective met} \\ \midrule
-		Logging mechanism & & \\ \midrule
-		\RaggedRight \objAi & \Cref{sec:ch2_logAttributesRequirements} & \cmark \\
-		\RaggedRight \objAii & \Cref{sec:ch2_logAttributesRequirements} & \cmark \\
-		\RaggedRight \objAiii & \Cref{sec:ch2_logAttributesRequirements} & \cmark \\ \midrule
-		Logging mechanism & & \\ \midrule
-		\RaggedRight \objBi & \Cref{sec:ch2_logAttributesRequirements} & \cmark \\
-		\RaggedRight \objBii & \Cref{sec:ch2_logAttributesRequirements} & \cmark \\
-		\RaggedRight \objBiii & \Cref{sec:ch2_logAttributesRequirements} & \cmark \\
+		\textbf{Literature Objectives:} & & \\ \midrule
+		\rowcolor{lightgray}
+		\RaggedRight \objAi & \RaggedRight \Cref{sec:ch2_logAttributesRequirements,sec:ch2_webApplicationArchitecture} & \cmark \\
+		\RaggedRight \objAii & \RaggedRight \Cref{sec:ch2_loggingPoints,sec:ch2_webApplicationArchitecture} & \cmark \\
+		\rowcolor{lightgray}
+		\RaggedRight \objAiii & \Cref{sec:ch2_logAnalysisTools} & \cmark \\ 
+		\RaggedRight \objAiv & \Cref{sec:ch2_utilisationImprovements} & \cmark \\ \midrule
+		\textbf{Empirical Objectives:} & & \\ \midrule
+		\rowcolor{lightgray}
+		\RaggedRight \objBi: 
+			\begin{enumerate}
+				\item \objBiSubA
+				\item \objBiSubB
+				\item \objBiSubD
+				\item \objBiSubC
+			\end{enumerate} & \Cref{sec:ch3_implementation} & \cmark \\
+		\RaggedRight \objBii & \Cref{sec:ch3_Verification} & \cmark \\
+		\rowcolor{lightgray}
+		\RaggedRight \objBiii & \Cref{sec:ch3_caseStudies} & \cmark \\
 		\bottomrule
 	\end{tabularx}
 \end{table}

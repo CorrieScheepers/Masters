@@ -855,23 +855,36 @@ Software maintenance is a vital part of the entire life cycle of any software sy
 In \Cref{sec:ch1_problemStatement}, the problem of efficiently implementing software maintenance has been identified. There is a need to create a system utilisation analysis report from event logs captured using a logging mechanism. \par The study is divided into two components to achieve the primary goal: the design and the implementation of the logging mechanism. For the log analysis of the system utilisation to improve system maintenance.
 
 % Define a variable to store constant text
-\newcommand{\objAi}{Indentify what log attributes are needed for a comprehensive user utilisation log analysis.}
-\newcommand{\objAii}{Develop a method to identify user-based events and capture the data needed to complete log attributes.}
-\newcommand{\objAiii}{Investigate logging points that form the main structure of the logging mechanism to capture the user-based events and store them in a structured database.}
-\newcommand{\objBi}{Evualte the log quality of the entire logging mechanism.}
-\newcommand{\objBii}{Investigate how to implement maintenance prioritisation.}
-\newcommand{\objBiii}{Validate the maintenance prioritisation method.}
+\newcommand{\objAi}{Investigate what will define a user-based event log and how to obtain the needed log attributes are needed for a comprehensive user utilisation log analysis.}
+\newcommand{\objAii}{Investigate where to place logging points in a software system to capture user-based events logs.}
+\newcommand{\objAiii}{Investigate how to evaluate the log quality of the stored user-based event logs.}
+\newcommand{\objAiv}{Investigate how to implement maintenance prioritisation.}
 
-\subsection{Logging mechanism:}\label{sec:ch1_osLogging}
+\newcommand{\objBi}{Implement the method to create a user-based logging mechanism on a test system}
+\newcommand{\objBiSubA}{Define the user activity types and create the needed log attributes for a user-based event log.}
+\newcommand{\objBiSubB}{Implement the logging points at strategic locations to capture the log attributes to create events logs.}
+\newcommand{\objBiSubC}{Use or create a log analysis tool to evaluate the log quality of the captured logs.}
+\newcommand{\objBiSubD}{Implement a software maintenance prioritisation method.}
+\newcommand{\objBii}{Verify the results for the test system's software maintenance prioritisation.}
+\newcommand{\objBiii}{Validate the software maintenance prioritisation method on different case studies using the same user-based logging mechanism.}
+
+\subsection{Literature Objectives:}\label{sec:ch1_literatureObjective}
 \begin{enumerate}
 	\item \objAi
 	\item \objAii
 	\item \objAiii
+	\item \objAiv 
 \end{enumerate}
 
-\subsection{Log analysis:}\label{sec:ch1_osAnalysis}
+\subsection{Empirical objectives:}\label{sec:ch1_empiricalObjective}
 \begin{enumerate}
-	\item \objBi
+	\item \objBi: 
+		\begin{enumerate}
+			\item \objBiSubA
+			\item \objBiSubB
+			\item \objBiSubD
+			\item \objBiSubC
+		\end{enumerate}
 	\item \objBii
 	\item \objBiii
 \end{enumerate}
