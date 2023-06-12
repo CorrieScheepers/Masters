@@ -854,17 +854,26 @@ Software maintenance is a vital part of the entire life cycle of any software sy
 \section{Objectives of the study}\label{sec:ch1_objectives}
 In \Cref{sec:ch1_problemStatement}, the problem of efficiently implementing software maintenance has been identified. There is a need to create a system utilisation analysis report from event logs captured using a logging mechanism. \par The study is divided into two components to achieve the primary goal: the design and the implementation of the logging mechanism. For the log analysis of the system utilisation to improve system maintenance.
 
+% Define a variable to store constant text
+\newcommand{\objAi}{Indentify what log attributes are needed for a comprehensive user utilisation log analysis.}
+\newcommand{\objAii}{Develop a method to identify user-based events and capture the data needed to complete log attributes.}
+\newcommand{\objAiii}{Investigate logging points that form the main structure of the logging mechanism to capture the user-based events and store them in a structured database.}
+\newcommand{\objBi}{Evualte the log quality of the entire logging mechanism.}
+\newcommand{\objBii}{Investigate how to implement maintenance prioritisation.}
+\newcommand{\objBiii}{Validate the maintenance prioritisation method.}
+
 \subsection{Logging mechanism:}\label{sec:ch1_osLogging}
 \begin{enumerate}
-	\item Define what log attributes is needed for a comprehensive user utilisation log analysis.
-	\item Develop a method to identify user-based events and capture the data needed to complete log attributes.
-	\item Develop logging points that form the main structure of the logging mechanism to capture the user-based events and store them in a structured database.
+	\item \objAi
+	\item \objAii
+	\item \objAiii
 \end{enumerate}
 
 \subsection{Log analysis:}\label{sec:ch1_osAnalysis}
 \begin{enumerate}
-	\item Evualte the log quality of the entire logging mechanism.
-	\item Implement a system utilisation analysis to prove which software components must be prioritised for maintenance.
+	\item \objBi
+	\item \objBii
+	\item \objBiii
 \end{enumerate}
 
 \section{Overview of the dissertation}
