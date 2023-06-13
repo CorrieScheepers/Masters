@@ -394,7 +394,7 @@ Software maintenance implementation in industry and best practices when implemen
 	\label{tbl:ch1_soaSoftwareMaintennace}
 	\begin{tabularx}{\linewidth}{|l|X|X|}
 		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria}\\
-		\hline Types and implementation & \RaggedRight Software maintenance types and implementation in industry. & \RaggedRight \begin{enumerate}
+		\hline Types & \RaggedRight Software maintenance types and implementation in industry. & \RaggedRight \begin{enumerate}
 			\item Did the study focus on software maintenance?
 			\item Did the study discuss different software maintenance types or implementations?
 		\end{enumerate} \\
@@ -453,7 +453,7 @@ Log analysis of software systems using event logging state-of-the-art topics is 
 	\label{tbl:ch1_soaLogAnalysis}
 	\begin{tabularx}{\linewidth}{|l|X|X|}
 		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria}\\
-		\hline System utilisation analysis & \RaggedRight Software maintenance types and implementation in industry. & \RaggedRight \begin{enumerate}
+		\hline Utilisation & \RaggedRight Software maintenance types and implementation in industry. & \RaggedRight \begin{enumerate}
 			\item How is system utilisation analysis done for software systems?
 			\item Made the study attempt to use event logging for software maintenance?
 		\end{enumerate} \\
@@ -464,75 +464,44 @@ Log analysis of software systems using event logging state-of-the-art topics is 
 In \Cref{tbl:ch1_soaLogAnalysis}, topics focus more on studies that implement a log analysis for software maintenance. Tracking certain events is therefore essential for the log analysis to ensure that log quality's precision criteria can be achieved of \Cref{sec:ch1_loggingQuality}. To efficiently make use of or create log analysis report for software maintenance.
 
 \subsubsection{State of the art summary}
-Using the defined criteria created for the state-of-the-art topics in \Cref{tbl:ch1_soaEventLogging,tbl:ch1_soaLogAnalysis,tbl:ch1_soaSoftwareMaintennace} State of the art for the obtained studies is mad in \Cref{tbl:ch1_stateOfTheArt2}.
+Using the defined criteria created for the state-of-the-art topics in \Cref{tbl:ch1_soaEventLogging,tbl:ch1_soaLogAnalysis,tbl:ch1_soaSoftwareMaintennace} State of the art for the obtained studies is done in \Cref{tbl:ch1_stateOfTheArt2}.
 
-\begin{landscape}
-	\begin{table}[!htb]
-		\centering
-		\small
-		\caption[State of the art]
-		{\textit{State of the art}}
-		\label{tbl:ch1_stateOfTheArt2}
-		\begin{tabularx}{\linewidth}{|p{0.05\textwidth}|Y|Y|Y|Y|Y|Y|Y|}
-			\hline \textbf{Ref.} & \multicolumn{3}{c|}{\textbf{Software maintenance}}  &
-				\multicolumn{3}{c|}{\textbf{Event logging}} & \multicolumn{1}{c|}{\textbf{Log analysis}} \\ 
-			\hline 
-			& \textbf{Types and implementation} & \textbf{Problems} & \textbf{Models and prioritisation} & \textbf{Quality} & \textbf{Parsing} & \textbf{Points} & \RaggedRight \textbf{System utilisation analysis} \\ 
-		
-			\hline \cite{Ogheneovo2014} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
-			\hline \cite{Tang2010} & Partial & Partial & \cmark & \xmark & \xmark & \xmark & \xmark \\
-			\hline \cite{Sneed2004} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
-			\hline \cite{Stojanov2017} & \xmark & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
-			\hline \cite{Galster2019} & \cmark & Partial & \xmark & \xmark & \xmark & \xmark & \xmark \\
-			\hline \cite{Lenarduzzi2017} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
-			\hline \cite{Araujo2021} & Partial & \xmark & \cmark & \xmark & \xmark & \xmark & \xmark \\	
-			\hline \cite{Zhu2019} & \xmark & \xmark & \xmark & Partial & \cmark & Partial & \xmark \\
-			\hline \cite{Rong2018} & \xmark & \xmark & \xmark & \cmark & Partial & Partial & \xmark \\
-			\hline \cite{Song2017} & \xmark & \xmark & \xmark & Partial & Partial & Partial & \cmark \\
-			\hline \cite{Zhu2015} & \xmark & \xmark & \xmark & \cmark & \cmark & \cmark & \xmark \\
-			\hline \cite{Kherbouche2017} & \xmark & \xmark & \xmark & \cmark & Partial & Partial & \xmark \\
-			\hline \cite{Hasiloglu2018} & \xmark & \xmark & \xmark & Partial & \cmark & \cmark & Partial \\
-			\hline \cite{Slaninova2014} & \xmark & \xmark & \xmark & Partial & \cmark & \cmark & Partial \\
-			\hline \cite{Dhanalakshmi2016} & \xmark & \xmark & \xmark & Partial & \cmark & \cmark & Partial \\
-			\hline \cite{Kocsis2012} & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
-			\hline \cite{Waqar2017} & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
-			\hline \cite{Paliouras1999} & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
-			\hline
-		\end{tabularx}	
-	\end{table}
-\end{landscape}
+\begin{table}[!htb]
+	\centering
+	\small
+	\caption[State of the art]
+	{\textit{State of the art}}
+	\label{tbl:ch1_stateOfTheArt2}
+	\begin{tabularx}{\linewidth}{|p{0.05\textwidth}|Y|Y|Y|Y|Y|Y|Y|}
+		\hline \textbf{Ref.} & \multicolumn{3}{c|}{\textbf{Software maintenance}}  &
+			\multicolumn{3}{c|}{\textbf{Event logging}} & \textbf{Log analysis} \\ 
+		\hline 
+		& \RaggedRight \textbf{Types} & \RaggedRight \textbf{Problems} & \RaggedRight \textbf{Models and prioritisation} & \textbf{Quality} & \textbf{Parsing} & \textbf{Points} & \RaggedRight \textbf{Utilisation} \\ 
+	
+		\hline \cite{Ogheneovo2014} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
+		\hline \cite{Tang2010} & Partial & Partial & \cmark & \xmark & \xmark & \xmark & \xmark \\
+		\hline \cite{Sneed2004} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
+		\hline \cite{Stojanov2017} & \xmark & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
+		\hline \cite{Galster2019} & \cmark & Partial & \xmark & \xmark & \xmark & \xmark & \xmark \\
+		\hline \cite{Lenarduzzi2017} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
+		\hline \cite{Araujo2021} & Partial & \xmark & \cmark & \xmark & \xmark & \xmark & \xmark \\	
+		\hline \cite{Zhu2019} & \xmark & \xmark & \xmark & Partial & \cmark & Partial & \xmark \\
+		\hline \cite{Rong2018} & \xmark & \xmark & \xmark & \cmark & Partial & Partial & \xmark \\
+		\hline \cite{Song2017} & \xmark & \xmark & \xmark & Partial & Partial & Partial & \cmark \\
+		\hline \cite{Zhu2015} & \xmark & \xmark & \xmark & \cmark & \cmark & \cmark & \xmark \\
+		\hline \cite{Kherbouche2017} & \xmark & \xmark & \xmark & \cmark & Partial & Partial & \xmark \\
+		\hline \cite{Hasiloglu2018} & \xmark & \xmark & \xmark & Partial & \cmark & \cmark & Partial \\
+		\hline \cite{Slaninova2014} & \xmark & \xmark & \xmark & Partial & \cmark & \cmark & Partial \\
+		\hline \cite{Waqar2017} & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
+		\hline \cite{Kumar2017} & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
+		\hline
+	\end{tabularx}	
+\end{table}
 
-In \Cref{tbl:ch1_stateOfTheArt2}, the studies marked with the partial status satisfied the sub-topics evaluation criteria to some extent. These studies still contained much-needed literature for the sub-topic, even if it was marked as practically meeting the evaluation criteria.\par In \Cref{tbl:ch1_stateOfTheArt2} the three main topics have split the obtained literature into two main parts. The first part is only about software maintenance and how to implement and prioritise software maintenance using a suitable software maintenance model. The second part is about event logging and log analysis. In \Cref{tbl:ch1_stateOfTheArtComments} provides a summary of the literature in each study. 
+In \Cref{tbl:ch1_stateOfTheArt2}, the studies marked with the partial status satisfied the sub-topics evaluation criteria to some extent. These studies still contained much-needed literature for the sub-topic, even if it was marked as practically meeting the evaluation criteria.\par In \Cref{tbl:ch1_stateOfTheArt2} the three main topics have split the obtained literature into two main parts. The first part is only about software maintenance and how to implement and prioritise software maintenance using a suitable software maintenance model. The second part is about event logging and log analysis. 
 
-\begin{xltabular}{\linewidth}{|l|X|}
-	\caption[State of the art comments]
-	{\textit{State of the art comments}}
-	\label{tbl:ch1_stateOfTheArtComments} \\
-
-	\hline \textbf{Ref.} & \textbf{Comments} \\
-	\hline
-	\endfirsthead
-
-	\multicolumn{2}{c}%
-	{\tablename\ \thetable{} -- continued from previous page} \\
-	\hline \textbf{Ref.} & \textbf{Comments} \\
-	\endhead
-
-	\hline \multicolumn{2}{|r|}{{Continued on next page}} \\ \hline
-	\endfoot
-
-	\hline
-	\endlastfoot 
-
-	\hline \cite{Hasiloglu2018,Slaninova2014,Dhanalakshmi2016} & This study aims to create a logging mechanism to get audit logs from a Web application. \\
-
-	\hline \cite{Kocsis2012,Waqar2017,Paliouras1999} & These study aims to implement Web analytics on user behaviour data. Using third-party tools to create the analysis reports on the user-based events.  \\
-\end{xltabular}	
-
-The summarised comments of each study in \Cref{tbl:ch1_stateOfTheArtComments} emphasise the divide between software maintenance and event logging with the analysis of the logs included.
-
-\clearpage
-\subsubsection{Software maintenance related studies}
+\subsubsection{Review of the State of Art studies}
+The State of Art studies in \Cref{tbl:ch1_stateOfTheArt2} are summarized and commentary is provided on the relevance of this study.
 
 \begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=On the Relationship between Software Complexity and Maintenance Costs\cite{Ogheneovo2014}]
 	\begin{minipage}[t]{0.25\textwidth}
@@ -603,7 +572,7 @@ The summarised comments of each study in \Cref{tbl:ch1_stateOfTheArtComments} em
 	\textbf{Study keywords:} Maintenance Cost Estimation; Software Life Cycle Costing Models; Software Maintenance and Evolution; Software Product Management
 \end{tcolorbox}
 
-\clearpage
+%\clearpage
 
 \begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=Trends in software maintenance tasks distribution among programmers: A study in a micro software company\cite{Stojanov2017}]
 	\begin{minipage}[t]{0.25\textwidth}
@@ -651,8 +620,6 @@ The summarised comments of each study in \Cref{tbl:ch1_stateOfTheArtComments} em
 	\textbf{Study keywords:} Software maintenance; natural language processing; software architecture; text classification
 \end{tcolorbox}
 
-\clearpage
-
 \begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=Analyzing Forty Years of Software Maintenance Models\cite{Lenarduzzi2017}]
 	\begin{minipage}[t]{0.25\textwidth}
 		\textbf{Study summary:}
@@ -699,8 +666,6 @@ The summarised comments of each study in \Cref{tbl:ch1_stateOfTheArtComments} em
 	\textbf{Study keywords:} Software aging and rejuvenation; methodology; software maintenance
 \end{tcolorbox}
 
-\subsubsection{Event logging}
-
 \begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=Tools and Benchmarks for Automated Log Parsing\cite{Zhu2019}]
 	\begin{minipage}[t]{0.25\textwidth}
 		\textbf{Study summary:}
@@ -724,15 +689,13 @@ The summarised comments of each study in \Cref{tbl:ch1_stateOfTheArtComments} em
 	\textbf{Study keywords:} AIOps; anomaly detection; log analysis; log management; log parsing
 \end{tcolorbox}
 
-\clearpage
-
 \begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=A Systematic Review of Logging Practice in Software Engineering\cite{Rong2018}]
 	\begin{minipage}[t]{0.25\textwidth}
 		\textbf{Study summary:}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.65\textwidth}
-		This study examines how logging practices are implemented in the industry. The study also examines the number of publications on logging practices in software engineering, further discussed in \Cref{apx:loggingPractice}. This emphasizes the lack of research done for logging practices.
+		This study examines how logging practices are implemented in the industry. The study also examines the number of publications on logging practices in software engineering, further discussed in \Cref{apx:loggingPractice}. This emphasizes the lack of research done on logging practices.
 	\end{minipage}
 
 	% Add space here
@@ -795,10 +758,7 @@ The summarised comments of each study in \Cref{tbl:ch1_stateOfTheArtComments} em
 	\textbf{Study keywords:} keywords
 \end{tcolorbox}
 
-\clearpage
-
-\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=owards a better assessment of event logs quality
-	Mohammed\cite{Kherbouche2017}]
+\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=Towards a better assessment of event logs quality\cite{Kherbouche2017}]
 	\begin{minipage}[t]{0.25\textwidth}
 		\textbf{Study summary:}
 	\end{minipage}
@@ -821,15 +781,13 @@ The summarised comments of each study in \Cref{tbl:ch1_stateOfTheArtComments} em
 	\textbf{Study keywords:} event logs; process mining; process mining algorithms; qualitative model
 \end{tcolorbox}
 
-\clearpage
-
-\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=Test\cite{Ogheneovo2014}]
+\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=Central Audit Logging Mechanism in Personal Data Web Services\cite{Hasiloglu2018}]
 	\begin{minipage}[t]{0.25\textwidth}
 		\textbf{Study summary:}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.65\textwidth}
-		text
+		This study aims to create a logging mechanism to get audit logs from a Web application.
 	\end{minipage}
 
 	% Add space here
@@ -843,10 +801,79 @@ The summarised comments of each study in \Cref{tbl:ch1_stateOfTheArtComments} em
 		text
 	\end{minipage}
 	\tcblower
-	\textbf{Study keywords:} keywords
+	\textbf{Study keywords:} API; API Policy; Audit Logging; Personal Data; Web Service
 \end{tcolorbox}
 
+\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=User behavioural patterns and reduced user profiles extracted from log files\cite{Slaninova2014}]
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Study summary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		This study focuses on the behavioural patterns that are extracted from log files through log analysis. It creates user profiles to compare them to other individual users or a group of users.
+	\end{minipage}
 
+	% Add space here
+	\vspace{0.75em} 
+
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Commentary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		In this study, no logging mechanism method is provided that can be implemented on any system. It only implements a log analysis to create user profiles. It also explores what events in a system can be seen as user-based events for the log analysis.
+	\end{minipage}
+	\tcblower
+	\textbf{Study keywords:} Analysis of users' behaviour; Behavioural patterns; Complex networks; User profiles
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=Tracking User Activities and Marketplace Dynamics in Classified Ads\cite{Waqar2017}]
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Study summary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		In this study, the user's activities are tracked on a Web application when users interacted with ads. A log analysis was implemented to create a probabilistic model of user behaviour data based on the ads the user has interacted with.
+	\end{minipage}
+
+	% Add space here
+	\vspace{0.75em} 
+
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Commentary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		In this study, only interactions of the user with the ads are logged for the log analysis. This study shows a clear goal of the logging mechanism to capture certain user-based data for user marketing profiling. In industry, this would be the main goal of organisations when they attempt to track user-based data for commercial reasons.
+	\end{minipage}
+	\tcblower
+	\textbf{Study keywords:} Classified ads; Temporal analysis; User modeling; User tracking
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=Analysis of visitor's behavior from Web Log using Web Log Expert Tool\cite{Kumar2017}]
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Study summary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		In this study, the log analysis is explained for Websites by creating a Web Log Tool that does the data processing, pattern discovery and pattern analysis. This log analysis aims to obtain the user's activity data of the total time spent per webpage, which webpage they visited and other visitor browser analysis data.
+	\end{minipage}
+
+	% Add space here
+	\vspace{0.75em} 
+
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Commentary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		This study doesn't provide a method for the logging mechanism used but rather the log analysis of the user's data. The log data used in the log analysis could be used for software maintenance prioritisation as it reports back on what web pages the users use. 
+	\end{minipage}
+	\tcblower
+	\textbf{Study keywords:} web server log; web usage mining
+\end{tcolorbox}
+
+\clearpage
 
 \section{Problem statement}\label{sec:ch1_problemStatement}
 Software maintenance is a vital part of the entire life cycle of any software system. In \Cref{sec:ch1_maintenanceProblems}, multiple challenges can make it harder to improve maintenance efforts with the limited available resources. It is beneficial to prioritise maintenance to ensure that limited resources are efficiently used. \par A possible solution to this problem is using event logging to determine the utilisation of the system as it is a proven method industry to track system utilisation usage. Software developers can access third-party software logging tools to get the event logs. Most of the tools focus more on system runtime utilisation than user activities. There exist logging tools that can track user-based movements depending on the framework the software system is developed on.\par Although there are live tools that can track events that the user generates, it is not guaranteed that log quality will be acceptable. Some much-needed logging attributes that will aid the log analysis might not be logged.\par Designing and implementing a logging mechanism might bridge the gap between software maintenance and log analysis to create a system utilisation report.\par Software Developers still need to design the overall logging mechanism and decide where to place the logging points to capture the event logs in a software system. There are proven methods to create a suitable logging mechanism, but not all of them include the analysis of the records for user-based utilisation to improve software maintenance.

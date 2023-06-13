@@ -292,3 +292,58 @@ Most Web applications will make of use JavaScript to control the content of the 
 	});
 \end{lstlisting}
 
+\begin{tcolorbox}[colback=gray!5!white, colframe=deepblue!80!black, title=Test\cite{Ogheneovo2014}]
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Study summary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		text
+	\end{minipage}
+
+	% Add space here
+	\vspace{0.75em} 
+
+	\begin{minipage}[t]{0.25\textwidth}
+		\textbf{Commentary:}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.65\textwidth}
+		text
+	\end{minipage}
+	\tcblower
+	\textbf{Study keywords:} keywords
+\end{tcolorbox}
+
+\begin{enumerate}[label=\textbf{\Roman*.}]
+	\item \textbf{Methodology:} In \Cref{chap:2} development of solution's functional requirements are made in \Cref{sec:ch2_developementOfSolution}. This provides a generic method to create a logging mechanism and analyse the obtained user-based logs. A test logging mechanism is designed with a utilisation log analysis to validate the development of solution functional requirements of \Cref{tbl:ch2_developmenetRequirements}.\par This logging mechanism aims to implement each sub-functional requirement on a test system by testing certain inputs to verify expected outputs. The following validation method was used for this test implementation in \Cref{sec:ch3_implementation}:
+		\begin{itemize}
+			\item Identifying and creating the log attributes needed for the log analysis (\ref{fr:logAttributes}). The software system's key log attributes are precisely defined for maintenance prioritisation. The user-activity type forms the base requirement for a user-based log.
+			
+			\item Logging points are made to capture these logging attributes at specific locations in the software system (\ref{fr:loggingPoints}). The placement of the logging points to capture user-based logs is verified if it can be done consistently, accurately and discretely without impacting the software system's performance. 
+			
+			\item The log analysis is verified using a third-party log analysis tool or implementation of a log analysis (\ref{fr:logAnalysis}). For the log analysis to succeed, the quality must be acceptable. This is verified by the logging points' performance and the usability of the logs without too many post-logging corrections made.
+			
+			\item Creating software maintenance prioritising (\ref{fr:maintenancePrioritising}) from the results of the log analysis. In the log analysis, the different subsystems' maintenance priority ($M_{PF}$) are calculated from the normalised total active users ($P_N$) multiplied by the normalised total user activity ($A_N$) for a specified subsystem in \Cref{eq:ch2_priorityNormalised,eq:ch2_maintenanceFactorSimplified,eq:ch2_eventNormalised}.\par These results are verified with the test case study and Case Studies A, B and C in \Cref{sec:ch3_caseStudies} on different software systems with different operational use cases. The results obtained for the maintenance priority validate the implementation of the previous above using the defined user-based logs to do the log analysis for maintenance priority. 
+		\end{itemize}
+
+	\item \textbf{Study objectives:} The study objectives in \Cref{sec:ch1_objectives} is validated through the method used in \Cref{chap:2} by:
+		\begin{itemize}
+			\item \textbf{Logging mechanism:}
+			  \begin{enumerate}
+				\item The log attributes need to be defined for the log analysis. In this study, the log analysis is for maintenance prioritisation. The method created demonstrates the functional requirements to develop the required criteria for which events in the software system are user-based events.
+				\item the defined functional requirements for a user-based event log validate item User-based events classification objective. The method to only use the needed log attributes and user activity types describes what events are potentially user-based.
+				\item Logging points are the main structure of the logging mechanism. A guideline on strategically placing logging points in a software system is provided in \Cref{sec:ch2_loggingPoints}. This section focuses on how to log in to both client and server side to get all the needed log attributes.
+			  \end{enumerate}
+
+			\item \textbf{Log analysis:}
+			 \begin{enumerate}
+				\item The log analysis evaluates the obtained logs for user-based utilisation results. The evaluation is proven by using third-party or custom-made software to do a comprehensive log analysis to validate if this objective has been met.
+				\item The user-based utilisation log analysis implementation needs to create a software maintenance prioritisation. The proposed method to create a consistent measurement to rank software systems based on the needed maintenance validates this objective in the method.
+			 \end{enumerate}
+		\end{itemize}
+
+	\item \textbf{Need of the study:} There is a need to create a logging mechanism for a log analysis for software maintenance prioritisation. Fulfilling this need can be a valuable method for industry developers to improve the resources used to implement software maintenance more efficiently. The study objectives broke down the needed objectives for this need to be satisfied by splitting it into two parts: logging mechanism and log analysis. 
+	\item \textbf{Problem statement:} Software maintenance is a problem in the industry due to how inefficiently developers prioritise maintenance activities. A proven method to monitor software behaviours is logging. The need for study emphasised that the logging mechanism and log analysis to improve software maintenance needs to be explicitly designed for user-based events.
+	\item \textbf{Gap identification:} Software maintenance is an important stage in most software development. Implementing it efficiently with the available resources that organisations or individuals have is beneficial. Assisting developers to make better-informed decisions on which systems to prioritise maintenance is a validated gap by identifying the problems that need to be resolved.
+\end{enumerate}
