@@ -487,7 +487,6 @@ Using the defined criteria created for the state-of-the-art topics in \Cref{tbl:
 		\hline \cite{Araujo2021} & Partial & \xmark & \cmark & \xmark & \xmark & \xmark & \xmark \\	
 		\hline \cite{Zhu2019} & \xmark & \xmark & \xmark & Partial & \cmark & Partial & \xmark \\
 		\hline \cite{Rong2018} & \xmark & \xmark & \xmark & \cmark & Partial & Partial & \xmark \\
-		\hline \cite{Song2017} & \xmark & \xmark & \xmark & Partial & Partial & Partial & \cmark \\
 		\hline \cite{Zhu2015} & \xmark & \xmark & \xmark & \cmark & \cmark & \cmark & \xmark \\
 		\hline \cite{Kherbouche2017} & \xmark & \xmark & \xmark & \cmark & Partial & Partial & \xmark \\
 		\hline \cite{Hasiloglu2018} & \xmark & \xmark & \xmark & Partial & \cmark & \cmark & Partial \\
@@ -504,8 +503,6 @@ In \Cref{tbl:ch1_stateOfTheArt2}, the studies marked with the partial status sat
 The State of Art studies in \Cref{tbl:ch1_stateOfTheArt2} are summarized and commentary is provided on the relevance of this study.
 
 \input{Chapters/LiteratureReview.tex}
-
-\clearpage
 
 \section{Problem statement}\label{sec:ch1_problemStatement}
 Software maintenance is a vital part of the entire life cycle of any software system. In \Cref{sec:ch1_maintenanceProblems}, multiple challenges can make it harder to improve maintenance efforts with the limited available resources. It is beneficial to prioritise maintenance to ensure that limited resources are efficiently used. \par A possible solution to this problem is using event logging to determine the utilisation of the system as it is a proven method industry to track system utilisation usage. Software developers can access third-party software logging tools to get the event logs. Most of the tools focus more on system runtime utilisation than user activities. There exist logging tools that can track user-based movements depending on the framework the software system is developed on.\par Although there are live tools that can track events that the user generates, it is not guaranteed that log quality will be acceptable. Some much-needed logging attributes that will aid the log analysis might not be logged.\par Designing and implementing a logging mechanism might bridge the gap between software maintenance and log analysis to create a system utilisation report.\par Software Developers still need to design the overall logging mechanism and decide where to place the logging points to capture the event logs in a software system. There are proven methods to create a suitable logging mechanism, but not all of them include the analysis of the records for user-based utilisation to improve software maintenance.
