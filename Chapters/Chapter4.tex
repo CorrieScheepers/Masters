@@ -9,6 +9,35 @@
 
 \clearpage
 
+\Cref{chap:1} highlighted the importance of software maintenance in the entire life cycle of most software systems. Further analysis of the problems in the industry when implementing software maintenance was identified. Software maintenance prioritisation was of the problems when trying to implement software maintenance efficiently. This problem was further explored and using an existing software method that is event logging was identified as a possible solution.\par  A State Of The Art analysis of \Cref{tbl:ch1_stateOfTheArt2} the literature of software maintenance, event logging and log analysis was made. This study aims to fill the gaps in the obtained literature in \Cref{tbl:ch4_stateOfTheArt}.
+
+\begin{table}[!htb]
+	\centering
+	\caption[State of the art]
+	{\textit{State of the art}}
+	\label{tbl:ch4_stateOfTheArt}
+	\begin{threeparttable}
+		\begin{tabularx}{\textwidth}{cYYYYYY}
+			\toprule
+			\thead{Ref.} & \multicolumn{3}{c}{\thead{Software maintenance}} & \multicolumn{2}{c}{\thead{Event logging}} & \multicolumn{1}{c}{\thead{Log analysis}} \\ 
+			 \cmidrule(lr){2-4} \cmidrule(lr){5-6} \cmidrule(lr){7-7}
+			 & \RaggedRight \thead{Models} & \RaggedRight \thead{Problems} & \RaggedRight \thead{Prioritisation} & \thead{Parsing} & \thead{Points} & \RaggedRight \thead{Utilisation} \\ 		
+			\midrule
+				\sotaCore
+				\rowcolor{pastelgreen}
+				\tnote{$\ast$} & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark \\
+			\bottomrule
+		\end{tabularx}
+		\begin{tablenotes}\footnotesize
+			\item[$\ast$] \textit{Current study:~\ThesisTitle}
+		\end{tablenotes}
+	\end{threeparttable}
+\end{table}
+
+\Cref{tbl:ch4_stateOfTheArt} there is a divide between the software maintenance studies and the event logging studies.
+
+\clearpage
+
 \subsection{Value added to industry}
 The method in \Cref{chap:2} is used on different case studies in \Cref{sec:ch3_caseStudies}. Each of these case studies explored the various applications of the generic logging mechanism to obtain user-based events. The results proved that the logging mechanism could get the desired user-based activities. However, additional adaptions were needed for each case study to ensure the log quality was acceptable for consistent, reliable log analysis.\par These adaptations were due to the software environment (software languages and design methodologies used) and the purpose of the software system. Older systems had to use different logging points to yield the same result as newer software systems that can use less or one logging point.\par These systems used the same user-based event type with similar operational software use cases. Systems with the same software architecture but different functional use cases also had various adaptations to their logging mechanism. These adaptions ensured that the desired log attributes were correctly obtained for the log analysis. \par The maintenance prioritisation recommendations for each study case used the defined generic methodology. The log analysis for each case study was similar as the log requirements for the user-based utilisation for all the case studies were only different for each of their user-based event types. These user-based event types represent the operational use cases for the case study to further observe the kind of utilisation of the subsystems. \par The results proved that the generic methodology defined in \Cref{chap:2} could be implemented on different software systems with other operational use cases for each case study. In the web development industry, similar software systems as the case study or other software systems will benefit from implementing this methodology to improve software maintenance decisions using these recommendations for prioritisation.
 
@@ -24,15 +53,15 @@ The method in \Cref{chap:2} is used on different case studies in \Cref{sec:ch3_c
 	\label{tbl:ch4_ValidationStart}
 	\begin{tabularx}{\textwidth}{Xp{3cm}p{3cm}}
 		\toprule
-		\textbf{Objective}  & \textbf{Section} & \textbf{Objective met} \\ \midrule
-		\textbf{Literature Objectives:} & & \\ \midrule
+		\thead{Objective}  & \thead{Section} & \thead{Objective met} \\ \midrule
+		\thead{Literature Objectives:} & & \\ \midrule
 		\rowcolor{lightgray}
 		\RaggedRight \objAi & \RaggedRight \Cref{sec:ch2_logAttributesRequirements,sec:ch2_webApplicationArchitecture} & \cmark \\
 		\RaggedRight \objAii & \RaggedRight \Cref{sec:ch2_loggingPoints,sec:ch2_webApplicationArchitecture} & \cmark \\
 		\rowcolor{lightgray}
 		\RaggedRight \objAiii & \Cref{sec:ch2_logAnalysisTools} & \cmark \\ 
 		\RaggedRight \objAiv & \Cref{sec:ch2_utilisationImprovements} & \cmark \\ \midrule
-		\textbf{Empirical Objectives:} & & \\ \midrule
+		\thead{Empirical Objectives:} & & \\ \midrule
 		\rowcolor{lightgray}
 		\RaggedRight \objBi: 
 			\begin{enumerate}

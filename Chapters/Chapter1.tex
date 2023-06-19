@@ -392,20 +392,24 @@ Software maintenance implementation in industry and best practices when implemen
 	\caption[Software maintenance state of the art sub topics]
 	{\textit{Software maintenance state of the art sub topics}}
 	\label{tbl:ch1_soaSoftwareMaintennace}
-	\begin{tabularx}{\linewidth}{|l|X|X|}
-		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria}\\
-		\hline Types & \RaggedRight Software maintenance types and implementation in industry. & \RaggedRight \begin{enumerate}
+	\begin{tabularx}{\linewidth}{lXX}
+		\toprule
+		\thead{Topic}  & \thead{Description} & \thead{Evaluation criteria}\\
+		\midrule
+		\rowcolor{lightgray}
+		Models & \RaggedRight Software maintenance models and implementation in industry. & \RaggedRight \begin{enumerate}
 			\item Did the study focus on software maintenance?
-			\item Did the study discuss different software maintenance types or implementations?
+			\item Did the study discuss different software maintenance models and implementation of the model?
 		\end{enumerate} \\
-		\hline Problems & Challenges with implementing software maintenance. & \RaggedRight \begin{enumerate}
+		Problems & Challenges with implementing software maintenance. & \RaggedRight \begin{enumerate}
 			\item Did the study identify frequent problems with implementing software maintenance?
 		\end{enumerate}\\
-		\hline Models and prioritisation & How to implement software maintenance models and prioritisation techniques. & \RaggedRight \begin{enumerate}
+		\rowcolor{lightgray}
+		Models and prioritisation & How to implement software maintenance models and prioritisation techniques. & \RaggedRight \begin{enumerate}
 			\item Did the study discuss different software maintenance models?
 			\item Did the study discuss the importance of prioritisation different maintenance activities?
 		\end{enumerate} \\
-		\hline
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
@@ -421,21 +425,20 @@ Event logging in a software environment and activities implementing event loggin
 	\caption[Event logging state of the art topics]
 	{\textit{Event logging state of the art topics}}
 	\label{tbl:ch1_soaEventLogging}
-	\begin{tabularx}{\linewidth}{|l|X|X|}
-		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria}\\
-		\hline Quaility & \RaggedRight Industry standards for log quality and implementations to improve logging quality.& \RaggedRight \begin{enumerate}
-			\item Did the study provide a comprehensive overview of how to achieve or improve logging quality?
-			\item Did the study provide an event log quality model used in the industry?
-		\end{enumerate} \\
-		\hline Points & \RaggedRight How to implement software maintenance models and prioritisation techniques used in industry. & \RaggedRight \begin{enumerate}
+	\begin{tabularx}{\linewidth}{lXX}
+		\toprule
+		\thead{Topic}  & \thead{Description} & \thead{Evaluation criteria}\\
+		\midrule
+		\rowcolor{lightgray}
+		Points & \RaggedRight How to implement software maintenance models and prioritisation techniques used in industry. & \RaggedRight \begin{enumerate}
 			\item Did the study discuss what needs to be logged or how to identify key logging attributes from certain software events?
 			\item Did the study aim to create or identify key logging points for specific log analysis purposes?
 		\end{enumerate} \\
-		\hline Parsing & \RaggedRight Challenges with implementing software maintenance. & \RaggedRight \begin{enumerate}
+		Parsing & \RaggedRight Challenges with implementing software maintenance. & \RaggedRight \begin{enumerate}
 			\item Did the study aim to create or identify key logging points for specific log analysis purposes in a software environment?
 			\item Did the study provide methodologies or standards for log parsing to adhere to a log quality model?
 		\end{enumerate}\\	
-		\hline
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
@@ -453,7 +456,7 @@ Log analysis of software systems using event logging state-of-the-art topics is 
 	\label{tbl:ch1_soaLogAnalysis}
 	\begin{tabularx}{\linewidth}{lXX}
 		\toprule
-		\textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria}\\
+		\thead{Topic}  & \thead{Description} & \thead{Evaluation criteria}\\
 		\midrule
 		Utilisation & \RaggedRight Software maintenance types and implementation in industry. & \RaggedRight \begin{enumerate}
 			\item How is system utilisation analysis done for software systems?
@@ -468,39 +471,43 @@ In \Cref{tbl:ch1_soaLogAnalysis}, topics focus more on studies that implement a 
 \subsubsection{State of the art summary}
 Using the defined criteria created for the state-of-the-art topics in \Cref{tbl:ch1_soaEventLogging,tbl:ch1_soaLogAnalysis,tbl:ch1_soaSoftwareMaintennace} State of the art for the obtained studies is done in \Cref{tbl:ch1_stateOfTheArt2}.
 
+\newcommand{\sotaCore}{\rowcolor{lightgray}
+\cite{Ogheneovo2014} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark \\
+\cite{Tang2010} & Partial & Partial & \cmark & \xmark & \xmark & \xmark \\
+\rowcolor{lightgray}
+\cite{Sneed2004} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark \\
+\cite{Stojanov2017} & \xmark & \cmark & \cmark & \xmark & \xmark & \xmark \\
+\rowcolor{lightgray}
+\cite{Galster2019} & \cmark & Partial & \xmark & \xmark & \xmark & \xmark \\
+\cite{Lenarduzzi2017} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark \\
+\rowcolor{lightgray}
+\cite{Araujo2021} & Partial & \xmark & \cmark & \xmark & \xmark & \xmark \\	
+\cite{Zhu2019} & \xmark & \xmark & \xmark & \cmark & Partial & \xmark \\
+\rowcolor{lightgray}
+\cite{Rong2018} & \xmark & \xmark & \xmark & Partial & Partial & \xmark \\
+\cite{Zhu2015} & \xmark & \xmark & \xmark & \cmark & \cmark & \xmark \\
+\rowcolor{lightgray}
+\cite{Kherbouche2017} & \xmark & \xmark & \xmark & Partial & Partial & \xmark \\
+\cite{Hasiloglu2018} & \xmark & \xmark & \xmark & \cmark & \cmark & Partial \\
+\rowcolor{lightgray}
+\cite{Slaninova2014} & \xmark & \xmark & \xmark & \cmark & \cmark & Partial \\
+\cite{Waqar2017} & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
+\rowcolor{lightgray}
+\cite{Kumar2017} & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
+}
+
 \begin{table}[!htb]
 	\centering
-	\small
 	\caption[State of the art]
 	{\textit{State of the art}}
 	\label{tbl:ch1_stateOfTheArt2}
-	\begin{tabularx}{\linewidth}{p{0.05\textwidth}YYYYYY}
+	\begin{tabularx}{\textwidth}{cYYYYYY}
 		\toprule
-		\textbf{Ref.} & \RaggedRight \textbf{Types} & \RaggedRight \textbf{Problems} & \RaggedRight \textbf{Prioritisation} & \textbf{Parsing} & \textbf{Points} & \RaggedRight \textbf{Utilisation} \\ 		
+		\thead{Ref.} & \multicolumn{3}{c}{\thead{Software maintenance}} & \multicolumn{2}{c}{\thead{Event logging}} & \multicolumn{1}{c}{\thead{Log analysis}} \\ 
+		 \cmidrule(lr){2-4} \cmidrule(lr){5-6} \cmidrule(lr){7-7}
+		 & \RaggedRight \thead{Models} & \RaggedRight \thead{Problems} & \RaggedRight \thead{Prioritisation} & \thead{Parsing} & \thead{Points} & \RaggedRight \thead{Utilisation} \\ 		
 		\midrule
-		\rowcolor{lightgray}
-		\cite{Ogheneovo2014} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark \\
-		\cite{Tang2010} & Partial & Partial & \cmark & \xmark & \xmark & \xmark \\
-		\rowcolor{lightgray}
-		\cite{Sneed2004} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark \\
-		\cite{Stojanov2017} & \xmark & \cmark & \cmark & \xmark & \xmark & \xmark \\
-		\rowcolor{lightgray}
-		\cite{Galster2019} & \cmark & Partial & \xmark & \xmark & \xmark & \xmark \\
-		\cite{Lenarduzzi2017} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark \\
-		\rowcolor{lightgray}
-		\cite{Araujo2021} & Partial & \xmark & \cmark & \xmark & \xmark & \xmark \\	
-		\cite{Zhu2019} & \xmark & \xmark & \xmark & \cmark & Partial & \xmark \\
-		\rowcolor{lightgray}
-		\cite{Rong2018} & \xmark & \xmark & \xmark & Partial & Partial & \xmark \\
-		\cite{Zhu2015} & \xmark & \xmark & \xmark & \cmark & \cmark & \xmark \\
-		\rowcolor{lightgray}
-		\cite{Kherbouche2017} & \xmark & \xmark & \xmark & Partial & Partial & \xmark \\
-		\cite{Hasiloglu2018} & \xmark & \xmark & \xmark & \cmark & \cmark & Partial \\
-		\rowcolor{lightgray}
-		\cite{Slaninova2014} & \xmark & \xmark & \xmark & \cmark & \cmark & Partial \\
-		\cite{Waqar2017} & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
-		\rowcolor{lightgray}
-		\cite{Kumar2017} & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
+			\sotaCore
 		\bottomrule
 	\end{tabularx}	
 \end{table}
