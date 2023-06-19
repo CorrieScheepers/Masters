@@ -3,13 +3,13 @@
 \ChapterPageStuff{3}
 
 \section{Introduction}
-In \Cref{sec:ch2_preamble}, the methodology was created for a web-based software system. As described in this section, users can have multiple systems and subsystems linked to their account. The implementation is done for multiple software systems in this section. The system implementation will focus more on developing the logging mechanism, and the critical analysis will prioritise software maintenance using a utilisation analysis.
+In \Cref{sec:ch2_preamble}, the methodology was created for a web-based software system. As described in this section, users can have multiple systems and subsystems linked to their accounts. The implementation is done for multiple software systems in this section. The system implementation will focus more on developing the logging mechanism, and the critical analysis will prioritise software maintenance using a utilisation analysis.
 
 \section{Implementation}\label{sec:ch3_implementation}
-In this section, the implementation of the development of the solution will be discussed using a test system to verify it. The test system is created in a \texttt{ASP.NET Core Web SDK} software environment.
+In this section, the implementation of the development of the solution will be discussed using a test system for verification. The test system is created in a \texttt{ASP.NET Core Web SDK} software environment.
 
 \subsection{User activity types}
-In \Cref{fig:ch2_user_based_actvity_classification} the user-based clarification flow diagram uses the \Cref{tbl:ch2_requirementsForUserActivtyEvent} to identify and capture some of the log attributes. The event logs should consist of multiple cases (\ref{fr:requirementsUserBased2}) that are the primary identifiers for the event log which is the user activity types.\par Using the basic operations of the system and what users interact with the user activate types can be made for each software system. For the test system, the basic use will be:
+In \Cref{fig:ch2_user_based_actvity_classification} the user-based clarification flow diagram uses  \Cref{tbl:ch2_requirementsForUserActivtyEvent} to identify and capture some of the log attributes. The event logs should consist of multiple cases (\ref{fr:requirementsUserBased2}) that are the primary identifiers for the event log which is the user activity types.\par Using the basic operations of the system and what users interact with, the user activity types can be made for each software system. For the test system, the basic use will be:
 
 \begin{itemize}
 	\item monitor resource usage dynamic dashboards,
@@ -22,40 +22,50 @@ Reporting and monitoring are important for this test system so the user activity
 	\centering
 	\caption[Test user activity types]{\textit{Test user activity types}}
 	\label{tbl:ch3_testActivityTypes}
-	\begin{tabularx}{\textwidth}{|X|l|X|}
-		\hline \textbf{Activity} & \textbf{Functional requirement} & \textbf{Description} \\
-		\hline \texttt{SystemAccess} & \ref{fr:uatType1} & \RaggedRight This activity type detects when a user has navigated to a certain subsystem. \\ 
-		\hline \texttt{General} & \ref{fr:uatType3} & \RaggedRight This general activity type is for all other activities that the user initiates that send \textit{HTTP request} back to the server. \\
-		\hline \texttt{ReportExport} & \ref{fr:uatType3} & \RaggedRight The other main function of the system is for reporting purposes. Separating this type of activity in its category to capture all report generation activities that the user has initiated. \\ 
-		\hline
+	\begin{tabularx}{\textwidth}{llX}
+		\toprule
+		\textbf{Activity} & \textbf{Functional requirement} & \textbf{Description} \\
+		\midrule
+		\rowcolor{lightgray}
+		\texttt{SystemAccess} & \ref{fr:uatType1} & \RaggedRight This activity type detects when a user has navigated to a certain subsystem. \\ 
+		\texttt{General} & \ref{fr:uatType3} & \RaggedRight This general activity type is for all other activities that the user initiates that send \textit{HTTP request} back to the server. \\
+		\rowcolor{lightgray}
+		\texttt{ReportExport} & \ref{fr:uatType3} & \RaggedRight The other main function of the system is for reporting purposes. Separating this type of activity in its category to capture all report generation activities that the user has initiated. \\ 
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
-\Cref{tbl:ch3_testActivityTypes} doesn't contain any session changes (\ref{fr:uatType3}) user types. These activities are only triggered when the user log's into their system or terminates their session by pressing the log-out button.
+\Cref{tbl:ch3_testActivityTypes} doesn't contain any session changes (\ref{fr:uatType3}) user types. These activities are only triggered when the user logs into their system or terminates their session by pressing the logout button.
 
 \subsection{Log attibutes}\label{sec:ch3_implementationLogAtrributes}
-Using the functional requirements discussed in \Cref{sec:ch2_logAttributesRequirements} data columns are made for the user-based event's log attributes. These log attributes for a structured database are defined in \Cref{tbl:ch3_Log_Attributes}. 
+Using the functional requirements discussed in \Cref{sec:ch2_logAttributesRequirements}, data columns are made for the user-based event's log attributes. These log attributes for a structured database are defined in \Cref{tbl:ch3_Log_Attributes}. 
 
 \begin{table}[!htb]
 	\centering
 	\caption[Logging attributes]
 	{\textit{Logging attributes}}
 	\label{tbl:ch3_Log_Attributes}
-	\begin{tabularx}{\textwidth}{|l|l|X|}
-		\hline \textbf{Column name} & \textbf{Requirement ID} & \textbf{Description}\\
-		\hline \texttt{ID} & \ref{fr:lpa1} & User based actvity primary identifier. \\
-		\hline \texttt{TimeStamp} & \ref{fr:lpa2} & Date timesstamp when the activity has occur. \\
-		\hline \texttt{ActivityType} & \ref{fr:lpa3} & Activity type of the log event. \\
-		\hline \texttt{UserId} & \ref{fr:lpa4} & the user identification number associated with the log event. \\
-		\hline \texttt{SystemId} & \ref{fr:lpa5} & System where the activity has occur. \\
-		\hline \texttt{SubsystemId} & \ref{fr:lpa5} & Subsystem where the activity has occur. \\
-		\hline \texttt{MetaData} & \ref{fr:lpa6} & Metadata captured from the \textit{HTTP request}. \\
-		\hline \texttt{ClientId} & \ref{fr:lpa7} & Additional identifiers for the log event. In this case different configurations of the same system for a specific client. \\
-		\hline
+	\begin{tabularx}{\textwidth}{llX}
+		\toprule
+		\textbf{Column name} & \textbf{Requirement ID} & \textbf{Description} \\
+		\midrule
+		\rowcolor{lightgray}
+		\texttt{ID} & \ref{fr:lpa1} & User based actvity primary identifier. \\
+		\texttt{TimeStamp} & \ref{fr:lpa2} & Date timesstamp when the activity occurred. \\
+		\rowcolor{lightgray}
+		\texttt{ActivityType} & \ref{fr:lpa3} & Activity type of the log event. \\
+		\texttt{UserId} & \ref{fr:lpa4} & the user identification number associated with the log event. \\
+		\rowcolor{lightgray}
+		\texttt{SystemId} & \ref{fr:lpa5} & System where the activity occurred. \\
+		\texttt{SubsystemId} & \ref{fr:lpa5} & Subsystem where the activity occurred. \\
+		\rowcolor{lightgray}
+		\texttt{MetaData} & \ref{fr:lpa6} & Metadata captured from the \textit{HTTP request}. \\
+		\texttt{ClientId} & \ref{fr:lpa7} & Additional identifiers for the log event. In this case different configurations of the same system for a specific client. \\
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
-The data columns in \Cref{tbl:ch3_Log_Attributes} are used in a structured database. The test that is used is a \texttt{MySQL} database. This database has pre-existing tables that expand on other data such as the \texttt{UserId}, \texttt{SystemId} and \texttt{SubSystemId}. For the \texttt{MetaData} the \texttt{JSON} is similar to \Cref{fig:ch3_MetadataJson}.
+The data columns in \Cref{tbl:ch3_Log_Attributes} are used in a structured database. For this testing environment, a \textit{MySQL} database is used for the relation database implementation. This database has pre-existing tables that expand on other data such as the \texttt{UserId}, \texttt{SystemId} and \texttt{SubSystemId}. For the \texttt{MetaData} the \texttt{JSON} is similar to \Cref{fig:ch3_MetadataJson}.
 
 \medskip
 
@@ -75,29 +85,13 @@ The data columns in \Cref{tbl:ch3_Log_Attributes} are used in a structured datab
 	}
 \end{lstlisting}
 
-\clearpage
-
 In \Cref{fig:ch3_MetadataJson} the main \texttt{JSON} parameters capture the following additional data for the user-based event:
 
 \begin{itemize}
 	\item \texttt{RequestOrigin} is the full file path of the subsystem that is being used and functions to fulfil the \textit{HTTP request}. Some of the subsystems consist of multiple individual files and this traces the origin of the \textit{HTTP request} function user-based activity accessed.
 	\item \texttt{RequestElementID} is the last \textit{HTTP} element identification that the user interacted with that initiated the user-based activity.
-	\item \texttt{RequestParameters} is the request parameters that are send with the \textit{HTTP request}. Any sensitive user data is either ignored by adding flags to certain subsystems or individual functions to not obtain the request's parameters.
+	\item \texttt{RequestParameters} is the request parameters that are sent with the \textit{HTTP request}. Any sensitive user data is either ignored by adding flags to certain subsystems or individual functions to not obtain the request's parameters.
 \end{itemize}
-
-\subsection{Logging points}
-Table \ref{tbl:ch2_loggingPointRequirement} outlines the functional requirements for placing logging points in the software system. It's crucial to maintain consistency when capturing logs and placing them in a global location for all HTTP requests will ensure consistency. Filters can be used during the test system as it is a \texttt{ASP.NET Core Web SDK}. The filters can be initialised during the software system startup phase.\par For other web-based systems the central point where the \textit{HTTP requests} go through should be used to place single or multiple logging points. In other cases adding it for smaller groups of subsystems is also viable as long as the logs can be consistently captured when the requests come through. \par The filter of the test system is the primary component of the logging mechanism. It is responsible for capturing client-side log attributes and metadata using server-side parsing, as shown in Figure \ref{fig:ch2_loggingParse}. \par In \Cref{sec:ch3_implementationLogAtrributes} it has been discussed that some of the logs may contain sensitive data that should not be logged especially the metadata's request parameters. Adding a flag to indicate that certain subsystems' requests need to be ignored for the event logging should be added.\par This can also exclude certain parameters from being saved into the database. For the test system, it is an attribute added to certain controllers to ignore the obtained event logs and terminate the logging process.\par The logging process in Figure \ref{fig:ch3_loggingProcess} is placed on the client-side filter, which executes before the rest of the request is handled. It is important to check whether the request has an action parameter to ensure that the function being executed is called by request and not by the internal system.\par If the request has a report action parameter, the user activity should be set to either \texttt{Activity1} or \texttt{Activity2}. The rest of the request parameters should be obtained and formatted as a \texttt{JSON} string to be stored in the database. It is important to ensure that sensitive data is not logged, and adding a flag to exclude certain requests from being logged is a good practice.
-
-\clearpage
-
-\begin{figure}[!htb]
-	\centering % cent the figure
-	\includegraphics[width=0.8\textwidth]{Chapter2/DetailView_Flow/DetailView_Flow.pdf}
-	\caption[Logging point operation for test system]
-	{\textit{Logging point operation for test system}}\label{fig:ch3_loggingProcess}
-\end{figure}
-
-\clearpage
 
 \subsubsection{Obtaining the element of user-based event}\label{sec:ch3_ElementObtaining}
 In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will be using a \textit{HTTP request} to send to the server when the user interacts with an \textit{HTML element}. For the functional requirements activity type (F/R 1.5.3) and metadata (F/R 1.5.6) in \Cref{tbl:ch2_keyLoggingAttributes} the \textit{HTML element} needs to be obtained to get the element's tag and identification text.\par This can be difficult to obtain due to \textit{bubbling}\footnote{\textbf{Bubbling} is when an event happens on an element, it first runs the handlers on it, then on its parent, then up on other ancestors. \cite{EventBubbling}.} that may occur when searching for the element that the user specifically interacted with. \Cref{fig:ch2_event_bubbling} is the event bubbling propagation.
@@ -130,6 +124,20 @@ If the web location has already changed or no element exists, the page's content
 
 \clearpage
 
+\subsection{Logging points}
+Table \ref{tbl:ch2_loggingPointRequirement} outlines the functional requirements for placing logging points in the software system. It's crucial to maintain consistency when capturing logs and placing them in a global location for all HTTP requests will ensure consistency. Filters can be used during the test system as it is a \texttt{ASP.NET Core Web SDK}. The filters can be initialised during the software system startup phase.\par For other web-based systems the central point where the \textit{HTTP requests} go through should be used to place single or multiple logging points. In other cases, adding it for smaller groups of subsystems is also viable as long as the logs can be consistently captured when the requests come through. \par The filter of the test system is the primary component of the logging mechanism. It is responsible for capturing client-side log attributes and metadata using server-side parsing, as shown in Figure \ref{fig:ch2_loggingParse}. \par In \Cref{sec:ch3_implementationLogAtrributes} it has been discussed that some of the logs may contain sensitive data that should not be logged, especially the metadata's request parameters. Adding a flag to indicate that certain subsystems' requests need to be ignored for the event logging should be added.\par This can also exclude certain parameters from being saved into the database. For the test system, it is an attribute added to certain controllers to ignore the obtained event logs and terminate the logging process.\par The logging process in Figure \ref{fig:ch3_loggingProcess} is placed on the client-side filter, which executes before the rest of the request is handled. It is important to check whether the request has an action parameter to ensure that the function being executed is called by request and not by the internal system.\par If the request has a report action parameter, the user activity should be set to either \texttt{Activity1} or \texttt{Activity2}. The rest of the request parameters should be obtained and formatted as a \texttt{JSON} string to be stored in the database.
+
+\clearpage
+
+\begin{figure}[!htb]
+	\centering % cent the figure
+	\includegraphics[width=0.8\textwidth]{Chapter2/DetailView_Flow/DetailView_Flow.pdf}
+	\caption[Logging point operation for test system]
+	{\textit{Logging point operation for test system}}\label{fig:ch3_loggingProcess}
+\end{figure}
+
+\clearpage
+
 \subsection{Log analysis}\label{sec:ch3_implementationLogAnalysis}
 In \Cref{ch2:sec_system_utilisation_analysis}, the functional requirements for log analysis are defined. For this implementation of log analysis, a custom log analysis tool is created to:
 
@@ -140,10 +148,10 @@ In \Cref{ch2:sec_system_utilisation_analysis}, the functional requirements for l
 \end{itemize}
 
 \section{Verification}\label{sec:ch3_Verification}
-The log analysis tool will be used to verify the implementation of the logging mechanism on the test system. This system is created in a \texttt{.NET Framework} software environment and uses a \texttt{MySQL} database to store the logging events.
+The log analysis tool will be used to verify the implementation of the logging mechanism on the test system. The log analysis tool is created in a \texttt{.NET Framework} software environment and uses a \texttt{MySQL} database to store the logging events.
 
 \subsection{Log attributes}
-The captured log attributes of \Cref{tbl:ch3_Log_Attributes} that are captured by the logging points are shown in \Cref{fig:ch3_UAT_menu}.
+A sample of the captured log attributes of \Cref{tbl:ch3_Log_Attributes} that are captured by the logging points are shown in \Cref{fig:ch3_UAT_menu}.
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -152,7 +160,7 @@ The captured log attributes of \Cref{tbl:ch3_Log_Attributes} that are captured b
 	{\textit{Interactive user activity viewer}}\label{fig:ch3_UAT_menu}
 \end{figure}
 
-\Cref{fig:ch3_UAT_menu} confirms that the required log attributes defined in \Cref{tbl:ch3_Log_Attributes} are being tracked for the test systems. The user interface created to display the logs is designed to be more understandable for users who analyze the logs. The meta-data is displayed in a \texttt{JSON} format as in \Cref{fig:ch3_JSON_Test_Result}.
+\Cref{fig:ch3_UAT_menu} illustrates that the required log attributes defined in \Cref{tbl:ch3_Log_Attributes} are being tracked for the test systems. The user interface created to display the logs is designed to be more understandable for users who analyze the logs. The meta-data is displayed in a \texttt{JSON} format as in \Cref{fig:ch3_JSON_Test_Result}.
 
 \clearpage
 
@@ -194,24 +202,31 @@ For the test system, maintenance prioritisation recommendations can be made as d
 	\caption[Data for validating test system]
 	{\textit{Data for validating test system}}
 	\label{tbl:ch3_testData}
-	\begin{tabularx}{\textwidth}{|X|X|X|}
-		\hline \textbf{System ($S_X$)} & \textbf{Users per system ($P_X$)} & \textbf{Number of events ($A_X$)} \\
-		\hline $S_1$ & 226 & 11 \\
-		\hline $S_2$ & 269 & 5 \\
-		\hline $S_3$ & 156 & 8 \\
-		\hline $S_4$ & 155 & 1 \\
-		\hline $S_5$ & 145 & 13 \\
-		\hline $S_6$ & 154 & 8 \\
-		\hline
+	\begin{tabularx}{\textwidth}{XXXX}
+		\toprule
+		\textbf{System ($S_X$)} & \textbf{Users per system ($P_X$)} & \textbf{Number of events ($A_X$)} & \textbf{Expected priority} \\
+		\midrule
+		\rowcolor{lightgray}
+		$S_1$ & 22 & 11 & 1 \\
+		$S_2$ & 26 & 5 & 2 \\
+		\rowcolor{lightgray}
+		$S_3$ & 15 & 8 & 1 \\
+		$S_4$ & 15 & 1 & 1 \\
+		\rowcolor{lightgray}
+		$S_5$ & 14 & 13 & 1 \\
+		$S_6$ & 15 & 8 & 1 \\
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
-The activities in \Cref{tbl:ch3_testData} were generated by a single user who navigated through and interacted with the system, as shown in \Cref{fig:ch3_UAT_menuActivities,fig:ch3_UAT_menuAnalysis}. To compare the effect of the total number of user activities per system, we focus on $S_3$ to $S_6$, which have similar numbers of active users who can access the system. For the test system $S$, it is expected that $S_1$ will have the highest maintenance priority factor, given that it has:
+The activities in \Cref{tbl:ch3_testData} were generated by a single user who navigated through and interacted with the system, as shown in \Cref{fig:ch3_UAT_menuActivities,fig:ch3_UAT_menuAnalysis}. To compare the effect of the total number of user activities per system, we focus on $S_3$ to $S_6$, which have similar numbers of active users who can access the system.\par For the test system $S$, it is expected that $S_1$ will have the highest maintenance priority factor given that it has:
 
 \begin{itemize}
 	\item The second highest number of users linked to it. This should increase its normalised active user factor.
 	\item It has the second-highest number of observed user events that were captured.
 \end{itemize}
+
+$S_2$ should have the second highest expected priority. It has the highest active
 
 $S_4$ has the least total number of user events but has about the same number of users linked to it. This should have the lowest maintenance factor as a lower number of activities will indicate that the system is not used as much as systems like $S_3$ and $S_6$. These other two systems have higher captured user events.\par Using \Cref{eq:ch2_priorityNormalised} to calculate each subsystem's normalised priority factor using the number of users that have access to the system; also using \Cref{eq:ch2_eventNormalised} to calculate the normalised activities, the results are shown in \Cref{tbl:apx_testB_Normilised}.
 
@@ -231,12 +246,16 @@ To fully examine the application of this study, three separate case studies will
 	\caption[Case studies]
 	{\textit{Case studies}}
 	\label{tbl:ch3_caseStudies}
-	\begin{tabularx}{\textwidth}{|X|X|X|}
-		\hline \textbf{Case study} & \textbf{Software framework} & \textbf{Description} \\
-		\hline System A & \texttt{ASP.NET Core Web SDK} & \RaggedRight Energy management software system that consists of both internal and external client users. \\
-		\hline System B & \texttt{PHP} & \RaggedRight An older energy management software system that consists of both internal and external client users. \\
-		\hline System C & \texttt{ASP.NET Core Web SDK} & \RaggedRight Administrative software system used by internal users of a company. Consist mostly of configuration tools for System A and System B and is only accessible to internal users. \\
-		\hline
+	\begin{tabularx}{\textwidth}{llX}
+		\toprule
+		\textbf{Case study} & \textbf{Software framework} & \textbf{Description} \\
+		\midrule
+		\rowcolor{lightgray}
+		System A & \texttt{ASP.NET Core Web SDK} & \RaggedRight Energy management software system that consists of both internal and external client users. \\
+		System B & \texttt{PHP} & \RaggedRight An older energy management software system that consists of both internal and external client users. \\
+		\rowcolor{lightgray}
+		System C & \texttt{ASP.NET Core Web SDK} & \RaggedRight Administrative software system used by internal users of a company. Consist mostly of configuration tools for System A and System B and is only accessible to internal users. \\
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
@@ -259,12 +278,16 @@ System A is a \texttt{ASP.NET Core Web SDK} software system. The software system
 	\centering
 	\caption[System A activity types]{\textit{System A activity types}}
 	\label{tbl:ch3_systemAActivityTypes}
-	\begin{tabularx}{\textwidth}{|X|l|X|}
-		\hline \textbf{Activity} & \textbf{Functional requirement} & \textbf{Description} \\
-		\hline \texttt{Dash} & \ref{fr:uatType1} & \RaggedRight This activity type detects when a user has navigated to a certain subsystem. \\ 
-		\hline \texttt{DetailView} & \ref{fr:uatType3} & \RaggedRight This general activity type is for all other activities that the user initiates that send \textit{HTTP request} back to the server.  \\
-		\hline \texttt{Report} & \ref{fr:uatType3} & \RaggedRight The other main function of the system is for reporting purposes. \\ 
-		\hline
+	\begin{tabularx}{\textwidth}{llX}
+		\toprule
+		\textbf{Activity} & \textbf{Functional requirement} & \textbf{Description} \\
+		\midrule
+		\rowcolor{lightgray}
+		\texttt{Dash} & \ref{fr:uatType1} & \RaggedRight This activity type detects when a user has navigated to a certain subsystem. \\ 
+		\texttt{DetailView} & \ref{fr:uatType3} & \RaggedRight This general activity type is for all other activities that the user initiates that send \textit{HTTP request} back to the server.  \\
+		\rowcolor{lightgray}
+		\texttt{Report} & \ref{fr:uatType3} & \RaggedRight The other main function of the system is for reporting purposes. \\ 
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
@@ -276,8 +299,6 @@ To capture the user activity types defined in \Cref{tbl:ch3_systemAActivityTypes
 	\caption[User activity types breakdown of System A]
 	{\textit{User activity types breakdown of System A}}\label{fig:ch3_caseABreakdown}
 \end{figure} 
-
-\clearpage
 
 The \Cref{fig:ch3_caseABreakdown} the majority of the user activities for Case Study A's subsystems is the Dash user activity type. Most of the subsystems don't have many inputs for the user to enter data on the system. It provides information back to the user that causes the majority of the user activities. 
 
@@ -345,10 +366,13 @@ System C is also a \texttt{APS.NET Core Web SDK} software system. The software s
 	\centering
 	\caption[System A activity types]{\textit{System C activity types}}
 	\label{tbl:ch3_systemCActivityTypes}
-	\begin{tabularx}{\textwidth}{|l|l|X|}
-		\hline \textbf{Activity} & \textbf{Functional requirement} & \textbf{Description} \\
-		\hline \texttt{MenuAccessed} & \ref{fr:uatType1} & \RaggedRight This activity type is for when a user has navigated to a certain subsystem. \\ 
-		\hline \texttt{HTMLElement} & \ref{fr:uatType3} & \RaggedRight This general activity type is for all other activities that the user initiates that send \textit{HTTP request} back to the server. This user type primarily is associated with HTML elements that the user used to interact with the subsystem. The sub-user activities of this primary user activity type are: \begin{itemize}
+	\begin{tabularx}{\textwidth}{llX}
+		\toprule
+		\textbf{Activity} & \textbf{Functional requirement} & \textbf{Description} \\
+		\midrule
+		\rowcolor{lightgray}
+		\texttt{MenuAccessed} & \ref{fr:uatType1} & \RaggedRight This activity type is for when a user has navigated to a certain subsystem. \\ 
+		\texttt{HTMLElement} & \ref{fr:uatType3} & \RaggedRight This general activity type is for all other activities that the user initiates that send \textit{HTTP request} back to the server. This user type primarily is associated with HTML elements that the user used to interact with the subsystem. The sub-user activities of this primary user activity type are: \begin{itemize}
 			\item SpanClicked,
 			\item ButtonClicked, 
 			\item DivClicked, 
@@ -359,12 +383,15 @@ System C is also a \texttt{APS.NET Core Web SDK} software system. The software s
 			\item FormInput, 
 			\item SelectClicked
 		\end{itemize} \\
-		\hline \texttt{CustomControls} & \ref{fr:uatType3} & \RaggedRight System C has some custom-made HTML elements that have the same functionality as the \texttt{HTMLElement} user activity type. \\ 
-		\hline \texttt{LoginAttempt} & \ref{fr:uatType2} & \RaggedRight This is a user activity for a log-out attempt by the user using the logout options available in the system to end their session. \\ 
-		\hline \texttt{LogoutAttempt} & \ref{fr:uatType2} & \RaggedRight This is a user activity when the user uses any of the log-in page controls. \\
-		\hline \texttt{ResetPassword} & \ref{fr:uatType2} & \RaggedRight This is a user activity when the user uses any of the reset password page controls. \\
-		\hline \texttt{SessionTracking} & \ref{fr:uatType2} & \RaggedRight System C has some data stored in their session. Any changes to this data are tracked when the user interacts with any controls on the web page to change certain session data. \\
-		\hline
+		\rowcolor{lightgray}
+		\texttt{CustomControls} & \ref{fr:uatType3} & \RaggedRight System C has some custom-made HTML elements that have the same functionality as the \texttt{HTMLElement} user activity type. \\ 
+		\texttt{LoginAttempt} & \ref{fr:uatType2} & \RaggedRight This is a user activity for a log-out attempt by the user using the logout options available in the system to end their session. \\ 
+		\rowcolor{lightgray}
+		\texttt{LogoutAttempt} & \ref{fr:uatType2} & \RaggedRight This is a user activity when the user uses any of the log-in page controls. \\
+		\texttt{ResetPassword} & \ref{fr:uatType2} & \RaggedRight This is a user activity when the user uses any of the reset password page controls. \\
+		\rowcolor{lightgray}
+		\texttt{SessionTracking} & \ref{fr:uatType2} & \RaggedRight System C has some data stored in their session. Any changes to this data are tracked when the user interacts with any controls on the web page to change certain session data. \\
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
