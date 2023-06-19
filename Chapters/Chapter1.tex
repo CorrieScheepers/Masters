@@ -451,13 +451,15 @@ Log analysis of software systems using event logging state-of-the-art topics is 
 	\caption[Log analysis state of the art topics]
 	{\textit{Log analysis state of the art topics}}
 	\label{tbl:ch1_soaLogAnalysis}
-	\begin{tabularx}{\linewidth}{|l|X|X|}
-		\hline \textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria}\\
-		\hline Utilisation & \RaggedRight Software maintenance types and implementation in industry. & \RaggedRight \begin{enumerate}
+	\begin{tabularx}{\linewidth}{lXX}
+		\toprule[line width]
+		\textbf{Topic}  & \textbf{Description} & \textbf{Evaluation criteria}\\
+		\midrule
+		Utilisation & \RaggedRight Software maintenance types and implementation in industry. & \RaggedRight \begin{enumerate}
 			\item How is system utilisation analysis done for software systems?
 			\item Made the study attempt to use event logging for software maintenance?
 		\end{enumerate} \\
-		\hline
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
@@ -472,28 +474,34 @@ Using the defined criteria created for the state-of-the-art topics in \Cref{tbl:
 	\caption[State of the art]
 	{\textit{State of the art}}
 	\label{tbl:ch1_stateOfTheArt2}
-	\begin{tabularx}{\linewidth}{|p{0.05\textwidth}|Y|Y|Y|Y|Y|Y|Y|}
-		\hline \textbf{Ref.} & \multicolumn{3}{c|}{\textbf{Software maintenance}}  &
-			\multicolumn{3}{c|}{\textbf{Event logging}} & \textbf{Log analysis} \\ 
-		\hline 
-		& \RaggedRight \textbf{Types} & \RaggedRight \textbf{Problems} & \RaggedRight \textbf{Models and prioritisation} & \textbf{Quality} & \textbf{Parsing} & \textbf{Points} & \RaggedRight \textbf{Utilisation} \\ 
-	
-		\hline \cite{Ogheneovo2014} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
-		\hline \cite{Tang2010} & Partial & Partial & \cmark & \xmark & \xmark & \xmark & \xmark \\
-		\hline \cite{Sneed2004} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
-		\hline \cite{Stojanov2017} & \xmark & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
-		\hline \cite{Galster2019} & \cmark & Partial & \xmark & \xmark & \xmark & \xmark & \xmark \\
-		\hline \cite{Lenarduzzi2017} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
-		\hline \cite{Araujo2021} & Partial & \xmark & \cmark & \xmark & \xmark & \xmark & \xmark \\	
-		\hline \cite{Zhu2019} & \xmark & \xmark & \xmark & Partial & \cmark & Partial & \xmark \\
-		\hline \cite{Rong2018} & \xmark & \xmark & \xmark & \cmark & Partial & Partial & \xmark \\
-		\hline \cite{Zhu2015} & \xmark & \xmark & \xmark & \cmark & \cmark & \cmark & \xmark \\
-		\hline \cite{Kherbouche2017} & \xmark & \xmark & \xmark & \cmark & Partial & Partial & \xmark \\
-		\hline \cite{Hasiloglu2018} & \xmark & \xmark & \xmark & Partial & \cmark & \cmark & Partial \\
-		\hline \cite{Slaninova2014} & \xmark & \xmark & \xmark & Partial & \cmark & \cmark & Partial \\
-		\hline \cite{Waqar2017} & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
-		\hline \cite{Kumar2017} & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
-		\hline
+	\begin{tabularx}{\linewidth}{p{0.05\textwidth}YYYYYY}
+		\toprule
+		\textbf{Ref.} & \RaggedRight \textbf{Types} & \RaggedRight \textbf{Problems} & \RaggedRight \textbf{Prioritisation} & \textbf{Parsing} & \textbf{Points} & \RaggedRight \textbf{Utilisation} \\ 		
+		\midrule
+		\rowcolor{lightgray}
+		\cite{Ogheneovo2014} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark \\
+		\cite{Tang2010} & Partial & Partial & \cmark & \xmark & \xmark & \xmark \\
+		\rowcolor{lightgray}
+		\cite{Sneed2004} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark \\
+		\cite{Stojanov2017} & \xmark & \cmark & \cmark & \xmark & \xmark & \xmark \\
+		\rowcolor{lightgray}
+		\cite{Galster2019} & \cmark & Partial & \xmark & \xmark & \xmark & \xmark \\
+		\cite{Lenarduzzi2017} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark \\
+		\rowcolor{lightgray}
+		\cite{Araujo2021} & Partial & \xmark & \cmark & \xmark & \xmark & \xmark \\	
+		\cite{Zhu2019} & \xmark & \xmark & \xmark & \cmark & Partial & \xmark \\
+		\rowcolor{lightgray}
+		\cite{Rong2018} & \xmark & \xmark & \xmark & Partial & Partial & \xmark \\
+		\cite{Zhu2015} & \xmark & \xmark & \xmark & \cmark & \cmark & \xmark \\
+		\rowcolor{lightgray}
+		\cite{Kherbouche2017} & \xmark & \xmark & \xmark & Partial & Partial & \xmark \\
+		\cite{Hasiloglu2018} & \xmark & \xmark & \xmark & \cmark & \cmark & Partial \\
+		\rowcolor{lightgray}
+		\cite{Slaninova2014} & \xmark & \xmark & \xmark & \cmark & \cmark & Partial \\
+		\cite{Waqar2017} & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
+		\rowcolor{lightgray}
+		\cite{Kumar2017} & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
+		\bottomrule
 	\end{tabularx}	
 \end{table}
 
