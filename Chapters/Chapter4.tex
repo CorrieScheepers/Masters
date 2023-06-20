@@ -5,16 +5,22 @@
 \section{Discussion}
 
 \subsection{Contributions made to literature}
-\Cref{chap:1} highlighted the importance of software maintenance in the entire life cycle of most software systems. It is an essential task in the Software Development Life-Cycle that will use up to $60\%-80\%$ of the total available software resources.\par In \Cref{sec:ch1_softwareMaintenanceIntro}, it has been identified that software maintenance should be efficiently implemented due to its high resource cost. Prioritisation of software maintenance can improve the software maintenance efforts of developers more efficiently. Event logging has been identified as a proven method for prioritisation of software maintenance.\par An extensive literature study revealed three State of the Art topics for this study: software maintenance, event logging and log analysis. In \Cref{tbl:ch1_stateOfTheArt2}, the State of the Art further highlighted the gap in the existing literature. Especially in event logging, where it is mainly used for system diagnostics.\par The method in \Cref{chap:2} it has been identified that the event logging should be made explicitly for the log analysis. Additional functional requirements were made for a user-based logging mechanism using existing logging practices defined in the literature. This method contributes to the literature by creating these functional requirements that the logging mechanism needs to be able to meet for software maintenance prioritisation. \par The software maintenance literature mainly focused on the optimisation of the actual software maintenance tasks or the implementation of the software maintenance models. The value added to the literature is the method used in \Cref{chap:3} to make maintenance prioritisation recommendations using a log analysis on the obtained logs. A maintenance priority factor was created in this log analysis to make these recommendations.\par The method was verified by implementing it on a test system in \Cref{sec:ch3_implementation,sec:ch3_Verification}. The verification proved that the method could make software maintenance prioritisation by comparing the input with the expected output.\par After verifying the method, it was implemented in three case studies. These case studies consisted of software systems with other operational use cases and software environments to evaluate the results of the method. The functional requirements defined by the technique were mainly satisfied in each case to study to create the software maintenance prioritisation successfully.\par These results are evaluated, and the method's shortcomings were identified for each case study. Each case was also compared to the other after their in-depth analysis.
+\Cref{chap:1} highlighted the importance of software maintenance in the entire life cycle of most software systems. This following gap in the literature was identified in \Cref{sec:ch1_gapIdentification} from the obtained studies about software maintenance: 
 
-\clearpage
+\begin{center}
+	\begin{tcolorbox}[colback=lightgray, colframe=black, sharp corners=all, arc=4pt]
+		\begin{minipage}{\textwidth}
+			\RaggedRight\textit{\studyGap}
+		\end{minipage}
+	\end{tcolorbox}
+\end{center}
 
-\Cref{chap:1} highlighted the importance of software maintenance in the entire life cycle of most software systems. Further analysis of the problems in the industry when implementing software maintenance was identified. Software maintenance prioritisation was of the problems when trying to implement software maintenance efficiently. This problem was further explored and using an existing software method that is event logging was identified as a possible solution.\par  A State Of The Art analysis of \Cref{tbl:ch1_stateOfTheArt2} the literature of software maintenance, event logging and log analysis was made. This study aims to fill the gaps in the obtained literature in \Cref{tbl:ch4_stateOfTheArt}.
+Using event logging to create a log analysis for the utilisation of the software systems is a possible solution to be able to make software maintenance prioritisations. A State Of The Art analysis of \Cref{tbl:ch1_stateOfTheArt2} the literature of software maintenance, event logging and log analysis was made. This study will be referred to as \textit{Study U}, fill the gaps in the obtained literature with the method in \Cref{chap:2} that is included in the updated State of The Art in \Cref{tbl:ch4_stateOfTheArt}.
 
 \begin{table}[!htb]
 	\centering
-	\caption[State of the art]
-	{\textit{State of the art}}
+	\caption[State Of The Art]
+	{\textit{State Of The Art}}
 	\label{tbl:ch4_stateOfTheArt}
 	\begin{threeparttable}
 		\begin{tabularx}{\textwidth}{cYYYYYY}
@@ -25,24 +31,30 @@
 			\midrule
 				\sotaCore
 				\rowcolor{pastelgreen}
-				\tnote{$\ast$} & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark \\
+				\textit{U}\tnote{$\ast$} & Partial & \cmark & \cmark & \cmark & \cmark & \cmark \\
 			\bottomrule
 		\end{tabularx}
 		\begin{tablenotes}\footnotesize
-			\item[$\ast$] \textit{Current study:~\ThesisTitle}
+			\item[$\ast$] \textit{Study U:~\ThesisTitle}
 		\end{tablenotes}
 	\end{threeparttable}
 \end{table}
 
-\Cref{tbl:ch4_stateOfTheArt} there is a divide between the software maintenance studies and the event logging studies.
-
-\clearpage
+\Cref{tbl:ch4_stateOfTheArt} there is a divide between the software maintenance, event logging and log analysis in literature. \textit{Study U} can contribute to the literature by providing a comprehensive method that includes all three of these main research topics. \par Event logging and log analysis have more overlap in literature than software maintenance as a primary topic. It was identified that the research on software maintenance possibly could be limited by no third-party validation, not always attempting to improve or build on existing software maintenance models, limited comparison with other literature and difficult to replicate due to private data sets or custom tools.\par The obtained studies that discussed software maintenance commonly identified that the efficiency of implementing software maintenance is important. Some studies attempted to use certain software maintenance models on certain software maintenance types for better efficiency. \par Other studies attempted to create task distribution for developers to improve software maintenance efficiency. Other studies attempted to isolate certain software maintenance resource costs in the entire Software Development Life-Cycle (SDLC).\par Additionally these studies didn't attempt to provide the needed method to be able to prioritise these software systems. The method needs to make use of a logging mechanism to do the log analysis which is not present in the software maintenance-related studies.\par \textit{Study U} does not specifically use any software maintenance models as it is irrelevant to the prioritisation of the software systems. The model's State Of The Art topic is marked as partially achieved for this reason. From the software maintenance problems that were identified in the literature, the requirements for the log analysis are created for the software maintenance prioritisation. \par Event logging in literature is also not an extensively explored topic in literature such as software maintenance and methods on how to implement it. The methods for the event logging mechanisms are not fully described or are a third-party tool. For software maintenance, it does not overlap with this topic as most event logging is for system diagnostics.\par There were logging mechanisms that captured user-based logs. The purpose of those obtained logs is mostly used for user-behavioural analysis instead of system utilisation analysis. \textit{Study U} contributes to the literature the system utilisation analysis for software maintenance when the prioritisation of it is made.
 
 \subsection{Value added to industry}
 The method in \Cref{chap:2} is used on different case studies in \Cref{sec:ch3_caseStudies}. Each of these case studies explored the various applications of the generic logging mechanism to obtain user-based events. The results proved that the logging mechanism could get the desired user-based activities. However, additional adaptions were needed for each case study to ensure the log quality was acceptable for consistent, reliable log analysis.\par These adaptations were due to the software environment (software languages and design methodologies used) and the purpose of the software system. Older systems had to use different logging points to yield the same result as newer software systems that can use less or one logging point.\par These systems used the same user-based event type with similar operational software use cases. Systems with the same software architecture but different functional use cases also had various adaptations to their logging mechanism. These adaptions ensured that the desired log attributes were correctly obtained for the log analysis. \par The maintenance prioritisation recommendations for each study case used the defined generic methodology. The log analysis for each case study was similar as the log requirements for the user-based utilisation for all the case studies were only different for each of their user-based event types. These user-based event types represent the operational use cases for the case study to further observe the kind of utilisation of the subsystems. \par The results proved that the generic methodology defined in \Cref{chap:2} could be implemented on different software systems with other operational use cases for each case study. In the web development industry, similar software systems as the case study or other software systems will benefit from implementing this methodology to improve software maintenance decisions using these recommendations for prioritisation.
 
 \subsection{Validation strategy}
-\Cref{tbl:ch4_ValidationStart} is the validation strategy used for this study. Each of the literature and empirical objectives, respectively, in \Cref{sec:ch1_empiricalObjective,sec:ch1_literatureObjective} is validated in the section it was met.
+In order to validate this study the following validation strategy is used:
+
+\begin{enumerate}[label=\textbf{\Roman*.}]
+	\item Revisit the gap in the literature that was defined in \Cref{sec:ch1_gapIdentification}.
+	\item Revisit the orginal problem statement defined in \Cref{sec:ch1_problemStatement}.
+	\item Revisit the study objectives defined in \Cref{sec:ch1_objectives}.
+	\item Reflect on the outcomes and the results of the study methodology in \Cref{chap:3}.
+	\item Determine whether a solution to the original problem statement has been presented. 
+\end{enumerate}
 
 \clearpage
 
