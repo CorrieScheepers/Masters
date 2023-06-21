@@ -407,7 +407,7 @@ Software maintenance implementation in industry and best practices when implemen
 			\item Did the study identify frequent problems with implementing software maintenance?
 		\end{enumerate}\\
 		\rowcolor{lightgray}
-		Prioritisation & How to implement software maintenance models and prioritisation techniques. & \RaggedRight \begin{enumerate}
+		Prioritisation & Prioritisation methods. & \RaggedRight \begin{enumerate}
 			\item Did the study discuss the importance of prioritisation techniques of certain software maintenance activities, models or software components?
 		\end{enumerate} \\
 		\bottomrule
@@ -522,11 +522,11 @@ The State of Art studies in \Cref{tbl:ch1_stateOfTheArt2} are outlined and comme
 Software maintenance is a vital part of the entire life cycle of any software system. In \Cref{sec:ch1_maintenanceProblems}, multiple challenges can make it harder to improve maintenance efforts with the limited available resources. It is beneficial to prioritise maintenance to ensure that limited resources are efficiently used. \par A possible solution to this problem is using event logging to determine the utilisation of the system as it is a proven method industry to track system utilisation usage. Software developers can access third-party software logging tools to get the event logs. Most of the tools focus more on system runtime utilisation than user activities. There exist logging tools that can track user-based movements depending on the framework the software system is developed on.\par Although there are live tools that can track events that the user generates, it is not guaranteed that log quality will be acceptable. Some much-needed logging attributes that will aid the log analysis might not be logged.\par Designing and implementing a logging mechanism might bridge the gap between software maintenance and log analysis to create a system utilisation report.\par Software Developers still need to design the overall logging mechanism and decide where to place the logging points to capture the event logs in a software system. There are proven methods to create a suitable logging mechanism, but not all of them include the analysis of the records for user-based utilisation to improve software maintenance.
 
 \section{Objectives of the study}\label{sec:ch1_objectives}
-In \Cref{sec:ch1_problemStatement}, the problem of efficiently implementing software maintenance has been identified. There is a need to create a system utilisation analysis report from event logs captured using a logging mechanism. \par The study is divided into two components to achieve the primary goal: the design and the implementation of the logging mechanism. For the log analysis of the system utilisation to improve system maintenance.
+In \Cref{sec:ch1_problemStatement}, the problem of efficiently implementing software maintenance has been identified. There is a need to create a system utilisation analysis report from event logs captured using a logging mechanism. \par The study is divided into two components to achieve the primary goal: designing and implementing the logging mechanism. 
 
 % Define a variable to store constant text
 \newcommand{\objAi}{Investigate what will define a user-based event log and how to obtain the needed log attributes for a comprehensive user utilisation log analysis.}
-\newcommand{\objAii}{Investigate where to place logging points in a software system to capture user-based events logs.}
+\newcommand{\objAii}{Investigate where to place logging points in a software system to capture user-based event logs.}
 \newcommand{\objAiii}{Investigate how to evaluate the log quality of the stored user-based event logs.}
 \newcommand{\objAiv}{Investigate how to implement maintenance prioritisation.}
 
