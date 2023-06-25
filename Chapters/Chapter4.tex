@@ -46,7 +46,7 @@ Using event logging to create a log analysis for utilising the software systems 
 The method in \Cref{chap:2} is used on different case studies in \Cref{sec:ch3_caseStudies}. Each of these case studies explored the various applications of the generic logging mechanism to obtain user-based events. The results proved that the logging mechanism could get the desired user-based activities. However, additional adaptations were needed for each case study to ensure that log quality was acceptable for consistent and reliable log analysis.\par These adaptations were due to the software environment (software languages and design methodologies used) and the purpose of the software system. Older systems had to use different logging points to yield the same result as newer software systems that can use less or one logging point.\par These systems used the same user-based event type with similar operational software use cases. Systems with the same software architecture but different functional use cases also had various adaptations to their logging mechanism. These adaptations ensured that the desired log attributes were correctly obtained for the log analysis. \par The maintenance prioritisation recommendations for each study case used the defined generic methodology. The log analysis for each case study was similar as the log requirements for the user-based utilisation for all the case studies were only different for each of their user-based event types. These user-based event types represent the operational use cases for the case study to further observe the kind of utilisation of the subsystems. \par The results proved that the generic methodology defined in \Cref{chap:2} could be implemented on different software systems with other operational use cases for each case study. In the web development industry, similar software systems as the case study or other software systems will benefit from implementing this methodology to improve software maintenance decisions using these recommendations for prioritisation.
 
 \subsection{Validation strategy}
-The following validation strategy is used for this study:
+The following five-step validation strategy is used for the outcomes of this study:
 
 \begin{enumerate}[label=\textbf{\Roman*.}]
 	\item Revisit the literature gap defined in \Cref{sec:ch1_gapIdentification}.
@@ -56,65 +56,105 @@ The following validation strategy is used for this study:
 	\item Determine whether a solution has been presented to the original problem statement. 
 \end{enumerate}
 
-Using the research objectives in \Cref{sec:ch1_literatureObjective} for this study have been met in \Cref{tbl:ch4_ValidationStart}. 
+\begin{enumerate}[label=\textbf{\Roman*.}]
+	\item \textbf{Gap in literature} \par The literature gap defined in \Cref{sec:ch1_gapIdentification} for implementing software maintenance efficiently is summarised as: 
+		\begin{center}
+			\begin{tcolorbox}[colback=lightgray, colframe=black, sharp corners=all, arc=4pt]
+				\begin{minipage}{\textwidth}
+					\RaggedRight\textit{\studyGap}
+				\end{minipage}
+			\end{tcolorbox}
+		\end{center}
 
-\begin{xltabular}{\textwidth}{cXp{3cm}c}
-	\caption[Study validation]
-	{\textit{Study validation}}
-	\label{tbl:ch4_ValidationStart} \\
+	\item \textbf{Original problem statement} \par The original problem statement defined in \Cref{sec:ch1_problemStatement} to able to make software maintenance priorisations:
+		\begin{center}
+			\begin{tcolorbox}[colback=lightgray, colframe=black, sharp corners=all, arc=4pt]
+				\begin{minipage}{\textwidth}
+					\RaggedRight\textit{\problemStatement}
+				\end{minipage}
+			\end{tcolorbox}
+		\end{center}
 
-	\toprule
-	\thead{Objective ID} & \thead{Objective}  & \thead{Section} & \thead{Objective met} \\ 
-	\midrule
-	\endfirsthead
+	\item \textbf{Study objectives} \par The study objectives defined in \Cref{sec:ch1_objectives} that hvae been met in \Cref{tbl:ch4_ValidationStart} for this study. 
 
-	\multicolumn{4}{c}
-	{\tablename\ \thetable{} -- continued from previous page} \\
-	\midrule
-	\thead{Objective ID} & \thead{Objective}  & \thead{Section} & \thead{Objective met} \\
-	\midrule
-	\endhead
+		\begin{xltabular}{\textwidth}{cXp{3cm}c}
+			\caption[Study validation]
+			{\textit{Study validation}}
+			\label{tbl:ch4_ValidationStart} \\
 
-	\midrule
-	\multicolumn{4}{r}{{Continued on next page}} \\ \midrule
-	\endfoot
-	\endlastfoot
+			\toprule
+			\thead{Objective ID} & \thead{Objective}  & \thead{Section} & \thead{Objective met} \\ 
+			\midrule
+			\endfirsthead
 
-	\multicolumn{4}{l}{\thead{Literature Objectives:}} \\ 
-	\midrule
-	\rowcolor{lightgray}
-	L1 & \RaggedRight \objAi & \RaggedRight \Cref{sec:ch2_logAttributesRequirements,sec:ch2_webApplicationArchitecture} & \cmark \\
-	L2 & \RaggedRight \objAii & \RaggedRight \Cref{sec:ch2_loggingPoints,sec:ch2_webApplicationArchitecture} & \cmark \\
-	\rowcolor{lightgray}
-	L3 & \RaggedRight \objAiii & \Cref{sec:ch2_logAnalysisTools} & \cmark \\ 
-	L4 & \RaggedRight \objAiv & \Cref{sec:ch2_utilisationImprovements} & \cmark \\ 
-	\midrule
-	\multicolumn{4}{l}{\thead{Empirical Objectives:}} \\ 
-	\midrule
-	\rowcolor{lightgray}
-	E1 & \RaggedRight \objBi: 
+			\multicolumn{4}{c}
+			{\tablename\ \thetable{} -- continued from previous page} \\
+			\midrule
+			\thead{Objective ID} & \thead{Objective}  & \thead{Section} & \thead{Objective met} \\
+			\midrule
+			\endhead
+
+			\midrule
+			\multicolumn{4}{r}{{Continued on next page}} \\ \midrule
+			\endfoot
+			\endlastfoot
+
+			\multicolumn{4}{l}{\thead{Literature Objectives:}} \\ 
+			\midrule
+			\rowcolor{lightgray}
+			L1 & \RaggedRight \objAi & \RaggedRight \Cref{sec:ch2_logAttributesRequirements,sec:ch2_webApplicationArchitecture} & \cmark \\
+			L2 & \RaggedRight \objAii & \RaggedRight \Cref{sec:ch2_loggingPoints,sec:ch2_webApplicationArchitecture} & \cmark \\
+			\rowcolor{lightgray}
+			L3 & \RaggedRight \objAiii & \Cref{sec:ch2_logAnalysisTools} & \cmark \\ 
+			L4 & \RaggedRight \objAiv & \Cref{sec:ch2_utilisationImprovements} & \cmark \\ 
+			\midrule
+			\multicolumn{4}{l}{\thead{Empirical Objectives:}} \\ 
+			\midrule
+			\rowcolor{lightgray}
+			E1 & \RaggedRight \objBi: 
+				\begin{enumerate}
+					\item \objBiSubA
+					\item \objBiSubB
+					\item \objBiSubC
+					\item \objBiSubD
+				\end{enumerate} & \Cref{sec:ch3_implementation} & \cmark \\
+			E2 & \RaggedRight \objBii & \Cref{sec:ch3_Verification} & \cmark \\
+			\rowcolor{lightgray}
+			E3 & \RaggedRight \objBiii & \Cref{sec:ch3_caseStudies} & \cmark \\
+			\bottomrule
+		\end{xltabular}
+
+		\Cref{tbl:ch4_ValidationStart} shows the literature objectives in \Cref{chap:2} by implementing the development of the solution. Objective L1 The characteristics of the event log are defined with the expected log attributes needed for the log analysis. The event-log characteristics focus on only obtaining user-based event logs with the necessary qualities the logging point can capture and store.\par For objective L2, each user-based event's log attributes must be obtained from the software system using a logging point. The logging points are placed strategically in the software system where it has little impact on the performance of the software system. Requirements for the event logs are created to guide developers in making the logging points to capture the event logs.\par For objective L3, the log quality is essential for the log analysis. This objective ensures that the captured event logs are complete, accurate and available when the logs are extracted by the log analysis tool. The method's requirements were defined to adhere to the log quality specification.\par For objective L4, the maintenance prioritisation is determined. The needed calculations for this log analysis are explained for this objective that needs to be executed in the log analysis. The prioritisation of each subsystem will be calculated in the specified time frame. The requirements for which logs to use are also defined for this objective, as some user activity types can be excluded based on the software system used.\par The empirical objectives use the method on a test system to verify the results and implement it in case studies. It also reflects on the study methodology using the results to determine whether this solution has resolved the problem statement.\par For objective E1, the following sub-objectives are met for the implementation of the method on the test system:
+
 		\begin{enumerate}
-			\item \objBiSubA
-			\item \objBiSubB
-			\item \objBiSubC
-			\item \objBiSubD
-		\end{enumerate} & \Cref{sec:ch3_implementation} & \cmark \\
-	E2 & \RaggedRight \objBii & \Cref{sec:ch3_Verification} & \cmark \\
-	\rowcolor{lightgray}
-	E3 & \RaggedRight \objBiii & \Cref{sec:ch3_caseStudies} & \cmark \\
-	\bottomrule
-\end{xltabular}
+			\item The user activity types and log attributes for the test system were defined. A logging point(s) was placed on the client or server side for the test system.
+			\item This strategic placement of the logging point(s) was determined by what log attributes need to be obtained in certain stages of the software system's logging mechanism, structure and complexity. The logging points store the event logs in a structured database.
+			\item A log analysis tool is either created or a suitable third-party tool is used to analyse the extracted logs. Log quality is also checked in this objective to determine if the logs are on an acceptable standard set by the requirements in L3. 
+			\item The maintenance prioritisation is calculated for each subsystem for this sub-objective using L4.
+		\end{enumerate} 
 
-\Cref{tbl:ch4_ValidationStart} shows the literature objectives in \Cref{chap:2} by implementing the development of the solution. Objective L1 The characteristics of the event log are defined with the expected log attributes needed for the log analysis. The event-log characteristics focus on only obtaining user-based event logs with the necessary qualities the logging point can capture and store.\par For objective L2, each user-based event's log attributes must be obtained from the software system using a logging point. The logging points are placed strategically in the software system where it has little impact on the performance of the software system. Requirements for the event logs are created to guide developers in making the logging points to capture the event logs.\par For objective L3, the log quality is essential for the log analysis. This objective ensures that the captured event logs are complete, accurate and available when the logs are extracted by the log analysis tool. The method's requirements were defined to adhere to the log quality specification.\par For objective L4, the maintenance prioritisation is determined. The needed calculations for this log analysis are explained for this objective that needs to be executed in the log analysis. The prioritisation of each subsystem will be calculated in the specified time frame. The requirements for which logs to use are also defined for this objective, as some user activity types can be excluded based on the software system used.\par The empirical objectives use the method on a test system to verify the results and implement it in case studies. It also reflects on the study methodology using the results to determine whether this solution has resolved the problem statement.\par For objective E1, the following sub-objectives are met for the implementation of the method on the test system:
+		For objective E2, the results of implementing the method on the test system are verified in this objective. Objectives L1, L2, L3 and L4 verified if the method can create software maintenance prioritisations for the test system by comparing it to the expected results. \par For objective E3, the verified method of E1 is applied to multiple case studies, and the results are evaluated. A critical analysis of the case studies is made to validate the software maintenance prioritisation for this study with the results of the case studies. With this validation strategy, this study is validated that it meets the study objectives with the created solution for the original problem statement.
 
-\begin{enumerate}
-	\item The user activity types and log attributes for the test system were defined. A logging point(s) was placed on the client or server side for the test system.
-	\item This strategic placement of the logging point(s) was determined by what log attributes need to be obtained in certain stages of the software system's logging mechanism, structure and complexity. The logging points store the event logs in a structured database.
-	\item A log analysis tool is either created or a suitable third-party tool is used to analyse the extracted logs. Log quality is also checked in this objective to determine if the logs are on an acceptable standard set by the requirements in L3. 
-	\item The maintenance prioritisation is calculated for each subsystem for this sub-objective using L4.
-\end{enumerate} 
+\item \textbf{Reflection on methodology} \par In \Cref{chap:2} development of the solution's functional requirements is made in \Cref{sec:ch2_developementOfSolution}. This provides a generic method to create a logging mechanism and analyse the obtained user-based logs. A test logging mechanism is designed with a utilisation log analysis to validate the development of solution functional requirements of \Cref{tbl:ch2_developmenetRequirements}.\par This logging mechanism aims to implement each sub-functional requirement on a test system by testing certain inputs to verify expected outputs. The following validation method was used for this test implementation in \Cref{sec:ch3_implementation}:
+	\begin{itemize}
+		\item Identifying and creating the log attributes needed for the log analysis (\ref{fr:logAttributes}). The software system's key log attributes are precisely defined for maintenance prioritisation. The user-activity type forms the base requirement for a user-based log.
+		
+		\item Logging points are made to capture these logging attributes at specific locations in the software system (\ref{fr:loggingPoints}). The placement of the logging points to capture user-based logs is verified if it can be done consistently, accurately and discretely without impacting the software system's performance. 
+		
+		\item The log analysis is verified using a third-party log analysis tool or implementation of a log analysis (\ref{fr:logAnalysis}). For the log analysis to succeed, the quality must be acceptable. This is verified by the logging points' performance and the usability of the logs without too many post-logging corrections made.
+		
+		\item Creating software maintenance prioritising (\ref{fr:maintenancePrioritising}) from the results of the log analysis. In the log analysis, the different subsystems' maintenance priority ($M_{PF}$) are calculated from the normalised total active users ($P_N$) multiplied by the normalised total user activity ($A_N$) for a specified subsystem in \Cref{eq:ch2_priorityNormalised,eq:ch2_maintenanceFactorSimplified,eq:ch2_eventNormalised}.\par These results are verified with the test case study and Case Studies A, B and C in \Cref{sec:ch3_caseStudies} on different software systems with different operational use cases. The results obtained for the maintenance priority validate the implementation of the previous above using the defined user-based logs to do the log analysis for maintenance priority. 
+	\end{itemize}
 
-For objective E2, the results of implementing the method on the test system are verified in this objective. Objectives L1, L2, L3 and L4 verified if the method can create software maintenance prioritisations for the test system by comparing it to the expected results. \par For objective E3, the verified method of E1 is applied to multiple case studies, and the results are evaluated. A critical analysis of the case studies is made to validate the software maintenance prioritisation for this study with the results of the case studies. With this validation strategy, this study is validated that it meets the study objectives with the created solution for the original problem statement.
+\item \textbf{Conclusion} \par For this study the following outcomes are presented on how the solution has been presented to solve the original problem statement:
+	\begin{itemize}
+		\item The solution made in this study aims to prioritise software maintenance by using event logging and log analysis for the prioritisation.
+		\item The outcomes of this study showed that the solution was able to create a logging mechanism for software maintenance prioritisation as stipulated in the study objectives of \Cref{tbl:ch4_ValidationStart}.
+		\item Therefore, the need to develop a method to be able to do log analysis for software maintenance by creating a suitable logging mechanism to capture user-based event logs has been addressed by the study objectives.
+		\item The original problem statement defined in \Cref{sec:ch1_problemStatement} has been successfully addressed by the study objectives.
+		\item Finally the gap identified has been addressed and fulfilled by providing a solution to the original problem statement.
+	\end{itemize}
+\end{enumerate}
 
 \section{Recommendations}
 In \Cref{sec:ch3_caseStudies}, the case studies highlighted the method's limitations. 
@@ -133,8 +173,6 @@ Throughout the study, the user activity type was essential to describe what can 
 
 \subsubsection{Use of other classification strategies}
 Normalisation was used for the maintenance priority calculations. Using other statistical methods can yield improved prioritisation. Only one prioritisation method was used. There is a need to enhance prioritisation by comparing different prioritisation methods.
-
-\clearpage
 
 \section{Conclusion}
 
