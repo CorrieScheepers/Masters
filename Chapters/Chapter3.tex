@@ -142,9 +142,9 @@ Table \ref{tbl:ch2_loggingPointRequirement} outlines the functional requirements
 In \Cref{ch2:sec_system_utilisation_analysis}, the functional requirements for log analysis are defined. For this implementation of log analysis, a custom log analysis tool is created to:
 
 \begin{itemize}
-\item Visually present user-based event logs through the log analysis tool as required in \Cref{tbl:ch2_logAnalysisToolFR}.
-\item Filter user-based event logs using different criteria described in \Cref{tbl:ch2_utilisationCategories}.
-\item Analyse logs for maintenance prioritisation as shown in \Cref{tbl:ch2_maintenancePriortising}.
+	\item Visually present user-based event logs through the log analysis tool as required in \Cref{tbl:ch2_logAnalysisToolFR}.
+	\item Filter user-based event logs using different criteria described in \Cref{tbl:ch2_utilisationCategories}.
+	\item Analyse logs for maintenance prioritisation as shown in \Cref{tbl:ch2_maintenancePriortising}.
 \end{itemize}
 
 \section{Verification}\label{sec:ch3_Verification}
@@ -185,7 +185,7 @@ The log analysis of the logs obtained in \Cref{fig:ch3_UAT_menu} is done in the 
 
 \clearpage
 
-\Cref{tbl:ch2_utilisationCategories} provides the functional requirements for various utilisation categories. By comparing these categories with each other in the user logs obtained, different categories can be compared, as shown in \Cref{fig:ch3_UAT_menuAnalysis}. Furthermore, \Cref{fig:ch3_UAT_menuActivities} compares different types of user activity.
+The log analysis of \Cref{fig:ch3_UAT_menuAnalysis} the subsystem's total recorded user activity logs is compared to each other. Depending on the logging attributes that are required, different categorical comparisons can be made from the obtained user-based event logs. \par By comparing these categories as descruibe in \Cref{tbl:ch2_utilisationCategories}, different categories can be compared, as shown in \Cref{fig:ch3_UAT_menuAnalysis}. 
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -193,6 +193,41 @@ The log analysis of the logs obtained in \Cref{fig:ch3_UAT_menu} is done in the 
 	\caption[Interactive user activity log analysis]
 	{\textit{Interactive user activity log analysis}}\label{fig:ch3_UAT_menuActivities}
 \end{figure}
+
+\Cref{fig:ch3_UAT_menuActivities} compares different types of user activity types to each other. For these subsystems the \texttt{Activity3} which is the \texttt{General} user activity type is the most recorded user activity type. For this test system, it is expected that this activity type is the most prominent one.  
+
+\begin{xltabular}{\textwidth}{clcX}
+	\caption[Logging quality assessment of the test system]
+	{\textit{Logging quality assessment of the test system}}
+	\label{tbl:ch3_loggingQuality}\\
+	\toprule
+	\thead{Req. ID} & \thead{Description} & \thead{Achieved} & \thead{Discussion} \\
+	\midrule
+	\endfirsthead
+
+	\multicolumn{4}{c}
+	{\tablename\ \thetable{} -- continued from previous page} \\
+	\midrule
+	\thead{Req. ID} & \thead{Description} & \thead{Achieved} & \thead{Discussion} \\
+	\midrule
+	\endhead
+
+	\midrule
+	\multicolumn{4}{r}{{Continued on next page}} \\ \midrule
+	\endfoot
+	\endlastfoot
+
+	\rowcolor{lightgray}
+	\ref{fr:ur1} & Log availability & \cmark & \RaggedRight In the implementation of a logging mechanism for the test system the log points were:
+		\begin{itemize}
+			\item \textit{Locally complete} as all the log attributes were available during the capturing phase of the event log.
+			\item \textit{Globally complete} as the defined user activity types were all captured for the test system. The logging points were able to capture the expected logs as defined in \Cref{fig:ch3_loggingProcess}.
+		\end{itemize} \par With the \textit{local} and \text{}\\
+	\ref{fr:ur1} & Log completeness & \cmark & 1 \\
+	\rowcolor{lightgray}
+	\ref{fr:ur1} & Log extraction & \cmark & 1 \\
+	\bottomrule
+\end{xltabular}
 
 \subsection{Maintenance priortising}
 For the test system, maintenance prioritisation recommendations can be made as described in \Cref{sec:ch2_utilisationImprovements}. A rating system can be used to classify the most critical software systems that need to be prioritised, which can help in software maintenance efforts.\par Using \Cref{eq:ch2_maintenanceFactorSimplified} the maintenance priority factor $M_{PF}$ can be determined for a set of systems {$S_1,~S_2,~...,~S_N$} which has captured user activities per system $A_X$. The system will also have several users connected to each system $P_X$. These parameters are set for the test system as in \Cref{tbl:ch3_testData}.
