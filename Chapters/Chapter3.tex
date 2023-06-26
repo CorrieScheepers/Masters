@@ -222,13 +222,13 @@ Using the functional requirements for the log quality (\ref{fr:logQuality}) the 
 			\item \textit{Locally complete} as all the log attributes were available during the capturing phase of the event log.
 			\item \textit{Globally complete} as defined user activity types were captured for the test system. The logging points were able to capture the expected logs as defined in \Cref{fig:ch3_loggingProcess}.
 		\end{itemize} \\
-	\ref{fr:ur2} & Log completeness & \cmark & All the required log attributes were obtained during the capturing process of the logging point. No post-logging corrections were needed to fix any of the log attributes or to fill in missing log attributes. \\
+	\ref{fr:ur2} & Log completeness & \cmark & All required log attributes were obtained during the log capture process of the log point. No post-logging corrections were needed to fix any of the log attributes or to fill in missing log attributes. \\
 	\rowcolor{lightgray}
-	\ref{fr:ur3} & Log extraction & \cmark & As previously stated all the log were complete. Any additional information extracted from the database is to make the obtained more readable for humans by using the foreign key references to other tables as illustrated in \Cref{fig:ch2_erdOfEventLogs}. \\
+	\ref{fr:ur3} & Log extraction & \cmark & As previously stated all logs were complete. Any additional information extracted from the database is to make the obtained more readable for humans by using the foreign key references to other tables as illustrated in \Cref{fig:ch2_erdOfEventLogs}. \\
 	\bottomrule
 \end{xltabular}
 
-\Cref{tbl:ch3_testLoggingQuality} discussed the log quality of the test system's user-based event logs that is on an acceptable level. The log analysis should be more accurate with the conisitent obtained logs that are captured by the logging mechanism.
+\Cref{tbl:ch3_testLoggingQuality} discussed the log quality of the test system's user-based event logs that is on an acceptable level. The log analysis should be more accurate with the concurrent obtained logs that are captured by the logging mechanism.
 
 \subsection{Maintenance priortising}
 For the test system, maintenance prioritisation recommendations can be made as described in \Cref{sec:ch2_utilisationImprovements}. A rating system can be used to classify the most critical software systems that need to be prioritised, which can help in software maintenance efforts.\par Using \Cref{eq:ch2_maintenanceFactorSimplified} the maintenance priority factor $M_{PF}$ can be determined for a set of systems {$S_1,~S_2,~...,~S_N$} which has captured user activities per system $A_X$. The system will also have several users connected to each system $P_X$. These parameters are set for the test system as in \Cref{tbl:ch3_testData}.
