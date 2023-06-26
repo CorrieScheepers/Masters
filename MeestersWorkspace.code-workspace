@@ -70,6 +70,70 @@
 			"titleBar.inactiveBackground": "#00173299",
 			"titleBar.inactiveForeground": "#e7e7e799"
 		},
-		"peacock.color": "#001732"
+		"peacock.color": "#001732",
+		"latex-workshop.latex.recipe.default": "lastUsed",
+		"latex-workshop.latex.recipes": [
+		
+			{
+				"name": "latexmk",
+				"tools": [
+					"latexmk"
+				]
+			},
+			{
+				"name": "latexmk (latexmkrc)",
+				"tools": [
+					"latexmk_rconly"
+				]
+			},
+			{
+				"name": "latexmk (lualatex)",
+				"tools": [
+					"lualatexmk"
+				]
+			},
+			{
+				"name": "latexmk (xelatex)",
+				"tools": [
+					"xelatexmk"
+				]
+			},
+			{
+				"name": "pdflatex -> bibtex -> pdflatex * 2",
+				"tools": [
+					"pdflatex",
+					"bibtex",
+					"pdflatex",
+					"pdflatex"
+				]
+			},
+			{
+				"name": "Compile Rnw files",
+				"tools": [
+					"rnw2tex",
+					"latexmk"
+				]
+			},
+			{
+				"name": "Compile Jnw files",
+				"tools": [
+					"jnw2tex",
+					"latexmk"
+				]
+			},
+			{
+				"name": "Compile Pnw files",
+				"tools": [
+					"pnw2tex",
+					"latexmk"
+				]
+			},
+			{
+				"name": "tectonic",
+				"tools": [
+					"tectonic"
+				]
+			}
+		]
 	}
 }
