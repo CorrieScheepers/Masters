@@ -341,14 +341,14 @@ The \Cref{fig:ch3_caseABreakdown} majority of the user activities for Case Study
 \begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_A_subsystems_1.pdf}
-	\caption[User activity system utilisation breakdown of Case Study A]
-	{\textit{User activity system utilisation breakdown of Case Study A}}\label{fig:ch3_caseAAnalysis}
+	\caption[System utilisation breakdown of Case Study A]
+	{\textit{System utilisation breakdown of Case Study A}}\label{fig:ch3_caseAAnalysis}
 \end{figure}
 
-In \Cref{fig:ch3_caseAAnalysis} each subsystem's total utilisation is further broken down into the user activity types defined in \Cref{tbl:ch3_systemAActivityTypes}.
+In \Cref{fig:ch3_caseAAnalysis} each subsystem's total utilisation is further broken down into the user activity types defined in \Cref{tbl:ch3_systemAActivityTypes}. For systems such as $S_{413}$ the majority of user activities were from actions the user performed other than accessing the subsystem, which is the DetailView user activity type. This is different from the other top five systems that had a majority of Dash user activity types. Users only viewed the content of the web page for that subsystem. The log quality assessment for Case Study A's in discussed in \Cref{tbl:ch3_caseAQuality}.
 
 \begin{xltabular}{\textwidth}{clcX}
-	\caption[Logging quality assessment of the test system]{\textit{Logging quality assessment of the test system}}\label{tbl:ch3_caseAQuality}\\
+	\caption[Logging quality assessment of Case Study A]{\textit{Logging quality assessment of the test system}}\label{tbl:ch3_caseAQuality}\\
 	\toprule
 	\thead{Req. ID} & \thead{Description} & \thead{Achieved} & \thead{Comments} \\
 	\midrule
@@ -367,23 +367,25 @@ In \Cref{fig:ch3_caseAAnalysis} each subsystem's total utilisation is further br
         \endlastfoot
 
 	\rowcolor{lightgray}
-	\ref{fr:ur1} & Log availability & \cmark & \RaggedRight In the implementation of a logging mechanism for the test system the log points were:
+	\ref{fr:ur1} & Log availability & \cmark & \RaggedRight In the implementation of a logging mechanism for Case Study A's logging points were:
 		\begin{itemize}
-			\item \textit{Locally complete} as all the log attributes were available during the capturing phase of the event log.
-			\item \textit{Globally complete} as defined user activity types were captured for the test system. The logging points were able to capture the expected logs as defined in \Cref{fig:ch3_loggingProcess}.
+			\item \textit{Locally complete} as all the log attributes were available during the capturing phase of the event log. 
+			\item \textit{Globally complete} due to the use of a central logging mechanism in the main system that can capture the user-based events.  
 		\end{itemize} \\
-	\ref{fr:ur2} & Log completeness & \cmark & All the required log attributes were obtained during the capturing process of the logging point. No post-logging corrections were needed to fix any of the log attributes or to fill in missing log attributes. \\
+	\ref{fr:ur2} & Log completeness & \cmark & This system uses the same log attributes structure described in \Cref{tbl:ch3_Log_Attributes} that is captured with this case study's client- and server-side logging points. All the log attributes were able to form a complete log without any additional post-logging operations to correct or fill in missing log attributes. \\
 	\rowcolor{lightgray}
-	\ref{fr:ur3} & Log extraction & \cmark & As previously stated all the log were complete. Any additional information extracted from the database is to make the obtained more readable for humans by using the foreign key references to other tables as illustrated in \Cref{fig:ch2_erdOfEventLogs}. \\
+	\ref{fr:ur3} & Log extraction & \cmark & As previously stated all the logs were \textit{locally}-and \textit{globallly} complete. This enables the log extraction during the log analysis to be done. \\
 	\bottomrule
 \end{xltabular}
+
+Case Study A's log quality is satisfactory for the log analysis to be able to be done for it. The three basic user activity types enable the logging points to make simple operations to classify the user-based activities. 
 
 \subsubsection{Maintenance prioritisation}
 The maintenance prioritisation factor for the user activities in the upper quartile of the subsystem for Case Study A is calculated in \Cref{tbl:apx_caseA}.
 
 \input{Chapters/tables/caseA.tex}
 
-\Cref{tbl:apx_caseA} shows the results of the implementation \Cref{eq:ch2_priorityNormalised,eq:ch2_eventNormalised,eq:ch2_maintenanceFactorSimplified} to calculate the normalised priority ($P_N$), normalised activity ($A_X$), and maintenance factor ($M_{PF}$). The \Cref{tbl:apx_caseA} only contains the upper quartile subsystems of all the total subsystems of \Cref{tbl:apx_projectA_Normilised}. The results are visually presented in \Cref{fig:ch3_caseAAnalysis} collected from \Cref{tbl:apx_caseA} with the breakdown of user activity. \par In \Cref{fig:ch3_caseAAnalysis}, subsystem $S_{582}$ had the most user-generated events, with an average of $72.75$ user-generated events per user. The lower $P_N$ reduced its maintenance priority factor to be the highest $4_{th}$ for all subsystems. The subsystem $S_{538}$ had the highest $5^{th}$ number of recorded user-based activities and the most users who have access to the subsystem. The higher $P_N$ had a greater impact on its maintenance performance factor.\par For systems such as $S_{413}$ the majority of user activities were from actions the user performed other than accessing the subsystem, which is the DetailView user activity type. This is different from the other top five systems that had a majority of Dash user activity types. Users only viewed the content of the web page for that subsystem. From these results, maintenance prioritisation should be for systems in the order of $P_R$ in \Cref{tbl:apx_caseA}. 
+\Cref{tbl:apx_caseA} shows the results of the implementation \Cref{eq:ch2_priorityNormalised,eq:ch2_eventNormalised,eq:ch2_maintenanceFactorSimplified} to calculate the normalised priority ($P_N$), normalised activity ($A_X$), and maintenance factor ($M_{PF}$). The \Cref{tbl:apx_caseA} only contains the upper quartile subsystems of all the total subsystems of \Cref{tbl:apx_projectA_Normilised}. The results are visually presented in \Cref{fig:ch3_caseAAnalysis} collected from \Cref{tbl:apx_caseA} with the breakdown of user activity. \par In \Cref{fig:ch3_caseAAnalysis}, subsystem $S_{582}$ had the most user-generated events, with an average of $72.75$ user-generated events per user. The lower $P_N$ reduced its maintenance priority factor to be the highest $4_{th}$ for all subsystems. The subsystem $S_{538}$ had the highest $5^{th}$ number of recorded user-based activities and the most users who have access to the subsystem. The higher $P_N$ had a greater impact on its maintenance performance factor. 
 
 \subsection{Case Study B results}\label{sec:ch3_csB}
 System B is an older system than A and C that is primarily created in \texttt{PHP}. This system has the same type of user activities as System A's \Cref{tbl:ch3_systemAActivityTypes}. To capture the types of users of \Cref{tbl:ch3_systemAActivityTypes} this system used multiple logging points.\par The use of multiple logging points was to:
@@ -397,70 +399,111 @@ System B is an older system than A and C that is primarily created in \texttt{PH
 
 The logging points do not track any of the elements that the user interacted with the system. Only some of the request parameters are tracked for any of the user-based activities. The metadata will contain only the \texttt{RequestParameters} used in \Cref{fig:ch3_MetadataJson}. The breakdown of user activity types for this case study is shown in \Cref{fig:ch3_caseBBreakdown}.
 
+\clearpage
+
 \begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_B_breakdown.pdf}
-	\caption[User activity types breakdown of System B]
-	{\textit{User activity types breakdown of System B}}\label{fig:ch3_caseBBreakdown}
+	\caption[System utilisation breakdown of Case Study B]
+	{\textit{System utilisation breakdown of Case Study B}}\label{fig:ch3_caseBBreakdown}
 \end{figure}
 
-In \Cref{fig:ch3_caseBBreakdown} the \texttt{Dash} user activity type is about $99.5\%$ of all user activities recorded. System B has fewer subsystems that require the user to interact with the web page to add data. The system mostly has web pages that display data only for the user. There were no \texttt{Report} user activity types as the users did not create any reports to export from these subsystems.
+In \Cref{fig:ch3_caseBBreakdown} the \texttt{Dash} user activity type is about $99.5\%$ of all user activities recorded. System B has fewer subsystems that require the user to interact with the web page to add data. The system mostly has web pages that display data only for the user. There were no \texttt{Report} user activity types as the users did not create any reports to export from these subsystems. \Cref{fig:ch3_caseAAnalysis} is the breakdown of the user activity of each subsystem's utilisation.
+
+\begin{figure}[!htb]
+	\centering % cent the figure
+	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_B_subsystems_1.pdf}
+	\caption[Maintenance performance calculation for system B]
+	{\textit{Maintenance performance calculation for system B}}\label{fig:ch3_caseBAnalysis}
+\end{figure} 
+
+In \Cref{fig:ch3_caseBAnalysis} all the subsystems have the majority \texttt{Dash} user activity type. About $99.5\%$ of the user activities is \texttt{Dash} user activity. This is because this older system made in \texttt{PHP} is only used for monitoring energy systems. The subsystems have simple inputs such as date pickers and category pickers. These types of input only refresh the page, which causes more \texttt{Dash} activities to load new data for the user.\par $S_{417}$ has the most user activities, almost $2.5$ times higher than the second system $S_{409}$ and has the most users being active in this system. The log quality assessment for Case Study B is discussed in \Cref{tbl:ch3_caseBQuality}.
+
+\begin{xltabular}{\textwidth}{clcX}
+	\caption[Logging quality assessment of Case Study B]{\textit{Logging quality assessment of Case Study B}}\label{tbl:ch3_caseBQuality}\\
+	\toprule
+	\thead{Req. ID} & \thead{Description} & \thead{Achieved} & \thead{Comments} \\
+	\midrule
+	\endfirsthead
+
+        \multicolumn{4}{c}
+        {\tablename\ \thetable{} -- continued from previous page} \\
+        \midrule
+        \thead{Req. ID} & \thead{Description} & \thead{Achieved} & \thead{Comments} \\
+        \midrule
+        \endhead
+
+        \midrule
+        \multicolumn{4}{r}{{Continued on next page}} \\ \midrule
+        \endfoot
+        \endlastfoot
+
+	\rowcolor{lightgray}
+	\ref{fr:ur1} & Log availability & Mostly & \RaggedRight In the implementation of a logging mechanism for Case Study A's logging points were:
+		\begin{itemize}
+			\item Mostly \textit{locally complete} as all the log attributes were available during the capturing phase of the event log. The logging points each had their method of obtaining the same log attributes.
+			\item Mostly \textit{Globally complete} due to using multiple logging mechanisms may have differences in their ability to identify a user-based event and capture the needed log attributes to complete the log. 
+		\end{itemize} \\
+	\ref{fr:ur2} & Log completeness & Mostly & The use of multiple logging points will yield different results in the same main software system. There may be some post-logging operations needed to fix and exclude some event logs. \\
+	\rowcolor{lightgray}
+	\ref{fr:ur3} & Log extraction & \cmark & Although the availability and completeness of the event logs are mostly achieved, the extraction process of the logs for the log analysis is still possible.   \\
+	\bottomrule
+\end{xltabular}
+
+\Cref{tbl:ch3_caseBQuality} emphasises the issues of using multiple different logging points that have different operations to obtain the user-based events. In this older software system of Case Study B post-logging operations in the log analysis tool were done to exclude some of the unfixable logs, make corrections were applicable and fill in missing log attributes based on other log attributes.
 
 \subsubsection{Maintenance prioritisation}
 The maintenance prioritisation factor for the user activities in the upper quartile of the subsystem for Case Study B is calculated in \Cref{tbl:apx_caseB}.
 
 \input{Chapters/tables/caseB.tex}
 
-The upper quartile of the maintenance performance of the subsystems of \Cref{tbl:apx_projectB_Normilised} is used to create the results of \Cref{tbl:apx_projectB_Normilised} using \Cref{eq:ch2_eventNormalised,eq:ch2_maintenanceFactorSimplified,eq:ch2_priorityNormalised}. The results of \Cref{tbl:apx_caseB} are visually presented in \Cref{fig:ch3_systemsBBar}.
-
-\clearpage
-
-\begin{figure}[!htb]
-	\centering % cent the figure
-	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_B_subsystems_1.pdf}
-	\caption[Maintenance performance calculation for system B]
-	{\textit{Maintenance performance calculation for system B}}\label{fig:ch3_systemsBBar}
-\end{figure} 
-
-In \Cref{fig:ch3_systemsBBar} all the subsystems have the majority \texttt{Dash} user activity type. About $99.5\%$ of the user activities is \texttt{Dash} user activity. This is because this older system made in \texttt{PHP} is only used for monitoring energy systems. The subsystems have simple inputs, such as date pickers and category pickers, for data. These types of input only refresh the page, which causes the more \texttt{Dash} activities to load new data for the user.\par $S_{417}$ has the most user activities, almost $2.5$ times higher than the second system $S_{409}$ and has the most users being active in this system. The number of user activities decreases significantly with the lower priority rank.
-
-\clearpage
+The upper quartile of the maintenance performance of the subsystems of \Cref{tbl:apx_projectB_Normilised} is used to create the results of \Cref{tbl:apx_projectB_Normilised} using \Cref{eq:ch2_eventNormalised,eq:ch2_maintenanceFactorSimplified,eq:ch2_priorityNormalised}. There is a greater disparity between the top $A_N$ and the rest of the other subsystems $A_N$. This significantly impacts the maintenance performance ranking as $S_{417}$ is ranked as the most important system.
 
 \subsection{Case Study C results}\label{sec:ch3_csC}
 System C is also a \texttt{APS.NET Core Web SDK} software system. The software system has 7 primary user activity types that are described in \Cref{tbl:ch3_systemCActivityTypes}.
 
-\begin{table}[!htb]
-	\centering
-	\caption[System A activity types]{\textit{System C activity types}}
-	\label{tbl:ch3_systemCActivityTypes}
-	\begin{tabularx}{\textwidth}{llX}
-		\toprule
-		\thead{Activity} & \thead{Functional requirement} & \thead{Description} \\
-		\midrule
-		\rowcolor{lightgray}
-		\texttt{MenuAccessed} & \ref{fr:uatType1} & \RaggedRight This activity type is for when a user has navigated to a certain subsystem. \\ 
-		\texttt{HTMLElement} & \ref{fr:uatType3} & \RaggedRight This general activity type is for all other activities that the user initiates that send \textit{HTTP request} back to the server. This user type primarily is associated with HTML elements that the user used to interact with the subsystem. The sub-user activities of this primary user activity type are: \begin{itemize}
-			\item SpanClicked,
-			\item ButtonClicked, 
-			\item DivClicked, 
-			\item HyperLinkClicked,
-			\item ListClicked, 
-			\item LabelClicked, 
-			\item ImageClicked, 
-			\item FormInput, 
-			\item SelectClicked
-		\end{itemize} \\
-		\rowcolor{lightgray}
-		\texttt{CustomControls} & \ref{fr:uatType3} & \RaggedRight System C has some custom-made HTML elements that have the same functionality as the \texttt{HTMLElement} user activity type. \\ 
-		\texttt{LoginAttempt} & \ref{fr:uatType2} & \RaggedRight This is a user activity for a log-out attempt by the user using the logout options available in the system to end their session. \\ 
-		\rowcolor{lightgray}
-		\texttt{LogoutAttempt} & \ref{fr:uatType2} & \RaggedRight This is a user activity when the user uses any of the log-in page controls. \\
-		\texttt{ResetPassword} & \ref{fr:uatType2} & \RaggedRight This is a user activity when the user uses any of the reset password page controls. \\
-		\rowcolor{lightgray}
-		\texttt{SessionTracking} & \ref{fr:uatType2} & \RaggedRight System C has some data stored in their session. Any changes to this data are tracked when the user interacts with any controls on the web page to change certain session data. \\
-		\bottomrule
-	\end{tabularx}
-\end{table}
+\begin{xltabular}{\textwidth}{llX}
+	\caption[System A activity types]{\textit{System A activity types}}\label{tbl:ch3_systemCActivityTypes}\\
+	\toprule
+	\thead{Activity} & \thead{Functional requirement} & \thead{Description} \\
+	\midrule
+	\endfirsthead
+
+	\multicolumn{3}{c}
+	{\tablename\ \thetable{} -- continued from previous page} \\
+	\midrule
+	\thead{Activity} & \thead{Functional requirement} & \thead{Description} \\
+	\midrule
+	\endhead
+
+	\midrule
+	\multicolumn{3}{r}{{Continued on next page}} \\ \midrule
+	\endfoot
+	\endlastfoot
+
+	\rowcolor{lightgray}
+	\texttt{MenuAccessed} & \ref{fr:uatType1} & \RaggedRight This activity type is for when a user has navigated to a certain subsystem. \\ 
+	\texttt{LoginAttempt} & \ref{fr:uatType2} & \RaggedRight This is a user activity for a log-out attempt by the user using the logout options available in the system to end their session. \\ 
+	\rowcolor{lightgray}
+	\texttt{LogoutAttempt} & \ref{fr:uatType2} & \RaggedRight This is a user activity when the user uses any of the log-in page controls. \\
+	\texttt{ResetPassword} & \ref{fr:uatType2} & \RaggedRight This is a user activity when the user uses any of the reset password page controls. \\
+	\rowcolor{lightgray}
+	\texttt{SessionTracking} & \ref{fr:uatType2} & \RaggedRight System C has some data stored in their session. Any changes to this data are tracked when the user interacts with any controls on the web page to change certain session data. \\
+	\texttt{CustomControls} & \ref{fr:uatType3} & \RaggedRight System C has some custom-made HTML elements that have the same functionality as the \texttt{HTMLElement} user activity type. \\ 
+	\rowcolor{lightgray}
+	\texttt{HTMLElement} & \ref{fr:uatType3} & \RaggedRight This general activity type is for all other activities that the user initiates that send \textit{HTTP request} back to the server. This user type primarily is associated with HTML elements that the user used to interact with the subsystem. The sub-user activities of this primary user activity type are: \begin{itemize}
+		\item SpanClicked,
+		\item ButtonClicked, 
+		\item DivClicked, 
+		\item HyperLinkClicked,
+		\item ListClicked, 
+		\item LabelClicked, 
+		\item ImageClicked, 
+		\item FormInput, 
+		\item SelectClicked
+	\end{itemize} \\
+	\bottomrule
+\end{xltabular}
 
 For System C, the user activities listed in Table \ref{tbl:ch3_systemCActivityTypes} have been expanded to include the captured HTML elements with which the users interact. As stated in Table \ref{tbl:ch3_caseStudies}, System C is an administrative software system used to configure and manage Systems A and B. Compared to the monitoring software subsystems of Systems A and B, the user interaction in System C involves more complex user interactions\par To facilitate analysis for maintenance prioritisation, the increased types of user activity in Table \ref{tbl:ch3_systemCActivityTypes} can be grouped. The \texttt{HTMLElement} type is a grouped user activity type of smaller individual user activity types. Despite their differences, these activity types share a common base functionality where they primarily show the users' engagement with the system.\par System C uses a single logging point on the server side to capture the user event logs. The logging point for this implementation of the logging mechanism makes use of an action filter to:
 
@@ -480,9 +523,45 @@ This logging point is similar to the one used for system A but differs only in t
 	{\textit{Case study 1 subsystem activities part 1}}\label{fig:ch3_caseCBreakdown}
 \end{figure}
 
-\clearpage
-
 The breakdown of user activities in \Cref{fig:ch3_caseCBreakdown} the majority of user activities for system C is \texttt{CustomControl} user activity type. The more interaction with the system increases the total amount of the general user activity types (\texttt{CustomControl} and \texttt{HTMLElement}).
+
+\begin{figure}[!htb]
+	\centering % cent the figure
+	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_C_subsystems_1.pdf}
+	\caption[System utilisation breakdown of Case Study C]
+	{\textit{System utilisation breakdown of Case Study C}}\label{fig:ch3_systemCBar}
+\end{figure} 
+
+\begin{xltabular}{\textwidth}{clcX}
+	\caption[Logging quality assessment of Case Study C]{\textit{Logging quality assessment of Case Study C}}\label{tbl:ch3_caseCQuality}\\
+	\toprule
+	\thead{Req. ID} & \thead{Description} & \thead{Achieved} & \thead{Comments} \\
+	\midrule
+	\endfirsthead
+
+        \multicolumn{4}{c}
+        {\tablename\ \thetable{} -- continued from previous page} \\
+        \midrule
+        \thead{Req. ID} & \thead{Description} & \thead{Achieved} & \thead{Comments} \\
+        \midrule
+        \endhead
+
+        \midrule
+        \multicolumn{4}{r}{{Continued on next page}} \\ \midrule
+        \endfoot
+        \endlastfoot
+
+	\rowcolor{lightgray}
+	\ref{fr:ur1} & Log availability & Mostly & \RaggedRight In the implementation of a logging mechanism for Case Study A's logging points were:
+		\begin{itemize}
+			\item Mostly \textit{locally complete} as all the log attributes were available during the capturing phase of the event log. The logging points each had their method of obtaining the same log attributes.
+			\item Mostly \textit{Globally complete} due to using multiple logging mechanisms may have differences in their ability to identify a user-based event and capture the needed log attributes to complete the log. 
+		\end{itemize} \\
+	\ref{fr:ur2} & Log completeness & Mostly & The use of multiple logging points will yield different results in the same main software system. There may be some post-logging operations needed to fix and exclude some event logs. \\
+	\rowcolor{lightgray}
+	\ref{fr:ur3} & Log extraction & \cmark & Although the availability and completeness of the event logs are mostly achieved, the extraction process of the logs for the log analysis is still possible.   \\
+	\bottomrule
+\end{xltabular}
 
 \subsubsection{Maintenance prioritisation}
 The maintenance prioritisation factor for the user activities in the upper quartile of the subsystem for Case Study C is calculated in \Cref{tbl:apx_caseC}.
@@ -492,13 +571,6 @@ The maintenance prioritisation factor for the user activities in the upper quart
 The upper quartile of the maintenance performance of the subsystems of \Cref{tbl:apx_projectC_Normilised} is used to create the results of \Cref{tbl:apx_projectC_Normilised} using \Cref{eq:ch2_eventNormalised,eq:ch2_maintenanceFactorSimplified,eq:ch2_priorityNormalised}. The results of \Cref{tbl:apx_caseC} are visually presented in \Cref{fig:ch3_systemCBar}.
 
 \clearpage
-
-\begin{figure}[!htb]
-	\centering % cent the figure
-	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_C_subsystems_1.pdf}
-	\caption[Maintenance performance calculation for system B]
-	{\textit{Maintenance performance calculation for system B}}\label{fig:ch3_systemCBar}
-\end{figure} 
 
 In \Cref{fig:ch3_systemCBar} the top three subsystems ($S_{97}$, $S_{93}$ and $S_{12}$) the majority user actions are from general activity types. The high usage of these subsystems with a high number of users linked to each one of them increased their maintenance priority factor. Other systems such as $S_{6}$, $S_{1}$ and $S_{82}$ have a higher priority normalisation than $S_{12}$, but they have a significantly lower normalisation of user activity. 
 
