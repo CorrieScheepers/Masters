@@ -7,31 +7,29 @@
 
  \begin{figure}[!htb]
 	\centering % cent the figure
-	\includegraphics[width=0.95\textwidth]{img/Chapter2/systemOverview/systemOverview.pdf}
+	\includegraphics[width=0.8\textwidth]{img/Chapter2/systemOverview/systemOverview.pdf}
 	\caption[Basic design of a software system]
 	{\textit{Basic design of a software system}}\label{fig:ch2_webSystemBasic}
 \end{figure}
  
- In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with different systems. These systems can be different pages or sections of the website and can be further divided into subsystems. \par In \Cref{sec:ch2_loggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:sec_system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance by using various tools visualisation tools or creating them based on the available log attributes.
+ In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with different systems. These systems can be different pages or sections of the website and can be further divided into subsystems. \par In \Cref{sec:ch2_loggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:sec_system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance by using various tools visualisation tools or creating them based on the available log attributes. In \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user-based event logs.
 
- \clearpage
+ \begin{figure}[!htb]
+	 \centering % cent the figure
+	 \includegraphics[width=0.7\textwidth]{Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
+	 \caption[Logging mechanism basic system design]
+	 {\textit{Logging mechanism basic system design}}\label{fig:ch2_systemDesign}
+ \end{figure}
+ 
+ In \Cref{fig:ch2_systemDesign} is the basic system design of the logging mechanism. This design provides a high-level overview of the interaction the user has with the software system to create a user-based event log. The two sides of the design in \Cref{fig:ch2_systemDesign}:
+ 
+ \begin{itemize}
+	 \item \textbf{Client} side which involves the user, the device the user uses to access the website and the user-generated event. The user interacts with the website, this creates a user event that can be captured. 
+	 \item \textbf{Server} side which has the rest of user activity logging software that consists of multiple or a single logging point. The user activity logger interacts with a structured database to store the captured log created from all the captured log attributes.
+ \end{itemize}
 
 \section{Development of solution}\label{sec:ch2_developementOfSolution}
-In \Cref{sec:ch1_objectives} the objectives of the study are split into two main parts that need to be implemented to solve the identified problem. The logging mechanism and log analysis of the obtained logs. A basic system design can be made for the logging mechanism. In \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user-based event logs.
-
-\begin{figure}[!htb]
-	\centering % cent the figure
-	\includegraphics[width=0.95\textwidth]{Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
-	\caption[Logging mechanism basic system design]
-	{\textit{Logging mechanism basic system design}}\label{fig:ch2_systemDesign}
-\end{figure}
-
-In \Cref{fig:ch2_systemDesign} is the basic system design of the logging mechanism. This design provides a high-level overview of the interaction the user has with the software system to create a user-based event log. The two sides of the design in \Cref{fig:ch2_systemDesign}:
-
-\begin{itemize}
-	\item \textbf{Client} side which involves the user, the device the user uses to access the website and the user-generated event. The user interacts with the website, this creates a user event that can be captured. 
-	\item \textbf{Server} side which has the rest of user activity logging software that consists of multiple or a single logging point. The user activity logger interacts with a structured database to store the captured log created from all the captured log attributes.
-\end{itemize}
+In \Cref{sec:ch1_objectives} the objectives of the study are split into two main parts that need to be implemented to solve the identified problem. The logging mechanism and log analysis of the obtained logs. A basic system design can be made for the logging mechanism. 
 
 The two main parts are to create a logging mechanism to capture the user-based activity logs and log analysis to prioritise software maintenance of the study objectives in \Cref{sec:ch1_objectives} is illustrated in \Cref{fig:ch2_developmentOfSolution}.
 
@@ -52,13 +50,21 @@ The two main parts are to create a logging mechanism to capture the user-based a
 	\caption[Development of solution functional requirements]
 	{\textit{Development of solution functional requirements}}
 	\label{tbl:ch2_developmenetRequirements}
-	\begin{tabularx}{\textwidth}{|l|l|X|}
-		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
-		\hline \phase{fr:logAttributes} & Identify log attributes & \RaggedRight The log attributes need to be identified as what is needed to complete the log analysis for software maintenance prioritisation. The log attributes form the characteristics of the obtained event which for this study focuses on user-based events. \\
-		\hline \phase{fr:loggingPoints} & Logging point creation & \RaggedRight Log points capture the desired log attributes when the user-based event is taking place. In \Cref{sec:ch1_loggignPoints} logging points should be strategically placed in the software system to capture the event logs. This stage of the development includes identifying where the log points should be placed, log creation and database interactions.\\
-		\hline \phase{fr:logAnalysis} & \RaggedRight Create or use log analysis tools & Make use of suitable third-party tools or create software to do log analysis on the stored event logs. \\
-		\hline \phase{fr:maintenancePrioritising} & \RaggedRight Maintenance prioritising & Create a maintenance prioritising report based on the log analysis for software maintenance using the log analysis tool. The report aims to visualise the system utilisation of certain parts of the system and determine maintenance prioritisation.\\
-		\hline
+	\begin{tabularx}{\textwidth}{llX}
+		\toprule
+		\thead{Requirement ID} & \thead{Name} & \thead{Description} \\
+		\midrule
+
+		\rowcolor{lightgray}
+		\phase{fr:logAttributes} & Identify log attributes & \RaggedRight The log attributes need to be identified as what is needed to complete the log analysis for software maintenance prioritisation. The log attributes form the characteristics of the obtained event which for this study focuses on user-based events. \\
+
+		\phase{fr:loggingPoints} & Logging point creation & \RaggedRight Log points capture the desired log attributes when the user-based event is taking place. In \Cref{sec:ch1_loggignPoints} logging points should be strategically placed in the software system to capture the event logs. This stage of the development includes identifying where the log points should be placed, log creation and database interactions.\\
+
+		\rowcolor{lightgray}
+		\phase{fr:logAnalysis} & \RaggedRight Create or use log analysis tools & Make use of suitable third-party tools or create software to do log analysis on the stored event logs. \\
+
+		\phase{fr:maintenancePrioritising} & \RaggedRight Maintenance prioritising & Create a maintenance prioritising report based on the log analysis for software maintenance using the log analysis tool. The report aims to visualise the system utilisation of certain parts of the system and determine maintenance prioritisation.\\
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
