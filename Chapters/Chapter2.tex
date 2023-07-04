@@ -3,7 +3,7 @@
 \ChapterPageStuff{2}
 
 \section{Preamble}\label{sec:ch2_preamble}
- The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the obtained logs. The development of the solution for the identified problem in \Cref{sec:ch1_problemStatement} will be specifically made for a Web-based application.\par Web-based applications are one the most widely used software implementations that can benefit from a system utilisation analysis using user-based event logs. These software systems have many different designs, for this study Web-applications that require the user to be logged in to an active session in the software system will be used as in \Cref{fig:ch2_webSystemBasic}.
+ The literature in \Cref{chap:1} is used for the method to create a logging mechanism that can capture user-based activity logs to improve software maintenance by analysing the logs obtained. The development of the solution to the identified problem in \Cref{sec:ch1_problemStatement} will be made specifically for a Web-based application.\par Web-based applications are one of the most widely used software implementations that can benefit from an analysis of system usage using user-based event logs. These software systems have many different designs, and for this study Web applications that require the user to be logged in to an active session in the software system will be used as in \Cref{fig:ch2_webSystemBasic}.
 
  \begin{figure}[!htb]
 	\centering % cent the figure
@@ -29,9 +29,9 @@
  \end{itemize}
 
 \section{Development of solution}\label{sec:ch2_developementOfSolution}
-In \Cref{sec:ch1_objectives} the objectives of the study are split into two main parts that need to be implemented to solve the identified problem. The logging mechanism and log analysis of the obtained logs. A basic system design can be made for the logging mechanism. 
+In \Cref{sec:ch1_objectives} the objectives of the study are divided into two main parts that need to be implemented to solve the identified problem. The logging mechanism and log analysis of the logs obtained. A basic system design can be made for the logging mechanism. 
 
-The two main parts are to create a logging mechanism to capture the user-based activity logs and log analysis to prioritise software maintenance of the study objectives in \Cref{sec:ch1_objectives} is illustrated in \Cref{fig:ch2_developmentOfSolution}.
+The two main parts are to create a logging mechanism to capture user-based activity logs and log analysis to prioritise software maintenance of the study objectives in \Cref{sec:ch1_objectives} is illustrated in \Cref{fig:ch2_developmentOfSolution}.
 
 \clearpage
 
@@ -42,7 +42,7 @@ The two main parts are to create a logging mechanism to capture the user-based a
 	{\textit{Development of solution overview}}\label{fig:ch2_developmentOfSolution}
 \end{figure}
 
-\Cref{fig:ch2_developmentOfSolution} is a high-level overview of the development of the solution. Each of the main development steps is to create the logging mechanism to do a log analysis for software maintenance prioritising. These main development steps will be further discussed in detail and in \Cref{tbl:ch2_developmenetRequirements} is the summary of each of the main development functional requirements.
+\Cref{fig:ch2_developmentOfSolution} is a high-level overview of the development of the solution. Each of the main development steps is to create the logging mechanism to do a log analysis for software maintenance prioritising. These main development steps will be further discussed in detail and in \Cref{tbl:ch2_developmenetRequirements} is the summary of each of the main functional development requirements.
 
 \setcounter{phase}{0}
 \begin{table}[!htb]
@@ -56,25 +56,25 @@ The two main parts are to create a logging mechanism to capture the user-based a
 		\midrule
 
 		\rowcolor{lightgray}
-		\phase{fr:logAttributes} & Identify log attributes & \RaggedRight The log attributes need to be identified as what is needed to complete the log analysis for software maintenance prioritisation. The log attributes form the characteristics of the obtained event which for this study focuses on user-based events. \\
+		\phase{fr:logAttributes} & Identify log attributes & \RaggedRight The logarithmic attributes must be identified as needed to complete the log analysis for prioritisation of software maintenance. The log attributes form the characteristics of the obtained event, which for this study focusses on user-based events. \\
 
-		\phase{fr:loggingPoints} & Logging point creation & \RaggedRight Log points capture the desired log attributes when the user-based event is taking place. In \Cref{sec:ch1_loggignPoints} logging points should be strategically placed in the software system to capture the event logs. This stage of the development includes identifying where the log points should be placed, log creation and database interactions.\\
+		\phase{fr:loggingPoints} & Logging point creation & \RaggedRight Log points capture the desired log attributes when a user-based event is taking place. In \Cref{sec:ch1_loggignPoints} logging points should be strategically placed in the software system to capture the event logs. This stage of development includes identifying where the log points should be placed, log creation, and database interactions. \\
 
 		\rowcolor{lightgray}
 		\phase{fr:logAnalysis} & \RaggedRight Create or use log analysis tools & Make use of suitable third-party tools or create software to do log analysis on the stored event logs. \\
 
-		\phase{fr:maintenancePrioritising} & \RaggedRight Maintenance prioritising & Create a maintenance prioritising report based on the log analysis for software maintenance using the log analysis tool. The report aims to visualise the system utilisation of certain parts of the system and determine maintenance prioritisation.\\
+		\phase{fr:maintenancePrioritising} & \RaggedRight Maintenance prioritising & Create a maintenance prioritising report based on the log analysis for software maintenance using the log analysis tool. The report aims to visualise the use of the system of certain parts of the system and determine maintenance prioritisation.\\
 		\bottomrule
 	\end{tabularx}
 \end{table}
 
-The functional requirements (\textbf{F/R}) in \Cref{tbl:ch2_developmenetRequirements} are used to identify each requirement for the development of a solution that can be later verified. Sub-requirements will use the same labelling. 
+The functional requirements (\textbf{F/R}) in \Cref{tbl:ch2_developmenetRequirements} are used to identify each requirement for the development of a solution that can be verified later. Sub-requirements will use the same labelling. 
 
 \section{Logging mechanism}\label{sec:ch2_loggingMechanism}
-The logging mechanism system design will be defined in this section. This is to create a generic method of how to create a suitable logging mechanism to capture specific user-based event logs. This also defines any other sub-functional requirements to identify the log attributes (\ref{fr:logAttributes}) and logging point creation (\ref{fr:loggingPoints}).
+The design of the logging mechanism system will be defined in this section. This is to create a generic method of how to create a suitable logging mechanism to capture specific user-based event logs. This also defines any other subfunctional requirements to identify the log attributes (\ref{fr:logAttributes}) and logging point creation (\ref{fr:loggingPoints}).
 
 \subsection{Log attributes requirements}\label{sec:ch2_logAttributesRequirements}
-The log attributes functional requirement (\ref{fr:logAttributes}) focuses on the possible events that the user has been involved with when interacting with the software system. In \Cref{tbl:ch2_loggingAttributesFunctionalRequirements} are the functional requirements of \ref{fr:logAttributes}.
+The functional requirement of log attributes (\ref{fr:logAttributes}) focusses on the possible events with which the user has been involved when interacting with the software system. In \Cref{tbl:ch2_loggingAttributesFunctionalRequirements} are the functional requirements of \ref{fr:logAttributes}.
 
 \setcounter{phase}{1}
 \begin{table}[!htb]
@@ -85,16 +85,18 @@ The log attributes functional requirement (\ref{fr:logAttributes}) focuses on th
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
 		\hline \subphase{fr:userEventReq} & \RaggedRight User-based event log characteristics & \RaggedRight This functional requirement defines the characteristics of what software system events can be classified as a user-based event. \\
-		\hline \subphase{fr:userActReq} & \RaggedRight User activity types & \RaggedRight User activity types further expand on what event types are valid of \ref{fr:userEventReq}. This is also the first categorisation of the obtained logs.\\
-		\hline \subphase{fr:subLogAttributes} & \RaggedRight Log attributes & \RaggedRight The log attributes are the obtained data that describes a user-based event log. This is the primary data that will be stored in a structured database.\\
+  
+		\hline \subphase{fr:userActReq} & \RaggedRight User activity types & \RaggedRight User activity types further expand on what event types are valid of \ref{fr:userEventReq}. This is also the first categorisation of the logs obtained. \\ \hline 
+  
+        \subphase{fr:subLogAttributes} & \RaggedRight Log attributes & \RaggedRight The log attributes are the data obtained that describe a log of user-based events. These are the primary data that will be stored in a structured database.\\
 		\hline
 	\end{tabularx}
 \end{table}
 
-\Cref{tbl:ch2_loggingAttributesFunctionalRequirements} is the first functional requirement for the development of a solution that needs to be defined. It is important to define and create the event log characteristics for a user-based event log. The rest of the logging mechanism depends on what needs to be logged as discussed in \Cref{sec:ch1_eventLogging} about the importance of what events need to log. 
+\Cref{tbl:ch2_loggingAttributesFunctionalRequirements} is the first functional requirement for the development of a solution that must be defined. It is important to define and create the characteristics of an event log for a user-based event log. The rest of the logging mechanism depends on what needs to be logged as discussed in \Cref{sec:ch1_eventLogging} about the importance of what events need to log. 
 
 \subsubsection{User-based event log characteristics}\label{sec:ch2_requirementsOfUAT}
-The user is the initiator of the logging mechanism. Each action or event they trigger by interacting with the user interface on their device can be a potential user-generated event. In \Cref{tbl:ch2_requirementsForUserActivtyEvent} is the sub-requirements for the user that the event log should fulfil to be classified as a user-based activity log.
+The user is the initiator of the logging mechanism. Each action or event that they trigger by interacting with the user interface on their device can be a potential user-generated event. In \Cref{tbl:ch2_requirementsForUserActivtyEvent} are the subrequirements for the user that the event log should fulfil to be classified as a user-based activity log.
 
 \clearpage
 
