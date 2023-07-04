@@ -585,7 +585,7 @@ The upper quartile of the maintenance performance of the subsystems of \Cref{tbl
 The three case studies that result in \Cref{sec:ch3_csA,sec:ch3_csB,sec:ch3_csC} have some similarities and differences between them. The logging mechanism used for Case Study A and Case Study C is similar to each other. Both case studies make use of the MVC architecture discussed in \Cref{sec:ch2_webApplicationArchitecture}:
 
 \begin{itemize}
-	\item Both systems have a modified application of the \Cref{sec:ch3_ElementObtaining} client-side event logging to obtain the HTML element with which the user interacts. Their software architecture f
+	\item Both systems have a modified application of the \Cref{sec:ch3_ElementObtaining} client-side event logging to obtain the HTML element with which the user interacts.
 	\item Using action filters in \texttt{C\#} to create a single logging point on the server side to capture any user-based events. 
 	\item The log quality of these two case studies is similar, as both systems would identify user-based events through the action filter used as a logging point.
 \end{itemize}
@@ -606,24 +606,23 @@ In each case study, some obstacles need to be overcome to create a suitable logg
 \begin{itemize}
 	\item \textbf{Case Study A}
 		\begin{itemize}
-			\item Newer and similar operational software system as the software system in Case Study B used.
-			\item Used the same logging mechanism as Case Study C to capture the same user-based event types as Case Study B.
+			\item Provides insightful data for management on which systems are used that can be used for more strategic business decisions and the services provided to the end user.
 		\end{itemize}
 	\item \textbf{Case Study B}
 	\begin{itemize}
-		\item Multiple implementations of different logging points to capture all the needed log attributes.
-		\item Simpler software system than Case Study A and C, but with unique challenges of placing each logging point for different subsystems.
+		\item This case study made use of multiple logging points. Each logging point had unique obstacles to overcome to ensure that the log quality is consistent and at a level for the log analysis.
+		\item There multiple old subsystems for this case study. The lack of activity on some of these systems provides evidence to deprecate these systems that are not used anymore.
 	\end{itemize}
 	\item \textbf{Case Study C}
 	\begin{itemize}
-		\item More complex software systems are used with multiple different user activity types than in Case Study A and B.
-		\item Subsystems were defined by the request URLs target controller. There was a defined data table that contained the subsystem data but some of the software components did not have a defined subsystem entry even if it can be a stand-alone subsystem.
-		\item More complex log extraction due to subsystem classification.
+		\item The additional logging types for the user's session changes provided logs to monitor the user's access to the system.
+		\item The capture of the request parameters that are stored in the metadata log attribute, provides additional information for developers to troubleshoot errors or bugs that occurred in the software system. Developers don't need direct aid from the user to understand what sequence of actions they did to get a certain response from the system.
+		\item Multiple subsystems provided the same functionality. The subsystems that are used more than the others are updated with any missing functionality from the less used similar subsystems. This reduced the number of subsystems and possibly integrate similar functionality into one subsystem to improve user experience. 
 	\end{itemize}
 \end{itemize}
 
 \subsubsection{Summary of positive points}
-From the observations made of each case study, few positive points can be summarised:
+From the observations made of each case study, a few positive points can be summarised:
 
 \begin{itemize}
 	\item Similiar architecture software systems can use the same logging points that do not require too many modifications.
