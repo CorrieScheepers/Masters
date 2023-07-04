@@ -14,6 +14,8 @@
  
  In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with different systems. These systems can be different pages or sections of the website and can be further divided into subsystems. \par In \Cref{sec:ch2_loggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:sec_system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance by using various tools visualisation tools or creating them based on the available log attributes. In \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user-based event logs.
 
+ \clearpage
+
  \begin{figure}[!htb]
 	 \centering % cent the figure
 	 \includegraphics[width=0.7\textwidth]{Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
@@ -27,7 +29,6 @@
 	 \item \textbf{Client} side which involves the user, the device the user uses to access the website and the user-generated event. The user interacts with the website, this creates a user event that can be captured. 
 	 \item \textbf{Server} side which has the rest of user activity logging software that consists of multiple or a single logging point. The user activity logger interacts with a structured database to store the captured log created from all the captured log attributes.
  \end{itemize}
- \clearpage
 
 \section{Development of solution}\label{sec:ch2_developementOfSolution}
 For this study, the development of the solution consists of four main parts:
