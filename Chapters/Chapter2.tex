@@ -20,13 +20,13 @@
 For this study, the development of the solution consists of four main parts:
 
 \begin{itemize}
-	\item \textit{Investigate} use methods in literature or create new methods for a logging mechanism and maintenance prioritisation log analysis.
-	\item \textit{Design} a logging mechanism to be able to make software prioritisation log analysis.
+	\item \textit{Investigate} use methods in the literature or create new methods for a log-logging mechanism and log-maintenance prioritisation analysis.
+	\item \textit{Design} a logging mechanism to be able to perform software prioritisation log analysis.
 	\item \textit{Verify} if the solution can meet the design specifications.
-	\item \textit{Implement} the solution on case studies evaluate the obtained results.
+	\item \textit{Implement} the solution in case studies to evaluate the results obtained.
 \end{itemize}
 
-In \Cref{fig:ch2_developmentOfSolution} these four development of solution parts are described.
+In \Cref{fig:ch2_developmentOfSolution} these four development of the solution parts are described.
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -38,7 +38,7 @@ In \Cref{fig:ch2_developmentOfSolution} these four development of solution parts
 \clearpage
 
 \section{Investigate}
-In this section, the functional requirements will be created for the logging mechanism and software maintenance prioritisation. In \Cref{tbl:ch2_developmenetRequirements} is the summary of each of the main functional development requirements created from the investigate part of \Cref{fig:ch2_developmentOfSolution}.
+In this section, functional requirements will be created for the logging mechanism and prioritisation of software maintenance. In \Cref{tbl:ch2_developmenetRequirements} is the summary of each of the main functional development requirements created from the investigation part of \Cref{fig:ch2_developmentOfSolution}.
 
 \setcounter{phase}{0}
 \begin{table}[!htb]
@@ -54,7 +54,7 @@ In this section, the functional requirements will be created for the logging mec
 		\rowcolor{lightgray}
 		\phase{fr:logAttributes} & Identify log attributes & \RaggedRight The logarithmic attributes must be identified as needed to complete the log analysis for prioritisation of software maintenance. The log attributes form the characteristics of the obtained event, which for this study focusses on user-based events. \\
 
-		\phase{fr:loggingPoints} & Logging point creation & \RaggedRight Log points capture the desired log attributes when a user-based event is taking place. In \Cref{sec:ch1_loggignPoints} logging points should be strategically placed in the software system to capture the event logs. This stage of development includes identifying where the log points should be placed, log creation, and database interactions. \\
+		\phase{fr:loggingPoints} & Logging point creation & \RaggedRight Logging points capture the desired log attributes when a user-based event takes place. In \Cref{sec:ch1_loggignPoints} logging points should be strategically placed in the software system to capture the event logs. This stage of development includes identifying where log points should be placed, creating logs, and interacting with the database. \\
 
 		\rowcolor{lightgray}
 		\phase{fr:logAnalysis} & \RaggedRight Create or use log analysis tools & Make use of suitable third-party tools or create software to do log analysis on the stored event logs. \\
@@ -105,17 +105,17 @@ The user is the initiator of the logging mechanism. Each action or event that th
 	\label{tbl:ch2_requirementsForUserActivtyEvent}
 	\begin{tabularx}{\textwidth}{|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Description}\\
-		\hline \subsubphase{fr:requirementsUserBased1} & The event has to be triggered by the user interacting with the user interface using their device and not any other events that the system will self-initiate. The user needs to have interacted with the UI directly. This can also be validated by tracking if the user did interact with the UI from the HTML element ids. \\
-		\hline \subsubphase{fr:requirementsUserBased2} & The event must consist of different cases ($ca~ \epsilon~CA$ the cases consists of events) which are noteworthy to make the event log identifiable \cite{Slaninova2014}. \\
+		\hline \subsubphase{fr:requirementsUserBased1} & The event has to be triggered by the user interacting with the user interface using their device and not any other events that the system will self-initiate. The user needs to have interacted directly with the UI. This can also be validated by tracking whether the user did interact with the UI of the HTML element ids. \\
+		\hline \subsubphase{fr:requirementsUserBased2} & The event must consist of different cases ($ca~ \epsilon~CA$ the cases consist of events) which are noteworthy to make the event log identifiable \cite{Slaninova2014}. \\
 		\hline \subsubphase{fr:requirementsUserBased3} & For certain types of event logs for \ref{fr:requirementsUserBased2}, the user-generated event should have an origin from which the event took place. \\
 		\hline \subsubphase{fr:requirementsUserBased4} & The event log should consist of attributes that expand the identity of the user-based activity. \\
-		\hline \subsubphase{fr:requirementsUserBased5} & The event must have the user as the initiator or input for the user-based activity. This will exclude all events triggered by the system as the user did not directly start the event. \\
+		\hline \subsubphase{fr:requirementsUserBased5} & The event must have the user as the initiator or input for the user-based activity. This will exclude all events triggered by the system, as the user did not directly start the event. \\
 		\hline \subsubphase{fr:requirementsUserBased6} & Only use the first \textit{HTTP requests}\footnote{A \textbf{HTTP request} is made by a client, to a named host, which is located on a server. The request aims to access a resource on the server. \cite{IBM2021}.} that is sent to the server. \\ 
 		\hline
 	\end{tabularx}
 \end{table}
 
-Every interaction the user has with the user interface of the device to the software system can be seen as an event triggered by the user. Most of these events won't have a meaningful impact as they won't fulfil \ref{fr:requirementsUserBased2} and \ref{fr:requirementsUserBased4} in \Cref{tbl:ch2_requirementsForUserActivtyEvent}.\par For the user activity event to meet the requirement of \ref{fr:requirementsUserBased2} it has to have defined cases that describe the activity type of each event. These activity types form the basic criteria for which events can be parsed which significantly reduces the number of logs that will be obtained. This will ensure that the event logging process will produce quality user-based logs as discussed in \Cref{sec:ch1_loggingQuality}:
+Every interaction the user has with the user interface of the device to the software system can be seen as an event triggered by the user. Most of these events will not have a meaningful impact as they will not fulfil \ref{fr:requirementsUserBased2} and \ref{fr:requirementsUserBased4} in \Cref{tbl:ch2_requirementsForUserActivtyEvent}.\par For the user activity event to meet the requirement of \ref{fr:requirementsUserBased2} it has to have defined cases that describe the activity type of each event. These activity types form the basic criteria for which events can be parsed, which significantly reduces the number of logs that will be obtained. This will ensure that the event logging process will produce quality user-based logs as discussed in \Cref{sec:ch1_loggingQuality}:
 
 \begin{itemize}
 	\item A basic structural complexity to simplify log parsing and development of the logging points in the system,
@@ -124,7 +124,7 @@ Every interaction the user has with the user interface of the device to the soft
 \end{itemize}
 
 \subsubsection{User activity types}\label{sec:ch2_userActivityTypes}
-The user activity types (\ref{fr:userActReq}) categorise different user-based event logs when they are obtained before other log attributes are completely defined. In \Cref{tbl:ch2_userActivityTypes} is the basic user activity types functional requirements.
+The user activity types (\ref{fr:userActReq}) categorise different user-based event logs when they are obtained before other log attributes are fully defined. In \Cref{tbl:ch2_userActivityTypes} is the functional requirements of the basic user activity types.
 
 \clearpage
 
@@ -139,11 +139,11 @@ The user activity types (\ref{fr:userActReq}) categorise different user-based ev
 		\hline \subsubphase{fr:uatType1} & Web page accessed & The user may navigate through different web pages in a session. This is to track when the user initially accessed a certain web page or software system on the page.\\
 		\hline \subsubphase{fr:uatType2} & Session changes & This is any user activities excluding \ref{fr:uatType1} that modifies the user's session:
 		\begin{itemize}
-			\item Logging into a Web application. Both Successful and failed attempted logins. This user-based activity may cause the log attributes that identify the user will be a \texttt{NULL} value as the user's session has not started yet to verify their identity,
+			\item Logging into a Web application. Both Successful and failed attempted log-ins. This user-based activity may cause the log attributes that identify the user will be a \texttt{NULL} value as the user's session has not started yet to verify their identity,
 			\item Ending their session by logging out or declining to extend their session when it is about to expire,
 			\item Modifying any session or other relevant variables that can be used in the utilisation analysis
 		\end{itemize}\\
-		\hline \subsubphase{fr:uatType3} & General activity & Any events excluding the first two user-based activity types that the user initiates when they interact with the web page. Most of the user activity logs will
+		\hline \subsubphase{fr:uatType3} & General activity & Any events excluding the first two user-based activity types that the user initiates when they interact with the web page. Most user activity logs will
 		have this event type.\\ 
 		\hline
 	\end{tabularx}
