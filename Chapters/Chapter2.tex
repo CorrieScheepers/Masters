@@ -7,48 +7,44 @@
 
  \begin{figure}[!htb]
 	\centering % cent the figure
-	\includegraphics[width=0.8\textwidth]{img/Chapter2/systemOverview/systemOverview.pdf}
+	\includegraphics[width=0.9\textwidth]{img/Chapter2/systemOverview/systemOverview.pdf}
 	\caption[Basic design of a software system]
 	{\textit{Basic design of a software system}}\label{fig:ch2_webSystemBasic}
 \end{figure}
  
  In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with different systems. These systems can be different pages or sections of the website and can be further divided into subsystems. \par In \Cref{sec:ch2_loggingMechanism} the methodology to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:sec_system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance by using various tools visualisation tools or creating them based on the available log attributes. In \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user-based event logs.
 
- \begin{figure}[!htb]
-	 \centering % cent the figure
-	 \includegraphics[width=0.7\textwidth]{Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
-	 \caption[Logging mechanism basic system design]
-	 {\textit{Logging mechanism basic system design}}\label{fig:ch2_systemDesign}
- \end{figure}
- 
- In \Cref{fig:ch2_systemDesign} is the basic system design of the logging mechanism. This design provides a high-level overview of the interaction the user has with the software system to create a user-based event log. The two sides of the design in \Cref{fig:ch2_systemDesign}:
- 
- \begin{itemize}
-	 \item \textbf{Client} side which involves the user, the device the user uses to access the website and the user-generated event. The user interacts with the website, this creates a user event that can be captured. 
-	 \item \textbf{Server} side which has the rest of user activity logging software that consists of multiple or a single logging point. The user activity logger interacts with a structured database to store the captured log created from all the captured log attributes.
- \end{itemize}
+ \clearpage
 
 \section{Development of solution}\label{sec:ch2_developementOfSolution}
-In \Cref{sec:ch1_objectives} the objectives of the study are divided into two main parts that need to be implemented to solve the identified problem. The logging mechanism and log analysis of the logs obtained. A basic system design can be made for the logging mechanism. 
+For this study, the development of the solution consists of four main parts:
 
-The two main parts are to create a logging mechanism to capture user-based activity logs and log analysis to prioritise software maintenance of the study objectives in \Cref{sec:ch1_objectives} is illustrated in \Cref{fig:ch2_developmentOfSolution}.
+\begin{itemize}
+	\item \textit{Investigate} use methods in literature or create new methods for a logging mechanism and maintenance prioritisation log analysis.
+	\item \textit{Design} a logging mechanism to be able to make software prioritisation log analysis.
+	\item \textit{Verify} if the solution can meet the design specifications.
+	\item \textit{Implement} the solution on case studies evaluate the obtained results.
+\end{itemize}
 
-\clearpage
+In \Cref{fig:ch2_developmentOfSolution} these four development of solution parts are described.
 
 \begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.95\textwidth]{img/Chapter2/developmentOfSolution/developementOfSolution.pdf}
-	\caption[Development of solution overview]
-	{\textit{Development of solution overview}}\label{fig:ch2_developmentOfSolution}
+	\caption[Development of solution]
+	{\textit{Development of solution}}\label{fig:ch2_developmentOfSolution}
 \end{figure}
 
-\Cref{fig:ch2_developmentOfSolution} is a high-level overview of the development of the solution. Each of the main development steps is to create the logging mechanism to do a log analysis for software maintenance prioritising. These main development steps will be further discussed in detail and in \Cref{tbl:ch2_developmenetRequirements} is the summary of each of the main functional development requirements.
+\clearpage
+
+\section{Investigate}
+In this section, the functional requirements will be created for the logging mechanism and software maintenance prioritisation. In \Cref{tbl:ch2_developmenetRequirements} is the summary of each of the main functional development requirements created from the investigate part of \Cref{fig:ch2_developmentOfSolution}.
 
 \setcounter{phase}{0}
 \begin{table}[!htb]
 	\centering
-	\caption[Development of solution functional requirements]
-	{\textit{Development of solution functional requirements}}
+	\caption[Functional requirements of the solution]
+	{\textit{Functional requirements of the solution}}
 	\label{tbl:ch2_developmenetRequirements}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule

@@ -347,3 +347,19 @@ Most Web applications will make of use JavaScript to control the content of the 
 	\item \textbf{Problem statement:} Software maintenance is a problem in the industry due to how inefficiently developers prioritise maintenance activities. A proven method to monitor software behaviours is logging. The need for study emphasised that the logging mechanism and log analysis to improve software maintenance needs to be explicitly designed for user-based events.
 	\item \textbf{Gap identification:} Software maintenance is an important stage in most software development. Implementing it efficiently with the available resources that organisations or individuals have is beneficial. Assisting developers to make better-informed decisions on which systems to prioritise maintenance is a validated gap by identifying the problems that need to be resolved.
 \end{enumerate}
+
+
+
+\begin{figure}[!htb]
+	\centering % cent the figure
+	\includegraphics[width=0.7\textwidth]{Chapter2/SystemA_Architecture_Diagram/SystemA_Architecture_Diagram.pdf}
+	\caption[Logging mechanism basic system design]
+	{\textit{Logging mechanism basic system design}}\label{fig:ch2_systemDesign}
+\end{figure}
+
+In \Cref{fig:ch2_systemDesign} is the basic system design of the logging mechanism. This design provides a high-level overview of the interaction the user has with the software system to create a user-based event log. The two sides of the design in \Cref{fig:ch2_systemDesign}:
+
+\begin{itemize}
+	\item \textbf{Client} side which involves the user, the device the user uses to access the website and the user-generated event. The user interacts with the website, this creates a user event that can be captured. 
+	\item \textbf{Server} side which has the rest of user activity logging software that consists of multiple or a single logging point. The user activity logger interacts with a structured database to store the captured log created from all the captured log attributes.
+\end{itemize}
