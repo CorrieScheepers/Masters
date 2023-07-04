@@ -163,7 +163,7 @@ The user activity types (\ref{fr:userActReq}) categorise different user-based ev
 	\end{tabularx}
 \end{table}
 
-The general user activity event type (\ref{fr:uatType3}) will the be most common user activity event and be split up into different user activity events. This is determined by the need of what utilisation stage requires to analyse specific user activity events. \par These user activity types can be further expanded with the general activity (\ref{fr:uatType3}) for log analysis purposes. The general activity types will be different for each system based on what the system enables the user to do or what is needed for further system utilisation analysis such as determining if the action the user triggered was to generate a report that they downloaded.
+The general type of user activity event (\ref{fr:uatType3}) will be the most common user activity event and will be split up into different user activity events. This is determined by the need of what utilisation stage to analyse specific user activity events. \par These user activity types can be further expanded with the general activity (\ref{fr:uatType3}) for log analysis purposes. The general activity types will be different for each system based on what the system enables the user to do or what is needed for further system utilisation analysis, such as determining if the action the user triggered was to generate a report that they downloaded.
 
 \subsubsection{Log attributes}\label{sec:ch2_logAttributes}
 The log attributes (\ref{fr:subLogAttributes}) are the descriptive characteristics of the user-based event logs. The functional requirements for the log attributes are defined in \Cref{tbl:ch2_keyLoggingAttributes}.
@@ -179,16 +179,16 @@ The log attributes (\ref{fr:subLogAttributes}) are the descriptive characteristi
 	\begin{tabularx}{\textwidth}{|l|l|X|}
 		\hline \textbf{Requirement ID} & \textbf{Logging point} & \textbf{Description} \\
 		\hline \subsubphase{fr:lpa1} & Identification number & The activity identification is an incremental number of the user-based event that is logged.\\
-		\hline \subsubphase{fr:lpa2} & Timestamp & This is the time the user initiated the user-based activity event. This will be the timestamp the log was written into the database as the log will be made before the rest of the intended \textit{HTTP request} is completed. \\
+		\hline \subsubphase{fr:lpa2} & Timestamp & This is the time the user initiated the user-based activity event. This will be the timestamp from which the log was written into the database, as the log will be made before the rest of the intended \textit{HTTP request} is completed. \\
 		\hline \subsubphase{fr:lpa3} & Activity type & Each event can be classified into user-based types. This is the user-based activity types in \Cref{tbl:ch2_userActivityTypes}.\\
 		\hline \subsubphase{fr:lpa4} & User identification & Each user has a unique identification number that links the event to them if their session has been verified and can be obtained. Will not be available when the user tries to log in to the system as their session has not been set yet. \\
-		\hline \subsubphase{fr:lpa5} & Request origin & In web applications, there are always requests sent back to the server which will call the primary function to handle the request. This can be logged as either the file that the request is being sent to or the Web page from which the request came. \\
+		\hline \subsubphase{fr:lpa5} & Request origin & In web applications, there are always requests sent back to the server, which will call the primary function to handle the request. This can be logged as either the file that the request is sent or the Web page from which the request came. \\
 		\hline \subsubphase{fr:lpa6} & Metadata & The metadata of the event contains request parameters or other relevant request data of the event. This metadata adds more information about the user's activity. Some of the event types may not have metadata added. \\
-		\hline \subsubphase{fr:lpa7} & Miscellaneous & These are any non-metadata attributes that can be consistently captured to be used in the utilisation analysis. They expand the characteristics of the obtained user-based log beyond the base attributes. \\ \hline
+		\hline \subsubphase{fr:lpa7} & Miscellaneous & These are any non-metadata attributes that can be consistently captured to be used in the use analysis. They expand the characteristics of the log obtained from the user beyond the base attributes. \\ \hline
 	\end{tabularx}
 \end{table}
 
-The defined logging attributes in \Cref{tbl:ch2_keyLoggingAttributes} are the base attributes that form part of the main structure of the user-based event log. For web-based applications on the client side, only some of these attributes can be obtained as the rest of the attributes can be resolved on the server side. The metadata (\ref{fr:lpa6}) can consist of the request parameters that are obtainable on the server side but any additional captured data can be added and sent to the server.
+The logging attributes defined in \Cref{tbl:ch2_keyLoggingAttributes} are the base attributes that form part of the main structure of the user-based event log. For web-based applications on the client side, only some of these attributes can be obtained as the rest of the attributes can be resolved on the server side. The metadata (\ref{fr:lpa6}) can consist of the request parameters that are available on the server side but any additional captured data can be added and sent to the server.
 
 \clearpage
 
