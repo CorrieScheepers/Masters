@@ -122,34 +122,42 @@ The user is the initiator of the logging mechanism. Each action or event that th
 
 \setcounter{phase}{1}
 \setcounter{subphase}{1}
-\begin{table}[!htb]
-	\centering
-	\caption[Requirements for an event to be a user-based activity]
-	{\textit{Requirements for an event to be a user-based activity}}
-	\label{tbl:ch2_requirementsForUserActivtyEvent}
-	\begin{tabularx}{\textwidth}{lX}
-		\toprule
-		\thead{Requirement ID} & \thead{Description}\\
-		\midrule
+\begin{xltabular}{\textwidth}{lX}
+	\caption[Requirements for an event to be a user-based activity]{\textit{Requirements for an event to be a user-based activity}}\label{tbl:ch2_requirementsForUserActivtyEvent}
+	\toprule
+	\thead{Requirement ID} & \thead{Description}\\
+	\midrule
+	\endfirsthead
 
-		\rowcolor{lightgray}
-		\subsubphase{fr:requirementsUserBased1} & The event has to be triggered by the user interacting with the user interface using their device and not any other events that the system will self-initiate. The user needs to have interacted directly with the UI. This can also be validated by tracking whether the user did interact with the UI of the HTML element ids. \\
+	\multicolumn{2}{c}
+	{\tablename\ \thetable{} -- continued from previous page} \\
+	\midrule
+	\thead{Requirement ID} & \thead{Description}\\
+	\midrule
+	\endhead
 
+	\midrule
+	\multicolumn{2}{r}{{Continued on next page}} \\ 
+	\midrule
+	\endfoot
+	\endlastfoot
 
-		\subsubphase{fr:requirementsUserBased2} & The event must consist of different cases ($ca~\epsilon~CA$ the cases consist of events) which are noteworthy to make the event log identifiable \cite{Slaninova2014}. \\
+	\rowcolor{lightgray}
+	\subsubphase{fr:requirementsUserBased1} & The event has to be triggered by the user interacting with the user interface using their device and not any other events that the system will self-initiate. The user needs to have interacted directly with the UI. This can also be validated by tracking whether the user did interact with the UI of the HTML element ids. \\
 
-		\rowcolor{lightgray}
-		\subsubphase{fr:requirementsUserBased3} & For certain types of event logs for \ref{fr:requirementsUserBased2}, the user-generated event should have an origin from which the event took place. \\
+	\subsubphase{fr:requirementsUserBased2} & The event must consist of different cases ($ca~\epsilon~CA$ the cases consist of events) which are noteworthy to make the event log identifiable \cite{Slaninova2014}. \\
 
-		\subsubphase{fr:requirementsUserBased4} & The event log should consist of attributes that expand the identity of the user-based activity. \\
+	\rowcolor{lightgray}
+	\subsubphase{fr:requirementsUserBased3} & For certain types of event logs for \ref{fr:requirementsUserBased2}, the user-generated event should have an origin from which the event took place. \\
 
-		\rowcolor{lightgray}
-		\subsubphase{fr:requirementsUserBased5} & The event must have the user as the initiator or input for the user-based activity. This will exclude all events triggered by the system, as the user did not directly start the event. \\
-		
-		\subsubphase{fr:requirementsUserBased6} & Only use the first \textit{HTTP requests}\footnote{A \textbf{HTTP request} is made by a client, to a named host, which is located on a server. The request aims to access a resource on the server. \cite{IBM2021}.} that is sent to the server. \\ 
-		\bottomrule
-	\end{tabularx}
-\end{table}
+	\subsubphase{fr:requirementsUserBased4} & The event log should consist of attributes that expand the identity of the user-based activity. \\
+
+	\rowcolor{lightgray}
+	\subsubphase{fr:requirementsUserBased5} & The event must have the user as the initiator or input for the user-based activity. This will exclude all events triggered by the system, as the user did not directly start the event. \\
+	
+	\subsubphase{fr:requirementsUserBased6} & Only use the first \textit{HTTP requests}\footnote{A \textbf{HTTP request} is made by a client, to a named host, which is located on a server. The request aims to access a resource on the server. \cite{IBM2021}.} that is sent to the server. \\ 
+	\bottomrule
+\end{xltabular}
 
 Every interaction the user has with the user interface of the device to the software system can be seen as an event triggered by the user. Most of these events will not have a meaningful impact as they will not fulfil \ref{fr:requirementsUserBased2} and \ref{fr:requirementsUserBased4} in \Cref{tbl:ch2_requirementsForUserActivtyEvent}.\par For the user activity event to meet the requirement of \ref{fr:requirementsUserBased2} it has to have defined cases that describe the activity type of each event. These activity types form the basic criteria for which events can be parsed, which significantly reduces the number of logs that will be obtained. This will ensure that the event logging process will produce quality user-based logs as discussed in \Cref{sec:ch1_loggingQuality}:
 

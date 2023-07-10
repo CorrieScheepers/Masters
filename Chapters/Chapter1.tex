@@ -5,7 +5,7 @@
 \section{Background}\label{section:ch1_background}
 In the modern era, most businesses use digital products and services to maximise their profits \cite{Gralha2018}. This increases the need to create new, innovative software systems to meet the specific needs of users. Software projects can vary in size, type, and degree of difficulty of implementation. Therefore, the quality of software is crucial \cite{Khan2013}. There are defined attributes and characteristics that software systems need to adhere to, which are referred to as software quality \cite{Khan2013}.\par Using a System Development Life Cycle (SDLC) methodology, such as the Agile Software Development methodology, is crucial to making the software development process efficient and predictable. This enforces various degrees of discipline in the software development process to ensure that the quality of the software is acceptable for the user's requirements \cite{Khan2013, Al-Saiyd2015}. Table \ref{tbl:ch1_SDLC} lists the Life-Cycle Phases (LCP) of the SDLCs.
 
-\begin{xltabular}{\textwidth}{p{3cm}X}
+\begin{xltabular}{\textwidth}{p{4cm}X}
 	\caption[System Development Life Cycle Phases]
 	{\textit{System Development Life Cycle Phases \cite{Khan2013, DOJ2003}}}
 	\label{tbl:ch1_SDLC} \\
@@ -29,7 +29,7 @@ In the modern era, most businesses use digital products and services to maximise
 	\endlastfoot
 
     \rowcolor{lightgray}
-	Initiation & \raggedright The sponsor identifies a need or an opportunity, creating a concept proposal for the new opportunity. This new opportunity will require a software solution to make the project successful for all stakeholders. \\ 
+	Initiation & \RaggedRight The sponsor identifies a need or an opportunity, creating a concept proposal for the new opportunity. This new opportunity will require a software solution to make the project successful for all stakeholders. \\ 
  
 	System Concept Development Phase & \RaggedRight In this phase, the feasibility and suitability of the concept proposal are reviewed and need approval. The Systems Boundary Document identifies the scope and requires additional approval before implementing the planning phases. \\ 
  
@@ -38,17 +38,17 @@ In the modern era, most businesses use digital products and services to maximise
  
 	Requirements Analysis & \RaggedRight In this phase, user requirements are defined and analysed. The functional requirements are created with the Functional Requirement Document. Non-functional requirements are also defined to ensure that the software system operations will not deviate from working within the non-functional specifications. These nonfunctional requirements can be negative and costly to the software system's operations and potentially reduce its usability or life cycle. \\ 
 
-        \rowcolor{lightgray}
+	\rowcolor{lightgray}
 	Design & \RaggedRight In this stage, the detailed requirements are completed in the System Design Document, which describes the detailed logic specifications of the software system. \\ 
  
 	Development & \RaggedRight In this phase, the design specifications are converted into an executable software system. This also includes acquiring other third-party or internal software to install in certain software environments, creating and testing databases, performing test readiness reviews, and other software development activities. \\
 
-        \rowcolor{lightgray}
+    \rowcolor{lightgray}
 	Integration and Test & \RaggedRight In this phase, the software systems are integrated and systematically tested to examine whether they meet all functional requirements and other accreditation activities for the approval of the test and the approval of the user using user tests. \\ 
 
 	Implementation & \RaggedRight This phase is initiated after the software systems pass the testing phase and are accepted by the users. This phase contains the implementation of the software system in a production environment and the deployment of the production version of the software. This phase continues until the software systems are operational in a final production environment. \\
 
-        \rowcolor{lightgray}
+    \rowcolor{lightgray}
 	Operations and Maintenance & \RaggedRight In this phase, the performance of the software system is continuously monitored according to the defined user requirements. Any additional modifications after the initial software development are done here, and other tasks are needed to maintain the software system. Post-Implementation and In-Process Reviews for the software system form part of the documentation for this LCP. \\ 
  
 	Disposition & \RaggedRight This phase is for any disposition activities to terminate the software system properly. Important data are also preserved to reactivate the software system in the future. Any other termination policies and activities should be defined and documented. This ensures that the termination of the software system is performed correctly and completed and that the correct data are permanently removed or preserved. \\
@@ -122,13 +122,22 @@ Maintenance problems or modifications are regularly identified and addressed bas
 	\caption[Software maintenance types]
 	{\textit{Software maintenance types \cite{Ping2010,Hasan2012}}}
 	\label{tbl:ch1_maintenanceTypes}
-	\begin{tabularx}{\textwidth}{|c|X|c|}
-		\hline
-		\textbf{Maintenance type} & \textbf{Description} & \textbf{$\%$ of maintenance activities} \\ \hline
-		Adaptive & \raggedright Adaptive maintenance in software systems is any modification or enhancements to keep it usable with a changing or changed software environment. & $\approx 37.5\%$ \\ \hline
-		Perfective & \raggedright Perfective maintenance based are modifications made based on the change of the end-user new requirements. It can also improve the performance or maintainability of the software system in its life cycle. & $\approx 37.5\%$ \\ \hline
-		Corrective & \raggedright Corrective maintenance are improvements made to fix certain defects or errors in a software system. & $\approx 20\%$ \\ \hline
-		Preventive & \raggedright  Preventive maintenance are improvements made to software systems that prevent problems in the future. & $\approx 5\%$ \\ \hline
+	\begin{tabularx}{\textwidth}{cXc}
+		\toprule
+		\thead{Maintenance type} & \thead{Description} & \thead{$\%$ of maintenance activities} \\ 
+		\midrule
+
+		\rowcolor{lightgray}
+		Adaptive & \raggedright Adaptive maintenance in software systems is any modification or enhancements to keep it usable with a changing or changed software environment. & $\approx 37.5\%$ \\ 
+
+		Perfective & \raggedright Perfective maintenance based are modifications made based on the change of the end-user new requirements. It can also improve the performance or maintainability of the software system in its life cycle. & $\approx 37.5\%$ \\ 
+		
+		\rowcolor{lightgray}
+		Corrective & \raggedright Corrective maintenance are improvements made to fix certain defects or errors in a software system. & $\approx 20\%$ \\ 
+
+		\rowcolor{lightgray}
+		Preventive & \raggedright  Preventive maintenance are improvements made to software systems that prevent problems in the future. & $\approx 5\%$ \\ 
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
@@ -201,34 +210,44 @@ As described in \Cref{sec:ch1_maintenanceModel}, a tracking method is needed to 
 
 Event logs are used mainly for event reporting to support debugging and system integration activities to reduce the amount of code that needs to be inspected \cite{Baccanico2014}. \Cref{tbl:ch1_eventLogsUsage} is the most common use of event logging in the industry is described.
 
-\begin{xltabular}{\textwidth}{|l|X|}
+\begin{xltabular}{\textwidth}{p{3cm}X}
 	\caption[Event logs usage]
 	{\textit{Event logs usage}}
 	\label{tbl:ch1_eventLogsUsage} \\
-    
-	\hline
-	\textbf{Usage} & \textbf{Description} \\
-	\hline
+	\toprule
+	\thead{Usage} & \thead{Description} \\
+	\midrule
 	\endfirsthead
 
 	\multicolumn{2}{c}%
 	{\tablename\ \thetable{} -- continued from previous page} \\
-	\hline
-	\textbf{Usage} & \textbf{Description} \\
+	\midrule
+	\thead{Usage} & \thead{Description} \\
+	\midrule
 	\endhead
 
-	\multicolumn{2}{|r|}{{Continued on next page}} \\ \hline
+	\midrule
+	\multicolumn{2}{r}{{Continued on next page}} \\ 
+	\midrule
 	\endfoot
-
-	\hline
 	\endlastfoot
 
-		\hline Debugging of software systems and services & \RaggedRight Event logging is used mainly to record events or behaviours of software systems or services during its runtime \cite{Rong2018a}. \\
-		\hline Anomaly detection & \RaggedRight Event logs can detect any abnormal system behaviour using an anomalous detection algorithm using log data \cite{Gurumdimma2016}. This can also be used to find potential vulnerabilities or to predict defects in the software environment \cite{Dwyer2013}. \\
-        \hline Performance diagnosis & \RaggedRight Software performance is important to produce quality software for the end user \cite{EvangelinGeetha2007, Baccanico2014}. This is also important to make informed decisions about the improvement of the software system or service to improve performance and other financial and resource implications\par This type of performance event log of software systems or services is used to monitor the software system, which is useful for resource tuning, load balancing, and checking the scalability of the system throughout the life cycle of the software system or service \cite{Song2017}. \\ 
-		\hline Auditing & \RaggedRight In a software environment, significant changes in database data may need to be recorded for audit purposes \cite{Rong2018a}. All establishments and enterprises must ensure that compliance with industry regulations is met with their software systems by adding audit logs. They are also legally bound to have audit logs to provide legal evidence for any legal investigation or administrative tasks to maintain accountability. \\
-		\hline Error and failure analysis & \RaggedRight Event logs are used to analyse the failure behaviours of software systems that allow software engineers or developers to understand the failure modes of the system, find the root cause of these failures, prevent them and improve the reliability of future versions of the system \cite{Cinque2013}.\\
-		\hline Analysis of security alerts & \RaggedRight In any software environment or information technology infrastructure, security is a major concern for any organisation \cite{Pathan2014, Dwyer2013}. It is important to know the overall security status of the software system. \\
+	\rowcolor{lightgray}
+	\RaggedRight Debugging of software systems and services & \RaggedRight Event logging is used mainly to record events or behaviours of software systems or services during its runtime \cite{Rong2018a}. \\
+
+	Anomaly detection & \RaggedRight Event logs can detect any abnormal system behaviour using an anomalous detection algorithm using log data \cite{Gurumdimma2016}. This can also be used to find potential vulnerabilities or to predict defects in the software environment \cite{Dwyer2013}. \\
+
+	\rowcolor{lightgray}
+	Performance diagnosis & \RaggedRight Software performance is important to produce quality software for the end user \cite{EvangelinGeetha2007, Baccanico2014}. This is also important to make informed decisions about the improvement of the software system or service to improve performance and other financial and resource implications\par This type of performance event log of software systems or services is used to monitor the software system, which is useful for resource tuning, load balancing, and checking the scalability of the system throughout the life cycle of the software system or service \cite{Song2017}. \\
+	
+	Auditing & \RaggedRight In a software environment, significant changes in database data may need to be recorded for audit purposes \cite{Rong2018a}. All establishments and enterprises must ensure that compliance with industry regulations is met with their software systems by adding audit logs. They are also legally bound to have audit logs to provide legal evidence for any legal investigation or administrative tasks to maintain accountability. \\
+
+	\rowcolor{lightgray}
+	Error and failure analysis & \RaggedRight Event logs are used to analyse the failure behaviours of software systems that allow software engineers or developers to understand the failure of the system, find the root cause of these failures, prevent them and improve the reliability of future versions of the system \cite{Cinque2013}.\\
+
+
+	Analysis of security alerts & \RaggedRight In any software environment or information technology infrastructure, security is a major concern for any organisation \cite{Pathan2014, Dwyer2013}. It is important to know the overall security status of the software system. \\
+	\bottomrule
 \end{xltabular}
 
 \paragraph{Logging practise in software development}\label{sec:ch1_loggingPractice}\leavevmode\\
@@ -248,8 +267,6 @@ Logging guides can give examples and suggestions on where to place the log point
 
 To answer these two questions, the event log has to meet specific log quality requirements. This ensures that the created logs are correct and consistent when extracted and viewed. 
 
-\clearpage
-
 \subsubsection{Logging quality}\label{sec:ch1_loggingQuality}
 
 Software engineers and developers must make informed logging decisions for event logging. These decisions may negatively affect the software system's run-time operations and the event logging efficiency \cite{Zhu2015, Zhu2019, Kherbouche2017}. An event log quality model can be defined in \Cref{fig:ch1_EventQModel} to ensure that the event logs have consistent integrity when capturing the event log data.
@@ -261,6 +278,8 @@ Software engineers and developers must make informed logging decisions for event
 	{\textit{The event log quality model \cite{Kherbouche2017}}} \label{fig:ch1_EventQModel}
 \end{figure}
 
+\clearpage
+
 The event log quality model in \Cref{fig:ch1_EventQModel} consists of four different levels to define each property of the event log quality model:
 
 \begin{itemize}
@@ -270,8 +289,6 @@ The event log quality model in \Cref{fig:ch1_EventQModel} consists of four diffe
 	\item Measurement level, which should be defined in the design process of the logging mechanism to achieve the attributes and dimension levels.
 \end{itemize}
 
-\clearpage
-
 \begin{itemize}
 	\item \textbf{Accuracy of event logging}\par It can become difficult to record every event in a software system as these systems will become larger and more complex during their development life cycle \cite{Stojanov2017}. Precisely capturing certain events that need to be logged must be consistent to ensure that the data are trustworthy and reliable. The log attributes of the event log also need to be precisely captured for each event log and should be correct.\par Capturing more event logs does not guarantee that the accuracy of the event log is acceptable, as the log's attributes can be incorrect or cause duplicated event logs if the data is the same in a sequence of event logs. In \Cref{tbl:ch1_loggingTooMuch} are the common problems associated with mucAccuracyg.
 
@@ -280,12 +297,19 @@ The event log quality model in \Cref{fig:ch1_EventQModel} consists of four diffe
 		\caption[Problems with too much logging]
 		{\textit{Problems with too much logging \cite{Zhu2015}}}
 		\label{tbl:ch1_loggingTooMuch}
-		\begin{tabularx}{\linewidth}{|l|X|}
-			\hline \textbf{Problem}  & \textbf{Description} \\
-			\hline \textbf{Excess code} & Adding multiple logging points may incrAccuracy code added to the software system to capture the event logs. The code may take some time to write and maintain. This can increase the structural and behavioural complexity of the code throughout its life cycle. \\
-			\hline \textbf{System resource impact} & With the additional code needed to capture the logs, the usage of system resources, such as CPU and I / O channels, will increase. This may negatively impact the performance of existing system operations or increase the cost to keep the system at the same operation speed by increasing the system resources.\\
-			\hline \textbf{Unusable logs} & Adding numerous logging points or logging too much at points can produce numerous trivial or useless logs that will not improve the analysis of system utilisation. When implementing the system utilisation analysis stage, the logs might need to be filtered more or modified to be more meaningful, as much as $70\%$ of the logs may be irrelevant \cite{Fedaghi2010}. \par The software engineers and developers write the logs and can sometimes be irrelevant to other managers or system administrators when implementing a log analysis report on the logs. More event logs can have missing or incomplete logging attributes due to the excessive logging points added. The increase in the behavioural complexity of the log can impact the decisions made to improve software maintenance. \\
-			\hline
+		\begin{tabularx}{\linewidth}{p{3cm}X}
+			\toprule 
+			\thead{Problem}  & \thead{Description} \\
+			\midrule
+
+			\rowcolor{lightgray}
+			Excess code & Adding multiple logging points may incrAccuracy code added to the software system to capture the event logs. The code may take some time to write and maintain. This can increase the structural and behavioural complexity of the code throughout its life cycle. \\
+
+			System resource impact & With the additional code needed to capture the logs, the usage of system resources, such as CPU and I / O channels, will increase. This may negatively impact the performance of existing system operations or increase the cost to keep the system at the same operation speed by increasing the system resources.\\
+
+			\rowcolor{lightgray}
+			Unusable logs & Adding numerous logging points or logging too much at points can produce numerous trivial or useless logs that will not improve the analysis of system utilisation. When implementing the system utilisation analysis stage, the logs might need to be filtered more or modified to be more meaningful, as much as $70\%$ of the logs may be irrelevant \cite{Fedaghi2010}. \par The software engineers and developers write the logs and can sometimes be irrelevant to other managers or system administrators when implementing a log analysis report on the logs. More event logs can have missing or incomplete logging attributes due to the excessive logging points added. The increase in the behavioural complexity of the log can impact the decisions made to improve software maintenance. \\
+			\bottomrule
 		\end{tabularx}
 	\end{table}
 
@@ -323,14 +347,24 @@ Before the logs can be parsed to a structured data set, the key attributes that 
 	\caption[Basic log event attributes]
 	{\textit{Basic log event attributes \cite{Bekeneva2020}}}
 	\label{tbl:ch1_logBasicAttributes}
-	\begin{tabularx}{\textwidth}{|c|X|}
-		\hline \textbf{Attribute} & \textbf{Description} \\
-		\hline Case number & Unique identifiers for each log event. This is usually the primary identifier for the log event. \\
-		\hline Timestamp & The time and date that the log event occurred. This is part of identifying the order of events or traces along with the case number of the event log \cite{Kherbouche2017}. \\
-		\hline Event type & Each log event can be grouped with other log events with similar actions. These event-type attribute needs to be classified based on a state change, failure to execute an instruction, or due to an occurrence of activity like the availability of service \cite{Fedaghi2010}. \par The event type is usually also the log level. The log level in event logging reflects the severity of the event log \cite{Rong2020}. An event of interest may have different log levels, making it easier to capture certain events in which software engineers and developers are interested.\\
-		\hline Originator & The origin of the event in the software system. This can be parts of the software that performs the event action or was the cause for the event to be initiated by another part of the software. \\
-		\hline Other metadata & This is any other relevant information that can be used as the event log's attribute that further expands the information of the log event. This can be one extra field or many other individual attribute fields.\\
-		\hline
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule 
+		\thead{Attribute} & \thead{Description} \\
+		\midrule
+
+		\rowcolor{lightgray}
+		Case number & Unique identifiers for each log event. This is usually the primary identifier for the log event. \\
+
+		Timestamp & The time and date that the log event occurred. This is part of identifying the order of events or traces along with the case number of the event log \cite{Kherbouche2017}. \\
+
+		\rowcolor{lightgray}
+		Event type & Each log event can be grouped with other log events with similar actions. These event-type attribute needs to be classified based on a state change, failure to execute an instruction, or due to an occurrence of activity like the availability of service \cite{Fedaghi2010}. \par The event type is usually also the log level. The log level in event logging reflects the severity of the event log \cite{Rong2020}. An event of interest may have different log levels, making it easier to capture certain events in which software engineers and developers are interested.\\
+
+		Originator & The origin of the event in the software system. This can be parts of the software that performs the event action or was the cause for the event to be initiated by another part of the software. \\
+
+		\rowcolor{lightgray}
+		Other metadata & This is any other relevant information that can be used as the event log's attribute that further expands the information of the log event. This can be one extra field or many other individual attribute fields.\\
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
@@ -338,6 +372,8 @@ These attributes make it possible to mine and analyse the logs based on their at
 
 \paragraph{Log points}\leavevmode\\
 The sources of the log-event assist in determining where the event took place. For event logs, it is essential to try to recreate scenarios or actions based on the relevant parts of the software system that participated in the event action.\par Other metadata can increase the quality of the logthe log by providing additional information about the executed software instructions. These attributes add more information that can be used to recreate the scenario or action that may be unique parameters or other events that participated in the event log.\par Obtaining the attributes in \Cref{tbl:ch1_logBasicAttributes}, an instruction generates the log and parses it onto a data set. These log instructions are called logging points in the software environment \cite{Pecchia2015, Zhu2015}. They can be any instruction, such as a print function that displays the information for the user to more complex processes or libraries that third-party developers can create. In \Cref{fig:ch1_logParsing} is an example of a logging point parsing a log message in a structured log. 
+
+\clearpage
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -360,17 +396,22 @@ In Web-based applications, the process to get usage statistics and user behaviou
 	\caption[Web analytic for user-based data]
 	{\textit{Web analytic for user-based data}}
 	\label{tbl:ch1_webAnalytics}
-	\begin{tabularx}{\textwidth}{|l|X|}
-		\hline \textbf{Analytic}  & \textbf{Description} \\
-		\hline \textbf{Identity of the user} & This is any information about the user's identity in the software system. Users can have different roles when using the software system, such as a system admin or general user. These roles mostly dictated what the user could access and do on a website. \\
-		\hline \textbf{Site interaction} & The different Web sites the user is accessing during their active Web session. This would also contain all the information about the following: 
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule 
+		\thead{Analytic}  & \thead{Description} \\
+		\midrule
+
+		\rowcolor{lightgray}
+		Identity of the user & This is any information about the user's identity in the software system. Users can have different roles when using the software system, such as a system admin or general user. These roles mostly dictated what the user could access and do on a website. \\
+
+		Site interaction & The different Web sites the user is accessing during their active Web session. This would also contain all the information about the following: 
 		\begin{itemize}
 			\item how often the users visit a website,
 			\item how much time they spent on a specific website,
 			\item navigation between different web pages of the website.
 		\end{itemize}
 		\\
-		\hline
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
