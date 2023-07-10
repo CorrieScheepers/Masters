@@ -45,7 +45,7 @@
 \usepackage{textcomp}
 \usepackage{pdfpages}
 \usepackage{cprotect}
-\usepackage{ragged2e}
+%\usepackage{ragged2e}
 \usepackage{pifont}
 \usepackage{pdflscape}
 \usepackage{enumitem}
@@ -104,6 +104,9 @@
 \usepackage{listings}
 \crefname{lstlisting}{listing}{listings}
 \Crefname{lstlisting}{Listing}{Listings}
+
+%\setlength{\tabcolsep}{10pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.5} % Default value: 1
 
 \newcommand\JSONnumbervaluestyle{\color{blue}}
 \newcommand\JSONstringvaluestyle{\color{red}}
