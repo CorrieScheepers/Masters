@@ -387,6 +387,8 @@ The maintenance prioritisation factor for the user activities in the upper quart
 
 \Cref{tbl:apx_caseA} shows the results of the implementation \Cref{eq:ch2_priorityNormalised,eq:ch2_eventNormalised,eq:ch2_maintenanceFactorSimplified} to calculate the normalised priority ($P_N$), normalised activity ($A_X$), and maintenance factor ($M_{PF}$). The \Cref{tbl:apx_caseA} only contains the upper quartile subsystems of all the total subsystems of \Cref{tbl:apx_projectA_Normilised}. The results are visually presented in \Cref{fig:ch3_caseAAnalysis} collected from \Cref{tbl:apx_caseA} with the breakdown of user activity. \par In \Cref{fig:ch3_caseAAnalysis}, subsystem $S_{582}$ had the most user-generated events, with an average of $72.75$ user-generated events per user. The lower $P_N$ reduced its maintenance priority factor to the highest $4_{th}$ for all subsystems. The subsystem $S_{538}$ had the highest $5^{th}$ number of recorded user-based activities and the most users who have access to the subsystem. The higher $P_N$ had a greater impact on its maintenance performance factor. 
 
+\clearpage
+
 \subsection{Case Study B results}\label{sec:ch3_csB}
 System B is an older system than A and C that is primarily created in \texttt{PHP}. This system has the same type of user activities as System A's \Cref{tbl:ch3_systemAActivityTypes}. To capture the types of users of \Cref{tbl:ch3_systemAActivityTypes} this system used multiple logging points.\par The use of multiple logging points was to:
 
@@ -399,8 +401,6 @@ System B is an older system than A and C that is primarily created in \texttt{PH
 
 The logging points do not track any of the elements that the user interacted with the system. Only some of the request parameters are tracked for any of the user-based activities. The metadata will contain only the \texttt{RequestParameters} used in \Cref{fig:ch3_MetadataJson}. The breakdown of user activity types for this case study is shown in \Cref{fig:ch3_caseBBreakdown}.
 
-\clearpage
-
 \begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.95\linewidth]{img/ch3/analysis/case_B_breakdown.pdf}
@@ -409,6 +409,8 @@ The logging points do not track any of the elements that the user interacted wit
 \end{figure}
 
 In \Cref{fig:ch3_caseBBreakdown} the \texttt{Dash} user activity type is about $99.5\%$ of all user activities recorded. System B has fewer subsystems that require the user to interact with the web page to add data. The system mostly has web pages that display data only for the user. There were no \texttt{Report} user activity types as the users did not create reports to export from these subsystems. \Cref{fig:ch3_caseBAnalysis} is the breakdown of the user activity of each subsystem's utilisation.
+
+\clearpage
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -454,8 +456,6 @@ In \Cref{fig:ch3_caseBAnalysis} all the subsystems have the majority \texttt{Das
 
 \subsubsection{Maintenance prioritisation}
 The maintenance prioritisation factor for the user activities in the upper quartile of the subsystem for Case Study B is calculated in \Cref{tbl:apx_caseB}.
-
-\clearpage
 
 \input{Chapters/tables/caseB.tex}
 
@@ -543,17 +543,17 @@ In \Cref{fig:ch3_caseCAnalysis} the total captured user-based event logs are dom
 	\midrule
 	\endfirsthead
 
-        \multicolumn{4}{c}
-        {\tablename\ \thetable{} -- continued from previous page} \\
-        \midrule
-        \thead{Req. ID} & \thead{Description} & \thead{Achieved} & \thead{Comments} \\
-        \midrule
-        \endhead
+	\multicolumn{4}{c}
+	{\tablename\ \thetable{} -- continued from previous page} \\
+	\midrule
+	\thead{Req. ID} & \thead{Description} & \thead{Achieved} & \thead{Comments} \\
+	\midrule
+	\endhead
 
-        \midrule
-        \multicolumn{4}{r}{{Continued on next page}} \\ \midrule
-        \endfoot
-        \endlastfoot
+	\midrule
+	\multicolumn{4}{r}{{Continued on next page}} \\ \midrule
+	\endfoot
+	\endlastfoot
 
 	\rowcolor{lightgray}
 	\ref{fr:ur1} & Log availability & \cmark & \RaggedRight The log availability for Case Study C is: \begin{itemize}
@@ -570,8 +570,6 @@ In \Cref{fig:ch3_caseCAnalysis} the total captured user-based event logs are dom
 
 \subsubsection{Maintenance prioritisation}
 The maintenance prioritisation factor for the user activities in the upper quartile of the subsystem for Case Study C is calculated in \Cref{tbl:apx_caseC}.
-
-\clearpage
 
 \input{Chapters/tables/caseC.tex}
 
@@ -717,8 +715,6 @@ The gaps identified for this study by analysing the results of case studies and 
 			\item Normalised user activities ($A_N$) have a similar problem to $P_N$. There are less important user activity types, and adding weight on how important each user activity type is can improve log analysis. For Case Study C some of the similar user activity types were grouped to form one user activity type. This can be used more, or user activity types should be better defined to have more distinct user activity types.
 		\end{itemize}
 \end{enumerate}
-
-\clearpage
 
 \section{Conclusion}
 This chapter explored the implementation of the methodology defined in \Cref{chap:2} to create a logging mechanism for different case studies. A test system was used to initially verify the development of the solution before it was implemented in three different case studies.\par Log analysis was performed for all logs obtained for October 2022. The following was done for each case study:
