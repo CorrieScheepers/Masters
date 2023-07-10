@@ -115,15 +115,15 @@ The functional requirement of log attributes (\ref{fr:logAttributes}) focuses on
 	\end{tabularx}
 \end{table}
 
-\Cref{tbl:ch2_loggingAttributesFunctionalRequirements} is the first functional requirement for the development of a solution that must be defined. It is important to define and create the characteristics of an event log for a user-based event log. The rest of the logging mechanism depends on what needs to be logged as discussed in \Cref{sec:ch1_eventLogging} about the importance of what events need to log. 
+\Cref{tbl:ch2_loggingAttributesFunctionalRequirements} is the first functional requirement for the development of a solution that must be defined. It is important to define and create the characteristics of an event log for a user-based event log. The rest of the logging mechanism depends on what needs to be logged, as discussed in \Cref{sec:ch1_eventLogging} about the importance of what events need to be logged. 
 
 \subsubsection{User-based event log characteristics}\label{sec:ch2_requirementsOfUAT}
-The user is the initiator of the logging mechanism. Each action or event that they trigger by interacting with the user interface on their device can be a potential user-generated event. In \Cref{tbl:ch2_requirementsForUserActivtyEvent} are the sub-requirements for the user that the event log should fulfil to be classified as a user-based activity log.
+The user is the initiator of the logging mechanism. Each action or event that they trigger by interacting with the user interface on their device can be a potential user-generated event. In \Cref{tbl:ch2_requirementsForUserActivtyEvent} are the subrequirements for the user that the event log should fulfil to be classified as a user-based activity log.
 
 \setcounter{phase}{1}
 \setcounter{subphase}{1}
 \begin{xltabular}{\textwidth}{lX}
-	\caption[Requirements for an event to be a user-based activity]{\textit{Requirements for an event to be a user-based activity}}\label{tbl:ch2_requirementsForUserActivtyEvent}
+	\caption[Requirements for an event to be a user-based activity]{\textit{Requirements for an event to be a user-based activity}}\label{tbl:ch2_requirementsForUserActivtyEvent} \\
 	\toprule
 	\thead{Requirement ID} & \thead{Description}\\
 	\midrule
@@ -145,7 +145,7 @@ The user is the initiator of the logging mechanism. Each action or event that th
 	\rowcolor{lightgray}
 	\subsubphase{fr:requirementsUserBased1} & The event has to be triggered by the user interacting with the user interface using their device and not any other events that the system will self-initiate. The user needs to have interacted directly with the UI. This can also be validated by tracking whether the user did interact with the UI of the HTML element ids. \\
 
-	\subsubphase{fr:requirementsUserBased2} & The event must consist of different cases ($ca~\epsilon~CA$ the cases consist of events) which are noteworthy to make the event log identifiable \cite{Slaninova2014}. \\
+	\subsubphase{fr:requirementsUserBased2} & The event must consist of different cases ($ca~\epsilon~CA$ the cases consist of events) that are noteworthy to make the event log identifiable \cite{Slaninova2014}. \\
 
 	\rowcolor{lightgray}
 	\subsubphase{fr:requirementsUserBased3} & For certain types of event logs for \ref{fr:requirementsUserBased2}, the user-generated event should have an origin from which the event took place. \\
@@ -295,16 +295,16 @@ To determine the user activity types for a Web application, the Web application'
 	{\textit{MVC architecture for most web-based applications \cite{Gu2010}}}\label{fig:ch2_flowMVC_Architecture}
 \end{figure}
 
-In \Cref{fig:ch2_flowMVC_Architecture} is the MVC architecture equivalent representation of \Cref{fig:ch2_systemDesign} where the data flow is shown of the MVC architecture. The user interacts with the Web application through their browser which will send a \textit{HTTP requests} to the \textit{Controller} and receive a \textit{HTTP response}\footnote{An \textbf{HTTP response} is made by a server to a client. The response aims to provide the client with the resource it requested, inform the client that the action it requested has been carried out, or else inform the client that an error occurred in processing its request. \cite{IBM2021a}.} from the \textit{View}.The \textit{Controller} will request and return the data to the \textit{Model} which interacts with the database access layer or service to do the \textit{create}, \textit{update} and \textit{delete} operations.\par To classify any interaction between the user (F/R 1) and server (F/R 2) to fulfil the functional requirements of \Cref{tbl:ch2_requirementsForUserActivtyEvent} only the \textit{HTTP request} are used for the logging points in \Cref{sec:ch2_loggingPoints} as it:
+In \Cref{fig:ch2_flowMVC_Architecture} is the equivalent representation of the MVC architecture of \Cref{fig:ch2_systemDesign} where the data flow of the MVC architecture is shown. The user interacts with the Web application through their browser which will send a \textit{HTTP requests} to the \textit{Controller} and receive a \textit{HTTP response}\footnote{An \textbf{HTTP response} is made by a server to a client. The response aims to provide the client with the resource it requested, inform the client that the action it requested has been carried out, or else inform the client that an error occurred in processing its request. \cite{IBM2021a}.} from the \textit{View}.The \textit{Controller} will request and return the data to the \textit{Model} which interacts with the database access layer or service to do the \textit{create}, \textit{update} and \textit{delete} operations.\par To classify any interaction between the user (F / R 1) and the server (F / R 2) to fulfil the functional requirements of \Cref{tbl:ch2_requirementsForUserActivtyEvent} only the \textit{HTTP request} are used for the logging points in \Cref{sec:ch2_loggingPoints} as it:
 
 \begin{itemize}
-	\item Meet the \ref{fr:requirementsUserBased1} and \ref{fr:requirementsUserBased1} as the user will interact with the \textit{View} to modify the data which needs to send back an \textit{HTTP request} to process the data on the \textit{Controller}.
+	\item Meet \ref{fr:requirementsUserBased1} and \ref{fr:requirementsUserBased1} as the user will interact with \textit{ View} to modify the data which needs to send back an \textit{HTTP request} to process the data on the \textit{Controller}.
 	\item User activity types can be assigned for different scenarios the user triggers when the request is sent. 
-	\item Any additional metadata can be sent with the \textit{request header}\footnote{A \textbf{request header} is an HTTP header that can be used in an HTTP request to provide information about the request context so that the server can tailor the response. For example, the Accept-$\ast$ headers indicate the allowed and preferred formats of the response. \cite{Mozilla2022}.} of the \textit{HTTP request}. This will reduce the overhead added by the logging mechanism by not sending additional \textit{HTTP request} each time back to the server when a user-based activity has been identified.
+	\item Any additional metadata can be sent with the \textit{request header}\footnote{A \textbf{request header} is an HTTP header that can be used in an HTTP request to provide information about the request context so that the server can tailor the response. For example, the Accept-$\ast$ headers indicate the allowed and preferred formats of the response. \cite{Mozilla2022}.} of the \textit{HTTP request}. This will reduce the overhead added by the logging mechanism by not sending an additional \textit{HTTP request} each time back to the server when a user-based activity has been identified.
 \end{itemize}
 
 \subsection{Logging point requirements}\label{sec:ch2_serverFunctionalRequirements}
-The logging point functional requirement (\ref{fr:loggingPoints}) focuses on the creation and strategic placement of the logging points. The log points that obtain the logging attributes must also store the created event log in a structured database. The logging point's sub-functional requirements are defined in \Cref{tbl:ch2_loggingPointsFuntionalRequirements}. 
+The functional requirement of the logarithmic point (\ref{fr:loggingPoints}) focusses on the creation and strategic placement of the logarithmic points. The log points that obtain the log attributes must also store the created event log in a structured database. The logging point's subfunctional requirements are defined in \Cref{tbl:ch2_loggingPointsFuntionalRequirements}. 
 
 \stepcounter{phase}
 \begin{table}[!htb]
@@ -312,11 +312,16 @@ The logging point functional requirement (\ref{fr:loggingPoints}) focuses on the
 	\caption[Logging points functional requirements (\ref{fr:loggingPoints})]
 	{\textit{Server functional requirements (\ref{fr:loggingPoints})}}
 	\label{tbl:ch2_loggingPointsFuntionalRequirements}
-	\begin{tabularx}{\textwidth}{|l|l|X|}
-		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
-		\hline \subphase{fr:serverActivityLogger} & Logging point placement & The logging points are used to capture and create the user-based event log that will be stored in a database.\\
-		\hline \subphase{fr:serverDatabase} & Storing the user-based activity logs & The event log is stored in a structured database until it is needed for further log analysis.\\
-		\hline
+	\begin{tabularx}{\textwidth}{llX}
+		\toprule
+            \thead{Requirement ID} & \thead{Name} & \thead{Description} \\
+            \midrule
+
+            \rowcolor{lightgray}
+		\subphase{fr:serverActivityLogger} & Logging point placement & The logging points are used to capture and create the user-based event log that will be stored in a database.\\
+  
+		\subphase{fr:serverDatabase} & Storing the user-based activity logs & The event log is stored in a structured database until it is needed for further log analysis.\\
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
@@ -339,35 +344,40 @@ In \Cref{sec:ch1_loggignPoints} the logging points should be strategically place
 		\thead{Requirement ID} & \thead{Description} \\
 		\midrule
 
-		\subsubphase{fr:lp1} & The logging point should be placed where the user's interaction with the software system will send a \textit{request} back to the server.\\
-		\hline \subsubphase{fr:lp2} & Each logging point should consistently capture the user-based activity as the activity is happening. \\
-		\hline \subsubphase{fr:lp3} & Logging points should be globally complete to capture the user-based activities in the giving software system without too much modification between each point in the same
-		software system. \\
-		\hline \subsubphase{fr:lp4} & The logging points should not interfere with the rest of the system's operations, this would be slowing down the system by causing too much overhead in each \textit{request}
+            \rowcolor{lightgray}
+		\subsubphase{fr:lp1} & The logging point should be placed where the user's interaction with the software system will send a \textit{request} back to the server. \\
+  
+		\subsubphase{fr:lp2} & Each logging point should consistently capture the user-based activity as the activity is happening. \\
+
+            \rowcolor{lightgray}
+		\subsubphase{fr:lp3} & Logging points should be globally complete to capture the user-based activities in the giving software system without too much modification between each point in the same
+software system. \\
+  
+		\subsubphase{fr:lp4} & The logging points should not interfere with the rest of the system's operations, this would slow down the system by causing too much overhead in each \textit{request}
 		that is being sent. \\
-		\hline
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
-The logging points can either be a single code segment or consist of multiple code segments in a software system that aims to capture user-based actions as they happen. Creating multiple logging points in a software environment will:
+The logging points can be either a single code segment or consist of multiple code segments in a software system that aims to capture user-based actions as they happen. Creating multiple logging points in a software environment will:
 
 \begin{itemize}
 	\item Increase complexity of the logging mechanism. Each point can be different from the other as it will need certain operations to capture the log,
 	\item The consistency of the logging might differ and increase as the logging points increase in a software system. 
-	\item The correctness of the logging will be impacted if the different changes in the logging point if the logging points are unable to consistently capture the user-based activity or extract all the needed attributes to complete the user-based log.
+	\item The correctness of the logging will be impacted if the different changes in the logging point are unable to consistently capture the user-based activity or extract all the needed attributes to complete the user-based log.
 \end{itemize}
 
-Creating a single logging point reduces the complexity and in most cases will improve the consistency and correctness of the user-based logs. In Web applications, a globally defined logging point can be used in a modified \textit{HTTP request} that will form the base template for all or most \textit{HTTP request} used in the software system as in \Cref{sec:ch2_webApplicationArchitecture}.\par The use of a single centralised logging point doesn't guarantee that the logging mechanism will perform more efficiently and accurately than using multiple logging mechanisms. Using a single logging point may have complexity issues when it needs to capture each user-based activity consistently with different cases.
+Creating a single logging point reduces the complexity and, in most cases, will improve the consistency and correctness of the user-based logs. In Web applications, a globally defined logging point can be used in a modified \textit{HTTP request} that will form the base template for all or most \textit{HTTP request} used in the software system as in \Cref{sec:ch2_webApplicationArchitecture}.\par The use of a single centralised logging point doesn't guarantee that the logging mechanism will perform more efficiently and accurately than using multiple logging mechanisms. Using a single logging point may have complexity issues when it needs to capture each user-based activity consistently with different cases.
 
 \subsubsection{Storing the user-based activity logs}\label{sec:ch2_databaseStorage}
-After the logging point has captured the log attributes and created the event log, the log can be saved in a structured database. The storing of the user-based logs functional requirements (\ref{fr:serverDatabase}) should be defined for structured database interactions.\par The captured parameters of the log attributes may have some sensitive user data that should not be logged. Functions can be excluded or assigned a new user activity type that will need to filter out certain parameters or not log any parameters a all. This will be any functions that include:
+After the logging point has captured the log attributes and created the event log, the log can be saved in a structured database. The storing of the functional requirements of user-based logs (\ref{fr:serverDatabase}) should be defined for structured database interactions.\par The captured parameters of the log attributes may have some sensitive user data that should not be logged. Functions can be excluded or assigned a new user activity type that will need to filter out certain parameters or not log any parameters a all. This will be any functions that include:
 
 \begin{itemize}
 	\item Session handling functions that contain passwords or other user information that should not be available for anyone but the user. This could lead to unintentional information disclosure of any personal information in the system utilisation analysis if it is available for anyone who can see and use the user-based activity logs,
-	\item Complex parameters such as file upload streams of files that the user tries to upload. This information cannot be broken down to a simple \texttt{JSON} structure as in \Cref{fig:ch2_MetadataJsonExample}, other metadata such as the file size, name and type can rather be logged. This can also be defined as a separate user-based activity event type by detecting these complex parameters.
+	\item Complex parameters such as file upload streams of files that the user tries to upload. This information cannot be broken down to a simple \texttt{JSON} structure as in \Cref{fig:ch2_MetadataJsonExample}, other metadata such as the file size, name and type can rather be logged. This can also be defined as a separate type of user-based activity event by detecting these complex parameters.
 \end{itemize}
 
-In \Cref{tbl:ch2_SQLLoggingTable} is the data type of the parameters and the functional requirements that it needs will need to fulfil of \Cref{tbl:ch2_keyLoggingAttributes}.
+In \Cref{tbl:ch2_SQLLoggingTable} is the type of data for the parameters and the functional requirements that it will need to fulfil of \Cref{tbl:ch2_keyLoggingAttributes}.
 
 \stepcounter{subphase}
 \begin{table}[!htb]
@@ -375,16 +385,23 @@ In \Cref{tbl:ch2_SQLLoggingTable} is the data type of the parameters and the fun
 	\caption[Log attributes for database storing of the event logs]
 	{\textit{Log attributes for database storing of the event logs}}
 	\label{tbl:ch2_SQLLoggingTable}
-	\begin{tabularx}{\textwidth}{|X|X|X|X|}
-		\hline \textbf{Requirement ID} & \textbf{Column Name} & \textbf{Data Type} & \RaggedRight \textbf{Log attribute requirement} \\
-		\hline \subsubphase{fr:lpd1} & \textbf{ActivityID} & INT & \ref{fr:lpa1} \\
-		\hline \subsubphase{fr:lpd2} & \textbf{Timestamp} & DATETIME & \ref{fr:lpa2} \\
-		\hline \subsubphase{fr:lpd3} & \textbf{ActivityType} & ENUM & \ref{fr:lpa3} \\
-		\hline \subsubphase{fr:lpd4} & \textbf{UserID} & INT & \ref{fr:lpa4} \\
-		\hline \subsubphase{fr:lpd5} & \textbf{Subsystem} & VARCHAR & \ref{fr:lpa5} \\
-		\hline \subsubphase{fr:lpd6} & \textbf{GroupID} & INT & \ref{fr:lpa7} \\
-		\hline \subsubphase{fr:lpd7} & \textbf{MetaData} & JSON & \ref{fr:lpa6} \\
-		\hline
+	\begin{tabularx}{\textwidth}{lXXX}
+            \toprule
+		\thead{Requirement ID} & \thead{Column Name} & \thead{Data Type} & \RaggedRight \thead{Log attribute requirement} \\
+            \midrule
+
+            \rowcolor{lightgray}
+		\subsubphase{fr:lpd1} & ActivityID & INT & \ref{fr:lpa1} \\
+		\subsubphase{fr:lpd2} & Timestamp & DATETIME & \ref{fr:lpa2} \\
+            \rowcolor{lightgray}
+		\subsubphase{fr:lpd3} & ActivityType & ENUM & \ref{fr:lpa3} \\
+		\subsubphase{fr:lpd4} & UserID & INT & \ref{fr:lpa4} \\
+            \rowcolor{lightgray}
+		\subsubphase{fr:lpd5} & Subsystem & VARCHAR & \ref{fr:lpa5} \\
+		\subsubphase{fr:lpd6} & GroupID & INT & \ref{fr:lpa7} \\
+            \rowcolor{lightgray}
+		\subsubphase{fr:lpd7} & MetaData & JSON & \ref{fr:lpa6} \\
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
@@ -485,29 +502,35 @@ The log analysis (\ref{fr:logAnalysis}) makes use of either third-party analytic
 \end{table}
 
 \subsubsection{Log quality}
-Log quality has been identified in \Cref{sec:ch1_loggingQuality} should be important when implementing a logging mechanism to do log analysis. The log quality (\ref{fr:logQuality}) will both impact the logging mechanism's performance and the accuracy and completeness of the log quality.  In \Cref{tbl:ch2_utilisation_requirements} are the functional requirements for the log quality (\ref{fr:logQuality}).
+Log quality has been identified in \Cref{sec:ch1_loggingQuality} should be important when implementing a logging mechanism to do log analysis. Log quality (\ref{fr:logQuality}) will affect both the performance of the logging mechanism and the accuracy and completeness of the log quality.  In \Cref{tbl:ch2_utilisation_requirements} are the functional requirements for the log quality (\ref{fr:logQuality}).
 
 \setcounter{phase}{3}
 \setcounter{subphase}{1}
 \begin{table}[!htb]
 	\centering
-	\small
 	\caption[Log quality functional requirements (\ref{fr:logQuality})]
 	{\textit{Log quality functional requirements (\ref{fr:logQuality})}}
 	\label{tbl:ch2_utilisation_requirements}
-	\begin{tabularx}{\textwidth}{|l|l|X|}
-		\hline \textbf{Requirement ID} & \textbf{Requirement name} & \textbf{Description} \\
-		\hline \subsubphase{fr:ur1} & Log availability & \RaggedRight The log attributes should be available when the logging mechanism is actively capturing the user-based events. It should be \textit{locally-} and \textit{globally complete}.  \\
-		\hline \subsubphase{fr:ur2} & Log completeness & \RaggedRight The user-based logs should be complete and there should be minimal corrections made post-logging during the log extraction process (\ref{fr:ur3}) and visualisation presentation. \\
-		\hline \subsubphase{fr:ur3} & Log extraction & \RaggedRight The user-based logs are extracted from the database and imported into a visualisation presentation for the user-based activity logs. \\
-		\hline
+	\begin{tabularx}{\textwidth}{llX}
+            \toprule
+		\thead{Requirement ID} & \thead{Requirement name} & \thead{Description} \\
+            \midrule
+
+            \rowcolor{lightgray}
+		\subsubphase{fr:ur1} & Log availability & \RaggedRight The log attributes should be available when the logging mechanism is actively capturing the user-based events. It should be \textit{locally-} and \textit{globally complete}.  \\
+  
+		\subsubphase{fr:ur2} & Log completeness & \RaggedRight User-based logs should be complete and minimal corrections should be made after logging during the log extraction process (\ref{fr:ur3}) and presentation of visualisation. \\
+
+            \rowcolor{lightgray}
+            \subsubphase{fr:ur3} & log extraction & \RaggedRight User-based logs are extracted from the database and imported into a visualisation presentation for user-based activity logs. \\
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
-The log availability (\ref{fr:ur1}) and completeness (\ref{fr:ur2}) functional requirements can be achieved all the functional requirements of the user-based activity log in \Cref{sec:ch2_requirementsOfUAT} are accomplished with minimal processing of the raw logs afterwards. There will be always changes made to the system that can impact which possible user-based events are considered to be logged.\par Log extraction refers to the methods used to obtain the logs from the database with any other relevant data that can be used in the visualisation presentation (\ref{fr:ur4}). The raw logs will need to make use of the foreign references to other tables in the database to provide more detail about the user-based event log as in \Cref{fig:ch2_erdOfEventLogs}.
+The functional requirements for log availability (\ref{fr:ur1}) and completeness (\ref{fr:ur2}) can be achieved, all functional requirements of the user-based activity log in \Cref{sec:ch2_requirementsOfUAT} are achieved with minimal processing of the raw logs afterward. There will always be changes made to the system that can impact which possible user-based events are considered to be logged.\par Log extraction refers to the methods used to obtain the logs from the database with any other relevant data that can be used in the visualisation presentation (\ref{fr:ur4}). The raw logs will need to make use of foreign references to other tables in the database to provide more details on the user-based event log as in \Cref{fig:ch2_erdOfEventLogs}.
 
 \subsubsection{Log analysis tool}
-The log analysis tool functional requirement (\ref{fr:logAnalysisTool}) is to ensure whether a third-party or custom implementation is done. Will be able to fulfil some basic log analysis requirements defined in \Cref{tbl:ch2_logAnalysisToolFR}.
+The log analysis tool (\ref{fr:logAnalysisTool}) is to ensure that a third-party or custom implementation is performed. Will be able to meet some basic log-analysis requirements defined in \Cref{tbl:ch2_logAnalysisToolFR}.
 
 \stepcounter{subphase}
 \begin{table}[!htb]
@@ -516,32 +539,39 @@ The log analysis tool functional requirement (\ref{fr:logAnalysisTool}) is to en
 	\caption[Log analysis tool functional requirements (\ref{fr:logAnalysisTool})]
 	{\textit{Log analysis tool functional requirements (\ref{fr:logAnalysisTool})}}
 	\label{tbl:ch2_logAnalysisToolFR}
-	\begin{tabularx}{\textwidth}{|l|l|X|}
-		\hline \textbf{Requirement ID} & \textbf{Requirement name} & \textbf{Description} \\
-		\hline \subsubphase{fr:ur4} & Log visual presentation & The visual presentation of the extracted logs should be shown to the user that will make use of the activity logs in a custom visual system or make use of other third-party tools. This will impact how the logs will be extracted (\ref{fr:ur4}) from the database as third-party systems may make use of an API to get the logs from the database. \\
-		\hline \subsubphase{fr:ur5} & Log comparison & \RaggedRight By Using the F/R 3.2 the utilisation between different log attributes that are used as the defined criteria. This will be to group and compare different types of users, subsystems and activity types against each other etc.\\
-		\hline \subsubphase{fr:ur6} & \RaggedRight Maintenance suggestion & Maintenance suggestions can be made from the system utilisation reports by prioritising maintenance or decommissioning software systems. This can be data or visual representations of the log comparison (\ref{fr:ur5}) using the log visual presentation systems (\ref{fr:ur6}) or creating a summary report from the visual presentation that contains the maintenance suggestions. \\
-		\hline
+	\begin{tabularx}{\textwidth}{llX}
+            \toprule
+		\thead{Requirement ID} & \thead{Requirement name} & \thead{Description} \\
+            \midrule
+
+            \rowcolor{lightgray}
+		\subsubphase{fr:ur4} & Log visual presentation & The visual presentation of the extracted logs should be shown to the user that will make use of the activity logs in a custom visual system or make use of other third-party tools. This will affect how the logs will be extracted (\ref{fr:ur4}) from the database as third-party systems may use an API to get the logs from the database. \\
+  
+		\subsubphase{fr:ur5} & Log comparison & \RaggedRight Using F/R 3.2 the utilisation between different log attributes that are used as the defined criteria. This will be to group and compare different types of users, subsystems and activity types against each other, etc.\\
+
+        \rowcolor{lightgray}
+        \subsubphase{fr:ur6} & \RaggedRight Maintenance suggestions & Maintenance suggestions can be made from system utilisation reports by prioritising maintenance or decommissioning software systems. This can be data or visual representations of the logarithmic comparison (\ref{fr:ur5}) using the log visual presentation systems (\ref{fr:ur6}) or creating a summary report from the visual presentation that contains maintenance suggestions. \\
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
-Each of these functional requirements ensures that the system utilisation analysis will be achieved for the created logging mechanism in \Cref{sec:ch2_loggingMechanism}. The main user interface of the system utilisation analysis will consist of the presentation of the user-based activities (\ref{fr:ur4}). This system will either be a custom-created system to display these logs or third-party software such as Microsoft's business intelligence platform, PowerBI. \par Using the third-party tools has advantages over creating custom software for the visual presentation (\ref{fr:ur4}):
+Each of these functional requirements ensures that the system utilisation analysis will be achieved for the created logging mechanism in \Cref{sec:ch2_investigate}. The main user interface of the system usage analysis will consist of the presentation of user-based activities (\ref{fr:ur4}). This system will be either a custom-created system to display these logs or third-party software such as Microsoft's business intelligence platform, PowerBI. \par Using the third-party tools has advantages over creating custom software for visual presentation (\ref{fr:ur4}):
 
 \begin{itemize}
-	\item \RaggedRight Third-party BI platforms provide all necessary analytical functionality, making it easy to create visual representations with minimal programming.
-	\item \RaggedRight The advanced tools in these platforms offer many ways to visualize user-based activity logs for log comparison (\ref{fr:ur5}).
-	\item \RaggedRight Maintenance and editing of these representations are usually trouble-free, with ample support and guides available for developers to make updates to custom visual presentations.
+	\item \RaggedRight Third-party BI platforms provide all the necessary analytical functionality, making it easy to create visual representations with minimal programming.
+	\item \RaggedRight The advanced tools on these platforms offer many ways to visualise user-based activity logs for log comparison (\ref{fr:ur5}).
+	\item \RaggedRight Maintenance and editing of these representations is usually trouble-free, with ample support and guides available for developers to make updates to custom visual presentations.
 	\end{itemize}
 
-These third-party tools do indeed have some other drawbacks such as:
+These third-party tools do indeed have some other drawbacks, such as:
 
 \begin{itemize}
-	\item \RaggedRight Third-party BI platforms are likely to require a subscription, which can be costly for a company license.
-	\item \RaggedRight Additional courses may be necessary to fully utilize the capabilities of these platforms.
+	\item \RaggedRight Third-party BI platforms are likely to require a subscription, which can be costly for a company licence.
+	\item \RaggedRight Additional courses may be necessary to fully utilise the capabilities of these platforms.
 	\item \RaggedRight Additional functionality, may be required for log extraction (\ref{fr:ur3}) to import data into the platform.
 	\end{itemize}
 
-With the drawbacks listed above the third-party business intelligence platforms is the better visual presentation tools for the system utilisation analysis if it is available for use than creating and managing a custom visualisation platform.
+With the drawbacks listed above, third-party business intelligence platforms are the better visual presentation tools for the system utilisation analysis if it is available for use than creating and managing a custom visualisation platform.
 
 \subsection{Maintenance prioritisation}\label{sec:ch2_utilisationImprovements}
 Maintenance prioritisation is done from the log analysis. The maintenance prioritising functional requirements (\ref{fr:maintenancePrioritising}) are shown in \Cref{tbl:ch2_maintenancePriortising}.
