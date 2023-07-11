@@ -481,6 +481,8 @@ These third-party tools do indeed have some other drawbacks, such as:
 
 With the drawbacks listed above, third-party business intelligence platforms are the better visual presentation tools for the system utilisation analysis if it is available for use than creating and managing a custom visualisation platform.
 
+\clearpage
+
 \subsection{Maintenance prioritisation}\label{sec:ch2_utilisationImprovements}
 Maintenance prioritisation is done from the log analysis. Maintenance priority functional requirements (\ref{fr:maintenancePrioritising}) are shown in \Cref{tbl:ch2_maintenancePriortising}.
 
@@ -491,11 +493,16 @@ Maintenance prioritisation is done from the log analysis. Maintenance priority f
 	\caption[Maintenance prioritising functional requirements (\ref{fr:maintenancePrioritising})]
 	{\textit{Maintenance prioritising functional requirements (\ref{fr:maintenancePrioritising})}}
 	\label{tbl:ch2_maintenancePriortising}
-	\begin{tabularx}{\textwidth}{|l|l|X|}
-		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
-		\hline \subphase{fr:systemUtiReq} & System utilisation analysis categories & \RaggedRight The system utilisation analysis categories is needed to complete the log analysis. These categories will provide the data necessary to make recommendations on how to prioritise software maintenance using these log analysis metrics.\\
-		\hline \subphase{fr:maintenanceFactor} & Maintenance factor & \RaggedRight The maintenance factor measures the amount of maintenance required for a given software system. This will be used to prioritise the software maintenance efforts of the software developers using a scoring system. \\
-		\hline
+	\begin{tabularx}{\textwidth}{lp{3cm}X}
+            \toprule
+		\thead{Requirement ID} & \thead{Name} & \thead{Description} \\
+            \midrule
+
+            \rowcolor{lightgray}
+		\subphase{fr:systemUtiReq} & \RaggedRight System utilisation analysis categories & \RaggedRight The system utilisation analysis categories are needed to complete logging analysis. These categories will provide the data necessary to make recommendations on how to prioritise software maintenance using these log analysis metrics.\\
+  
+		\subphase{fr:maintenanceFactor} & Maintenance factor & \RaggedRight The maintenance factor measures the amount of maintenance required for a given software system. This will be used to prioritise the software maintenance efforts of the software developers using a scoring system. \\
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
@@ -551,8 +558,6 @@ The normalised priority factor $P_N$ is described in \Cref{eq:ch2_priorityNormal
 
 A normalised value for the priority is used as there is not a predefined way how to describe the importance of any subsystem.
 
-\clearpage
-
 \subsubsection{System utilisation analysis categories}
 The system utilisation analysis categories functional requirements (\ref{fr:systemUtiReq}) is used to categorise the log data for maintenance prioritisation metrics. In \Cref{tbl:ch2_utilisationCategories} is the functional requirements of the system utilisation analysis categories (\ref{fr:systemUtiReq}).
 
@@ -561,13 +566,21 @@ The system utilisation analysis categories functional requirements (\ref{fr:syst
 	\caption[System utilisation analysis categories functional requirements (\ref{fr:systemUtiReq})]
 	{\textit{System utilisation analysis categories functional requirements (\ref{fr:systemUtiReq})}}
 	\label{tbl:ch2_utilisationCategories}
-	\begin{xltabular}{\textwidth}{|l|l|X|}
-		\hline \textbf{Requirement ID} & \textbf{Requirement name} & \textbf{Description} \\
-		\hline \subsubphase{fr:utCategories1} & Users & The users of the software systems can be put in different categories based on who uses the software. This can be both the customer users or the employees using the software. Using the activities of the customer users will provide the data on which systems the development team needs to put their resources into. \\
-		\hline \subsubphase{fr:utCategories2} & User activity types & The user activity types in \Cref{tbl:ch2_userActivityTypes} can be used as a category to compare different user-based activity types with each other and use a sub-category for categories such as the different users that can use the system (\ref{fr:utCategories1}). \\
-		\hline \subsubphase{fr:utCategories3} & Systems or subsystems & The request origin (\ref{fr:lpa5}) of the user-based activities can be categorised to compare different subsystems and controllers to each other.\\
-		\hline \subsubphase{fr:utCategories4} & Miscellaneous categories & This user-based activity category type will make use of the metadata attribute (\ref{fr:lpa7}) of \Cref{tbl:ch2_keyLoggingAttributes}. The other fields which are not set as main categories can be also placed in this category as they can take multiple forms.\\
-		\hline
+	\begin{xltabular}{\textwidth}{lp{3cm}X}
+            \toprule
+		\thead{Requirement ID} & \thead{Requirement name} & \thead{Description} \\
+            \midrule
+
+            \rowcolor{lightgray}
+		\subsubphase{fr:utCategories1} & Users & The users of the software systems can be put in different categories based on who uses the software. This can be both the customer users or the employees using the software. Using the activities of the customer users will provide the data on which systems the development team needs to put their resources into. \\
+  
+		\subsubphase{fr:utCategories2} & \RaggedRight User activity types & The user activity types in \Cref{tbl:ch2_userActivityTypes} can be used as a category to compare different types of user-based activities with each other and use a subcategory for categories such as the different users who can use the system (\ref{fr:utCategories1}). \\
+
+            \rowcolor{lightgray}
+		\subsubphase{fr:utCategories3} & Systems or subsystems & The request origin (\ref{fr:lpa5}) of user-based activities can be classified to compare different subsystems and controllers to each other.\\
+  
+		\subsubphase{fr:utCategories4} & Miscellaneous categories & This user-based activity category type will use the metadata attribute (\ref{fr:lpa7}) of \Cref{tbl:ch2_keyLoggingAttributes}. The other fields that are not set as main categories can also be placed in this category, as they can take multiple forms.\\
+		\bottomrule
 	\end{xltabular}
 \end{table}
 
