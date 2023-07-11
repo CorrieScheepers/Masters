@@ -401,11 +401,15 @@ The log analysis (\ref{fr:logAnalysis}) makes use of either third-party analytic
 	\caption[Log analysis functional requirements (\ref{fr:logAnalysis})]
 	{\textit{Log analysis functional requirements (\ref{fr:logAnalysis})}}
 	\label{tbl:ch2_logAnalysis}
-	\begin{tabularx}{\textwidth}{|l|l|X|}
-		\hline \textbf{Requirement ID} & \textbf{Name} & \textbf{Description} \\
-		\hline \subphase{fr:logQuality} & Log quality & \RaggedRight Log quality ensures that the obtained logs are usable for the log analysis. Any incomplete logs should be either fixed in the log analysis implementation or the logging mechanism should be adjusted to get the complete logs. \\
-		\hline \subphase{fr:logAnalysisTool} & Log analysis tool requirement & \RaggedRight Certain basic requirements are needed for the log analysis tool to implement a log analysis. \\
-		\hline
+	\begin{tabularx}{\textwidth}{llX}
+		\toprule
+		\thead{Requirement ID} & \thead{Name} & \thead{Description} \\
+		\midrule
+
+		\rowcolor{lightgray}
+		\subphase{fr:logQuality} & Log quality & \RaggedRight Log quality ensures that the obtained logs are usable for the log analysis. Any incomplete logs should be either fixed in the log analysis implementation or the logging mechanism should be adjusted to get the complete logs. \\
+		\subphase{fr:logAnalysisTool} & Log analysis tool requirement & \RaggedRight Certain basic requirements are needed for the log analysis tool to implement a log analysis. \\
+		\bottomrule
 	\end{tabularx}
 \end{table}
 
