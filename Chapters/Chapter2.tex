@@ -12,7 +12,7 @@
 	{\textit{Basic design of a software system}}\label{fig:ch2_webSystemBasic}
 \end{figure}
  
- In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with different systems. These systems can be different pages or sections of the website and can be further divided into subsystems. \par In \Cref{sec:ch2_investigate} the method to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{ch2:sec_system_utilisation_analysis} the methodology is discussed to analyse these obtained logs to improve software maintenance by using various tools visualisation tools or creating them based on the available log attributes. In \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user-based event logs.
+ In \Cref{fig:ch2_webSystemBasic} is the basic design of the Web application the users interact with different systems. These systems can be different pages or sections of the website and can be further divided into subsystems. \par In \Cref{sec:ch2_investigate} the method to create a logging mechanism to capture user-generated events is discussed for web-based applications. The different functional requirements and interfaces are discussed in this section \cite{Anish2015}.\par In \Cref{sec:ch2_logAnalysisTools,sec:ch2_utilisationImprovements} the method is discussed to analyse these obtained logs to improve software maintenance by using various tools visualisation tools or creating them based on the available log attributes. In \Cref{fig:ch2_systemDesign} is the design for the logging mechanism to capture the user-based event logs.
 
  \clearpage
 
@@ -389,12 +389,7 @@ In \Cref{tbl:ch2_SQLLoggingTable} the functional requirements of log attributes 
 	{\textit{ERD of the user activities}}\label{fig:ch2_erdOfEventLogs}
 \end{figure}
 
-In \Cref{fig:ch2_erdOfEventLogs} is an ERD diagram that describes the relationship of the table created to store the log attributes with other relevant tables. In the system utilisation analysis, this enables different fields of the other tables to be used to categorise the logs. 
-
-\clearpage
-
-\section{Log analysis}\label{ch2:sec_system_utilisation_analysis}
-The design of the log analysis system will be defined in this section. There are no restrictions on what log analysis tools developers can use, but they need to use or implement one that will be able to do the log analysis. This section also defines all the subfunctional requirements for the creation or use of log analysis tools (\ref{fr:logAnalysis}) and maintenance prioritising (\ref{fr:maintenancePrioritising}).
+In \Cref{fig:ch2_erdOfEventLogs} is an ERD diagram that describes the relationship of the table created to store the log attributes with other relevant tables. In the system utilisation analysis, this enables different fields of the other tables to be used to categorise the logs. \par The design of the log analysis system will be defined in this section. There are no restrictions on what log analysis tools developers can use, but they need to use or implement one that will be able to do the log analysis. This section also defines all the subfunctional requirements for the creation or use of log analysis tools (\ref{fr:logAnalysis}) and maintenance prioritising (\ref{fr:maintenancePrioritising}).
 
 \subsection{Create or use log analysis tools}\label{sec:ch2_logAnalysisTools}
 The log analysis (\ref{fr:logAnalysis}) makes use of either third-party analytical tools or custom-created software log analysis implementations. Developers should use the implementation that will fulfil their log analysis needs. In \Cref{tbl:ch2_logAnalysis} is the log analysis functional requirements (\ref{fr:logAnalysis}).
@@ -578,6 +573,8 @@ The system utilisation analysis categories functional requirements (\ref{fr:syst
 
 The categories in \Cref{tbl:ch2_utilisationCategories} allow the log data to be placed in different categories to compare them with each other. A software maintenance prioritising model can be made with the comparisons of these categories.
 
+\clearpage
+
 \section{Design}\label{sec:ch2_design}
 
 \subsection{Web application architecture}\label{sec:ch2_webApplicationArchitecture}
@@ -670,4 +667,4 @@ If the \texttt{request header} contains the \texttt{Index} keyword, which is the
 \end{figure}
 
 \section{Conclusion}
-In \Cref{sec:ch2_investigate} are the defined functional requirements for a logging mechanism for the system utilisation analysis in \Cref{ch2:sec_system_utilisation_analysis}. The user activity types defined in \Cref{sec:ch2_userActivityTypes} are the basis of the log attributes that must be logged to create a user-based log.\par The log points capture logs and send them to the server logging point where they are processed and stored in writing in a database.\par The logs are extracted into a visual presentation that enables maintenance improvement suggestions based on the use analysis in \Cref{ch2:sec_system_utilisation_analysis}.
+In \Cref{sec:ch2_investigate} are the defined functional requirements for a logging mechanism for the system utilisation analysis in \Cref{sec:ch2_logAnalysisTools,sec:ch2_utilisationImprovements}. The user activity types defined in \Cref{sec:ch2_userActivityTypes} are the basis of the log attributes that must be logged to create a user-based log.\par The log points capture logs and send them to the server logging point where they are processed and stored in writing in a database.\par The logs are extracted into a visual presentation that enables maintenance improvement suggestions based on the use analysis in \Cref{sec:ch2_logAnalysisTools,sec:ch2_utilisationImprovements}.
