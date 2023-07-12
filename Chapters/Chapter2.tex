@@ -66,15 +66,14 @@ In this section, functional requirements will be created for the logging mechani
 	\midrule
 	\endfirsthead
 
-	\multicolumn{3}{c}
-	{\tablename\ \thetable{} -- continued from previous page} \\
-	\midrule
+	\caption[]{\continueCaption} \\
+	\toprule
 	\thead{Requirement ID} & \thead{Name} & \thead{Description} \\
 	\midrule
 	\endhead
 
 	\midrule
-	\multicolumn{3}{r}{{Continued on next page}} \\ \midrule
+	\multicolumn{3}{r}{\continueText} \\ 
 	\endfoot
 	\endlastfoot
 
@@ -131,16 +130,14 @@ The user is the initiator of the logging mechanism. Each action or event that th
 	\midrule
 	\endfirsthead
 
-	\multicolumn{2}{c}
-	{\tablename\ \thetable{} -- continued from previous page} \\
-	\midrule
+	\caption[]{\continueCaption} \\
+	\toprule
 	\thead{Requirement ID} & \thead{Description}\\
 	\midrule
 	\endhead
 
 	\midrule
-	\multicolumn{2}{r}{{Continued on next page}} \\ 
-	\midrule
+	\multicolumn{2}{r}{\continueText} \\ 
 	\endfoot
 	\endlastfoot
 
@@ -214,15 +211,14 @@ The log attributes (\ref{fr:subLogAttributes}) are the descriptive characteristi
     \midrule
     \endfirsthead
 
-    \multicolumn{3}{c}
-    {\tablename\ \thetable{} -- continued from previous page} \\
-    \midrule
+    \caption[]{\continueCaption} \\
+	\toprule
     \thead{Requirement ID} & \thead{Logging point} & \thead{Description} \\
     \midrule
     \endhead
 
     \midrule
-    \multicolumn{3}{r}{{Continued on next page}} \\ \midrule
+    \multicolumn{3}{r}{\continueText} \\
     \endfoot
     \endlastfoot
 
@@ -570,7 +566,7 @@ The system utilisation analysis categories functional requirements (\ref{fr:syst
 	\caption[System utilisation analysis categories functional requirements (\ref{fr:systemUtiReq})]
 	{\textit{System utilisation analysis categories functional requirements (\ref{fr:systemUtiReq})}}
 	\label{tbl:ch2_utilisationCategories}
-	\begin{xltabular}{\textwidth}{lp{3cm}X}
+	\begin{tabularx}{\textwidth}{lp{3cm}X}
             \toprule
 		\thead{Requirement ID} & \thead{Requirement name} & \thead{Description} \\
             \midrule
@@ -585,7 +581,7 @@ The system utilisation analysis categories functional requirements (\ref{fr:syst
   
 		\subsubphase{fr:utCategories4} & Miscellaneous categories & This user-based activity category type will use the metadata attribute (\ref{fr:lpa7}) of \Cref{tbl:ch2_keyLoggingAttributes}. The other fields that are not set as main categories can also be placed in this category, as they can take multiple forms.\\
 		\bottomrule
-	\end{xltabular}
+	\end{tabularx}
 \end{table}
 
 The categories in \Cref{tbl:ch2_utilisationCategories} allow the log data to be placed in different categories to compare them with each other. A software maintenance prioritising model can be made with the comparisons of these categories.
