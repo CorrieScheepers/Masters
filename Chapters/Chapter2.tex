@@ -62,13 +62,13 @@ In this section, functional requirements will be created for the logging mechani
 \begin{xltabular}{\textwidth}{llX}
 	\caption[Functional requirements of the solution]{\textit{Functional requirements of the solution}}\label{tbl:ch2_developmenetRequirements} \\ 
 	\toprule
-	\thead{Requirement ID} & \thead{Name} & \thead{Description} \\
+	\thead{Req. ID} & \thead{Name} & \thead{Description} \\
 	\midrule
 	\endfirsthead
 
 	\caption[]{\continueCaption} \\
 	\toprule
-	\thead{Requirement ID} & \thead{Name} & \thead{Description} \\
+	\thead{Req. ID} & \thead{Name} & \thead{Description} \\
 	\midrule
 	\endhead
 
@@ -104,7 +104,7 @@ The functional requirement of log attributes (\ref{fr:logAttributes}) focusses o
 	\label{tbl:ch2_loggingAttributesFunctionalRequirements}
 	\begin{tabularx}{\textwidth}{lp{3cm}X}
 		\toprule
-		\thead{Requirement ID} & \thead{Name} & \thead{Description} \\
+		\thead{Req. ID} & \thead{Name} & \thead{Description} \\
 		\midrule
 
 		\rowcolor{lightgray}
@@ -128,13 +128,13 @@ The user is the initiator of the logging mechanism. Each action or event that th
 \begin{xltabular}{\textwidth}{lX}
 	\caption[Requirements for an event to be a user-based activity]{\textit{Requirements for an event to be a user-based activity}}\label{tbl:ch2_requirementsForUserActivtyEvent} \\
 	\toprule
-	\thead{Requirement ID} & \thead{Description}\\
+	\thead{Req. ID} & \thead{Description}\\
 	\midrule
 	\endfirsthead
 
 	\caption[]{\continueCaption} \\
 	\toprule
-	\thead{Requirement ID} & \thead{Description}\\
+	\thead{Req. ID} & \thead{Description}\\
 	\midrule
 	\endhead
 
@@ -179,7 +179,7 @@ The user activity types (\ref{fr:userActReq}) categorise different user-based ev
 	\label{tbl:ch2_userActivityTypes}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
-		\thead{Requirement ID} & \thead{Activity Type} & \thead{Description} \\
+		\thead{Req. ID} & \thead{Activity Type} & \thead{Description} \\
 		\midrule
 
 		\rowcolor{lightgray}
@@ -209,13 +209,13 @@ The log attributes (\ref{fr:subLogAttributes}) are the descriptive characteristi
 \begin{xltabular}{\textwidth}{llX}
     \caption[Logging attributes]{\textit{Logging attributes}}\label{tbl:ch2_keyLoggingAttributes} \\ 
     \toprule
-    \thead{Requirement ID} & \thead{Logging point} & \thead{Description} \\
+    \thead{Req. ID} & \thead{Logging point} & \thead{Description} \\
     \midrule
     \endfirsthead
 
     \caption[]{\continueCaption} \\
-	\toprule
-    \thead{Requirement ID} & \thead{Logging point} & \thead{Description} \\
+    \toprule
+    \thead{Req. ID} & \thead{Logging point} & \thead{Description} \\
     \midrule
     \endhead
 
@@ -227,12 +227,12 @@ The log attributes (\ref{fr:subLogAttributes}) are the descriptive characteristi
     \rowcolor{lightgray}
     \subsubphase{fr:lpa1} & Identification number & The activity identification is an incremental number of the user-based event that is logged. \\
     
-    \subsubphase{fr:lpa2} & Timestamp & This is the time the user initiated the user-based activity event. This will be the timestamp from which the log was written into the database, as the log will be made before the rest of the intended \textit{HTTP request} is completed. \\
+    \subsubphase{fr:lpa2} & Timestamp & This is the time the user initiated the user-based activity event. This will be the timestamp from which the log was written in the database, since the log will be made before the rest of the intended \textit{HTTP request} is completed. \\
 
     \rowcolor{lightgray}
-    \subsubphase{fr:lpa3} & Activity type & Each event can be classified into user-based types. This is the user-based activity types in \Cref{tbl:ch2_userActivityTypes}. \\
+    \subsubphase{fr:lpa3} & Activity type & Each event can be classified into user-based types. This is the type of activity based on users in \Cref{tbl:ch2_userActivityTypes}. \\
 
-    \subsubphase{fr:lpa4} & User identification & Each user has a unique identification number that links the event to them if their session has been verified and can be obtained. Will not be available when the user tries to log in to the system as their session has not been set yet. \\
+    \subsubphase{fr:lpa4} & User identification & Each user has a unique identification number that links the event to them if their session has been verified and can be obtained. It will not be available when the user tries to log in to the system as their session has not been set yet. \\
 
     \rowcolor{lightgray}
     \subsubphase{fr:lpa5} & Request origin & In web applications, there are always requests sent back to the server, which will call the primary function to handle the request. This can be logged as either the file from which the request is sent or the Web page from which the request came. \\ 
@@ -291,7 +291,7 @@ The functional requirement of the logarithmic point (\ref{fr:loggingPoints}) foc
 	\label{tbl:ch2_loggingPointsFuntionalRequirements}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
-            \thead{Requirement ID} & \thead{Name} & \thead{Description} \\
+            \thead{Req. ID} & \thead{Name} & \thead{Description} \\
             \midrule
 
             \rowcolor{lightgray}
@@ -316,7 +316,7 @@ In \Cref{sec:ch1_loggignPoints} the logging points should be strategically place
 	\label{tbl:ch2_loggingPointRequirement}
 	\begin{tabularx}{\textwidth}{lX}
 		\toprule
-		\thead{Requirement ID} & \thead{Description} \\
+		\thead{Req. ID} & \thead{Description} \\
 		\midrule
 
             \rowcolor{lightgray}
@@ -345,7 +345,7 @@ The logging points can be either a single code segment or consist of multiple co
 Creating a single logging point reduces the complexity and, in most cases, will improve the consistency and correctness of the user-based logs. In Web applications, a globally defined logging point can be used in a modified \textit{HTTP request} that will form the base template for all or most \textit{HTTP request} used in the software system as in \Cref{sec:ch2_webApplicationArchitecture}.\par The use of a single centralised logging point does not guarantee that the logging mechanism will perform more efficiently and accurately than using multiple logging mechanisms. Using a single logging point may have complexity issues when it needs to capture each user-based activity consistently with different cases.
 
 \subsubsection{Storing the user-based activity logs}\label{sec:ch2_databaseStorage}
-After the logging point has captured the log attributes and created the event log, the log can be saved in a structured database. The storing of the functional requirements of user-based logs (\ref{fr:serverDatabase}) should be defined for structured database interactions.\par The captured parameters of the log attributes may have some sensitive user data that should not be logged. Functions can be excluded or assigned a new user activity type that will need to filter out certain parameters or not log any parameters a all. This will be any functions that include:
+After the logging point has captured the log attributes and created the event log, the log can be saved in a structured database. The storing of the functional requirements of user-based logs (\ref{fr:serverDatabase}) should be defined for structured database interactions.\par The captured parameters of the log attributes may have some sensitive user data that should not be logged. Functions can be excluded or assigned a new user activity type that will need to filter out certain parameters or not log any parameters at all. This will be any functions that include:
 
 \begin{itemize}
 	\item Session handling functions that contain passwords or other user information that should not be available to anyone but the user. This could lead to unintentional information disclosure of any personal information in the system utilisation analysis if it is available for anyone who can see and use the user-based activity logs,
@@ -362,7 +362,7 @@ In \Cref{tbl:ch2_SQLLoggingTable} is the type of data for the parameters and the
 	\label{tbl:ch2_SQLLoggingTable}
 	\begin{tabularx}{\textwidth}{lXXX}
             \toprule
-		\thead{Requirement ID} & \thead{Column Name} & \thead{Data Type} & \RaggedRight \thead{Log attribute requirement} \\
+		\thead{Req. ID} & \thead{Column Name} & \thead{Data Type} & \RaggedRight \thead{Log attribute requirement} \\
             \midrule
 
             \rowcolor{lightgray}
@@ -383,7 +383,7 @@ In \Cref{tbl:ch2_SQLLoggingTable} is the type of data for the parameters and the
 In \Cref{tbl:ch2_SQLLoggingTable} the functional requirements of log attributes should match the functional requirements (\ref{fr:serverDatabase}) of the logging attribute (\ref{fr:subLogAttributes}). Any other needed parameters can be added using the miscellaneous (\ref{fr:lpa7}). \par New tables or other structured storage entities can be added to save the captured data from the logging point. 
 
 \subsection{Log analysis tool}\label{sec:ch2_logAnalysisTools}
-The log analysis (\ref{fr:logAnalysis}) makes use of either third-party analytical tools or custom-created software log analysis implementations. Developers should use the implementation that will fulfil their log analysis needs. In \Cref{tbl:ch2_logAnalysis} is the log analysis functional requirements (\ref{fr:logAnalysis}).
+The log analysis (\ref{fr:logAnalysis}) uses third-party analytical tools or custom-created software log analysis implementations. Developers should use the implementation that will fulfil their log-analysis needs. In \Cref{tbl:ch2_logAnalysis} is the log analysis functional requirements (\ref{fr:logAnalysis}).
 
 \setcounter{phase}{3}
 \setcounter{subphase}{0}
@@ -394,18 +394,18 @@ The log analysis (\ref{fr:logAnalysis}) makes use of either third-party analytic
 	\label{tbl:ch2_logAnalysis}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
-		\thead{Requirement ID} & \thead{Name} & \thead{Description} \\
+		\thead{Req. ID} & \thead{Name} & \thead{Description} \\
 		\midrule
 
 		\rowcolor{lightgray}
-		\subphase{fr:logQuality} & Log quality & \RaggedRight Log quality ensures that the obtained logs are usable for the log analysis. Any incomplete logs should be either fixed in the log analysis implementation or the logging mechanism should be adjusted to get the complete logs. \\
+		\subphase{fr:logQuality} & Log quality & \RaggedRight Log quality ensures that the logs obtained are usable for log analysis. Any incomplete logs should be either fixed in the log analysis implementation or the logging mechanism should be adjusted to get the complete logs. \\
 		\subphase{fr:logAnalysisTool} & Log analysis tool requirement & \RaggedRight Certain basic requirements are needed for the log analysis tool to implement a log analysis. \\
 		\bottomrule
 	\end{tabularx}
 \end{table}
 
 \subsubsection{Log quality}
-Log quality has been identified in \Cref{sec:ch1_loggingQuality} should be important when implementing a logging mechanism to do log analysis. Log quality (\ref{fr:logQuality}) will affect both the performance of the logging mechanism and the accuracy and completeness of the log quality.  In \Cref{tbl:ch2_utilisation_requirements} are the functional requirements for log quality (\ref{fr:logQuality}).
+Log quality has been identified in \Cref{sec:ch1_loggingQuality} should be important when implementing a log-analysis mechanism. Log quality (\ref{fr:logQuality}) will affect both the performance of the logging mechanism and the accuracy and completeness of the log quality.  In \Cref{tbl:ch2_utilisation_requirements} are the functional requirements for log quality (\ref{fr:logQuality}).
 
 \setcounter{phase}{3}
 \setcounter{subphase}{1}
@@ -416,7 +416,7 @@ Log quality has been identified in \Cref{sec:ch1_loggingQuality} should be impor
 	\label{tbl:ch2_utilisation_requirements}
 	\begin{tabularx}{\textwidth}{llX}
             \toprule
-		\thead{Requirement ID} & \thead{Requirement name} & \thead{Description} \\
+		\thead{Req. ID} & \thead{Requirement name} & \thead{Description} \\
             \midrule
 
             \rowcolor{lightgray}
@@ -433,7 +433,7 @@ Log quality has been identified in \Cref{sec:ch1_loggingQuality} should be impor
 The functional requirements for log availability (\ref{fr:ur1}) and completeness (\ref{fr:ur2}) can be achieved, all functional requirements of the user-based activity log in \Cref{sec:ch2_requirementsOfUAT} are achieved with minimal processing of the raw logs afterward. There will always be changes made to the system that can impact which possible user-based events are considered to be logged.\par Log extraction refers to the methods used to obtain the logs from the database with any other relevant data that can be used in the visualisation presentation (\ref{fr:ur4}). The raw logs will need to make use of foreign references to other tables in the database to provide more details on the user-based event log as in \Cref{fig:ch2_erdOfEventLogs}.
 
 \subsubsection{Log analysis tool requirement}
-The log analysis tool (\ref{fr:logAnalysisTool}) is to ensure that a third-party or custom implementation is performed. Will be able to meet some basic log-analysis requirements defined in \Cref{tbl:ch2_logAnalysisToolFR}.
+The log analysis tool (\ref{fr:logAnalysisTool}) is to ensure that a custom or third-party implementation is performed. Will be able to meet some basic log-analysis requirements defined in \Cref{tbl:ch2_logAnalysisToolFR}.
 
 \stepcounter{subphase}
 \begin{table}[!htb]
@@ -444,13 +444,13 @@ The log analysis tool (\ref{fr:logAnalysisTool}) is to ensure that a third-party
 	\label{tbl:ch2_logAnalysisToolFR}
 	\begin{tabularx}{\textwidth}{llX}
             \toprule
-		\thead{Requirement ID} & \thead{Requirement name} & \thead{Description} \\
+		\thead{Req. ID} & \thead{Requirement name} & \thead{Description} \\
             \midrule
 
             \rowcolor{lightgray}
-		\subsubphase{fr:ur4} & Log visual presentation & The visual presentation of the extracted logs should be shown to the user that will make use of the activity logs in a custom visual system or make use of other third-party tools. This will affect how the logs will be extracted (\ref{fr:ur4}) from the database as third-party systems may use an API to get the logs from the database. \\
+		\subsubphase{fr:ur4} & Log visual presentation & The visual presentation of the extracted logs should be shown to the user who will make use of the activity logs in a custom visual system or make use of other third-party tools. This will affect how the logs will be extracted (\ref{fr:ur4}) from the database as third-party systems may use an API to get the logs from the database. \\
   
-		\subsubphase{fr:ur5} & Log comparison & \RaggedRight Using F/R 3.2 the utilisation between different log attributes that are used as the defined criteria. This will be to group and compare different types of users, subsystems and activity types against each other, etc.\\
+		\subsubphase{fr:ur5} & Log comparison & \RaggedRight Using \ref{fr:logAnalysisTool}, use different log attributes that are used as defined criteria. This will be to group and compare different types of users, subsystems and activity types against each other, etc.\\
 
         \rowcolor{lightgray}
         \subsubphase{fr:ur6} & \RaggedRight Maintenance suggestions & Maintenance suggestions can be made from system utilisation reports by prioritising maintenance or decommissioning software systems. This can be data or visual representations of the logarithmic comparison (\ref{fr:ur5}) using the log visual presentation systems (\ref{fr:ur6}) or creating a summary report from the visual presentation that contains maintenance suggestions. \\
@@ -477,26 +477,27 @@ These third-party tools do indeed have some other drawbacks, such as:
 With the drawbacks listed above, third-party business intelligence platforms are the better visual presentation tools for the system utilisation analysis if it is available for use than creating and managing a custom visualisation platform.
 
 \subsection{Maintenance prioritisation}\label{sec:ch2_utilisationImprovements}
-Maintenance prioritisation is done from the log analysis. Maintenance priority functional requirements (\ref{fr:maintenancePrioritising}) are shown in \Cref{tbl:ch2_maintenancePriortising}.
+Maintenance prioritisation is performed from logarithmic analysis. Maintenance priority functional requirements (\ref{fr:maintenancePrioritising}) are shown in \Cref{tbl:ch2_maintenancePriortising}.
 
 \setcounter{phase}{4}
 \setcounter{subphase}{0}
 \begin{table}[!htb]
-	\centering
-	\caption[Maintenance prioritising functional requirements (\ref{fr:maintenancePrioritising})]
-	{\textit{Maintenance prioritising functional requirements (\ref{fr:maintenancePrioritising})}}
-	\label{tbl:ch2_maintenancePriortising}
-	\begin{tabularx}{\textwidth}{lp{3cm}X}
-            \toprule
-		\thead{Requirement ID} & \thead{Name} & \thead{Description} \\
-            \midrule
-
-            \rowcolor{lightgray}
-		\subphase{fr:systemUtiReq} & \RaggedRight System utilisation analysis categories & \RaggedRight The system utilisation analysis categories are needed to complete logging analysis. These categories will provide the data necessary to make recommendations on how to prioritise software maintenance using these log analysis metrics.\\
+    \centering
+    \caption[Maintenance prioritising functional requirements (\ref{fr:maintenancePrioritising})]
+    {\textit{Maintenance prioritising functional requirements (\ref{fr:maintenancePrioritising})}}
+    \label{tbl:ch2_maintenancePriortising}
+    \begin{tabularx}{\textwidth}{lp{4cm}X}
+        \toprule
+        \thead{Req. ID} & \thead{Name} & \thead{Description} \\
+        \midrule
+    
+        \rowcolor{lightgray}
+        \subphase{fr:systemUtiReq} & \RaggedRight System utilisation analysis categories & \RaggedRight The system utilisation analysis categories are needed to complete logging analysis. These categories will provide the data necessary to make recommendations on how to prioritise software maintenance using these log analysis metrics.\\
   
-		\subphase{fr:maintenanceFactor} & Maintenance priorisation factor & \RaggedRight The maintenance factor measures the amount of maintenance required for a given software system. This will be used to prioritise the software maintenance efforts of the software developers using a scoring system. \\
-		\bottomrule
-	\end{tabularx}
+        \subphase{fr:maintenanceFactor} & \RaggedRight Maintenance prioritisation factor & \RaggedRight The maintenance factor measures the amount of maintenance required for a given software system. This will be used to prioritise the software maintenance efforts of the software developers using a scoring system. \\
+        
+        \bottomrule
+    \end{tabularx}
 \end{table}
 
 \clearpage
@@ -506,62 +507,61 @@ The system utilisation analysis categories functional requirements (\ref{fr:syst
 
 \setcounter{subphase}{1}
 \begin{table}[!htb]
-	\centering
-	\caption[System utilisation analysis categories functional requirements (\ref{fr:systemUtiReq})]
-	{\textit{System utilisation analysis categories functional requirements (\ref{fr:systemUtiReq})}}
-	\label{tbl:ch2_utilisationCategories}
-	\begin{tabularx}{\textwidth}{lp{3cm}X}
+    \centering
+    \caption[System utilisation analysis categories functional requirements (\ref{fr:systemUtiReq})]
+    {\textit{System utilisation analysis categories functional requirements (\ref{fr:systemUtiReq})}}
+    \label{tbl:ch2_utilisationCategories}
+    \begin{tabularx}{\textwidth}{lp{3cm}X}
         \toprule
-		\thead{Requirement ID} & \thead{Requirement name} & \thead{Description} \\
+        \thead{Req. ID} & \thead{Requirement name} & \thead{Description} \\
         \midrule
+    
+        \rowcolor{lightgray}
+	\subsubphase{fr:utCategories1} & Users & \RaggedRight Users of software systems can be placed in different categories according to who uses the software. This can be both the customer users and the employees using the software. Using the activities of the customer users will provide the data on which systems the development team needs to put their resources. \\
+  
+	\subsubphase{fr:utCategories2} & \RaggedRight User activity types & User activity types in \Cref{tbl:ch2_userActivityTypes} can be used as a category to compare different types of user-based activities with each other and use a subcategory for categories such as different users who can use the system (\ref{fr:utCategories1}). \\
 
         \rowcolor{lightgray}
-		\subsubphase{fr:utCategories1} & Users & \RaggedRight The users of the software systems can be put in different categories based on who uses the software. This can be both the customer users or the employees using the software. Using the activities of the customer users will provide the data on which systems the development team needs to put their resources into. \\
-  
-		\subsubphase{fr:utCategories2} & \RaggedRight User activity types & The user activity types in \Cref{tbl:ch2_userActivityTypes} can be used as a category to compare different types of user-based activities with each other and use a subcategory for categories such as the different users who can use the system (\ref{fr:utCategories1}). \\
-
-		\rowcolor{lightgray}
-		\subsubphase{fr:utCategories3} & \RaggedRight Systems or subsystems & \RaggedRight The request origin (\ref{fr:lpa5}) of user-based activities can be classified to compare different subsystems and controllers to each other.\\
-  
-		\subsubphase{fr:utCategories4} & Miscellaneous categories & \RaggedRight This user-based activity category type will use the metadata attribute (\ref{fr:lpa7}) of \Cref{tbl:ch2_keyLoggingAttributes}. The other fields that are not set as main categories can also be placed in this category, as they can take multiple forms.\\
-		\bottomrule
-	\end{tabularx}
+        \subsubphase{fr:utCategories3} & \RaggedRight Systems or subsystems & \RaggedRight The request origin (\ref{fr:lpa5}) of user-based activities can be classified to compare different subsystems and controllers with each other. \\
+    
+        \subsubphase{fr:utCategories4} & \RaggedRight Miscellaneous categories & \RaggedRight This user-based activity category will use the metadata attribute (\ref{fr:lpa7}) of \Cref{tbl:ch2_keyLoggingAttributes}. The other fields that are not set as main categories can also be placed in this category, as they can take multiple forms.\\
+        \bottomrule
+    \end{tabularx}
 \end{table}
 
 The categories in \Cref{tbl:ch2_utilisationCategories} allow the log data to be placed in different categories to compare them with each other. A software maintenance prioritising model can be made with the comparisons of these categories.
 
-\subsubsection{Maintenance priortisation factor}
-The maintenance priority factor (\ref{fr:maintenanceFactor}) will make use various parameters created from the obtain logs. This priority factor will need to indicate for any given subsystem's software maintenance priorisation using a consistent method to determine it. In \Cref{tbl:ch2_maintenancePriorFactor} is the functional requirements for the maintenance priorsation factor (\ref{fr:maintenanceFactor}).
+\subsubsection{Maintenance prioritisation factor}
+The maintenance priority factor (\ref{fr:maintenanceFactor}) will make use of various parameters created from the logs obtained. This priority factor will need to indicate, for any given subsystem's software maintenance priorisation, using a consistent method to determine it. In \Cref{tbl:ch2_maintenancePriorFactor} is the functional requirement for the maintenance priorsation factor (\ref{fr:maintenanceFactor}).
 
 \clearpage
 
 \stepcounter{subphase}
 \begin{table}[!htb]
-	\centering
-	\caption[Maintenance priorisation factor functional requirements (\ref{fr:maintenanceFactor})]
-	{\textit{Maintenance priorisation factor functional requirements (\ref{fr:maintenanceFactor})}}
-	\label{tbl:ch2_maintenancePriorFactor}
-	\begin{tabularx}{\textwidth}{lp{3cm}X}
+    \centering
+    \caption[Maintenance priorisation factor functional requirements (\ref{fr:maintenanceFactor})]
+    {\textit{Maintenance priorisation factor functional requirements (\ref{fr:maintenanceFactor})}}
+    \label{tbl:ch2_maintenancePriorFactor}
+    \begin{tabularx}{\textwidth}{lp{3cm}X}
         \toprule
-		\thead{Requirement ID} & \thead{Requirement name} & \thead{Description} \\
+        \thead{Req. ID} & \thead{Requirement name} & \thead{Description} \\
         \midrule
-
+    
         \rowcolor{lightgray}
-		\subsubphase{fr:mpr1} & Users & \RaggedRight The total amount of users that are active on the subsystems should be a parameter. \\
-
-		\subsubphase{fr:mpr2} & Priority & \RaggedRight The priority is precalculated parameter that indicates the importance of a subsystem. This can be either calculated or define for each subsystem. \\
-
-		\rowcolor{lightgray}
-		\subsubphase{fr:mpr3} & Activities & \RaggedRight The total number of user actvities for a subsystem needs to be used as an input parameter for the software maintenance factor. \\
-
-		\subsubphase{fr:mpr4} & Software maintenance factor & \RaggedRight The software maintenance factor is the measurement of the importance of a certain software system. This is calculated using \ref{fr:mpr1}, \ref{fr:mpr2} and \ref{fr:mpr3}. \\
-  
-		\bottomrule
-	\end{tabularx}
+        \subsubphase{fr:mpr1} & Users & \RaggedRight The total number of users that are active in the subsystems should be a parameter. \\
+    
+        \subsubphase{fr:mpr2} & Priority & \RaggedRight Priority is a precalculated parameter that indicates the importance of a subsystem. This can be calculated or defined for each subsystem. \\
+    
+        \rowcolor{lightgray}
+        \subsubphase{fr:mpr3} & Activities & \RaggedRight The total number of user activities for a subsystem must be used as an input parameter for the software maintenance factor. \\
+    
+        \subsubphase{fr:mpr4} & \RaggedRight Software maintenance factor & \RaggedRight The software maintenance factor is the measurement of the importance of a certain software system. This is calculated using \ref{fr:mpr1}, \ref{fr:mpr2} and \ref{fr:mpr3}. \\
+    
+        \bottomrule
+    \end{tabularx}
 \end{table}
 
-Uisng the functional requirements in \Cref{tbl:ch2_maintenancePriorFactor} a method to determine the software maintenance priorisation of each subsystem in a given system can be made. The defined parameters provide a basic guideline which input andf output parameters the method needs for the calculations.
-
+Using the functional requirements in \Cref{tbl:ch2_maintenancePriorFactor} a method can be used to determine the prioritisation of software maintenance of each subsystem in a given system. The defined parameters provide a basic guideline on the input and output parameters the method needs for the calculations.
 
 \section{Design}\label{sec:ch2_design}
 
@@ -597,7 +597,7 @@ In \Cref{fig:ch2_flowMVC_Architecture} is the equivalent representation of the M
 \end{itemize}
 
 \subsection{Server side logging point}\label{sec:ch2_serverSideLoggingpoint}
-In \Cref{sec:ch2_loggingPoints} the functional requirements for the logging point must be met to create a suitable logging point for a software system to track user-based activities. The \textit{HTTP request} will call a function in the system, subsystem or web page to execute the user's actions, this \textit{request} information can be obtained and parsed onto the logging point.\par The logging attribute can be created as a centralised code segment that all the software system's components can execute before executing the targeted software system in Web applications such as:
+In \Cref{sec:ch2_loggingPoints} the functional requirements for the logging point must be met to create a suitable logging point for a software system to track user-based activities. The \textit{HTTP request} will call a function in the system, subsystem, or web page to execute the user's actions, this \textit{request} information can be obtained and parsed onto the logging point.\par The logging attribute can be created as a centralised code segment that all the software system's components can execute before executing the targeted software system in Web applications such as:
 
 \begin{itemize}
 	\item In most software frameworks, the \textit{HTTP request} data can be extracted from the in-build \textit{HTTP request} models to obtain the custom request headers set on the client side. There should be at least a common global location in the software where a single logging point can be called for every \textit{HTTP} function to execute the logging point first before continuing with the rest of the main targeted function. The rest of the log attributes can also be obtained during the execution run time:
@@ -664,10 +664,10 @@ The log attributes in \Cref{tbl:ch2_SQLLoggingTable} will have foreign key refer
 	{\textit{ERD of the user activities}}\label{fig:ch2_erdOfEventLogs}
 \end{figure}
 
-In \Cref{fig:ch2_erdOfEventLogs} is an ERD diagram that describes the relationship of the table created to store the log attributes with other relevant tables. In the system utilisation analysis, this enables different fields of the other tables to be used to categorise the logs. \par The design of the log analysis system will be defined in this section. There are no restrictions on what log analysis tools developers can use, but they need to use or implement one that will be able to do the log analysis. This section also defines all the subfunctional requirements for the creation or use of log analysis tools (\ref{fr:logAnalysis}) and maintenance prioritising (\ref{fr:maintenancePrioritising}).
+In \Cref{fig:ch2_erdOfEventLogs} is an ERD diagram that describes the relationship of the table created to store the log attributes with other relevant tables. In the system utilisation analysis, this enables different fields of the other tables to be used to categorise the logs. \par The design of the log analysis system will be defined in this section. There are no restrictions on what log-analysis tools developers can use, but they need to use or implement one that will be able to do the log-analysis. This section also defines all the subfunctional requirements for the creation or use of log analysis tools (\ref{fr:logAnalysis}) and maintenance prioritisation (\ref{fr:maintenancePrioritising}).
 
 \subsection{Maintenance priortisation}
-The system utilisation analysis aims to provide maintenance recommendations to the developers to improve their maintenance efforts by:
+The system utilisation analysis aims to provide maintenance recommendations to developers to improve their maintenance efforts by:
 
 \begin{itemize}
 	\item Prioritising maintenance efforts on systems that are more frequently used.

@@ -639,70 +639,89 @@ The functional requirements that were defined in \Cref{chap:2} for case studies 
 \newcommand{\frHeader}{
 	\toprule
 	\thead{Req. ID} & \multicolumn{3}{c}{\thead{Case study}} \\ 
-		\cmidrule(lr){2-4}
+	\cmidrule(lr){2-4}
 	& \thead{A} & \thead{B} & \thead{C} \\
 	\midrule
 }
 
     
 \begin{xltabular}{\textwidth}{XYYY}
-	\caption[Functional requirements addressed]{\textit{Functional requirements addressed}}\label{tbl:ch3_functionalRequirements}
-	\frHeader
-	\endfirsthead
-
-	\caption[]{\continueCaption} \\
-	\frHeader
-	\endhead
-
-	\midrule
-	\multicolumn{4}{r}{\continueText} \\ 
-	\endfoot
-	\endlastfoot
-
-	% Add your functional requirements and case study information here
-	\rowcolor{lightgray}
-		\ref{fr:requirementsUserBased1} & \cmark & \cmark & \cmark \\
-		\ref{fr:requirementsUserBased2} & \cmark & \cmark & \cmark \\
-		\rowcolor{lightgray}
-		\ref{fr:requirementsUserBased3} & \cmark & \cmark & \cmark \\
-		\ref{fr:requirementsUserBased4} & \cmark & \cmark & \cmark \\
-		\rowcolor{lightgray}
-		\ref{fr:requirementsUserBased5} & \cmark & \cmark & \cmark \\
-		\ref{fr:requirementsUserBased6} & \cmark & \cmark & \cmark \\
-		\rowcolor{lightgray}
-		\ref{fr:uatType1} & \cmark & \cmark & \cmark \\
-		\ref{fr:uatType2} & \xmark & \xmark & \cmark \\
-		\rowcolor{lightgray}
-		\ref{fr:uatType3} & \cmark & \cmark & \cmark \\
-		\ref{fr:subLogAttributes} & \cmark & \cmark & \cmark \\
-	% Logging point requirements
-	\rowcolor{lightgray}
-		\ref{fr:lp1} & \cmark & \cmark & \cmark \\
-		\ref{fr:lp2} & \cmark & Mostly & \cmark \\
-		\rowcolor{lightgray}
-		\ref{fr:lp3} & \cmark & Mostly & \cmark \\
-		\ref{fr:lp4} & \cmark & \cmark & \cmark \\
-		\rowcolor{lightgray}
-		\ref{fr:serverDatabase} & \cmark & \cmark & \cmark \\
-	% Log analysis tool
-		\ref{fr:ur1} & \cmark & Mostly & \cmark \\
-		\rowcolor{lightgray}
-		\ref{fr:ur2} & \cmark & Mostly & \cmark \\
-		\ref{fr:ur3} & \cmark & \cmark & Mostly \\
-		\rowcolor{lightgray}
-		\ref{fr:ur4} & \cmark & \cmark & \cmark \\
-		\ref{fr:ur5} & \cmark & \cmark & \cmark \\
-		\rowcolor{lightgray}
-		\ref{fr:ur6} & \cmark & \cmark & \cmark \\
-	% Maintenance priority
-		\ref{fr:systemUtiReq} & \cmark & \cmark & \cmark \\
-		\rowcolor{lightgray}
-		\ref{fr:maintenanceFactor} & \cmark & \cmark & \cmark \\
-		\ref{fr:mpr1} & \cmark & \cmark & \cmark \\
-		\ref{fr:mpr2} & \cmark & \cmark & \cmark \\
-		\ref{fr:mpr3} & \cmark & \cmark & \cmark \\
-		\ref{fr:mpr4} & \cmark & \cmark & \cmark \\
-	\bottomrule
+    \caption[Functional requirements addressed]{\textit{Functional requirements addressed}}\label{tbl:ch3_functionalRequirements} \\
+    
+    \frHeader
+    \endfirsthead
+    
+    \caption[]{\continueCaption} \\
+    \frHeader
+    \endhead
+    
+    \midrule
+    \multicolumn{4}{r}{\continueText} \\ 
+    \endfoot
+    \endlastfoot
+    
+    % Add your functional requirements and case study information here
+    \multicolumn{4}{c}{\thead{Log attributes (\ref{fr:logAttributes})}} \\ 
+    \midrule
+    \rowcolor{lightgray}
+    \ref{fr:requirementsUserBased1} & \cmark & \cmark & \cmark \\
+    \ref{fr:requirementsUserBased2} & \cmark & \cmark & \cmark \\
+    \rowcolor{lightgray}
+    \ref{fr:requirementsUserBased3} & \cmark & \cmark & \cmark \\
+    \ref{fr:requirementsUserBased4} & \cmark & \cmark & \cmark \\
+    \rowcolor{lightgray}
+    \ref{fr:requirementsUserBased5} & \cmark & \cmark & \cmark \\
+    \ref{fr:requirementsUserBased6} & \cmark & \cmark & \cmark \\
+    \rowcolor{lightgray}
+    \ref{fr:uatType1} & \cmark & \cmark & \cmark \\
+    \ref{fr:uatType2} & \xmark & \xmark & \cmark \\
+    \rowcolor{lightgray}
+    \ref{fr:uatType3} & \cmark & \cmark & \cmark \\
+    \ref{fr:subLogAttributes} & \cmark & \cmark & \cmark \\
+    
+    % Logging point requirements
+    \midrule
+    \multicolumn{4}{c}{\thead{Logging point creation (\ref{fr:loggingPoints})}} \\ 
+    \midrule
+    \rowcolor{lightgray}
+    \ref{fr:lp1} & \cmark & \cmark & \cmark \\
+    \ref{fr:lp2} & \cmark & Mostly & \cmark \\
+    \rowcolor{lightgray}
+    \ref{fr:lp3} & \cmark & Mostly & \cmark \\
+    \ref{fr:lp4} & \cmark & \cmark & \cmark \\
+    \rowcolor{lightgray}
+    \ref{fr:serverDatabase} & \cmark & \cmark & \cmark \\
+    
+    % Log analysis tool
+    \midrule
+    \multicolumn{4}{c}{\thead{Log analysis tools (\ref{fr:logAnalysis})}} \\ 
+    \midrule
+    \rowcolor{lightgray}
+    \ref{fr:ur1} & \cmark & Mostly & \cmark \\   
+    \ref{fr:ur2} & \cmark & Mostly & \cmark \\
+    \rowcolor{lightgray}
+    \ref{fr:ur3} & \cmark & \cmark & Mostly \\
+    \ref{fr:ur4} & \cmark & \cmark & \cmark \\
+    \rowcolor{lightgray}
+    \ref{fr:ur5} & \cmark & \cmark & \cmark \\
+    \ref{fr:ur6} & \cmark & \cmark & \cmark \\
+    
+    % Maintenance priority
+    \midrule
+    \multicolumn{4}{c}{\thead{Maintenance prioritising (\ref{fr:maintenancePrioritising})}} \\ 
+    \midrule
+    \rowcolor{lightgray}
+    \ref{fr:utCategories1} & \cmark & \cmark & \cmark \\
+    \ref{fr:utCategories2} & \cmark & \cmark & \cmark \\
+    \rowcolor{lightgray}
+    \ref{fr:utCategories3} & \cmark & \cmark & \cmark \\
+    \ref{fr:mpr1} & \cmark & \cmark & \cmark \\
+    \rowcolor{lightgray}
+    \ref{fr:mpr2} & \cmark & \cmark & \cmark \\
+    \ref{fr:mpr3} & \cmark & \cmark & \cmark \\
+    \rowcolor{lightgray}
+    \ref{fr:mpr4} & \cmark & \cmark & \cmark \\
+    \bottomrule
 \end{xltabular}
 
 In \Cref{tbl:ch3_functionalRequirements} the functional requirements for the logging attributes (\ref{fr:logAttributes}) defined in \Cref{tbl:ch2_loggingAttributesFunctionalRequirements} all three case studies met the requirements that were defined. In each case study, only user-based events were captured for the user activity types defined for each case study. For each case study, the log attributes that are captured from the user-based event are obtained.\par Case Study A and B did not meet the \ref{fr:uatType2} requirement. Session changes in user activity type were not needed for these case studies. For these case studies, internal and external users' actual interaction with the systems was more important and there were no other session-related activities that could contribute to the log analysis. \par The functional requirement of the logging point (\ref{fr:loggingPoints}) Case Study A and C addressed all sub-functional requirements. Case Study B did not meet all requirements as \ref{fr:lp2} and \ref{fr:lp3} are not fully met. In this older system, using multiple logging points requires modifications to work for groups or individual subsystems. This can cause inconsistencies in log quality, as some potential user-based event logs may not be consistently identified.\par Log analysis functional requirements (\ref{fr:logAnalysis}) by using or creating a log analysis tool. Since user-based events could be efficiently obtained from the software system, the quality of the log (\ref{fr:logQuality}) for Case Study A and B was complete. \par Case Study B had lower log quality, as the availability and completeness of the logs were lower due to the use of multiple log points. The log extraction (\ref{fr:ur3}) for Case Study C was achieved mainly because additional post-logging activities with the log analysis tool had to be used to create subsystems using the logs.\par Through the log analysis, maintenance priority (\ref{fr:maintenancePrioritising}) could be performed for each case study. The results of each case study were evaluated by comparing the software maintenance prioritisation and with the other case studies.
@@ -724,6 +743,8 @@ The gaps identified for this study by analysing the results of case studies and 
 			\item Normalised user activities ($A_N$) have a similar problem to $P_N$. There are less important user activity types, and adding weight on how important each user activity type is can improve log analysis. For Case Study C some of the similar user activity types were grouped to form one user activity type. This can be used more, or user activity types should be better defined to have more distinct user activity types.
 		\end{itemize}
 \end{enumerate}
+
+\clearpage
 
 \section{Conclusion}
 This chapter explored the implementation of the methodology defined in \Cref{chap:2} to create a logging mechanism for different case studies. A test system was used to initially verify the development of the solution before it was implemented in three different case studies.\par Log analysis was performed for all logs obtained for October 2022. The following was done for each case study:
