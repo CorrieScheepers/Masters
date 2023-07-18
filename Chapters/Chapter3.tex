@@ -98,7 +98,7 @@ In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will 
 
 \begin{figure}[!htb]
 	\centering % cent the figure
-	\includegraphics[width=0.8\textwidth]{Chapter2/event_bubbling/event_bubbling.pdf}
+	\includegraphics[width=0.65\textwidth]{Chapter2/event_bubbling/event_bubbling.pdf}
 	\caption[JavaScript event propagation]
 	{\textit{JavaScript event propagation~\cite{EventBubbling}}}\label{fig:ch2_event_bubbling}
 \end{figure}
@@ -449,7 +449,7 @@ In \Cref{fig:ch3_caseBAnalysis} all the subsystems have the majority \texttt{Das
 	\bottomrule
 \end{xltabular}
 
-\Cref{tbl:ch3_caseBQuality} emphasises the issues of using multiple different logging points that have different operations to obtain user-based events. In this older software system of Case Study B post-logging operations in the log analysis tool were done to exclude some of the unfixable logs, make corrections were applicable, and fill in missing log attributes based on other log attributes.
+\Cref{tbl:ch3_caseBQuality} emphasises the issues of using multiple different logging points that have different operations to obtain user-based events. Case Study B will need to use post-logging operations in the log analysis tool were done to exclude some of the unfixable logs, make corrections were applicable, and fill in missing log attributes based on other log attributes.
 
 \subsubsection{Maintenance prioritisation}
 The maintenance prioritisation factor for the user activities in the upper quartile of the subsystem for Case Study B is calculated in \Cref{tbl:apx_caseB}.
@@ -480,8 +480,8 @@ System C is also a \texttt{APS.NET Core Web SDK} software system. The software s
 	\endlastfoot
 
 	\rowcolor{lightgray}
-	\texttt{MenuAccessed} & \ref{fr:uatType1} & \RaggedRight This activity type is for when a user has navigated to a certain subsystem. \\ 
-	\texttt{LoginAttempt} & \ref{fr:uatType2} & \RaggedRight This is a user activity for a log-out attempt by the user using the log-out options available in the system to end their session. \\ 
+	\texttt{MenuAccessed} & \ref{fr:uatType1} & \RaggedRight Tracks user's navigation to a certain subsystem. \\ 
+	\texttt{LogoutAttempt} & \ref{fr:uatType2} & \RaggedRight Log-out attempt by the user to end their session using the log-out controls. \\ 
 	\rowcolor{lightgray}
 	\texttt{LogoutAttempt} & \ref{fr:uatType2} & \RaggedRight This is a user activity when the user uses any of the log-in page controls. \\
 	\texttt{ResetPassword} & \ref{fr:uatType2} & \RaggedRight This is a user activity when the user uses any of the reset password page controls. \\
@@ -489,7 +489,7 @@ System C is also a \texttt{APS.NET Core Web SDK} software system. The software s
 	\texttt{SessionTracking} & \ref{fr:uatType2} & \RaggedRight System C has some data stored in its session. Any changes to these data are tracked when the user interacts with any controls on the web page to change certain session data. \\
 	\texttt{CustomControls} & \ref{fr:uatType3} & \RaggedRight System C has some custom HTML elements that have the same functionality as the \texttt{HTMLElement} user activity type. \\ 
 	\rowcolor{lightgray}
-	\texttt{HTMLElement} & \ref{fr:uatType3} & \RaggedRight This general activity type is for all other activities that the user initiates that send \textit{HTTP request} back to the server. This type of user is primarily associated with HTML elements that the user used to interact with the subsystem. The sub-user activities of this primary user activity type are: \begin{itemize}
+	\texttt{HTMLElement} & \ref{fr:uatType3} & \RaggedRight This general activity type is for all other activities that the user initiates that send \textit{HTTP request} back to the server. This type of user is primarily associated with HTML elements that the user used to interact with the subsystem that are: \begin{itemize}
 		\item SpanClicked,
 		\item ButtonClicked, 
 		\item DivClicked, 
@@ -570,8 +570,6 @@ The maintenance prioritisation factor for the user activities in the upper quart
 
 The upper quartile of the maintenance performance of the subsystems of \Cref{tbl:apx_projectC_Normilised} is used to create the results of \Cref{tbl:apx_projectC_Normilised} using \Cref{eq:ch2_eventNormalised,eq:ch2_maintenanceFactorSimplified,eq:ch2_priorityNormalised}. The results of \Cref{tbl:apx_caseC} are visually presented in \Cref{fig:ch3_caseCAnalysis}.\par The high usage of $S_{97}$, $S_{93}$, and $S_{12}$ with a high number of users linked to each one increased their maintenance priority factor. Other systems such as $S_{6}$, $S_{1}$ and $S_{82}$ have a higher priority normalisation than $S_{12}$, but they have a significantly lower normalisation of user activity.
 
-\clearpage
-
 \subsection{Critical analysis results}\label{sec:ch3_criticalAnalysis}
 
 \subsubsection{Summary of comparison between case studies}
@@ -638,16 +636,21 @@ From the observations made about each case study, some positive points can be su
 \subsubsection{Functional requirement addressed}
 The functional requirements that were defined in \Cref{chap:2} for case studies A, B, and C are addressed in \Cref{tbl:ch3_functionalRequirements}.
 
+\newcommand{\frHeader}{
+	\toprule
+	\thead{Req. ID} & \multicolumn{3}{c}{\thead{Case study}} \\ 
+		\cmidrule(lr){2-4}
+	& \thead{A} & \thead{B} & \thead{C} \\
+	\midrule
+}
+
 \begin{table}[!htb]
     \centering
     \caption[Functional requirements addressed]{\textit{Functional requirements addressed}}
     \label{tbl:ch3_functionalRequirements}
     \begin{tabularx}{\textwidth}{XYYY}
-        \toprule
-        \thead{Req. ID} & \multicolumn{3}{c}{\thead{Case study}} \\ 
-            \cmidrule(lr){2-4}
-         & \thead{A} & \thead{B} & \thead{C} \\
-        \midrule
+		\frHeader
+
         % Add your functional requirements and case study information here
         \rowcolor{lightgray}
          \ref{fr:requirementsUserBased1} & \cmark & \cmark & \cmark \\
@@ -687,6 +690,10 @@ The functional requirements that were defined in \Cref{chap:2} for case studies 
          \ref{fr:systemUtiReq} & \cmark & \cmark & \cmark \\
          \rowcolor{lightgray}
          \ref{fr:maintenanceFactor} & \cmark & \cmark & \cmark \\
+		 \ref{fr:mpr1} & \cmark & \cmark & \cmark \\
+		 \ref{fr:mpr2} & \cmark & \cmark & \cmark \\
+		 \ref{fr:mpr3} & \cmark & \cmark & \cmark \\
+		 \ref{fr:mpr4} & \cmark & \cmark & \cmark \\
        \bottomrule
     \end{tabularx}
 \end{table}

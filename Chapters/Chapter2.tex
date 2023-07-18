@@ -83,13 +83,15 @@ In this section, functional requirements will be created for the logging mechani
 	\phase{fr:loggingPoints} & Logging point creation & \RaggedRight Logging points capture the desired log attributes when a user-based event takes place. In \Cref{sec:ch1_loggignPoints} logging points should be strategically placed in the software system to capture the event logs. This stage of development includes identifying where log points should be placed, creating logs, and interacting with the database. \\
 
 	\rowcolor{lightgray}
-	\phase{fr:logAnalysis} & \RaggedRight Create or use log analysis tools & Make use of suitable third-party tools or create software to do log analysis on the stored event logs. \\
+	\phase{fr:logAnalysis} & \RaggedRight Log analysis tools & Make use of suitable third-party tools or create software to do log analysis on the stored event logs. \\
 
 	\phase{fr:maintenancePrioritising} & \RaggedRight Maintenance prioritising & Create a maintenance prioritising report based on the log analysis for software maintenance using the log analysis tool. The report aims to visualise the use of the system of certain parts of the system and determine maintenance prioritisation. \\
 	\bottomrule
 \end{xltabular}
 
 The design of the logging mechanism system will be defined in this section. This is to create a generic method of how to create a suitable logging mechanism to capture specific user-based event logs. This also defines any other subfunctional requirements to identify log attributes (\ref{fr:logAttributes}) and the creation of log points (\ref{fr:loggingPoints}).
+
+\clearpage
 
 \subsection{Log attributes requirements}\label{sec:ch2_logAttributesRequirements}
 The functional requirement of log attributes (\ref{fr:logAttributes}) focusses on the possible events with which the user has been involved when interacting with the software system. In \Cref{tbl:ch2_loggingAttributesFunctionalRequirements} are the functional requirements of \ref{fr:logAttributes}.
@@ -279,6 +281,8 @@ The metadata in \Cref{fig:ch2_MetadataJsonExample} is the possible additional pa
 \subsection{Logging point requirements}\label{sec:ch2_serverFunctionalRequirements}
 The functional requirement of the logarithmic point (\ref{fr:loggingPoints}) focusses on the creation and strategic placement of the logarithmic points. The log points that obtain the log attributes must also store the created event log in a structured database. The logging point's subfunctional requirements are defined in \Cref{tbl:ch2_loggingPointsFuntionalRequirements}. 
 
+\clearpage
+
 \stepcounter{phase}
 \begin{table}[!htb]
 	\centering
@@ -376,18 +380,9 @@ In \Cref{tbl:ch2_SQLLoggingTable} is the type of data for the parameters and the
 	\end{tabularx}
 \end{table}
 
-In \Cref{tbl:ch2_SQLLoggingTable} the functional requirements of log attributes should match the functional requirements (\ref{fr:serverDatabase}) of the logging attribute (\ref{fr:subLogAttributes}). Any other needed parameters can be added using the miscellaneous (\ref{fr:lpa7}). \par New tables or other structured storage entities can be added to save the captured data from the logging point. The log attributes in \Cref{tbl:ch2_SQLLoggingTable} will have foreign key references to other tables in the database for other tables shown in \Cref{fig:ch2_erdOfEventLogs}. 
+In \Cref{tbl:ch2_SQLLoggingTable} the functional requirements of log attributes should match the functional requirements (\ref{fr:serverDatabase}) of the logging attribute (\ref{fr:subLogAttributes}). Any other needed parameters can be added using the miscellaneous (\ref{fr:lpa7}). \par New tables or other structured storage entities can be added to save the captured data from the logging point. 
 
-\begin{figure}[!htb] % An h :here, t: top, b: bottom.
-	\centering % cent the figure
-	\includegraphics[width=0.99\textwidth]{Chapter2/SystemB_ERD_Basic/SystemB_ERD_Basic.pdf}
-	\caption[ERD of user activities]
-	{\textit{ERD of the user activities}}\label{fig:ch2_erdOfEventLogs}
-\end{figure}
-
-In \Cref{fig:ch2_erdOfEventLogs} is an ERD diagram that describes the relationship of the table created to store the log attributes with other relevant tables. In the system utilisation analysis, this enables different fields of the other tables to be used to categorise the logs. \par The design of the log analysis system will be defined in this section. There are no restrictions on what log analysis tools developers can use, but they need to use or implement one that will be able to do the log analysis. This section also defines all the subfunctional requirements for the creation or use of log analysis tools (\ref{fr:logAnalysis}) and maintenance prioritising (\ref{fr:maintenancePrioritising}).
-
-\subsection{Create or use log analysis tools}\label{sec:ch2_logAnalysisTools}
+\subsection{Log analysis tool}\label{sec:ch2_logAnalysisTools}
 The log analysis (\ref{fr:logAnalysis}) makes use of either third-party analytical tools or custom-created software log analysis implementations. Developers should use the implementation that will fulfil their log analysis needs. In \Cref{tbl:ch2_logAnalysis} is the log analysis functional requirements (\ref{fr:logAnalysis}).
 
 \setcounter{phase}{3}
@@ -437,7 +432,7 @@ Log quality has been identified in \Cref{sec:ch1_loggingQuality} should be impor
 
 The functional requirements for log availability (\ref{fr:ur1}) and completeness (\ref{fr:ur2}) can be achieved, all functional requirements of the user-based activity log in \Cref{sec:ch2_requirementsOfUAT} are achieved with minimal processing of the raw logs afterward. There will always be changes made to the system that can impact which possible user-based events are considered to be logged.\par Log extraction refers to the methods used to obtain the logs from the database with any other relevant data that can be used in the visualisation presentation (\ref{fr:ur4}). The raw logs will need to make use of foreign references to other tables in the database to provide more details on the user-based event log as in \Cref{fig:ch2_erdOfEventLogs}.
 
-\subsubsection{Log analysis tool}
+\subsubsection{Log analysis tool requirement}
 The log analysis tool (\ref{fr:logAnalysisTool}) is to ensure that a third-party or custom implementation is performed. Will be able to meet some basic log-analysis requirements defined in \Cref{tbl:ch2_logAnalysisToolFR}.
 
 \stepcounter{subphase}
@@ -481,8 +476,6 @@ These third-party tools do indeed have some other drawbacks, such as:
 
 With the drawbacks listed above, third-party business intelligence platforms are the better visual presentation tools for the system utilisation analysis if it is available for use than creating and managing a custom visualisation platform.
 
-\clearpage
-
 \subsection{Maintenance prioritisation}\label{sec:ch2_utilisationImprovements}
 Maintenance prioritisation is done from the log analysis. Maintenance priority functional requirements (\ref{fr:maintenancePrioritising}) are shown in \Cref{tbl:ch2_maintenancePriortising}.
 
@@ -501,92 +494,74 @@ Maintenance prioritisation is done from the log analysis. Maintenance priority f
             \rowcolor{lightgray}
 		\subphase{fr:systemUtiReq} & \RaggedRight System utilisation analysis categories & \RaggedRight The system utilisation analysis categories are needed to complete logging analysis. These categories will provide the data necessary to make recommendations on how to prioritise software maintenance using these log analysis metrics.\\
   
-		\subphase{fr:maintenanceFactor} & Maintenance factor & \RaggedRight The maintenance factor measures the amount of maintenance required for a given software system. This will be used to prioritise the software maintenance efforts of the software developers using a scoring system. \\
+		\subphase{fr:maintenanceFactor} & Maintenance priorisation factor & \RaggedRight The maintenance factor measures the amount of maintenance required for a given software system. This will be used to prioritise the software maintenance efforts of the software developers using a scoring system. \\
 		\bottomrule
 	\end{tabularx}
 \end{table}
 
-The system utilisation analysis aims to provide maintenance recommendations to the developers to improve their maintenance efforts by:
-
-\begin{itemize}
-	\item Prioritising maintenance efforts on systems that are more frequently used.
-	\item Decommission new systems. User-based activities provide a quantitative reason why certain systems can be decommissioned due to inactivity of users.
-\end{itemize}
-
-This can be achieved by implementing maintenance prioritisation using \Cref{eq:ch2_maintenanceFactorSimplified}:
-
-\begin{equation}
-	\label{eq:ch2_maintenanceFactorSimplified}
-	M_{PF} = A_{N} \times P_{N}
-\end{equation}
-
-where:
-
-\begin{itemize}
-	\item $M_{PF}$ is the maintenance priority factor,
-	\item $A_{N}$ is the normalised activity for the total logs obtained per subsystem,
-	\item $P_{N}$ is the normalised priority factor for the subsystem.
-\end{itemize}
-
-Normalised user activities per subsystem are described by \Cref{eq:ch2_eventNormalised}:
-
-\begin{equation}
-	\label{eq:ch2_eventNormalised}
-	A_{N} = \frac{A_X - A_{Min}}{A_{Max} - A_{Min}},
-\end{equation}
-
-where:
-
-\begin{itemize}
-	\item $A_X$ is the total obtained user activities for the specified subsystem
-	\item $A_{Min}$ is the total minimum user activities for a subsystem,
-	\item $A_{Max}$ is a subsystem's total maximum user activities.
-\end{itemize}
-
-The normalised priority factor $P_N$ is described in \Cref{eq:ch2_priorityNormalised}:
-
-\begin{equation}
-	\label{eq:ch2_priorityNormalised}
-	P_{N} = \frac{P_X - P_{Min}}{P_{Max} - P_{Min}},
-\end{equation}
-
-\begin{itemize}
-	\item $P_X$ is the total obtained users that have access to the subsystem,
-	\item $P_{Min}$ is the total minimum number of users that have access to any subsystem,
-	\item $P_{Max}$ is the total maximum number of users that have access to any subsystem.
-\end{itemize}
-
-A normalised value for the priority is used as there is not a predefined way how to describe the importance of any subsystem.
+\clearpage
 
 \subsubsection{System utilisation analysis categories}
 The system utilisation analysis categories functional requirements (\ref{fr:systemUtiReq}) is used to categorise the log data for maintenance prioritisation metrics. In \Cref{tbl:ch2_utilisationCategories} is the functional requirements of the system utilisation analysis categories (\ref{fr:systemUtiReq}).
 
+\setcounter{subphase}{1}
 \begin{table}[!htb]
 	\centering
 	\caption[System utilisation analysis categories functional requirements (\ref{fr:systemUtiReq})]
 	{\textit{System utilisation analysis categories functional requirements (\ref{fr:systemUtiReq})}}
 	\label{tbl:ch2_utilisationCategories}
 	\begin{tabularx}{\textwidth}{lp{3cm}X}
-            \toprule
+        \toprule
 		\thead{Requirement ID} & \thead{Requirement name} & \thead{Description} \\
-            \midrule
+        \midrule
 
-            \rowcolor{lightgray}
-		\subsubphase{fr:utCategories1} & Users & The users of the software systems can be put in different categories based on who uses the software. This can be both the customer users or the employees using the software. Using the activities of the customer users will provide the data on which systems the development team needs to put their resources into. \\
+        \rowcolor{lightgray}
+		\subsubphase{fr:utCategories1} & Users & \RaggedRight The users of the software systems can be put in different categories based on who uses the software. This can be both the customer users or the employees using the software. Using the activities of the customer users will provide the data on which systems the development team needs to put their resources into. \\
   
 		\subsubphase{fr:utCategories2} & \RaggedRight User activity types & The user activity types in \Cref{tbl:ch2_userActivityTypes} can be used as a category to compare different types of user-based activities with each other and use a subcategory for categories such as the different users who can use the system (\ref{fr:utCategories1}). \\
 
-            \rowcolor{lightgray}
-		\subsubphase{fr:utCategories3} & Systems or subsystems & The request origin (\ref{fr:lpa5}) of user-based activities can be classified to compare different subsystems and controllers to each other.\\
+		\rowcolor{lightgray}
+		\subsubphase{fr:utCategories3} & \RaggedRight Systems or subsystems & \RaggedRight The request origin (\ref{fr:lpa5}) of user-based activities can be classified to compare different subsystems and controllers to each other.\\
   
-		\subsubphase{fr:utCategories4} & Miscellaneous categories & This user-based activity category type will use the metadata attribute (\ref{fr:lpa7}) of \Cref{tbl:ch2_keyLoggingAttributes}. The other fields that are not set as main categories can also be placed in this category, as they can take multiple forms.\\
+		\subsubphase{fr:utCategories4} & Miscellaneous categories & \RaggedRight This user-based activity category type will use the metadata attribute (\ref{fr:lpa7}) of \Cref{tbl:ch2_keyLoggingAttributes}. The other fields that are not set as main categories can also be placed in this category, as they can take multiple forms.\\
 		\bottomrule
 	\end{tabularx}
 \end{table}
 
 The categories in \Cref{tbl:ch2_utilisationCategories} allow the log data to be placed in different categories to compare them with each other. A software maintenance prioritising model can be made with the comparisons of these categories.
 
+\subsubsection{Maintenance priortisation factor}
+The maintenance priority factor (\ref{fr:maintenanceFactor}) will make use various parameters created from the obtain logs. This priority factor will need to indicate for any given subsystem's software maintenance priorisation using a consistent method to determine it. In \Cref{tbl:ch2_maintenancePriorFactor} is the functional requirements for the maintenance priorsation factor (\ref{fr:maintenanceFactor}).
+
 \clearpage
+
+\stepcounter{subphase}
+\begin{table}[!htb]
+	\centering
+	\caption[Maintenance priorisation factor functional requirements (\ref{fr:maintenanceFactor})]
+	{\textit{Maintenance priorisation factor functional requirements (\ref{fr:maintenanceFactor})}}
+	\label{tbl:ch2_maintenancePriorFactor}
+	\begin{tabularx}{\textwidth}{lp{3cm}X}
+        \toprule
+		\thead{Requirement ID} & \thead{Requirement name} & \thead{Description} \\
+        \midrule
+
+        \rowcolor{lightgray}
+		\subsubphase{fr:mpr1} & Users & \RaggedRight The total amount of users that are active on the subsystems should be a parameter. \\
+
+		\subsubphase{fr:mpr2} & Priority & \RaggedRight The priority is precalculated parameter that indicates the importance of a subsystem. This can be either calculated or define for each subsystem. \\
+
+		\rowcolor{lightgray}
+		\subsubphase{fr:mpr3} & Activities & \RaggedRight The total number of user actvities for a subsystem needs to be used as an input parameter for the software maintenance factor. \\
+
+		\subsubphase{fr:mpr4} & Software maintenance factor & \RaggedRight The software maintenance factor is the measurement of the importance of a certain software system. This is calculated using \ref{fr:mpr1}, \ref{fr:mpr2} and \ref{fr:mpr3}. \\
+  
+		\bottomrule
+	\end{tabularx}
+\end{table}
+
+Uisng the functional requirements in \Cref{tbl:ch2_maintenancePriorFactor} a method to determine the software maintenance priorisation of each subsystem in a given system can be made. The defined parameters provide a basic guideline which input andf output parameters the method needs for the calculations.
+
 
 \section{Design}\label{sec:ch2_design}
 
@@ -678,6 +653,71 @@ If the \texttt{request header} contains the \texttt{Index} keyword, which is the
 	\caption[User-based activity log classification flow diagram]
 	{\textit{User-based activity log classification flow diagram}}\label{fig:ch2_user_based_actvity_classification}
 \end{figure}
+
+\subsection{Storage of event logs}
+The log attributes in \Cref{tbl:ch2_SQLLoggingTable} will have foreign key references to other tables in the database for other tables shown in \Cref{fig:ch2_erdOfEventLogs}. 
+
+\begin{figure}[!htb] % An h :here, t: top, b: bottom.
+	\centering % cent the figure
+	\includegraphics[width=0.99\textwidth]{Chapter2/SystemB_ERD_Basic/SystemB_ERD_Basic.pdf}
+	\caption[ERD of user activities]
+	{\textit{ERD of the user activities}}\label{fig:ch2_erdOfEventLogs}
+\end{figure}
+
+In \Cref{fig:ch2_erdOfEventLogs} is an ERD diagram that describes the relationship of the table created to store the log attributes with other relevant tables. In the system utilisation analysis, this enables different fields of the other tables to be used to categorise the logs. \par The design of the log analysis system will be defined in this section. There are no restrictions on what log analysis tools developers can use, but they need to use or implement one that will be able to do the log analysis. This section also defines all the subfunctional requirements for the creation or use of log analysis tools (\ref{fr:logAnalysis}) and maintenance prioritising (\ref{fr:maintenancePrioritising}).
+
+\subsection{Maintenance priortisation}
+The system utilisation analysis aims to provide maintenance recommendations to the developers to improve their maintenance efforts by:
+
+\begin{itemize}
+	\item Prioritising maintenance efforts on systems that are more frequently used.
+	\item Decommission new systems. User-based activities provide a quantitative reason why certain systems can be decommissioned due to inactivity of users.
+\end{itemize}
+
+This can be achieved by implementing maintenance prioritisation using \Cref{eq:ch2_maintenanceFactorSimplified}:
+
+\begin{equation}
+	\label{eq:ch2_maintenanceFactorSimplified}
+	M_{PF} = A_{N} \times P_{N}
+\end{equation}
+
+where:
+
+\begin{itemize}
+	\item $M_{PF}$ is the maintenance priority factor,
+	\item $A_{N}$ is the normalised activity for the total logs obtained per subsystem,
+	\item $P_{N}$ is the normalised priority factor for the subsystem.
+\end{itemize}
+
+Normalised user activities per subsystem are described by \Cref{eq:ch2_eventNormalised}:
+
+\begin{equation}
+	\label{eq:ch2_eventNormalised}
+	A_{N} = \frac{A_X - A_{Min}}{A_{Max} - A_{Min}},
+\end{equation}
+
+where:
+
+\begin{itemize}
+	\item $A_X$ is the total obtained user activities for the specified subsystem
+	\item $A_{Min}$ is the total minimum user activities for a subsystem,
+	\item $A_{Max}$ is a subsystem's total maximum user activities.
+\end{itemize}
+
+The normalised priority factor $P_N$ is described in \Cref{eq:ch2_priorityNormalised}:
+
+\begin{equation}
+	\label{eq:ch2_priorityNormalised}
+	P_{N} = \frac{P_X - P_{Min}}{P_{Max} - P_{Min}},
+\end{equation}
+
+\begin{itemize}
+	\item $P_X$ is the total obtained users that have access to the subsystem,
+	\item $P_{Min}$ is the total minimum number of users that have access to any subsystem,
+	\item $P_{Max}$ is the total maximum number of users that have access to any subsystem.
+\end{itemize}
+
+A normalised value for the priority is used as there is not a predefined way how to describe the importance of any subsystem.
 
 \section{Conclusion}
 In \Cref{sec:ch2_investigate} are the defined functional requirements for a logging mechanism for the system utilisation analysis in \Cref{sec:ch2_logAnalysisTools,sec:ch2_utilisationImprovements}. The user activity types defined in \Cref{sec:ch2_userActivityTypes} are the basis of the log attributes that must be logged to create a user-based log.\par The log points capture logs and send them to the server logging point where they are processed and stored in writing in a database.\par The logs are extracted into a visual presentation that enables maintenance improvement suggestions based on the use analysis in \Cref{sec:ch2_logAnalysisTools,sec:ch2_utilisationImprovements}.
