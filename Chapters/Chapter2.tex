@@ -531,10 +531,10 @@ The system utilisation analysis categories functional requirements (\ref{fr:syst
 
 The categories in \Cref{tbl:ch2_utilisationCategories} allow the log data to be placed in different categories to compare them with each other. A software maintenance prioritising model can be made with the comparisons of these categories.
 
+\clearpage
+
 \subsubsection{Maintenance prioritisation factor}
 The maintenance priority factor (\ref{fr:maintenanceFactor}) will make use of various parameters created from the logs obtained. This priority factor will need to indicate, for any given subsystem's software maintenance priorisation, using a consistent method to determine it. In \Cref{tbl:ch2_maintenancePriorFactor} is the functional requirement for the maintenance priorsation factor (\ref{fr:maintenanceFactor}).
-
-\clearpage
 
 \stepcounter{subphase}
 \begin{table}[!htb]
@@ -563,6 +563,8 @@ The maintenance priority factor (\ref{fr:maintenanceFactor}) will make use of va
 
 Using the functional requirements in \Cref{tbl:ch2_maintenancePriorFactor} a method can be used to determine the prioritisation of software maintenance of each subsystem in a given system. The defined parameters provide a basic guideline on the input and output parameters the method needs for the calculations.
 
+\clearpage
+
 \section{Design}\label{sec:ch2_design}
 
 \subsection{Web application architecture}\label{sec:ch2_webApplicationArchitecture}
@@ -588,12 +590,12 @@ To determine the types of user activity for a Web application, the architecture 
 	{\textit{MVC architecture for most web-based applications \cite{Gu2010}}}\label{fig:ch2_flowMVC_Architecture}
 \end{figure}
 
-In \Cref{fig:ch2_flowMVC_Architecture} is the equivalent representation of the MVC architecture of \Cref{fig:ch2_systemDesign} where the data flow of the MVC architecture is shown. The user interacts with the Web application through their browser which will send a \textit{HTTP requests} to the \textit{Controller} and receive a \textit{HTTP response}\footnote{An \textbf{HTTP response} is made by a server to a client. The response aims to provide the client with the resource it requested, inform the client that the action it requested has been carried out, or else inform the client that an error occurred in processing its request. \cite{IBM2021a}.} from the \textit{View}.The \textit{Controller} will request and return the data to the \textit{Model} which interacts with the database access layer or service to do the \textit{create}, \textit{update} and \textit{delete} operations.\par To classify any interaction between the user (F / R 1) and the server (F / R 2) to fulfil the functional requirements of \Cref{tbl:ch2_requirementsForUserActivtyEvent} only the \textit{HTTP request} are used for the logging points in \Cref{sec:ch2_loggingPoints} as it:
+In \Cref{fig:ch2_flowMVC_Architecture} is the equivalent representation of the MVC architecture of \Cref{fig:ch2_systemDesign} where the data flow of the MVC architecture is shown. The user interacts with the Web application through their browser which will send a \textit{HTTP requests} to the \textit{Controller} and receive a \textit{HTTP response}\footnote{An \textbf{HTTP response} is made by a server to a client. The response aims to provide the client with the resource it requested, inform the client that the action it requested has been carried out, or else inform the client that an error occurred in processing its request. Refer to the source: IBM, "HTTP responses", IBM, Available: \url{https://www.ibm.com/docs/en/cics-ts/5.2?topic=protocol-http-responses} (visited on 2023-07-24)} from the \textit{View}. The \textit{Controller} will request and return the data to the \textit{Model} which interacts with the database access layer or service to do the \textit{create}, \textit{update} and \textit{delete} operations.\par To classify any interaction between the user (\ref{fr:logAttributes}) and the server (\ref{fr:loggingPoints}) to fulfil the functional requirements of \Cref{tbl:ch2_requirementsForUserActivtyEvent} only the \textit{HTTP request} are used for the logging points in \Cref{sec:ch2_loggingPoints} as it:
 
 \begin{itemize}
 	\item Meet \ref{fr:requirementsUserBased1} and \ref{fr:requirementsUserBased1} as the user will interact with \textit{ View} to modify the data which needs to send back an \textit{HTTP request} to process the data on the \textit{Controller}.
 	\item User activity types can be assigned for different scenarios the user triggers when the request is sent. 
-	\item Any additional metadata can be sent with the \textit{request header}\footnote{A \textbf{request header} is an HTTP header that can be used in an HTTP request to provide information about the request context so that the server can tailor the response. For example, the Accept-$\ast$ headers indicate the allowed and preferred formats of the response. \cite{Mozilla2022}.} of the \textit{HTTP request}. This will reduce the overhead added by the logging mechanism by not sending an additional \textit{HTTP request} each time back to the server when a user-based activity has been identified.
+	\item Any additional metadata can be sent with the \textit{request header}\footnote{A \textbf{request header} is an HTTP header that can be used in an HTTP request to provide information about the request context so that the server can tailor the response. For example, the Accept-$\ast$ headers indicate the allowed and preferred formats of the response. Refer to the source: MDN Web Docs, "Request header", MDN Web Docs, Available: \url{https://developer.mozilla.org/en-US/docs/Glossary/Request_header} (visited on 2023-07-24)} of the \textit{HTTP request}. This will reduce the overhead added by the logging mechanism by not sending an additional \textit{HTTP request} each time back to the server when a user-based activity has been identified.
 \end{itemize}
 
 \subsection{Server side logging point}\label{sec:ch2_serverSideLoggingpoint}
@@ -612,7 +614,14 @@ In \Cref{sec:ch2_loggingPoints} the functional requirements for the logging poin
 As long as the logging attributes and the \textit{HTTP request} headers are obtainable, the logging mechanism can be created on the server side to extract the data and process it. The activity type can be resolved by the defined cases e.g. if the request calls the \texttt{Index} function of the system, subsystem or webpage, it can be identified as the Web page accessed user activity type (\ref{fr:uatType1}) of \Cref{tbl:ch2_userActivityTypes}.\par If the user-based event is using the system, subsystem or web page or functions that modify the session, it can be classified as session changed event (\ref{fr:uatType3}) and the rest of the user-based activity events need to be tested afterwards if they meet certain criteria defined for the general activity types. If it fails all three types of classification, the event is likely, not user-generated or comes from \textit{HTTP request} that was executed after the initial first request. In such cases, the last HTML element id that triggered the event should not be listed as a clicked element in JavaScript.
 
 \subsection{Server side log parsing}
-In \Cref{fig:ch2_loggingParse} is the server-side log parsing of the possible user-based activity events obtained for the software system.
+In \Cref{fig:ch2_loggingParse} is the server-side log parsing of the possible user-based activity events obtained for the software system.\par The defined globally set logging point will start the user-based activity process before the targeted process is executed in \Cref{fig:ch2_loggingParse}. At this stage, if anything goes wrong with the logging during the execution of this filter, it should be abandoned and let the software system continue to ensure that it does not interfere with the software system's operations (\ref{fr:lpa4} of \Cref{tbl:ch2_loggingPointRequirement}).\par In the case of the request method \texttt{NULL} or empty due to errors such as incorrect parameter types for the targeted procedure in the controller, the logging point should stop attempting to log the user-based log. The issue would most likely appear as a runtime error and any user-based activity log procedures will also fail due to incomplete data or cause the logs to be not complete and consistent (\ref{fr:lpa3} of \Cref{tbl:ch2_loggingPointRequirement}).\par If the captured user-activity log contains any parameters it should be checked for any session-related parameters or any other potential user data that should be removed from the metadata to prevent any personal information from being accessed by not the owner of the user account. If it does not contain any request parameters the \texttt{ElementInfo} should be set to \texttt{NULL}.\par In \Cref{fig:Ch2_ElementInfo} is the \texttt{JSON} data of \texttt{ElementInfo}. 
+
+\begin{lstlisting}[style=json, caption={\textit{Element properties JSON}}, label={fig:Ch2_ElementInfo}] 
+	{ "ElementTagName" : "button",
+		"ElementID" : "submitButton",
+		"ElementDataKey": "submit-control"		
+	}
+\end{lstlisting}
 
 \clearpage
 
@@ -624,15 +633,6 @@ In \Cref{fig:ch2_loggingParse} is the server-side log parsing of the possible us
 \end{figure}
 
 \clearpage
-
-The defined globally set logging point will start the user-based activity process before the targeted process is executed in \Cref{fig:ch2_loggingParse}. At this stage, if anything goes wrong with the logging during the execution of this filter, it should be abandoned and let the software system continue to ensure that it does not interfere with the software system's operations (\ref{fr:lpa4} of \Cref{tbl:ch2_loggingPointRequirement}).\par In the case of the request method \texttt{NULL} or empty due to errors such as incorrect parameter types for the targeted procedure in the controller, the logging point should stop attempting to log the user-based log. The issue would most likely appear as a runtime error and any user-based activity log procedures will also fail due to incomplete data or cause the logs to be not complete and consistent (\ref{fr:lpa3} of \Cref{tbl:ch2_loggingPointRequirement}).\par If the captured user-activity log contains any parameters it should be checked for any session-related parameters or any other potential user data that should be removed from the metadata to prevent any personal information from being accessed by not the owner of the user account. If it does not contain any request parameters the \texttt{ElementInfo} should be set to \texttt{NULL}.\par In \Cref{fig:Ch2_ElementInfo} is the \texttt{JSON} data of \texttt{ElementInfo}. 
-
-\begin{lstlisting}[style=json, caption={\textit{Element properties JSON}}, label={fig:Ch2_ElementInfo}] 
-	{ "ElementTagName" : "button",
-		"ElementID" : "submitButton",
-		"ElementDataKey": "submit-control"		
-	}
-\end{lstlisting}
 
 Each of the properties in \Cref{fig:Ch2_ElementInfo} which consist of:
 
@@ -647,12 +647,16 @@ If the \texttt{request header} contains the \texttt{Index} keyword, which is the
 \subsection{Client functional requirements interaction}
 \par In \Cref{fig:ch2_user_based_actvity_classification} is the complete process of the user interacting with the user interface to trigger a user-based activity event to be logged later for the client's functional requirements. It starts with the user interacting with the user interface. The default activity type is set to general activity (\ref{fr:uatType3}) until it is further processed later in the logging mechanism.\par If the activity has additional metadata such as other request parameters, it will also be logged by adding it to the search for it in the completion of the \textit{HTTP request} operation. The other metadata can also be captured in this stage from the client side like the element that the user clicked to initiate the event. The captured metadata are then placed in a custom request header, and the \textit{HTTP request} continues its normal operations and sends the data back to the server.
 
+\clearpage
+
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.75\textwidth]{Chapter2/client_functional_requirement_flow_diagram/client_functional_requirement_flow_diagram.pdf}
+	\includegraphics[width=0.8\textwidth]{Chapter2/client_functional_requirement_flow_diagram/client_functional_requirement_flow_diagram.pdf}
 	\caption[User-based activity log classification flow diagram]
 	{\textit{User-based activity log classification flow diagram}}\label{fig:ch2_user_based_actvity_classification}
 \end{figure}
+
+\clearpage
 
 \subsection{Storage of event logs}
 The log attributes in \Cref{tbl:ch2_SQLLoggingTable} will have foreign key references to other tables in the database for other tables shown in \Cref{fig:ch2_erdOfEventLogs}. 

@@ -94,16 +94,16 @@ In \Cref{fig:ch3_MetadataJson} the main \texttt{JSON} parameters capture the fol
 \end{itemize}
 
 \subsubsection{Obtaining the element of user-based event}\label{sec:ch3_ElementObtaining}
-In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will be using a \textit{HTTP request} to send to the server when the user interacts with an \textit{HTML element}. For the functional requirements activity type (F/R 1.5.3) and metadata (F/R 1.5.6) in \Cref{tbl:ch2_keyLoggingAttributes} the \textit{HTML element} needs to be obtained to get the element's tag and identification text.\par This can be difficult to obtain due to \textit{bubbling}\footnote{\textbf{Bubbling} is when an event happens on an element, it first runs the handlers on it, then on its parent, then up on other ancestors. \cite{EventBubbling}.} that may occur when searching for the element with which the user specifically interacted. \Cref{fig:ch2_event_bubbling} is the propagation of the bubbling event.
+In \Cref{sec:ch2_webApplicationArchitecture} the user-based activity event will be using a \textit{HTTP request} to send to the server when the user interacts with an \textit{HTML element}. For the functional requirements activity type (F/R 1.5.3) and metadata (F/R 1.5.6) in \Cref{tbl:ch2_keyLoggingAttributes} the \textit{HTML element} needs to be obtained to get the element's tag and identification text.\par This can be difficult to obtain due to \textit{bubbling}\footnote{\textbf{Bubbling} is when an event happens on an element, it first runs the handlers on it, then on its parent, then up on other ancestors. Refer to the source: JavaScript.Info, "Bubbling and capturing", JavaScript.Info, Available: \url{https://javascript.info/bubbling-and-capturing} (visited on 2023-07-24)} that may occur when searching for the element with which the user specifically interacted. \Cref{fig:ch2_event_bubbling} is the propagation of the bubbling event.
 
 \begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.65\textwidth]{Chapter2/event_bubbling/event_bubbling.pdf}
 	\caption[JavaScript event propagation]
-	{\textit{JavaScript event propagation~\cite{EventBubbling}}}\label{fig:ch2_event_bubbling}
+	{\textit{JavaScript event propagation}}\label{fig:ch2_event_bubbling}
 \end{figure}
 
-In \Cref{fig:ch2_event_bubbling} is the example of an event propagation of a child element that has been clicked on that executes a DOM event. Event propagation consists of three phases~\cite{EventBubbling}:
+In \Cref{fig:ch2_event_bubbling} is the example of an event propagation of a child element that has been clicked on that executes a DOM event. Event propagation consists of three phases:
 
 \begin{itemize}
 	\item \textit{Capturing phase:} The event propagates downward to the target element with which the user interacts.
