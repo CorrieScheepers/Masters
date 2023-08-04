@@ -16,7 +16,7 @@
 \newcommand{\ChapterPageStuff}[1] {
     \begin{center}
     \vspace{2mm}
-    \includegraphics[height=15cm]{includes/ChapterFiles/chapter#1/figures/chapter.pdf}
+    \includegraphics[height=15cm]{src/includes/ChapterFiles/chapter#1/figures/chapter.pdf}
     \end{center}
     \vfill
     \begin{center}
@@ -232,7 +232,7 @@
 
 % Generates the title page
 \begin{titlepage}
-\includepdf[pages=-]{includes/TitlePageOfficial.pdf}
+\includepdf[pages=-]{src/includes/TitlePageOfficial.pdf}
 \end{titlepage}
 
 %Set page numbering for first pages
@@ -296,7 +296,7 @@
 \fancyhead[R]{References}
 \addcontentsline{toc}{chapter}{References}
 \renewcommand{\bibname}{References}
-\bibliography{lib/library}
+\bibliography{src/lib/library}
 
 % ------- Appendices -------    
 \include{Chapters/Appendices}
