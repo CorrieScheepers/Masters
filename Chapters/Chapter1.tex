@@ -49,7 +49,7 @@ In the modern era, most businesses use digital products and services to maximise
     \rowcolor{lightgray}
     \RaggedRight Operations and Maintenance & \RaggedRight In this phase, the performance of the software system is continuously monitored according to the defined user requirements. Any additional modifications after the initial software development are done here, and other tasks are needed to maintain the software system. Post-Implementation and In-Process Reviews for the software system form part of the documentation for this LCP. \\
     
-    \RaggedRight Disposition & \RaggedRight This phase is for any disposition activities to terminate the software system properly. Important data is also preserved to reactivate the software system in the future. Any other termination policies and activities must be defined and documented. This ensures that the termination of the software system is performed correctly and completed, and that the correct data are permanently removed or preserved. \\
+    \RaggedRight Disposition & \RaggedRight This phase is for any disposition activities to terminate the software system. Important data is also preserved to reactivate the software system in the future. Any other termination policies and activities must be defined and documented. This ensures that the termination of the software system is performed correctly and completed, and that the correct data are permanently removed or preserved. \\
     \bottomrule
 \end{xltabular}
 
@@ -153,7 +153,7 @@ where:
 	\item $KLoC$ (thousands of lines of code) is the size of the observed executable code in a software system 
 \end{itemize}
 
-A lower defect density indicates good software quality \cite{Shah2012, Alenezi2016}. However, it does not necessarily imply that the software meets all user requirements but that fewer possible faults exist.\par In open source software systems (OSS), the defect density tends to increase due to the size of the system and the number of developers working on it \cite{Rahmani2010}. Adding more developers to improve a software system may not always lead to improvements in all maintenance types listed in \Cref{tbl:ch1_maintenanceTypes}.\par This increase in the size and complexity of the software system may also lead to a higher defect density, increasing the need for corrective maintenance efforts. Therefore, it can further exacerbate developers' challenges as they attempt to resolve maintenance issues \cite{Alenezi2016}.
+A lower defect density indicates good software quality \cite{Shah2012, Alenezi2016}. However, it does not necessarily imply that the software meets all user requirements but that fewer possible faults exist.\par In open source software systems (OSS), the defect density tends to increase due to the size of the system and the number of developers working on it \cite{Rahmani2010}. Adding more developers to improve a software system may not always lead to improvements in all maintenance types listed in \Cref{tbl:ch1_maintenanceTypes}.\par This increase in the size and complexity of the software system may also lead to a higher defect density, increasing the need for corrective maintenance efforts. Therefore, it can further exacerbate developer challenges as they try to resolve maintenance issues \cite{Alenezi2016}.
 
 \subsubsection{Problems with implementing software maintenance}\label{sec:ch1_maintenanceProblems}
 Under most circumstances, maintenance is implemented if a software system does not meet the required functions specified by the user or performance requirements \cite{Ogheneovo2014, Sneed2004}. Maintenance can be difficult to implement due to the following:
@@ -186,7 +186,7 @@ The software maintenance model in \Cref{fig:ch1_ieeeModel} emphasises that softw
 	\item is worth a large portion of the user base to implement.
 \end{itemize}
 
-User engagement with the software system is what will determine if the software system is sustainable in generating revenue for the organisation. It may be the most crucial focus metric for feasibility analysis to determine if a maintenance effort is worth implementing \cite{Araujo2021}. Compared to the one in \Cref{fig:ch1_maintenanceFlow}, a maintenance flow model can resolve this problem.  
+User engagement with the software system is what will determine if the software system is sustainable in generating revenue for the organisation. It may be the most crucial focus metric for feasibility analysis to determine whether a maintenance effort is worth implementing \cite{Araujo2021}. Compared to the one in \Cref{fig:ch1_maintenanceFlow}, a maintenance flow model can resolve this problem.  
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -349,17 +349,17 @@ Before the logs can be parsed to a structured data set, the key attributes that 
 		\midrule
 
 		\rowcolor{lightgray}
-		Case number & Unique identifiers for each log event. This is usually the primary identifier for the log event. \\
+		Case number & Unique identifiers for each log event. This is usually the primary identifier of the log event. \\
 
 		Timestamp & The time and date that the log event occurred. This is part of identifying the order of events or traces along with the case number of the event log \cite{Kherbouche2017}. \\
 
 		\rowcolor{lightgray}
-		Event type & Each log event can be grouped with other log events with similar actions. These event-type attribute needs to be classified based on a state change, failure to execute an instruction, or due to an occurrence of activity like the availability of service \cite{Fedaghi2010}. \par The event type is usually also the log level. The log level in event logging reflects the severity of the event log \cite{Rong2020}. An event of interest may have different log levels, making it easier to capture certain events in which software engineers and developers are interested.\\
+		Event type & Each log event can be grouped with other log events with similar actions. These event-type attributes should be classified based on a state change, failure to execute an instruction, or due to an occurrence of activity, such as the availability of service \cite{Fedaghi2010}. \par The event type is usually also the log level. The log level in event logging reflects the severity of the event log \cite{Rong2020}. An event of interest may have different log levels, making it easier to capture certain events in which software engineers and developers are interested. \\
 
-		Originator & The origin of the event in the software system. This can be parts of the software that performs the event action or was the cause for the event to be initiated by another part of the software. \\
+		Originator & The origin of the event in the software system. This can be parts of the software that perform the event action or was the cause for the event to be initiated by another part of the software. \\
 
 		\rowcolor{lightgray}
-		Other metadata & This is any other relevant information that can be used as the event log's attribute that further expands the information of the log event. This can be one extra field or many other individual attribute fields.\\
+		Other metadata & This is any other relevant information that can be used as the event log's attribute that further expands the information of the log event. This can be an additional field or many other individual attribute fields.\\
 		\bottomrule
 	\end{tabularx}
 \end{table}
@@ -486,7 +486,7 @@ Event logging in a software environment and activities implementing state-of-the
 \end{table}
 
 \paragraph{Log analysis} \leavevmode\\
-Log analysis of software systems using event logging state-of-the-art topics is described in \Cref{tbl:ch1_soaLogAnalysis}.
+Log analysis of software systems using state-of-the-art event logging topics is described in \Cref{tbl:ch1_soaLogAnalysis}.
 
 \begin{table}[!htb]
 	\centering
@@ -508,7 +508,7 @@ Log analysis of software systems using event logging state-of-the-art topics is 
 In \Cref{tbl:ch1_soaLogAnalysis}, the topics focus more on studies that implement a log analysis for utilisation purposes. Tracking certain events is therefore essential for log analysis to ensure that the precision criteria of log quality can be achieved by \Cref{sec:ch1_loggingQuality}. To efficiently make use of or create log analysis report for software maintenance.
 
 \subsubsection{State of the art summary}
-Using the defined criteria created for the state-of-the-art topics in \Cref{tbl:ch1_soaEventLogging,tbl:ch1_soaLogAnalysis,tbl:ch1_soaSoftwareMaintennace} State of the art for the obtained studies is done in \Cref{tbl:ch1_stateOfTheArt2}.
+Using the defined criteria created for the state-of-the-art topics in \Cref{tbl:ch1_soaEventLogging,tbl:ch1_soaLogAnalysis,tbl:ch1_soaSoftwareMaintennace} State-of-the-art research for the obtained studies is done in \Cref{tbl:ch1_stateOfTheArt2}.
 
 \clearpage
 
