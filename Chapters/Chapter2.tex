@@ -621,10 +621,12 @@ As long as the logging attributes and the \textit{HTTP request} headers are obta
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
-	\includegraphics[width=0.8\textwidth]{Chapter2/user_based_flow_diagram/user_based_flow_diagram.pdf}
+	\includegraphics[width=0.75\textwidth]{Chapter2/user_based_flow_diagram/user_based_flow_diagram.pdf}
 	\caption[User-based activity log classification flow diagram]
 	{\textit{User-based activity log classification flow diagram}}\label{fig:ch2_user_based_actvity_classification}
 \end{figure}
+
+\clearpage
 
 \subsection{Server side log parsing}
 In \Cref{fig:ch2_loggingParse} is the server-side log parsing of the possible user-based activity events obtained for the software system.\par The defined globally set logging point will start the user-based activity process before the targeted process is executed in \Cref{fig:ch2_loggingParse}. At this stage, if something goes wrong with the logging during the execution of this filter, it should be abandoned and let the software system continue to ensure that it does not interfere with the software system's operations (\ref{fr:lpa4} of \Cref{tbl:ch2_loggingPointRequirement}).\par In the case of the request method \texttt{NULL} or empty due to errors such as incorrect parameter types for the targeted procedure in the controller, the logging point should stop attempting to log the user-based log. The issue would most likely appear as a runtime error and any user-based activity log procedures will also fail due to incomplete data or cause the logs to be not complete and consistent (\ref{fr:lpa3} of \Cref{tbl:ch2_loggingPointRequirement}).\par If the captured user-activity log contains any parameters it should be checked for any session-related parameters or any other potential user data that should be removed from the metadata to prevent any personal information from being accessed by not the owner of the user account. If it does not contain any request parameters, \texttt{ElementsInfo} should be set to \texttt{NULL}.\par In \Cref{fig:Ch2_ElementInfo} is the \texttt{JSON} data of \texttt{ElementInfo}. 
@@ -648,7 +650,7 @@ Each of the properties in \Cref{fig:Ch2_ElementInfo} that consist of:
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.7\textwidth]{Chapter2/SystemB_FilterContext/SystemB_FilterContext.pdf}
+	\includegraphics[width=0.95\textwidth]{Chapter2/SystemB_FilterContext/SystemB_FilterContext.pdf}
 	\caption[Server side log parsing flow diagram]
 	{\textit{Server side log parsing flow diagram}}\label{fig:ch2_loggingParse}
 \end{figure}
@@ -673,7 +675,7 @@ In \Cref{fig:ch2_erdOfEventLogs} is an ERD diagram that describes the relationsh
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.65\textwidth]{img/Chapter2/sql_interaction/sql_interaction.pdf}
+	\includegraphics[width=0.4\textwidth]{img/Chapter2/sql_interaction/sql_interaction.pdf}
 	\caption[Database interaction flow diagram]
 	{\textit{Database interaction flow diagram}}\label{fig:ch2_database}
 \end{figure}
@@ -731,9 +733,7 @@ The normalised priority factor $P_N$ is described in \Cref{eq:ch2_priorityNormal
 	\item $P_{Max}$ is the total maximum number of users that have access to any subsystem.
 \end{itemize}
 
-A normalised value for the priority is used as there is no predefined way to describe the importance of any subsystem. In \Cref{fig:ch2_maintenancePriortisationFlow} is the log-analysis flow diagram of implementing the maintenance prioritisation for a software system. \par In \Cref{fig:ch2_maintenancePriortisationFlow} the user-based activity logs are imported into the log analysis tool from the relational database. The logs are aggregated into unique subsystems. The total number of user actions are counted as well as the total number unique users associated with the captured logs. Maximum and minimum total user activities ($A_{Max}$ and $A_{Min}$) and users ($P_{Max}$ and $P_{Min}$) obtained for the software system. \par The normalised activity ($A_N$) for each subsystem is created from the obtained activities. The normalised priority ($P_N$) is created from the maximum and minimum priority obtained. The maintenance priority factor is created from the normalised parameters for each system and evaluated afterwards. A summary report is created for the results obtained from the log analysis using the maintenance prioritisation method.
-
-\clearpage
+A normalised value for the priority is used as there is no predefined way to describe the importance of any subsystem. In \Cref{fig:ch2_maintenancePriortisationFlow} is the log-analysis flow diagram of implementing the maintenance prioritisation for a software system. 
 
 \begin{figure}[!htb]
 	\centering
@@ -742,7 +742,7 @@ A normalised value for the priority is used as there is no predefined way to des
 	{\textit{Maintenance prioritisation flow diagram}}\label{fig:ch2_maintenancePriortisationFlow}
 \end{figure}
 
-\clearpage
+In \Cref{fig:ch2_maintenancePriortisationFlow} the user-based activity logs are imported into the log analysis tool from the relational database. The logs are aggregated into unique subsystems. The total number of user actions are counted as well as the total number unique users associated with the captured logs. Maximum and minimum total user activities ($A_{Max}$ and $A_{Min}$) and users ($P_{Max}$ and $P_{Min}$) obtained for the software system. \par The normalised activity ($A_N$) for each subsystem is created from the obtained activities. The normalised priority ($P_N$) is created from the maximum and minimum priority obtained. The maintenance priority factor is created from the normalised parameters for each system and evaluated afterwards. A summary report is created for the results obtained from the log analysis using the maintenance prioritisation method.
 
 \section{Conclusion}
 In \Cref{sec:ch2_investigate} are the defined functional requirements for a logging mechanism for the system utilisation analysis in \Cref{sec:ch2_logAnalysisTools,sec:ch2_utilisationImprovements}. The user activity types defined in \Cref{sec:ch2_userActivityTypes} are the basis of the log attributes that must be logged to create a user-based log.\par The log points capture the logs and send them to the server logging point where they are processed and stored in writing in a database.\par The logs are extracted into a visual presentation that enables maintenance improvement suggestions based on the use analysis in \Cref{sec:ch2_logAnalysisTools,sec:ch2_utilisationImprovements}.
