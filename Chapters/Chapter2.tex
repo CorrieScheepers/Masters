@@ -675,7 +675,7 @@ In \Cref{fig:ch2_erdOfEventLogs} is an ERD diagram that describes the relationsh
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.4\textwidth]{img/Chapter2/sql_interaction/sql_interaction.pdf}
+	\includegraphics[width=0.43\textwidth]{img/Chapter2/sql_interaction/sql_interaction.pdf}
 	\caption[Database interaction flow diagram]
 	{\textit{Database interaction flow diagram}}\label{fig:ch2_database}
 \end{figure}
@@ -737,10 +737,12 @@ A normalised value for the priority is used as there is no predefined way to des
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.65\textwidth]{img/Chapter2/maintenancePriortisation/maintenancePriortisation.pdf}
+	\includegraphics[width=0.68\textwidth]{img/Chapter2/maintenancePriortisation/maintenancePriortisation.pdf}
 	\caption[Maintenance prioritisation flow diagram]
 	{\textit{Maintenance prioritisation flow diagram}}\label{fig:ch2_maintenancePriortisationFlow}
 \end{figure}
+
+\clearpage
 
 In \Cref{fig:ch2_maintenancePriortisationFlow} the user-based activity logs are imported into the log analysis tool from the relational database. The logs are aggregated into unique subsystems. The total number of user actions are counted as well as the total number unique users associated with the captured logs. Maximum and minimum total user activities ($A_{Max}$ and $A_{Min}$) and users ($P_{Max}$ and $P_{Min}$) obtained for the software system. \par The normalised activity ($A_N$) for each subsystem is created from the obtained activities. The normalised priority ($P_N$) is created from the maximum and minimum priority obtained. The maintenance priority factor is created from the normalised parameters for each system and evaluated afterwards. A summary report is created for the results obtained from the log analysis using the maintenance prioritisation method.
 

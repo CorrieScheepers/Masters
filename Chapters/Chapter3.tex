@@ -287,12 +287,12 @@ To fully examine the application of this study, three separate case studies will
 		A & \texttt{ASP.NET Core Web SDK} & \RaggedRight Energy management software system that consists of both internal and external client users. \\
 		B & \texttt{PHP} & \RaggedRight An older energy management software system comprising internal and external client users. \\
 		\rowcolor{lightgray}
-		C & \texttt{ASP.NET Core Web SDK} & \RaggedRight Administrative software system used by internal company users. Consist mostly of configuration tools for System A and System B and is only accessible to internal users. \\
+		C & \texttt{ASP.NET Core Web SDK} & \RaggedRight Administrative software system used by internal company users. Consist mostly of configuration tools for Case Study A and B and is only accessible to internal users. \\
 		\bottomrule
 	\end{tabularx}
 \end{table}
 
-These case studies in \Cref{tbl:ch3_caseStudies} are being used because they have different use cases and software framework implementations. System A and System B are similar software systems but use older and newer software frameworks. Due to these differences, the logging mechanism needs to be implemented in different ways to capture user-based activities. \par For the three case studies, the following results will be obtained:
+These case studies in \Cref{tbl:ch3_caseStudies} are being used because they have different use cases and software framework implementations. Case Study A and B are similar software systems but use older and newer software frameworks. Due to these differences, the logging mechanism needs to be implemented in different ways to capture user-based activities. \par For the three case studies, the following results will be obtained:
 
 \begin{itemize}
 \item Defining commonly occurring user-based activity types.
@@ -307,11 +307,11 @@ These case studies in \Cref{tbl:ch3_caseStudies} are being used because they hav
 \clearpage
 
 \subsection{Case Study A results}\label{sec:ch3_csA}
-System A is a software system \texttt{ASP.NET Core Web SDK}. The software system has 3 basic user activity types as shown in \Cref{tbl:ch3_systemAActivityTypes}.
+Case Study A is a software system \texttt{ASP.NET Core Web SDK}. The software system has 3 basic user activity types as shown in \Cref{tbl:ch3_systemAActivityTypes}.
 
 \begin{table}[!htb]
 	\centering
-	\caption[System A activity types]{\textit{System A activity types}}
+	\caption[Case Study A activity types]{\textit{Case Study A activity types}}
 	\label{tbl:ch3_systemAActivityTypes}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
@@ -388,7 +388,7 @@ The maintenance prioritisation factor for the user activities in the upper quart
 \clearpage
 
 \subsection{Case Study B results}\label{sec:ch3_csB}
-System B is an older system than A and C that is primarily created in \texttt{PHP}. This system has the same type of user activities as System A's \Cref{tbl:ch3_systemAActivityTypes}. To capture the types of users of \Cref{tbl:ch3_systemAActivityTypes} this system used multiple logging points.\par The use of multiple logging points was to:
+Case Study B is an older system than A and C that is primarily created in \texttt{PHP}. This system has the same type of user activities as Case Study A's \Cref{tbl:ch3_systemAActivityTypes}. To capture the types of users of \Cref{tbl:ch3_systemAActivityTypes} this system used multiple logging points.\par The use of multiple logging points was to:
 
 \begin{itemize}
 	\item Ensure each subsystem's user activities could be captured as there was no central point in the software architecture to capture the request. 
@@ -406,7 +406,7 @@ The logging points do not track any of the elements that the user interacted wit
 	{\textit{User activity types breakdown of Case Study B}}\label{fig:ch3_caseBBreakdown}
 \end{figure}
 
-In \Cref{fig:ch3_caseBBreakdown} the \texttt{Dash} user activity type is about $99.5\%$ of all user activities recorded. System B has fewer subsystems that require the user to interact with the web page to add data. The system mostly has web pages that display data only for the user. There were no \texttt{Report} user activity types as the users did not create reports to export from these subsystems. \Cref{fig:ch3_caseBAnalysis} is the breakdown of the user activity of each subsystem's utilisation.
+In \Cref{fig:ch3_caseBBreakdown} the \texttt{Dash} user activity type is about $99.5\%$ of all user activities recorded. Case Study B has fewer subsystems that require the user to interact with the web page to add data. The system mostly has web pages that display data only for the user. There were no \texttt{Report} user activity types as the users did not create reports to export from these subsystems. \Cref{fig:ch3_caseBAnalysis} is the breakdown of the user activity of each subsystem's utilisation.
 
 \clearpage
 
@@ -459,10 +459,10 @@ The maintenance prioritisation factor for the user activities in the upper quart
 The upper quartile of the maintenance performance of the subsystems of \Cref{tbl:apx_projectB_Normilised} is used to create the results of \Cref{tbl:apx_projectB_Normilised} using \Cref{eq:ch2_eventNormalised,eq:ch2_maintenanceFactorSimplified,eq:ch2_priorityNormalised}. There is a greater disparity between the top $A_N$ and the rest of the other subsystems $A_N$. This significantly impacts the maintenance performance ranking, as $S_{417}$ is ranked as the most important system.
 
 \subsection{Case Study C results}\label{sec:ch3_csC}
-System C is also a \texttt{APS.NET Core Web SDK} software system. The software system has 7 primary user activity types that are described in \Cref{tbl:ch3_systemCActivityTypes}.
+Case Study C is also a \texttt{APS.NET Core Web SDK} software system. The software system has 7 primary user activity types that are described in \Cref{tbl:ch3_systemCActivityTypes}.
 
 \begin{xltabular}{\textwidth}{llX}
-	\caption[System A activity types]{\textit{System A activity types}}\label{tbl:ch3_systemCActivityTypes}\\
+	\caption[Case Study A activity types]{\textit{Case Study A activity types}}\label{tbl:ch3_systemCActivityTypes}\\
 	\toprule
 	\thead{Activity} & \thead{Functional requirement} & \thead{Description} \\
 	\midrule
@@ -486,8 +486,8 @@ System C is also a \texttt{APS.NET Core Web SDK} software system. The software s
 	\texttt{LogoutAttempt} & \ref{fr:uatType2} & \RaggedRight This is a user activity when the user uses any of the log-in page controls. \\
 	\texttt{ResetPassword} & \ref{fr:uatType2} & \RaggedRight This is a user activity when the user uses any of the reset password page controls. \\
 	\rowcolor{lightgray}
-	\texttt{SessionTracking} & \ref{fr:uatType2} & \RaggedRight System C has some data stored in its session. Any changes to these data are tracked when the user interacts with any controls on the web page to change certain session data. \\
-	\texttt{CustomControls} & \ref{fr:uatType3} & \RaggedRight System C has some custom HTML elements that have the same functionality as the \texttt{HTMLElement} user activity type. \\ 
+	\texttt{SessionTracking} & \ref{fr:uatType2} & \RaggedRight Case Study C has some data stored in its session. Any changes to these data are tracked when the user interacts with any controls on the web page to change certain session data. \\
+	\texttt{CustomControls} & \ref{fr:uatType3} & \RaggedRight Case Study C has some custom HTML elements that have the same functionality as the \texttt{HTMLElement} user activity type. \\ 
 	\rowcolor{lightgray}
 	\texttt{HTMLElement} & \ref{fr:uatType3} & \RaggedRight This general activity type is for all other activities that the user initiates that send \textit{HTTP request} back to the server. This type of user is primarily associated with HTML elements that the user used to interact with the subsystem that are: \begin{itemize}
 		\item SpanClicked,
@@ -503,7 +503,7 @@ System C is also a \texttt{APS.NET Core Web SDK} software system. The software s
 	\bottomrule
 \end{xltabular}
 
-For System C, the user activities listed in Table \ref{tbl:ch3_systemCActivityTypes} have been expanded to include the captured HTML elements with which the users interact. As stated in Table \ref{tbl:ch3_caseStudies}, System C is an administrative software system used to configure and manage Systems A and B. Compared to the monitoring software subsystems of Systems A and B, the user interaction in System C involves more complex user interactions\par To facilitate analysis for maintenance prioritisation, the increased types of user activity in Table \ref{tbl:ch3_systemCActivityTypes} can be grouped. The \texttt{HTMLElement} type is a grouped user activity type of smaller individual user activity types. Despite their differences, these activity types share a common base functionality where they primarily show the users' engagement with the system.\par System C uses a single logging point on the server side to capture the user event logs. The logging point for this implementation of the logging mechanism makes use of an action filter to:
+For Case Study C, the user activities listed in Table \ref{tbl:ch3_systemCActivityTypes} have been expanded to include the captured HTML elements with which the users interact. As stated in Table \ref{tbl:ch3_caseStudies}, Case Study C is an administrative software system used to configure and manage Systems A and B. Compared to the monitoring software subsystems of Case Study A and B, the user interaction in Case Study C involves more complex user interactions\par To facilitate analysis for maintenance prioritisation, the increased types of user activity in Table \ref{tbl:ch3_systemCActivityTypes} can be grouped. The \texttt{HTMLElement} type is a grouped user activity type of smaller individual user activity types. Despite their differences, these activity types share a common base functionality where they primarily show the users' engagement with the system.\par Case Study C uses a single logging point on the server side to capture the user event logs. The logging point for this implementation of the logging mechanism makes use of an action filter to:
 
 \begin{itemize}
 	\item ensures that the logging point is executed before the rest of the request is serviced by the function that is called by the subsystem,
@@ -512,7 +512,7 @@ For System C, the user activities listed in Table \ref{tbl:ch3_systemCActivityTy
 	\item save the completed log into the database before the logging process is finally terminated.
 \end{itemize}
 
-This logging point is similar to the one used for system A, but differs only in the key logging attributes that it needs to capture. Due to the tag name of the HTML element used to define some of the user activities of \Cref{tbl:ch3_systemCActivityTypes}, the client side uses a similar logging point to capture the HTML element that the user interacted with.\par The client-side logging point adds the last or clicked HTML element that the user used for the user-based event and saves it in a custom request header. \Cref{fig:ch3_caseCBreakdown} is the breakdown of user activity of system C's activity types in \Cref{tbl:ch3_systemCActivityTypes}.
+This logging point is similar to the one used for Case Study A, but differs only in the key logging attributes that it needs to capture. Due to the tag name of the HTML element used to define some of the user activities of \Cref{tbl:ch3_systemCActivityTypes}, the client side uses a similar logging point to capture the HTML element that the user interacted with.\par The client-side logging point adds the last or clicked HTML element that the user used for the user-based event and saves it in a custom request header. \Cref{fig:ch3_caseCBreakdown} is the breakdown of user activity of Case Study C's activity types in \Cref{tbl:ch3_systemCActivityTypes}.
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -521,7 +521,7 @@ This logging point is similar to the one used for system A, but differs only in 
 	{\textit{User activity types breakdown of Case Study C}}\label{fig:ch3_caseCBreakdown}
 \end{figure}
 
-The breakdown of user activities in \Cref{fig:ch3_caseCBreakdown} the majority of user activities for system C is \texttt{CustomControl} user activity type. The more interaction with the system increases the total amount of the general user activity types (\texttt{CustomControl} and \texttt{HTMLElement}). \Cref{fig:ch3_caseCAnalysis} is the breakdown of the user activity of each subsystem's utilisation.
+The breakdown of user activities in \Cref{fig:ch3_caseCBreakdown} the majority of user activities for Case Study C is \texttt{CustomControl} user activity type. The more interaction with the system increases the total amount of the general user activity types (\texttt{CustomControl} and \texttt{HTMLElement}). \Cref{fig:ch3_caseCAnalysis} is the breakdown of the user activity of each subsystem's utilisation.
 
 \begin{figure}[!htb]
 	\centering % cent the figure
@@ -530,7 +530,7 @@ The breakdown of user activities in \Cref{fig:ch3_caseCBreakdown} the majority o
 	{\textit{System utilisation breakdown of Case Study C}}\label{fig:ch3_caseCAnalysis}
 \end{figure} 
 
-In \Cref{fig:ch3_caseCAnalysis} the total captured user-based event logs are dominated by $S_{97}$, $S_{93}$ and $S_{12}$. Most user-based events are general activity types for all the subsystems, as this case study is used for configuration purposes. Editing these configurations will create more general user activity types than other types of user activity. The log quality assessment for Case Study B is discussed in \Cref{tbl:ch3_caseCQuality}.
+In \Cref{fig:ch3_caseCAnalysis} the total captured user-based event logs are dominated by $S_{97}$, $S_{93}$ and $S_{12}$. Most user-based events are general activity types for all the subsystems, as this case study is used for configuration purposes. Editing these configurations will create more general user activity types than other types of user activity. The log quality assessment for Case Study B is discussed in \Cref{tbl:ch3_caseCQuality}. \par \Cref{tbl:ch3_caseCQuality} indicated that were logging attributes missing for some types of user activity. This is not as severe as the incomplete logging attributes of Case Study B. It is expected that the main purpose of these activity types is to track log-in and log-out attempts.
 
 \begin{xltabular}{\textwidth}{clcX}
 	\caption[Logging quality assessment of Case Study C]{\textit{Logging quality assessment of Case Study C}}\label{tbl:ch3_caseCQuality}\\
@@ -560,8 +560,6 @@ In \Cref{fig:ch3_caseCAnalysis} the total captured user-based event logs are dom
 	\ref{fr:ur3} & Log extraction & \cmark & Although the availability and completeness of the event logs is mostly achieved, the log extraction process is still possible. \\
 	\bottomrule
 \end{xltabular}
-
-\Cref{tbl:ch3_caseCQuality} indicated that were logging attributes missing for some types of user activity. This is not as severe as the incomplete logging attributes of Case Study B. It is expected that the main purpose of these activity types is to track log-in and log-out attempts.
 
 \subsubsection{Maintenance prioritisation}
 The maintenance prioritisation factor for the user activities in the upper quartile of the subsystem for Case Study C is calculated in \Cref{tbl:apx_caseC}.
