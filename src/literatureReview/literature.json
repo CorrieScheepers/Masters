@@ -1,0 +1,9 @@
+{
+	"title": "On the Relationship between Software Complexity and Maintenance Costs",
+	"content": [
+	  "Study Summary: Defines the different problems with the implementation of software maintenance and its complexities as described in Section 1 (Maintenance Problems).",
+	  "Method: They used three different software operating systems to compare their estimated development costs, maintenance costs, code lines, and code complexity. This is used in the analysis to determine the relationship between the complexity of the software and the maintenance costs.",
+	  "Results: The results showed that the estimated maintenance costs are high enough that the complexity of the software needs management to reduce these costs.",
+	  "Commentary: This study is used in this review of the literature when discussing the importance of software maintenance difficulties in the implementation of a software maintenance model. The study does not provide solutions on how to implement software maintenance effectively. It also explores the strategies and best practices in its review of the literature to help with software maintenance resource costs."
+	]
+  }
