@@ -656,10 +656,10 @@ Each of the properties in \Cref{fig:Ch2_ElementInfo} consist of:
 
 \clearpage
 
-If the \texttt{request header} contains the \texttt{Index} keyword, which is the first procedure that needs to be executed for a web page being accessed, the activity can be classified as accessing a system, subsystem, or web page. This activity type is the first user activity type at this point of the log parsing before it is processed again to another user activity type. \par If it is not the \texttt{Index} the process will continue to the next operation which checks if the \texttt{ElementInfo}'s \texttt{ElementDataKey} is either a null or empty value. If there are any data available, the activity type can be set to the custom control defined activity type or just custom control to represent all these custom-made elements. The \texttt{ElementID} is set to the custom control element or the defined custom control's identification. \par If the \texttt{ElementInfo}'s \texttt{ElementDataKey} is null or an empty value, the user activity type is set to the element's defined activity type. After the activity type is resolved, the request origin of the user-based activity is obtained by getting the request's absolute path.\par After the request origin has been obtained, other relevant session information such as the group that represents a certain entity data can be obtained as well as the user's identification and other relevant metadata that is available at this stage to complete the log attributes that need to be captured from \Cref{tbl:ch2_keyLoggingAttributes} to complete the user-based activity log.\par The data is parsed to the activity logger that will write the log into a database if the log was successfully obtained. This will end the logging process until a new user-based event log is ready to be processed and stored in the database.
+If the \texttt{request header} contains the \texttt{Index} keyword, which is the first procedure that needs to be executed for a web page being accessed, the activity can be classified as accessing a system, subsystem, or web page. This activity type is the first user activity type at this point of the log parsing before it is processed again to another user activity type. \par If the request does not contain the \texttt{Index} keyword, the process will continue to the next operation that will check if the \texttt{ElementInfo}'s \texttt{ElementDataKey} is either a null or empty value. If there are any data available, the activity type can be set to the custom control defined activity type or custom control to represent the custom-made elements. The \texttt{ElementID} is set to the custom control element or the defined custom control's identification. \par If the \texttt{ElementInfo}'s \texttt{ElementDataKey} is null or an empty value, the user activity type is set to the element's defined activity type. After the activity type is resolved, the request origin of the user-based activity is obtained by getting the request's absolute path.\par After the request origin has been obtained, other relevant session information such as the group that represents a certain entity data can be obtained as well as the user's identification and other relevant metadata that is available at this stage to complete the log attributes that need to be captured from \Cref{tbl:ch2_keyLoggingAttributes} to complete the user-based activity log.\par The data are parsed to the activity logger that will write the log into a database if the log was successfully obtained. This will end the logging process until a new user-based event log is ready to be processed and stored in the database.
 
 \subsection{Storage of event logs}
-The log attributes in \Cref{tbl:ch2_SQLLoggingTable} will have foreign key references to other tables in the database for other tables shown in \Cref{fig:ch2_erdOfEventLogs}. 
+The log attributes in \Cref{tbl:ch2_SQLLoggingTable} will have foreign key references to other tables in the database for other tables, as seen in \Cref{fig:ch2_erdOfEventLogs}. 
 
 \begin{figure}[!htb] % An h :here, t: top, b: bottom.
 	\centering % cent the figure
@@ -668,7 +668,7 @@ The log attributes in \Cref{tbl:ch2_SQLLoggingTable} will have foreign key refer
 	{\textit{ERD of the user activities}}\label{fig:ch2_erdOfEventLogs}
 \end{figure}
 
-In \Cref{fig:ch2_erdOfEventLogs} is an ERD diagram that describes the relationship of the table created to store the log attributes with other relevant tables. In the system utilisation analysis, this enables different fields of the other tables to be used to categorise the logs. In \Cref{fig:ch2_database} is the flow diagram of the database interaction to store the event log data.
+\Cref{fig:ch2_erdOfEventLogs} illustrates an ERD diagram that describes the relationship of the table created to store the log attributes with other relevant tables. This enables different fields of the other tables to be used to categorise the logs in the system utilisation analysis. \Cref{fig:ch2_database} illustrates the flow diagram of the database interaction to store the event log data.
 
 \clearpage
 
@@ -679,14 +679,14 @@ In \Cref{fig:ch2_erdOfEventLogs} is an ERD diagram that describes the relationsh
 	{\textit{Database interaction flow diagram}}\label{fig:ch2_database}
 \end{figure}
 
-In \Cref{fig:ch2_database} the connection to the database is established. The user's identity is obtained from the active session. The obtained meta data is converted into a Json string to be able to store it. The final query is built and executed to store it in the relational database.
+\Cref{fig:ch2_database} illustrates how connection to the database is established. The user's identity is obtained from the active session, the obtained meta data are then converted into a JSON string for storing. The final query is built and executed to store in the relational database.
 
-\subsection{Maintenance priortisation}
+\subsection{Maintenance prioritisation}
 The system utilisation analysis aims to provide maintenance recommendations to developers to improve their maintenance efforts by:
 
 \begin{itemize}
-	\item Prioritising maintenance efforts on systems that are more frequently used.
-	\item Decommission new systems. User-based activities provide a quantitative reason why certain systems can be decommissioned due to inactivity of users.
+	\item Prioritising maintenance efforts on systems that are more frequently used, and
+	\item decommissioning new systems. User-based activities provide a quantitative reason why certain systems can be decommissioned due to inactivity of users.
 \end{itemize}
 
 This can be achieved by implementing maintenance prioritisation using \Cref{eq:ch2_maintenanceFactorSimplified} created from the functional requirements for maintenance prioritisation (\ref{fr:maintenanceFactor}):
@@ -700,7 +700,7 @@ where:
 
 \begin{itemize}
 	\item $M_{PF}$ is the maintenance priority factor,
-	\item $A_{N}$ is the normalised activity for the total logs obtained per subsystem,
+	\item $A_{N}$ is the normalised activity for the total logs obtained per subsystem, and
 	\item $P_{N}$ is the normalised priority factor for the subsystem.
 \end{itemize}
 
@@ -714,12 +714,12 @@ Normalised user activities per subsystem are described by \Cref{eq:ch2_eventNorm
 where:
 
 \begin{itemize}
-	\item $A_X$ is the total obtained user activities for the specified subsystem
-	\item $A_{Min}$ is the total minimum user activities for a subsystem,
+	\item $A_X$ is the total obtained user activities for the specified subsystem,
+	\item $A_{Min}$ is the total minimum user activities for a subsystem, and
 	\item $A_{Max}$ is a subsystem's total maximum user activities.
 \end{itemize}
 
-The normalised priority factor $P_N$ is described in \Cref{eq:ch2_priorityNormalised}:
+The normalised priority factor $P_N$ is described by \Cref{eq:ch2_priorityNormalised}:
 
 \begin{equation}
 	\label{eq:ch2_priorityNormalised}
@@ -732,7 +732,7 @@ The normalised priority factor $P_N$ is described in \Cref{eq:ch2_priorityNormal
 	\item $P_{Max}$ is the total maximum number of users that have access to any subsystem.
 \end{itemize}
 
-A normalised value for the priority is used as there is no predefined way to describe the importance of any subsystem. In \Cref{fig:ch2_maintenancePriortisationFlow} is the log-analysis flow diagram of implementing the maintenance prioritisation for a software system. 
+A normalised value for the priority is used because there is no predefined way to describe the importance of any subsystem. \Cref{fig:ch2_maintenancePriortisationFlow} illustrates the log-analysis flow diagram of implementing the maintenance prioritisation for a software system. 
 
 \begin{figure}[!htb]
 	\centering
@@ -743,7 +743,7 @@ A normalised value for the priority is used as there is no predefined way to des
 
 \clearpage
 
-In \Cref{fig:ch2_maintenancePriortisationFlow} the user-based activity logs are imported into the log analysis tool from the relational database. The logs are aggregated into unique subsystems. The total number of user actions are counted as well as the total number unique users associated with the captured logs. Maximum and minimum total user activities ($A_{Max}$ and $A_{Min}$) and users ($P_{Max}$ and $P_{Min}$) obtained for the software system. \par The normalised activity ($A_N$) for each subsystem is created from the obtained activities. Normalised priority ($P_N$) is created from the maximum and minimum priority obtained. The maintenance priority factor is created from the normalised parameters for each system and is then evaluated. A summary report is created for the results obtained from the log analysis using the maintenance prioritisation method.
+As can be seen in \Cref{fig:ch2_maintenancePriortisationFlow}, the user-based activity logs are imported into the log analysis tool from the relational database. The logs are aggregated into unique subsystems. The total number of user actions are counted as well as the total number of unique users associated with the captured logs. The maximum and minimum total user activities ($A_{Max}$ and $A_{Min}$) and users ($P_{Max}$ and $P_{Min}$) are obtained for the software system. \par The normalised activity ($A_N$) for each subsystem is created from the obtained activities. Normalised priority ($P_N$) is created from the maximum and minimum priority obtained. The maintenance priority factor is created from the normalised parameters for each system and is then evaluated. A summary report is created for the results obtained from the log analysis using the maintenance prioritisation method.
 
 \section{Conclusion}
-In \Cref{sec:ch2_investigate} are the defined functional requirements for a logging mechanism for the system utilisation analysis in \Cref{sec:ch2_logAnalysisTools,sec:ch2_utilisationImprovements}. The user activity types defined in \Cref{sec:ch2_userActivityTypes} are the basis of the log attributes that must be logged to create a user-based log.\par The log points capture the logs and send them to the server logging point where they are processed and stored in writing in a database.\par The logs are extracted into a visual presentation that enables maintenance improvement suggestions based on the use analysis in \Cref{sec:ch2_logAnalysisTools,sec:ch2_utilisationImprovements}.
+\Cref{sec:ch2_investigate} discussed the defined functional requirements for a logging mechanism for the system utilisation analysis outlined in \Cref{sec:ch2_logAnalysisTools,sec:ch2_utilisationImprovements}. The user activity types defined in \Cref{sec:ch2_userActivityTypes} are the basis for the log attributes that must be logged to create a user-based log. \par The log points capture the logs and send them to the server logging point where they are processed and stored in writing in a database.\par The logs are extracted into a visual presentation that enables maintenance improvement suggestions based on the use analysis in \Cref{sec:ch2_logAnalysisTools,sec:ch2_utilisationImprovements}.
