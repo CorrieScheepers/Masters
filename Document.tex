@@ -57,6 +57,7 @@
 \usepackage{xcolor}
 \usepackage{orcidlink}
 \usepackage{comment}
+\usepackage{setspace}
 \newenvironment{notes}
     {\color{rednotes} \begin{footnotesize}} {\color{black}\end{footnotesize}}
 
@@ -228,6 +229,7 @@
 % ---------------------------- Start the document -------------------------------------
 
 \begin{document}
+\begin{onehalfspace}
 % Set header height
 \renewcommand{\headheight}{15pt}
 
@@ -301,5 +303,7 @@
 
 % ------- Appendices -------    
 \include{Chapters/Appendices}
+
+\end{onehalfspace}
 
 \end{document}

@@ -192,7 +192,7 @@ User engagement with the software system will determine whether the software sys
 
 \begin{figure}[!htb]
 	\centering % cent the figure
-	\includegraphics[width=0.95\textwidth]{Chapter1/Maintenance_flow/Maintenance_Flow.pdf}
+	\includegraphics[width=0.98\textwidth]{Chapter1/Maintenance_flow/Maintenance_Flow.pdf}
 	\caption[Maintenance flow model]
 	{\textit{Maintenance flow model \cite{Tang2010}}} \label{fig:ch1_maintenanceFlow}
 \end{figure}
@@ -269,14 +269,14 @@ To answer these two questions, the event log must to meet specific log quality r
 
 Software engineers and developers must make informed logging decisions for event logging. These decisions may negatively affect the software system's run-time operations and the event logging efficiency \cite{Zhu2015, Zhu2019, Kherbouche2017}. An event log quality model is defined in \Cref{fig:ch1_EventQModel} to ensure that the event logs have consistent integrity when capturing the event log data.
 
+\clearpage
+
 \begin{figure}[!htb]
 	\centering % cent the figure
 	\includegraphics[width=0.99\textwidth]{Chapter1/Event_Log_Model/Event_Log_Model.pdf}
 	\caption[Quality model for event logs]
 	{\textit{Quality model for event logs \cite{Kherbouche2017}}} \label{fig:ch1_EventQModel}
 \end{figure}
-
-\clearpage
 
 The event log quality model in \Cref{fig:ch1_EventQModel} comprises four different levels to define each property of the event log quality model:
 
@@ -286,6 +286,8 @@ The event log quality model in \Cref{fig:ch1_EventQModel} comprises four differe
 	\item Attributes level, for which a set of quality attributes for the dimension level are defined for,
 	\item Measurement level, which should be defined in the design process of the logging mechanism to achieve the attributes and dimension levels.
 \end{itemize}
+
+\clearpage
 
 Each of the four dimensions is discussed in detail in the \Cref{fig:ch1_EventQModel}:
 
@@ -313,7 +315,9 @@ Each of the four dimensions is discussed in detail in the \Cref{fig:ch1_EventQMo
 		\end{tabularx}
 	\end{table}
 
-	The accuracy and trustworthiness of the event log are more important than capturing the many available event logs in a software system \cite{Zhu2015, Jans2012}. The additional unnecessary logs will also take up more storage space, increasing costs, and possibly influencing the software system's performance. 
+	The accuracy and trustworthiness of the event log are more important than capturing the many available event logs in a software system \cite{Zhu2015, Jans2012}. The additional unnecessary logs will also take up more storage space, increasing costs, and possibly influencing the software system's performance.
+	
+	\clearpage
 
 	\item \textbf{Event log complexities}\par Software always involves complexity that increases as the software system becomes larger. For the event log quality model, the complexity of the event can be split into two different complexities, namely \cite{Kherbouche2017}:
 
@@ -584,6 +588,8 @@ Software maintenance is a vital part of the entire life cycle of any software sy
 	\end{tcolorbox}
 \end{center}
 
+\clearpage
+
 \section{Objectives of the study}\label{sec:ch1_objectives}
 In \Cref{sec:ch1_problemStatement}, the problem of efficiently implementing software maintenance has been identified. There is a need to create a system utilisation analysis report from event logs captured using a logging mechanism. \par The study is divided into two components to achieve the primary objective: design and implementation of the logarithmic mechanism. 
 
@@ -622,6 +628,8 @@ In \Cref{sec:ch1_problemStatement}, the problem of efficiently implementing soft
 	\item \objBii
 	\item \objBiii
 \end{enumerate}
+
+\clearpage
 
 \section{Overview of the dissertation}
 \subsubsection{Chapter 1: Introduction}
