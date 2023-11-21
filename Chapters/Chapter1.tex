@@ -336,9 +336,6 @@ Each of the four dimensions is discussed in detail in the \Cref{fig:ch1_EventQMo
 	Ensuring that both completeness levels are achieved and that the event log data is complete can impact performance if specific data are not directly available during the instance when the event has occurred. The logging mechanism must capture this as efficiently as possible without causing performance issues to the rest of the software system's operations \cite{Zhu2015, Zhu2019}. 
 \end{itemize}
 
-\subsubsection{Logging parsing and log points}\label{sec:ch1_loggignPoints}
-Knowing what to log can significantly reduce any overhead the logging mechanism may produce in the software system \cite{Jia2018, Pecchia2015}. Preserving quality (as described in \Cref{sec:ch1_loggingQuality}) is necessary to ensure that the obtained logs fulfil their purpose when analysed.
-
 \paragraph{Logging attributes}\leavevmode\\
 Before the logs can be parsed to a structured data set, the key attributes needs to be defined for the event log \cite{Bekeneva2020}. The attributes describing the event log in \Cref{tbl:ch1_logBasicAttributes} are the essential attributes that a log event should have. 
 
@@ -367,6 +364,11 @@ Before the logs can be parsed to a structured data set, the key attributes needs
 		\bottomrule
 	\end{tabularx}
 \end{table}
+
+\clearpage
+
+\subsubsection{Logging parsing and log points}\label{sec:ch1_loggignPoints}
+Knowing what to log can significantly reduce any overhead the logging mechanism may produce in the software system \cite{Jia2018, Pecchia2015}. Preserving quality (as described in \Cref{sec:ch1_loggingQuality}) is necessary to ensure that the obtained logs fulfil their purpose when analysed.
 
 These attributes make it possible to mine and analyse the logs and increase the precision and reliability of the event log \cite{Kherbouche2017}. The case number and timestamp attributes in \Cref{tbl:ch1_logBasicAttributes} can be defined at any time during the logging process. This is not the case for the rest of the attributes. \par Every log should have a defined action that will sort it into a group of logs that can be defined as the type of event. These event types can be predefined by what is expected from the event action or will need to be observed later in the analysis of the logs in case there is no explicit grouping of the logs \cite{Bekeneva2020, Fedaghi2010}.
 
@@ -501,6 +503,7 @@ A log analysis of software systems using state of the art event logging topics i
 		\toprule
 		\thead{Topic}  & \thead{Description} & \thead{Evaluation criteria}\\
 		\midrule
+		\rowcolor{lightgray}
 		Utilisation & \RaggedRight Utilisation log analysis for user-based event logging. & \RaggedRight \begin{enumerate}
 			\item Is a utilisation analysis done?
 			\item Is packedrioritisation done based on the utilisation log analogy?
@@ -511,10 +514,10 @@ A log analysis of software systems using state of the art event logging topics i
 
 In \Cref{tbl:ch1_soaLogAnalysis}, the topics focus more on studies that implement a log analysis for utilisation purposes. Tracking certain events is therefore essential for log analysis to ensure that the precision criteria of log quality can be achieved by \Cref{sec:ch1_loggingQuality} to efficiently make use of or create a log analysis report for software maintenance.
 
+\clearpage
+
 \subsubsection{State of the art summary}
 Using the defined criteria created for the state of the art topics in \Cref{tbl:ch1_soaEventLogging,tbl:ch1_soaLogAnalysis,tbl:ch1_soaSoftwareMaintennace}, state of the art research for the obtained studies is done in \Cref{tbl:ch1_stateOfTheArt2}.
-
-\clearpage
 
 \newcommand{\sotaCore}{\rowcolor{lightgray}
 \cite{Ogheneovo2014} & Partial & \cmark & \cmark & \xmark & \xmark & \xmark \\
