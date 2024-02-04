@@ -134,6 +134,8 @@
 					"tectonic"
 				]
 			}
-		]
+		],
+		"grammarly.config.documentDialect": "british",
+		"grammarly.config.documentDomain": "academic"
 	}
 }
