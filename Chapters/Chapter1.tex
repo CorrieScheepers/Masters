@@ -409,7 +409,6 @@ The defined attributes are captured by the logging point when the event takes pl
 \subsubsection{Log analysis in web-based applications}
 With the log parsing and log points defined in \Cref{sec:ch1_loggignPoints}, a log analysis can be made from the stored event logs. The log analysis is the data mining process focused on the software system's generated event logs \cite{Slaninova2014,Hasiloglu2018}. \par The defined log attributes outlined in \Cref{tbl:ch1_logBasicAttributes} will be used to complete the log analysis. Each software system will have some variation of the log attributes in \Cref{tbl:ch1_logBasicAttributes}. For a web-based application, the log attributes will also contain data about the requests between a Web server and a Web client and its responses \cite{Slaninova2014, Dhanalakshmi2016}. This will also reflect on the log level at which weblogs are obtained for log analysis.
 
-
 \subsection{Log analysis}\label{sec:ch1_systemUtilisation}
 Gathering usage statistics and user behaviour data in web-based applications is called Web analytics \cite{Kocsis2012}. Web analytics can be used for user modelling efforts and is a form of log analysis. User modelling in software engineering is the customisation and adaptation of software systems to the users' required needs \cite{Waqar2017, Paliouras1999}. \par User modelling can also include the implementation of software maintenance, as maintenance is an adaptation of the software system to the user's needs, which is the utilisation analysis using event logs. The web analytics for this study focuses on different analytics, as seen in \Cref{tbl:ch1_webAnalytics}. 
 
@@ -444,9 +443,24 @@ These same analytics can be used for none-web-based applications because the:
 \end{itemize} 
 
 \subsubsection{Analytic tools for event logs}
-Numerous third-party analytic tools for event log data monitoring and management to visualise log data graphically. Choosing the correct device to use can depend on what the software engineers and developers want to analyse and the availability of the tools due to external factors such as cost and usability. \par Event logging monitoring and management tools are sometimes underused and are often not used to their full potential when analysing event logs \cite{Fedaghi2010}. This can be due to the log quality of event logs not meeting the standards of \Cref{fig:ch1_EventQModel}. 
+Numerous third-party analytic tools for event log data monitoring and management to visualise log data graphically. Choosing the correct device to use can depend on what the software engineers and developers want to analyse and the availability of the tools due to external factors such as cost and usability. \par Event logging monitoring and management tools are sometimes underused and are often not used to their full potential when analysing event logs \cite{Fedaghi2010}. This can be due to the log quality of event logs not meeting the standards of \Cref{fig:ch1_EventQModel}.
+
+\subsection{Artifical intelligence and automated logging}\label{sec:ch1_AI}
+Automated logging using AI (Artificial Intelligence) can create logging points that can be inserted in software \cite{Bogatinovski2023}. The objective is to streamline the logging process, diminish reliance on developers' expertise, and customise logs for automated methods. Despite its benefits, implementing auto-logging poses challenges, including concerns about performance overhead, system integrity, and quality evaluation \cite{Bogatinovski2023,Zhu2019}. \par These AI-based approaches won't be considered in this study over a traditional logging mechanism due to:
+
+\begin{itemize}
+    \item Simplicity: The traditional logging mechanism provides a straightforward and well-defined approach to capturing user-based activity logs without the complexity of AI algorithms and models. 
+
+    \item Control: With a traditional logging mechanism, developers have direct control over the attributes and data captured in the logs, allowing for specific customization based on the application's requirements.
+
+    \item Resource Efficiency: Implementing a traditional logging mechanism may require fewer computational resources than AI-based approaches, making it more suitable for specific applications or environments. Costs are also a factor when using more specialised AI-based tools, which can be expensive.
+
+    \item Compatibility: Traditional logging mechanisms are widely supported and easily integrated into existing software systems without needing specialised AI infrastructure.
+\end{itemize}
 
 \newcommand{\studyGap}{Implementing software maintenance efficiently with the limited available resources organisations or individuals have is crucial to improving the efficiency of software maintenance efforts. Assisting developers in making better-informed decisions about which systems to prioritise maintenance can improve software maintenance.}
+
+\clearpage
 
 \subsection{Gap identification}\label{sec:ch1_gapIdentification}
 \Cref{section:ch1_background} emphasises that software maintenance is an important stage in the SDLC of software systems. \studyGap
@@ -552,17 +566,17 @@ Using the defined criteria created for the state of the art topics in \Cref{tbl:
 \cite{Araujo2021} & Partial & \xmark & \cmark & \xmark & \xmark & \xmark \\	
 \cite{Zhu2019} & \xmark & \xmark & \xmark & \cmark & Partial & \xmark \\
 \rowcolor{lightgray}
+\cite{Bogatinovski2023} & \xmark & \xmark & \xmark & \cmark & \cmark & \cmark \\
 \cite{Rong2018} & \xmark & \xmark & \xmark & Partial & Partial & \xmark \\
+\rowcolor{lightgray}
 \cite{Zhu2015} & \xmark & \xmark & \xmark & \cmark & \cmark & \xmark \\
-\rowcolor{lightgray}
 \cite{Kherbouche2017} & \xmark & \xmark & \xmark & Partial & Partial & \xmark \\
+\rowcolor{lightgray}
 \cite{Hasiloglu2018} & \xmark & \xmark & \xmark & \cmark & \cmark & Partial \\
-\rowcolor{lightgray}
 \cite{Slaninova2014} & \xmark & \xmark & \xmark & \cmark & \cmark & Partial \\
-\cite{Waqar2017} & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
 \rowcolor{lightgray}
+\cite{Waqar2017} & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
 \cite{Kumar2017} & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
-%\cite{Bogatinovski2023} & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
 }
 
 \begin{table}[!htb]
