@@ -33,7 +33,7 @@
  \clearpage
 
 \section{Development of the solution}\label{sec:ch2_developementOfSolution}
-For this study, the development of the solution comprises four main phases:
+For this study, the development of the solution comprises four main phases that were instrumental in guiding the research design process \cite{Stadtlander2009}:
 
 \begin{itemize}
 	\item \textit{Investigate} use methods in the literature or create new methods for a logging mechanism and log-maintenance prioritisation analysis,
@@ -144,7 +144,7 @@ The user is the initiator of the logging mechanism. Each action or event they tr
 	\endlastfoot
 
 	\rowcolor{lightgray}
-	\subsubphase{fr:requirementsUserBased1} & The event must be triggered by the user interacting with the user interface using their device and not any other events that the system self-initiates. The user needs to interact directly with the UI. This can also be validated by tracking whether the user did interact with the UI of the HTML element IDs. \\
+	\subsubphase{fr:requirementsUserBased1} & The event must be triggered by the user interacting with the user interface using their device and not any other events that the system self-initiates. The user needs to interact directly with the UI. This can also be validated by tracking whether the user did interact with the UI of the HyperText Markup Language (HTML) element IDs. \\
 
 	\subsubphase{fr:requirementsUserBased2} & The event must consist of different cases ($ca~\epsilon~CA$ the cases consist of events) that are noteworthy to make the event log identifiable \cite{Slaninova2014}. \\
 
@@ -472,7 +472,7 @@ The log analysis tool (\ref{fr:logAnalysisTool}) ensures that a custom or third-
 Each functional requirement ensures that the system utilisation analysis for the created logging mechanism in \Cref{sec:ch2_investigate} will be achieved. The primary user interface of the system usage analysis will consist of the presentation of user-based activities (\ref{fr:ur4}). This system will be either a custom-created system to display these logs or third-party software such as Microsoft's business intelligence platform, PowerBI. \par Using third-party tools has advantages over creating custom software for visual presentation (\ref{fr:ur4}). These include:
 
 \begin{itemize}
-	\item \RaggedRight Third-party BI platforms provide all the necessary analytical functionality, making it easy to create visual representations with minimal programming,
+	\item \RaggedRight Third-party (business intelligence) BI platforms provide all the necessary analytical functionality, making it easy to create visual representations with minimal programming,
 	\item \RaggedRight the advanced tools on these platforms offer various approaches to visualise user-based activity logs for log comparison (\ref{fr:ur5}) and
 	\item \RaggedRight maintenance and editing of these representations are usually trouble-free, with ample support and guides for developers to update custom visual presentations.
 \end{itemize}
@@ -620,8 +620,8 @@ To determine the types of user activity for a web application, the architecture 
 \begin{itemize}
 	\item In most software frameworks, the \textit{HTTP request} data can be extracted from the inbuilt \textit{HTTP request} models to obtain the custom request headers set on the client side. There should be at least one common global location in the software where a single log point can be called for every \textit{HTTP} function to execute the log point first before continuing with the rest of the main targeted function. The rest of the log attributes can also be obtained during the execution run time:
 	\begin{itemize}
-		\item \textbf{Absolute URI path:} The string containing the absolute URI path of the currently active system, subsystem, or web page. 
-		\item \textbf{Absolute request URL:} The requested URL contains the target system, subsystem, or web page name and function that the request needs to be executed. 
+		\item \textbf{Absolute Uniform Resource Identifier (URI) path:} The string containing the absolute URI path of the currently active system, subsystem, or web page. 
+		\item \textbf{Absolute request Uniform Resource Locator (URL):} The requested URL contains the target system, subsystem, or web page name and function that the request needs to be executed. 
 		\item \textbf{Action parameters:} During the execution time, some of the parameters, which are the request parameters sent with the \textit{HTTP request} from the client device, can be obtained.
 	\end{itemize}
 	\item In other older web applications created with programming languages such as \texttt{PHP}, a more direct approach must be taken when accessing the requested data. In this case, multiple logging points that call the logging points' main code segment are used to capture the attributes and store the log in a database. The parameters may need to be extracted before parsing them into the main logging point code segment.
@@ -686,7 +686,7 @@ The log attributes in \Cref{tbl:ch2_SQLLoggingTable} will have foreign key refer
 	{\textit{ERD of the user activities}}\label{fig:ch2_erdOfEventLogs}
 \end{figure}
 
-\Cref{fig:ch2_erdOfEventLogs} illustrates an ERD diagram that describes the relationship of the table created to store the log attributes with other relevant tables. This enables different fields of the other tables to categorise the logs in the system utilisation analysis. \Cref{fig:ch2_database} illustrates the flow diagram of the database interaction to store the event log data.
+\Cref{fig:ch2_erdOfEventLogs} illustrates an Entity Relationship Diagram (ERD) that describes the relationship of the table created to store the log attributes with other relevant tables. This enables different fields of the other tables to categorise the logs in the system utilisation analysis. \Cref{fig:ch2_database} illustrates the flow diagram of the database interaction to store the event log data.
 
 \begin{figure}[!htb]
 	\centering
@@ -695,7 +695,7 @@ The log attributes in \Cref{tbl:ch2_SQLLoggingTable} will have foreign key refer
 	{\textit{Database interaction flow diagram}}\label{fig:ch2_database}
 \end{figure}
 
-\Cref{fig:ch2_database} illustrates how the connection to the database is established. The user's identity is obtained from the active session; the obtained metadata are then converted into a JSON string for storing. The final query is built and executed to store in the relational database.
+\Cref{fig:ch2_database} illustrates how the connection to the database is established. The user's identity is obtained from the active session; the obtained metadata are then converted into a JavaScript Object Notation (JSON) string for storing. The final query is built and executed to store in the relational database.
 
 \subsection{Maintenance prioritisation}
 The system utilisation analysis aims to provide maintenance recommendations to developers to improve their maintenance efforts by:
@@ -705,7 +705,7 @@ The system utilisation analysis aims to provide maintenance recommendations to d
 	\item decommissioning new systems. User-based activities provide a quantitative reason why specific systems can be decommissioned due to users' inactivity.
 \end{itemize}
 
-This can by done by normalising the user-based activity data. Normalising data is a common practise in data analysis and modelling for several reasons \cite{Patro2015}:
+This can be done by normalising the user-based activity data. Normalising data is a common practise in data analysis and modelling for several reasons \cite{Patro2015}:
 
 \begin{itemize}
     \item \textbf{Comparability:} Normalising data allows fair comparisons between variables or subsystems. Bringing different metrics to a standard scale makes assessing their relative importance and impact easier.
