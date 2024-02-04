@@ -705,7 +705,17 @@ The system utilisation analysis aims to provide maintenance recommendations to d
 	\item decommissioning new systems. User-based activities provide a quantitative reason why specific systems can be decommissioned due to users' inactivity.
 \end{itemize}
 
-This can be achieved by implementing maintenance prioritisation using \Cref{eq:ch2_maintenanceFactorSimplified} created from the functional requirements for maintenance prioritisation (\ref{fr:maintenanceFactor}):
+This can by done by normalising the user-based activity data. Normalising data is a common practise in data analysis and modelling for several reasons \cite{Patro2015}:
+
+\begin{itemize}
+    \item \textbf{Comparability:} Normalising data allows fair comparisons between variables or subsystems. Bringing different metrics to a standard scale makes assessing their relative importance and impact easier.
+
+    \item \textbf{Eliminating scale effects:} Normalisation removes the influence of the measurement scale, ensuring that the relative relationships between variables are preserved without being skewed by their original scales.
+
+    \item \textbf{Improved convergence:} In some analytical techniques, such as optimisation algorithms, normalising data can lead to faster convergence and more stable results.
+\end{itemize}
+
+Using normalisation the maintenance prioritisation uses \Cref{eq:ch2_maintenanceFactorSimplified} created from the functional requirements for maintenance prioritisation (\ref{fr:maintenanceFactor}):
 
 \begin{equation}
 	\label{eq:ch2_maintenanceFactorSimplified}
@@ -748,8 +758,6 @@ The normalised priority factor $P_N$ is described by \Cref{eq:ch2_priorityNormal
 	\item $P_{Max}$ is the maximum number of users accessing any subsystem.
 \end{itemize}
 
-\clearpage
-
 A normalised value for the priority is used because there is no predefined way to describe the importance of any subsystem. \Cref{fig:ch2_maintenancePriortisationFlow} illustrates the log-analysis flow diagram of implementing the maintenance prioritisation for a software system. 
 
 \begin{figure}[!htb]
@@ -760,8 +768,6 @@ A normalised value for the priority is used because there is no predefined way t
 \end{figure}
 
 As seen in \Cref{fig:ch2_maintenancePriortisationFlow}, the user-based activity logs are imported into the log analysis tool from the relational database. The logs are aggregated into unique subsystems. The total number of user actions is counted, as well as the total number of unique users associated with the captured logs. The maximum and minimum total user activities ($A_{Max}$ and $A_{Min}$) and users ($P_{Max}$ and $P_{Min}$) are obtained for the software system. \par The normalised activity ($A_N$) for each subsystem is created from the obtained activities. Normalised priority ($P_N$) is created from the maximum and minimum priority obtained. The maintenance priority factor is created from each system's normalised parameters and evaluated. A summary report is created for the results obtained from the log analysis using the maintenance prioritisation method.
-
-\clearpage
 
 \section{Conclusion}
 \Cref{sec:ch2_investigate} discussed the defined functional requirements for a logging mechanism for the system utilisation analysis outlined in \Cref{sec:ch2_logAnalysisTools,sec:ch2_utilisationImprovements}. The user activity types defined in \Cref{sec:ch2_userActivityTypes} are the basis for the log attributes that must be logged to create a user-based log. \par The log points capture the logs and send them to the server logging point, where they are processed and stored in writing in a database.\par The logs are extracted into a visual presentation that enables maintenance improvement suggestions based on the use analysis in \Cref{sec:ch2_logAnalysisTools,sec:ch2_utilisationImprovements}.
