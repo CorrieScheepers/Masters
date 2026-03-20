@@ -55,7 +55,7 @@ The first phase in~\Cref{fig:ch2_developmentOfSolution} is the investigation in~
 
 \clearpage
 
-The verification phase focuses on implementing the design specifications of the logarithmic machinery method and the software maintenance method. The implementation phase follows the verification phase, whereby the methods are implemented on the case studies to obtain further monitored and discussed results.
+The verification phase focuses on implementing the design specifications of the logging mechanism method and the software maintenance method. The implementation phase follows the verification phase, whereby the methods are implemented on the case studies to obtain further monitored and discussed results.
 
 \section{Investigate}\label{sec:ch2_investigate}
 In this section, functional requirements will be created for the logging mechanism and prioritisation of software maintenance.~\Cref{tbl:ch2_developmenetRequirements} summarises each of the main functional development requirements created from the investigation phase in~\Cref{fig:ch2_developmentOfSolution}. \par The functional requirements (\textbf{F/R}) in~\Cref{tbl:ch2_developmenetRequirements} are used to identify each requirement for the development of a solution that can later be verified. Sub-requirements will use the same labelling. 
@@ -80,7 +80,7 @@ In this section, functional requirements will be created for the logging mechani
 	\endlastfoot
 
 	\rowcolor{lightgray}
-	\phase{fr:logAttributes} & Identify log attributes & \RaggedRight The logarithmic attributes must be identified to complete the log analysis to prioritise software maintenance. The log attributes form the characteristics of the obtained event, herein referred to as user-based events. \\
+	\phase{fr:logAttributes} & Identify log attributes & \RaggedRight The logging attributes must be identified to complete the log analysis to prioritise software maintenance. The log attributes form the characteristics of the obtained event, herein referred to as user-based events. \\
 
 	\phase{fr:loggingPoints} & Logging point creation & \RaggedRight Logging points capture the desired log attributes when a user-based event occurs. In~\Cref{sec:ch1_loggignPoints}, logging points should be strategically placed in the software system to capture the event logs. This stage of development includes identifying where log points should be placed, creating logs, and interacting with the database. \\
 
@@ -289,7 +289,7 @@ The metadata in~\Cref{fig:ch2_MetadataJsonExample} represents possible additiona
 \clearpage
 
 \subsection{Logging point requirements}\label{sec:ch2_serverFunctionalRequirements}
-The functional requirement of the logging point (\ref{fr:loggingPoints}) focuses on creating and strategically placing the logarithmic points. The log points that obtain the log attributes must also store the created event log in a structured database. The logging point's subfunctional requirements are defined in~\Cref{tbl:ch2_loggingPointsFuntionalRequirements}. 
+The functional requirement of the logging point (\ref{fr:loggingPoints}) focuses on creating and strategically placing the logging points. The log points that obtain the log attributes must also store the created event log in a structured database. The logging point's subfunctional requirements are defined in~\Cref{tbl:ch2_loggingPointsFuntionalRequirements}. 
 
 \stepcounter{phase}
 \begin{table}[!htb]
@@ -346,7 +346,7 @@ In addition to~\Cref{sec:ch1_loggignPoints}, the logging points should be strate
 The logging points can be either a single code segment or multiple code segments in a software system that aim to capture user-based actions as they happen. Creating multiple logging points in a software environment will:
 
 \begin{itemize}
-	\item Increase the complexity of the logarithmic mechanism. Each point can be different from the other as it will need certain operations to capture the log,
+	\item Increase the complexity of the logging mechanism. Each point can be different from the other as it will need certain operations to capture the log,
 	\item the consistency of the logging might differ and increase as the logging points increase in a software system and 
 	\item The correctness of the logging will be impacted if the different changes in the logging point cannot consistently capture the user-based activity or extract all the needed attributes to complete the user-based log.
 \end{itemize}
@@ -464,7 +464,7 @@ The log analysis tool (\ref{fr:logAnalysisTool}) ensures that a custom or third-
 		\subsubphase{fr:ur5} & Log comparison & \RaggedRight Using~\ref{fr:logAnalysisTool}, use different log attributes used as defined criteria. This allows different types of users, subsystems, and activity types to be grouped and compared.\\
 
         \rowcolor{lightgray}
-        \subsubphase{fr:ur6} & \RaggedRight Maintenance suggestions & Maintenance suggestions can be made from system utilisation reports by prioritising maintenance or decommissioning software systems. This can be data or visual representations of the logarithmic comparison (\ref{fr:ur5}) using the log visual presentation systems (\ref{fr:ur6}) or creating a summary report from the visual presentation that contains maintenance suggestions. \\
+        \subsubphase{fr:ur6} & \RaggedRight Maintenance suggestions & Maintenance suggestions can be made from system utilisation reports by prioritising maintenance or decommissioning software systems. This can be data or visual representations of the log comparison (\ref{fr:ur5}) using the log visual presentation systems (\ref{fr:ur6}) or creating a summary report from the visual presentation that contains maintenance suggestions. \\
 		\bottomrule
 	\end{tabularx}
 \end{table}
@@ -490,7 +490,7 @@ There are, however, disadvantages to using third-party tools. These include:
 With the drawbacks listed above, third-party business intelligence platforms are the better visual presentation tools for the system utilisation analysis if the tools are available for use.
 
 \subsection{Maintenance prioritisation}\label{sec:ch2_utilisationImprovements}
-Maintenance prioritisation is performed from logarithmic analysis. Maintenance priority functional requirements (\ref{fr:maintenancePrioritising}) are shown in~\Cref{tbl:ch2_maintenancePriortising}.
+Maintenance prioritisation is performed from log analysis. Maintenance priority functional requirements (\ref{fr:maintenancePrioritising}) are shown in~\Cref{tbl:ch2_maintenancePriortising}.
 
 \setcounter{phase}{4}
 \setcounter{subphase}{0}
@@ -705,7 +705,7 @@ The system utilisation analysis aims to provide maintenance recommendations to d
 	\item decommissioning new systems. User-based activities provide a quantitative reason why specific systems can be decommissioned due to users' inactivity.
 \end{itemize}
 
-This can be done by normalising the user-based activity data. Normalising data is a common practise in data analysis and modelling for several reasons~\cite{Patro2015}:
+This can be done by normalising the user-based activity data. Normalising data is a common practice in data analysis and modelling for several reasons~\cite{Patro2015}:
 
 \begin{itemize}
     \item \textbf{Comparability:} Normalising data allows fair comparisons between variables or subsystems. Bringing different metrics to a standard scale makes assessing their relative importance and impact easier.
